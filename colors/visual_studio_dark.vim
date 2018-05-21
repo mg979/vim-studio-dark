@@ -401,6 +401,10 @@ call s:hi("netrwSlash",                      "grn2", "")
 call s:hi("netrwCmdNote",                    "grn2", "")
 call s:hi("EasyMotionShade",                 "grn2", "")
 
+"MARKDOWN
+call s:hi("mkdListItem",                     "yel2", "")
+call s:hi("mkdID",                           "purp", "")
+call s:hi("mkdRule",                         "purp", "")
 
 " ==================================================================
 " VARIABLES
