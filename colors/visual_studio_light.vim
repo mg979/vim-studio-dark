@@ -41,12 +41,15 @@ fun! s:hi(item, fg, bg, ...)
   let col = {
         \ 'yel1': '#ffbc29',
         \ 'yel2': '#F2C38F',
+        \ 'org1': '#EBA219',
+        \ 'org2': '#C67006',
         \ 'blu1': '#2222ff',
         \ 'blu2': '#0070af',
         \ 'blu3': '#212733',
         \ 'grn1': '#A8CE93',
         \ 'grn2': '#008000',
-        \ 'cyan': '#7FC1CA',
+        \ 'cya1': '#7FC1CA',
+        \ 'cya2': '#42DCD7',
         \ 'purp': '#6f008a',
         \ 'pin1': '#dfafdf',
         \ 'pin2': '#D18EC2',
@@ -401,6 +404,37 @@ call s:hi("EasyMotionShade",                 "grn2", "")
 call s:hi("mkdListItem",                     "purp", "")
 call s:hi("mkdID",                           "purp", "")
 call s:hi("mkdRule",                         "purp", "")
+
+"PYTHON (POLYGLOT)
+call s:hi("pythonStatement",                 "blu1", "")
+call s:hi("pythonFunction",                  "purp", "")
+call s:hi("pythonConditional",               "blu1", "")
+call s:hi("pythonRepeat",                    "blu1", "")
+call s:hi("pythonOperator",                  "blu1", "")
+call s:hi("pythonException",                 "blu1", "")
+call s:hi("pythonAsync",                     "blu1", "")
+call s:hi("pythonInclude",                   "purp", "")
+call s:hi("pythonDecorator",                 "grn1", "")
+call s:hi("pythonDecoratorName",             "cya1", "")
+call s:hi("pythonDoctestValue",              "purp", "")
+"call s:hi("pythonMatrixMultiply",            "blu1", "")
+"call s:hi("pythonTodo",                      "blu1", "")
+"call s:hi("pythonComment",                   "blu1", "")
+"call s:hi("pythonQuotes",                    "blu1", "")
+"call s:hi("pythonEscape",                    "blu1", "")
+"call s:hi("pythonString",                    "blu1", "")
+"call s:hi("pythonTripleQuotes",              "blu1", "")
+"call s:hi("pythonSpaceError",                "blu1", "")
+"call s:hi("pythonDoctest",                   "blu1", "")
+"call s:hi("pythonRawString",                 "blu1", "")
+"call s:hi("pythonNumber",                    "blu1", "")
+"call s:hi("pythonBoolean",                    "grn1", "")
+"call s:hi("pythonStructure",                    "purp", "")
+"call s:hi("pythonStorageClass",                    "purp", "")
+"call s:hi("pythonTypeDef",                    "purp", "")
+call s:hi("pythonBuiltin",                   "pin2", "")
+"call s:hi("pythonAttribute",                 "blu1", "")
+call s:hi("pythonExceptions",                "blu1", "")
 
 " ==================================================================
 " VARIABLES

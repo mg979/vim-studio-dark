@@ -46,7 +46,8 @@ fun! s:hi(item, fg, bg, ...)
         \ 'blu3': '#212733',
         \ 'grn1': '#A8CE93',
         \ 'grn2': '#608b4e',
-        \ 'cyan': '#7FC1CA',
+        \ 'cya1': '#7FC1CA',
+        \ 'cya2': '#42DCD7',
         \ 'purp': '#9A93E1',
         \ 'pin1': '#dfafdf',
         \ 'pin2': '#D18EC2',
@@ -94,6 +95,7 @@ endif
 let g:colors_name = "visual_studio_dark"
 call s:hi("Normal", "lgr1", "blk2")
 
+let s:reloaded = 0
 
 " ==================================================================
 " UI GROUPS
@@ -271,7 +273,7 @@ call s:hi("Statement",                       "blu2", "")
 
 " OPERATOR
 call s:hi("Operator",                        "yel1", "")
-call s:hi("Number",                          "cyan", "")
+call s:hi("Number",                          "cya1", "")
 call s:hi("jsFuncCall",                      "yel1", "")
 call s:hi("jsOperator",                      "yel1", "")
 call s:hi("jsSpreadOperator",                "yel1", "")
@@ -297,6 +299,7 @@ call s:hi("dockerfileKeyword",               "yel1", "")
 
 " TYPE
 call s:hi("Type",                            "grn1", "")
+call s:hi("Define",                          "grn1", "")
 call s:hi("jsFunction",                      "grn1", "")
 call s:hi("jsFunctionKey",                   "grn1", "")
 call s:hi("jsStorageClass",                  "grn1", "")
@@ -405,6 +408,48 @@ call s:hi("EasyMotionShade",                 "grn2", "")
 call s:hi("mkdListItem",                     "yel2", "")
 call s:hi("mkdID",                           "purp", "")
 call s:hi("mkdRule",                         "purp", "")
+
+"PYTHON (POLYGLOT)
+
+augroup vsd-python
+  au!
+  au BufEnter *.py if !s:reloaded | let s:reloaded = 1 | filetype detect | endif
+augroup END
+
+call s:hi("pythonStatement",                 "blu2", "")
+call s:hi("pythonFunction",                  "cya2", "")
+call s:hi("pythonConditional",               "blu2", "")
+call s:hi("pythonRepeat",                    "blu2", "")
+call s:hi("pythonOperator",                  "blu2", "")
+call s:hi("pythonOperatorSymbol",            "yel1", "")
+call s:hi("pythonGlobalVar",                 "grn1", "")
+call s:hi("pythonException",                 "blu2", "")
+call s:hi("pythonAsync",                     "blu2", "")
+call s:hi("pythonInclude",                   "purp", "")
+call s:hi("pythonDecorator",                 "grn1", "")
+call s:hi("pythonDecoratorName",             "cya1", "")
+call s:hi("pythonDoctestValue",              "purp", "")
+"call s:hi("pythonMatrixMultiply",           "yel2", "")
+"call s:hi("pythonTodo",                     "yel2", "")
+"call s:hi("pythonComment",                  "yel2", "")
+"call s:hi("pythonQuotes",                   "yel2", "")
+"call s:hi("pythonEscape",                   "yel2", "")
+"call s:hi("pythonString",                   "yel2", "")
+"call s:hi("pythonTripleQuotes",             "yel2", "")
+"call s:hi("pythonSpaceError",               "yel2", "")
+"call s:hi("pythonDoctest",                  "yel2", "")
+"call s:hi("pythonRawString",                "yel2", "")
+"call s:hi("pythonNumber",                   "yel2", "")
+call s:hi("pythonBoolean",                   "purp", "")
+call s:hi("pythonNone",                      "purp", "")
+call s:hi("pythonSelf",                      "lgr2", "", "ITALIC")
+"call s:hi("pythonStructure",                "purp", "")
+"call s:hi("pythonStorageClass",             "purp", "")
+"call s:hi("pythonTypeDef",                  "purp", "")
+call s:hi("pythonBuiltinFunc",               "pin1", "")
+call s:hi("pythonBraces",                    "yel2", "")
+"call s:hi("pythonAttribute",                "yel2", "")
+call s:hi("pythonExClass",                   "pin1", "")
 
 " ==================================================================
 " VARIABLES
