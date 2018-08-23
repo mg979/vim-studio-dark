@@ -1,4 +1,9 @@
-This is an adaptation of [nova color scheme](https://github.com/trevordmiller/nova-vim), with dark and light variants.
+<a href='https://opensource.org/licenses/MIT'><img src='https://img.shields.io/badge/license-MIT-a31f34.svg?style=flat-square' /></a>
+&nbsp;&nbsp;&nbsp;
+<a href='https://github.com/lifepillar/vim-colortemplate'><img src='https://img.shields.io/badge/made%20with-Colortemplate-007f00.svg?style=flat-square' /></a>
+&nbsp;&nbsp;&nbsp;
+
+Inspired by [codedark](https://github.com/tomasiser/vim-code-dark), with dark and light variants.
 
 Dark:
 
@@ -10,24 +15,17 @@ Light:
 
 ------------
 
-For python, there are some new highlight groups. You must enable them yourself in your vimrc, because they will apply to other color schemes as well. Note that if you change color scheme, you'll have to re-enter the buffer before new highlight will be applied.
+Options:
 
-```vim
-augroup ft-python-vsd
-  au!
-  au FileType python call s:python()
-augroup END
+    let g:VSD = {}
 
-fun! s:python()
-  syn keyword pythonSelf self
-  syn match pythonOperatorSymbol   '\V=\|-\|+\|*\|@\|/\|%\|&\||\|^\|~\|<\|>\|!='
-  syn match pythonBraces           '{\|}\|\[\|\]'
-  syn match pythonGlobalVar        '\<[A-Z_]*\>'
-  hi link pythonSelf Identifier
-  hi link pythonOperatorSymbol Operator
-  hi link pythonBraces Special
-  hi link pythonGlobalVar Special
-endfun
-```
+For python and vimscript there are some new highlight groups. You can enable them with:
+
+    let g:VSD.extra_syntax = 1
 
 ![Imgur](https://i.imgur.com/6UGT4cq.png)
+
+Conservative mode, if you prefer less colors:
+
+    let g:VSD.conservative = 1
+

@@ -1,0 +1,282 @@
+# vim: ft=colortemplate
+Full name:  Vim Studio Dark
+Short name: vsdark
+Author:     Gianmaria Bajo <mg1979.git@gmail.com>
+Maintainer: Gianmaria Bajo <mg1979.git@gmail.com>
+
+#===================================================================
+# Dark variant
+#===================================================================
+
+Background: dark
+
+# Color palette
+Color:      black       #262626 ~
+Color:      white       #c5d4dd ~
+Color:      white2      #e6eef3 ~
+Color:      yellow      #dada93 ~
+Color:      special     #f2c38f ~
+Color:      lightblue   #83afe5 ~
+Color:      skyblue     #569cd6 ~
+Color:      darkblue    #073655 ~
+Color:      blue        #264f78 ~
+Color:      nightblue   #212733 ~
+Color:      lightgreen  #a8ce93 ~
+Color:      green     	#00af00 ~
+Color:      darkgreen   #608b4e ~
+Color:      cyan        #7fc1ca ~
+Color:      purple      #9a93e1 ~
+Color:      pink1       #dfafdf ~
+Color:      pink2       #d18ec2 ~
+Color:      grey1       #556873 ~
+Color:      grey2       #3c4c55 ~
+Color:      grey3       #4c4e50 ~
+Color:      grey4       #3d3d40 ~
+Color:      darkgrey    #333233 ~
+Color:      lightgrey1  #c5d4dd ~
+Color:      lightgrey2  #c9c6c9 ~
+Color:      lightgrey3  #a9a9a9 ~
+Color:      lightgrey4  #9a9a9a ~
+Color:      bluegrey    #6a7d89 ~
+Color:      string      #ce9178 ~
+Color:      red1        #df8c8c ~
+Color:      red2        #ff0000 ~
+
+Normal 				white         	black
+
+MatchParen                      red2          	bg
+CursorLineNr                    lightblue     	bg
+Visual                          none          	blue
+VisualNOS                       none          	blue
+Folded                          lightblue     	bg
+FoldColumn                      lightblue     	bg
+IncSearch                       darkgrey      	red1
+Search                          none          	grey3
+ToolbarButton                   bluegrey      	lightblue
+Question                        lightblue     	bg
+MoreMsg                         lightblue     	bg
+ModeMsg                         lightblue     	bg
+WildMenu                        fg            	darkblue
+StatusLine                      lightgrey1    	grey4
+StatusLineTerm                  lightblue     	bluegrey
+
+Error                           red2          	bg
+ErrorMsg                        red2          	bg
+WarningMsg                      red1          	bg
+SpellBad                        red1          	bg
+SpellCap                        red1          	bg
+Todo                            red1          	bg
+
+Pmenu                           lightgrey1    	grey2
+PmenuSel                        lightgrey1    	darkblue
+PmenuSbar                       darkgreen     	darkgreen
+PmenuThumb                      lightblue     	lightblue
+
+DiffAdd                         grey2         	lightgreen
+DiffChange                      grey2         	special
+DiffDelete                      red1          	bg
+DiffText                        grey2         	special bold
+diffAdded                       lightgreen      bg
+diffChanged                     special         bg
+diffRemoved                     red1            bg
+diffDiffer                      special         bg bold
+diffFile                        string          bg bold
+diffLine                        yellow          bg italic
+
+SignColumn                      fg            	bg
+LineNr                          bluegrey      	bg
+CursorLine                      fg            	darkgrey
+CursorColumn                    fg            	darkgrey
+ColorColumn                     fg            	darkgrey
+EndOfBuffer                     black         	bg
+VertSplit                       darkgrey      	nightblue
+StatusLineNC                    lightgrey1    	bluegrey
+StatusLineTermNC                lightgrey1    	bluegrey
+TabLine                         lightgrey3    	darkgrey
+TabLineSel                      lightblue     	grey2
+TabLineFill                     lightgrey3    	darkgrey
+ToolbarLine                     lightgrey1    	bluegrey
+
+String                          string        	bg
+Constant                        lightgreen    	bg
+Directory                       lightblue     	bg
+Identifier                      lightgrey2    	bg italic
+Function                        white2        	bg
+Statement                       skyblue       	bg
+Conditional                     skyblue       	bg
+
+Operator                        yellow        	bg
+Number                          cyan          	bg
+Type                            lightgreen    	bg
+Define                          lightgreen    	bg
+PreProc                         purple        	bg
+Keyword                         purple        	bg
+Underlined                      pink1         	bg
+Special                         special       	bg
+SpecialKey                      special       	bg
+NonText                         special       	bg
+Title                           special       	bg
+Comment                         darkgreen     	bg
+Ignore                          darkgreen     	bg
+Conceal                         darkgreen     	bg
+
+Cursor 				fg            	bg
+QuickFixLine 		-> 	Search
+
+# Plugins
+
+GitGutterAdd                    green   	bg
+GitGutterChange                 special 	bg
+GitGutterChangeDelete           special 	bg
+GitGutterDelete                 red2    	bg
+
+# vimL
+
+vimDocstring   		-> 	String
+vimConditional 		-> 	Conditional
+vimLetVar      		-> 	Identifier
+vimLet  			lightgrey3 	bg
+vimCall 			lightgrey3 	bg
+vimSelf 			cyan 	 	bg italic
+
+# Python
+
+pythonSelf           	-> 	Identifier
+pythonOperatorSymbol 	-> 	Operator
+pythonBraces         	-> 	Special
+pythonGlobalVar      	-> 	Special
+pythonStringType     	-> 	Statement
+
+verbatim
+call vsd#terminal_dark()
+call vsd#extras()
+if !g:VSD.conservative
+  hi vimCommand ctermfg=176 ctermbg=bg guifg=#C586C0 guibg=bg guisp=NONE cterm=NONE gui=NONE
+endif
+filetype detect
+endverbatim
+
+#===================================================================
+# Light variant
+#===================================================================
+
+Background: light
+
+# Color palette
+Color:      yel1 #ffbc29 ~ 
+Color:      yel2 #f2c38f ~ 
+Color:      org1 #eba219 ~ 
+Color:      org2 #c67006 ~ 
+Color:      blu1 #2222ff ~ 
+Color:      blu2 #0070af ~ 
+Color:      blu3 #212733 ~ 
+Color:      grn1 #a8ce93 ~ 
+Color:      grn2 #008000 ~ 
+Color:      cya1 #7fc1ca ~ 
+Color:      cya2 #42dcd7 ~ 
+Color:      purp #6f008a ~ 
+Color:      pin1 #dfafdf ~ 
+Color:      pin2 #d18ec2 ~ 
+Color:      gre1 #708090 ~ 
+Color:      gre2 #808080 ~ 
+Color:      lgr1 #bbbbbb ~ 
+Color:      lgr2 #c9c6c9 ~ 
+Color:      lgr3 #a9a9a9 ~ 
+Color:      lgr4 #9a9a9a ~ 
+Color:      blgr #0070af ~ 
+Color:      strg #a31515 ~ 
+Color:      red1 #df8c8c ~ 
+Color:      red2 #ff0000 ~ 
+Color:      red3 #bf3434 ~ 
+Color:      whi1 #cccccc ~ 
+Color:      whi2 #f2f2f2 ~ 
+Color:      blk1 #333233 ~ 
+Color:      blk2 #262626 ~ 
+Color:      blk3 #1e1e1e ~ 
+Color:      blk4 #000000 ~ 
+Color:      special #666600 ~ 
+Color:      green   #00af00 ~
+
+Normal 				blk4            whi1
+
+MatchParen                      red2    	bg
+CursorLineNr                    blu1    	bg
+Visual                          none      	lgr1
+VisualNOS                       none      	lgr1
+Folded                          blu1    	bg
+FoldColumn                      blu1    	bg
+IncSearch                       red2    	yel1
+Search                          blgr    	yel2
+WildMenu                        whi1    	blu2
+ToolbarButton                   blu1    	blgr
+Question                        blu1    	yel1
+MoreMsg                         blu1    	bg
+ModeMsg                         blu1    	bg
+StatusLine                      blu1    	whi2
+StatusLineTerm                  blgr    	blu1
+                                        	 
+Error                           red2    	bg
+ErrorMsg                        red2    	bg
+WarningMsg                      red1    	bg
+SpellBad                        red1    	bg
+SpellCap                        red1    	bg
+Todo                            blu1    	bg
+                                        	 
+Pmenu                           gre1    	lgr1
+PmenuSel                        whi1    	blgr
+PmenuThumb                      blu1    	blu1
+PmenuSbar                       grn2    	grn2
+                                        	 
+DiffAdd                         blk2    	grn1
+DiffChange                      blk2    	yel2
+DiffDelete                      red1    	bg
+DiffText                        blk2    	yel2 bold
+                                        	 
+SignColumn                      fg      	bg
+LineNr                          blgr    	bg
+CursorLine                      fg      	lgr1
+CursorColumn                    fg      	lgr1
+ColorColumn                     fg      	lgr1
+EndOfBuffer                     whi2    	bg
+VertSplit                       blgr    	blgr
+StatusLineNC                    blgr    	lgr1
+StatusLineTermNC                blgr    	lgr1
+TabLine                         blk3    	lgr3
+TabLineSel                      gre2    	blu1
+TabLineFill                     blk3    	lgr3
+ToolbarLine                     fg      	cya1
+                                        	 
+String                          strg    	bg
+Constant                        purp    	bg
+Directory                       blu1    	bg
+                                        	 
+Identifier                      blu2    	bg italic
+Function                        blu2    	bg
+Conditional                     blu2 		bg
+Statement                       blu1    	bg
+Operator                        blu2    	bg
+Number                          blk3    	bg
+Type                            blu2    	bg
+PreProc                         purp    	bg
+Keyword                         purp    	bg
+Underlined                      pin2    	bg
+Special                         special		bg
+SpecialKey                      special    	bg
+NonText                         blu2    	bg
+Title                           blu2    	bg
+Comment                         grn2    	bg
+Ignore                          grn2    	bg
+Conceal                         grn2    	bg
+
+# Plugins
+
+GitGutterAdd                    green bg
+GitGutterChange                 special bg
+GitGutterChangeDelete           special bg
+GitGutterDelete                 red2 bg
+
+verbatim
+call vsd#terminal_light()
+filetype detect
+endverbatim
+
