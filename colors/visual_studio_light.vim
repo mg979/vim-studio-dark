@@ -37,41 +37,44 @@
 " HIGHLIGHT
 " ==================================================================
 
-fun! s:hi(item, fg, bg, ...)
-  let col = {
-        \ 'yel1': '#ffbc29',
-        \ 'yel2': '#F2C38F',
-        \ 'org1': '#EBA219',
-        \ 'org2': '#C67006',
-        \ 'blu1': '#2222ff',
-        \ 'blu2': '#0070af',
-        \ 'blu3': '#212733',
-        \ 'grn1': '#A8CE93',
-        \ 'grn2': '#008000',
-        \ 'cya1': '#7FC1CA',
-        \ 'cya2': '#42DCD7',
-        \ 'purp': '#6f008a',
-        \ 'pin1': '#dfafdf',
-        \ 'pin2': '#D18EC2',
-        \ 'gre1': '#708090',
-        \ 'gre2': '#808080',
-        \ 'lgr1': '#C5D4DD',
-        \ 'lgr2': '#c9c6c9',
-        \ 'blgr': '#0070af',
-        \ 'strg': '#a31515',
-        \ 'red1': '#DF8C8C',
-        \ 'red2': '#ff0000',
-        \ 'red3': '#bf3434',
-        \ 'whi1': '#dddddd',
-        \ 'whi2': '#f2f2f2',
-        \ 'blk1': '#333233',
-        \ 'blk2': '#262626',
-        \ 'blk3': '#1e1e1e',
-        \ 'blk4': '#000000',
-        \}
+let s:col = {
+      \ 'yel1': '#ffbc29',
+      \ 'yel2': '#F2C38F',
+      \ 'org1': '#EBA219',
+      \ 'org2': '#C67006',
+      \ 'blu1': '#2222ff',
+      \ 'blu2': '#0070af',
+      \ 'blu3': '#212733',
+      \ 'grn1': '#A8CE93',
+      \ 'grn2': '#008000',
+      \ 'cya1': '#7FC1CA',
+      \ 'cya2': '#42DCD7',
+      \ 'purp': '#6f008a',
+      \ 'pin1': '#dfafdf',
+      \ 'pin2': '#D18EC2',
+      \ 'gre1': '#708090',
+      \ 'gre2': '#808080',
+      \ 'lgr1': '#C5D4DD',
+      \ 'lgr2': '#c9c6c9',
+      \ 'lgr3': '#a9a9a9',
+      \ 'lgr4': '#9a9a9a',
+      \ 'blgr': '#0070af',
+      \ 'strg': '#a31515',
+      \ 'red1': '#DF8C8C',
+      \ 'red2': '#ff0000',
+      \ 'red3': '#bf3434',
+      \ 'whi1': '#dddddd',
+      \ 'whi2': '#f2f2f2',
+      \ 'blk1': '#333233',
+      \ 'blk2': '#262626',
+      \ 'blk3': '#1e1e1e',
+      \ 'blk4': '#000000',
+      \}
 
-  let s = [empty(a:fg)? 'NONE' : (a:fg[0]==#"\#"? a:fg : col[a:fg]),
-        \  empty(a:bg)? 'NONE' : (a:bg[0]==#"\#"? a:bg : col[a:bg]),
+fun! s:hi(item, fg, bg, ...)
+
+  let s = [empty(a:fg)? 'NONE' : (a:fg[0]==#"\#"? a:fg : s:col[a:fg]),
+        \  empty(a:bg)? 'NONE' : (a:bg[0]==#"\#"? a:bg : s:col[a:bg]),
         \  a:0? a:1 : 'NONE']
 
   execute printf("highlight %s guifg=%s guibg=%s cterm=%s gui=%s", a:item, s[0], s[1], s[2], s[2])
@@ -112,8 +115,8 @@ call s:hi("NeomakeWarningSign", "red1", "")
 " USER CURRENT STATE
 call s:hi("MatchParen",                      "red2", "")
 call s:hi("CursorLineNr",                    "blu1", "")
-call s:hi("Visual",                          "whi1", "blgr")
-call s:hi("VisualNOS",                       "whi1", "blgr")
+call s:hi("Visual",                          "", "lgr1")
+call s:hi("VisualNOS",                       "", "lgr1")
 call s:hi("Folded",                          "blu1", "")
 call s:hi("FoldColumn",                      "blu1", "")
 call s:hi("IncSearch",                       "red2", "yel1")
@@ -125,7 +128,6 @@ call s:hi("MoreMsg",                         "blu1", "")
 call s:hi("ModeMsg",                         "blu1", "")
 call s:hi("StatusLine",                      "blu1", "whi2")
 call s:hi("StatusLineTerm",                  "blgr", "blu1")
-call s:hi("TabLineSel",                      "gre2", "blu1")
 call s:hi("PmenuSel",                        "whi1", "blgr")
 call s:hi("PmenuThumb",                      "blu1", "blu1")
 call s:hi("netrwTime",                       "blu1", "")
@@ -157,11 +159,12 @@ call s:hi("CursorColumn",                    "", "lgr1")
 call s:hi("ColorColumn",                     "", "lgr1")
 call s:hi("EndOfBuffer",                     "whi2", "")
 call s:hi("VertSplit",                       "blgr", "blgr")
-call s:hi("StatusLineNC",                    "blgr", "blgr")
-call s:hi("StatusLineTermNC",                "blgr", "blgr")
-call s:hi("TabLine",                         "blgr", "blgr")
-call s:hi("TabLineFill",                     "blgr", "blgr")
-call s:hi("ToolbarLine",                     "blgr", "blgr")
+call s:hi("StatusLineNC",                    "blgr", "lgr1")
+call s:hi("StatusLineTermNC",                "blgr", "lgr1")
+call s:hi("TabLine",                         "blk3", "lgr3")
+call s:hi("TabLineSel",                      "gre2", "blu1")
+call s:hi("TabLineFill",                     "blk3", "lgr3")
+call s:hi("ToolbarLine",                     "", "cya1")
 call s:hi("Pmenu",                           "gre1", "lgr1")
 call s:hi("PmenuSbar",                       "grn2", "grn2")
 call s:hi("fzf1",                            "gre1", "gre2")
@@ -417,23 +420,23 @@ call s:hi("pythonInclude",                   "purp", "")
 call s:hi("pythonDecorator",                 "grn1", "")
 call s:hi("pythonDecoratorName",             "cya1", "")
 call s:hi("pythonDoctestValue",              "purp", "")
-"call s:hi("pythonMatrixMultiply",            "blu1", "")
-"call s:hi("pythonTodo",                      "blu1", "")
-"call s:hi("pythonComment",                   "blu1", "")
-"call s:hi("pythonQuotes",                    "blu1", "")
-"call s:hi("pythonEscape",                    "blu1", "")
-"call s:hi("pythonString",                    "blu1", "")
-"call s:hi("pythonTripleQuotes",              "blu1", "")
-"call s:hi("pythonSpaceError",                "blu1", "")
-"call s:hi("pythonDoctest",                   "blu1", "")
-"call s:hi("pythonRawString",                 "blu1", "")
-"call s:hi("pythonNumber",                    "blu1", "")
-"call s:hi("pythonBoolean",                    "grn1", "")
-"call s:hi("pythonStructure",                    "purp", "")
-"call s:hi("pythonStorageClass",                    "purp", "")
-"call s:hi("pythonTypeDef",                    "purp", "")
+"call s:hi("pythonMatrixMultiply",           "blu1", "")
+"call s:hi("pythonTodo",                     "blu1", "")
+"call s:hi("pythonComment",                  "blu1", "")
+"call s:hi("pythonQuotes",                   "blu1", "")
+"call s:hi("pythonEscape",                   "blu1", "")
+"call s:hi("pythonString",                   "blu1", "")
+"call s:hi("pythonTripleQuotes",             "blu1", "")
+"call s:hi("pythonSpaceError",               "blu1", "")
+"call s:hi("pythonDoctest",                  "blu1", "")
+"call s:hi("pythonRawString",                "blu1", "")
+"call s:hi("pythonNumber",                   "blu1", "")
+"call s:hi("pythonBoolean",                  "grn1", "")
+"call s:hi("pythonStructure",                "purp", "")
+"call s:hi("pythonStorageClass",             "purp", "")
+"call s:hi("pythonTypeDef",                  "purp", "")
 call s:hi("pythonBuiltin",                   "pin2", "")
-"call s:hi("pythonAttribute",                 "blu1", "")
+"call s:hi("pythonAttribute",                "blu1", "")
 call s:hi("pythonExceptions",                "blu1", "")
 
 " ==================================================================

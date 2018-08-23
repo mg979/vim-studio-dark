@@ -36,39 +36,49 @@
 " ==================================================================
 " HIGHLIGHT
 " ==================================================================
+let s:col = {
+      \ 'yel1': '#DADA93',
+      \ 'yel2': '#F2C38F',
+      \ 'lblu': '#97BEEF',
+      \ 'blu1': '#83AFE5',
+      \ 'blu2': '#569cd6',
+      \ 'blu3': '#3A7CB2',
+      \ 'blu4': '#264F78',
+      \ 'blu5': '#244756',
+      \ 'dbl1': '#073655',
+      \ 'dbl2': '#212733',
+      \ 'grn1': '#A8CE93',
+      \ 'grn2': '#608b4e',
+      \ 'cya1': '#7FC1CA',
+      \ 'cya2': '#42DCD7',
+      \ 'purp': '#9A93E1',
+      \ 'pin1': '#dfafdf',
+      \ 'pin2': '#D18EC2',
+      \ 'pin3': '#C586C0',
+      \ 'gre1': '#556873',
+      \ 'gre2': '#3C4C55',
+      \ 'gre3': '#4C4E50',
+      \ 'dgre': '#3D3D40',
+      \ 'lgr1': '#C5D4DD',
+      \ 'lgr2': '#c9c6c9',
+      \ 'lgr3': '#a9a9a9',
+      \ 'lgr4': '#9a9a9a',
+      \ 'blgr': '#6A7D89',
+      \ 'strg': '#ce9178',
+      \ 'red1': '#DF8C8C',
+      \ 'red2': '#ff0000',
+      \ 'red3': '#bf3434',
+      \ 'whi1': '#F9F9FF',
+      \ 'whi2': '#E6EEF3',
+      \ 'blk1': '#333233',
+      \ 'blk2': '#262626',
+      \ 'blk3': '#1e1e1e',
+      \}
+
 
 fun! s:hi(item, fg, bg, ...)
-  let col = {
-        \ 'yel1': '#DADA93',
-        \ 'yel2': '#F2C38F',
-        \ 'blu1': '#83AFE5',
-        \ 'blu2': '#569cd6',
-        \ 'blu3': '#212733',
-        \ 'grn1': '#A8CE93',
-        \ 'grn2': '#608b4e',
-        \ 'cya1': '#7FC1CA',
-        \ 'cya2': '#42DCD7',
-        \ 'purp': '#9A93E1',
-        \ 'pin1': '#dfafdf',
-        \ 'pin2': '#D18EC2',
-        \ 'gre1': '#556873',
-        \ 'gre2': '#3C4C55',
-        \ 'lgr1': '#C5D4DD',
-        \ 'lgr2': '#c9c6c9',
-        \ 'blgr': '#6A7D89',
-        \ 'strg': '#ce9178',
-        \ 'red1': '#DF8C8C',
-        \ 'red2': '#ff0000',
-        \ 'red3': '#bf3434',
-        \ 'whi1': '#F9F9FF',
-        \ 'whi2': '#E6EEF3',
-        \ 'blk1': '#333233',
-        \ 'blk2': '#262626',
-        \ 'blk3': '#1e1e1e',
-        \}
-
-  let s = [empty(a:fg)? 'NONE' : (a:fg[0]==#"\#"? a:fg : col[a:fg]),
-        \  empty(a:bg)? 'NONE' : (a:bg[0]==#"\#"? a:bg : col[a:bg]),
+  let s = [empty(a:fg)? 'NONE' : (a:fg[0]==#"\#"? a:fg : s:col[a:fg]),
+        \  empty(a:bg)? 'NONE' : (a:bg[0]==#"\#"? a:bg : s:col[a:bg]),
         \  a:0? a:1 : 'NONE']
 
   execute printf("highlight %s guifg=%s guibg=%s cterm=%s gui=%s", a:item, s[0], s[1], s[2], s[2])
@@ -97,6 +107,9 @@ call s:hi("Normal", "lgr1", "blk2")
 
 let s:reloaded = 0
 
+let g:VSD_conservative = get(g:, 'VSD_conservative', 1)
+let s:conservative = g:VSD_conservative
+
 " ==================================================================
 " UI GROUPS
 " ==================================================================
@@ -115,26 +128,39 @@ call s:hi("NeomakeWarningSign", "red1", "")
 " USER CURRENT STATE
 call s:hi("MatchParen",                      "red2", "")
 call s:hi("CursorLineNr",                    "blu1", "")
-call s:hi("Visual",                          "gre2", "blu1")
-call s:hi("VisualNOS",                       "gre2", "blu1")
+call s:hi("Visual",                          "",     "blu4")
+call s:hi("VisualNOS",                       "",     "blu4")
 call s:hi("Folded",                          "blu1", "")
 call s:hi("FoldColumn",                      "blu1", "")
 call s:hi("IncSearch",                       "blk1", "red1")
-call s:hi("Search",                          "blk2", "blgr")
-call s:hi("WildMenu",                        "blk1", "blu2")
+call s:hi("Search",                          "",     "gre3")
 call s:hi("ToolbarButton",                   "blgr", "blu1")
 call s:hi("Question",                        "blu1", "")
 call s:hi("MoreMsg",                         "blu1", "")
 call s:hi("ModeMsg",                         "blu1", "")
-call s:hi("StatusLine",                      "blu1", "blk1")
+call s:hi("WildMenu",                        "", "dbl1")
+call s:hi("StatusLine",                      "lgr1", "dgre")
 call s:hi("StatusLineTerm",                  "blu1", "blgr")
-call s:hi("TabLineSel",                      "blu1", "gre2")
-call s:hi("PmenuSel",                        "gre1", "blu1")
-call s:hi("PmenuThumb",                      "blu1", "blu1")
 call s:hi("netrwTime",                       "blu1", "")
 call s:hi("netrwSizeDate",                   "blu1", "")
 call s:hi("CtrlPMatch",                      "gre2", "blu1")
 call s:hi("gitcommitSummary",                "blu1", "")
+
+"POPUP
+call s:hi("Pmenu",                           "lgr1", "gre2")
+call s:hi("PmenuSel",                        "lgr1", "dbl1")
+call s:hi("PmenuSbar",                       "grn2", "grn2")
+call s:hi("PmenuThumb",                      "blu1", "blu1")
+
+" call s:hi("Pmenu",                           "lgr1", "gre1")
+" call s:hi("PmenuSbar",                       "grn2", "grn2")
+" call s:hi("PmenuSel",                        "gre1", "blu1")
+" call s:hi("PmenuThumb",                      "blu1", "blu1")
+
+" call s:hi('Pmenu', "#BBBBBB", "#2D2D30")
+" call s:hi('PmenuSel', "#BBBBBB", "#073655")
+" call s:hi('PmenuSbar', "", "#3D3D40")
+" call s:hi('PmenuThumb', "", "#BBBBBB")
 
 " VERSION CONTROL
 call s:hi("DiffAdd",                         "gre2", "grn1")
@@ -150,7 +176,7 @@ call s:hi("diffLine",                        "yel1", "", "ITALIC")
 call s:hi("GitGutterAdd",                    "grn1", "")
 call s:hi("GitGutterChange",                 "yel2", "")
 call s:hi("GitGutterChangeDelete",           "yel2", "")
-call s:hi("GitGutterDelete",                 "red1", "")
+" call s:hi("GitGutterDelete",                 "red1", "")
 
 " OTHER
 call s:hi("SignColumn",                      "", "")
@@ -159,14 +185,13 @@ call s:hi("CursorLine",                      "", "blk1")
 call s:hi("CursorColumn",                    "", "blk1")
 call s:hi("ColorColumn",                     "", "blk1")
 call s:hi("EndOfBuffer",                     "blk2", "")
-call s:hi("VertSplit",                       "blk1", "blu3")
-call s:hi("StatusLineNC",                    "blgr", "blgr")
-call s:hi("StatusLineTermNC",                "blgr", "blgr")
-call s:hi("TabLine",                         "blgr", "blgr")
-call s:hi("TabLineFill",                     "blgr", "blgr")
-call s:hi("ToolbarLine",                     "blgr", "blgr")
-call s:hi("Pmenu",                           "lgr1", "gre1")
-call s:hi("PmenuSbar",                       "grn2", "grn2")
+call s:hi("VertSplit",                       "blk1", "dbl2")
+call s:hi("StatusLineNC",                    "lgr1", "blgr")
+call s:hi("StatusLineTermNC",                "lgr1", "blgr")
+call s:hi("TabLine",                         "lgr3", "blk3")
+call s:hi("TabLineSel",                      "blu1", "gre2")
+call s:hi("TabLineFill",                     "lgr3", "blk3")
+call s:hi("ToolbarLine",                     "lgr1", "blgr")
 call s:hi("fzf1",                            "gre2", "gre1")
 call s:hi("fzf2",                            "gre2", "gre1")
 call s:hi("fzf3",                            "gre2", "gre1")
@@ -182,53 +207,52 @@ call s:hi("EasyMotionTarget2Second",         "yel1", "")
 " CONSTANT
 call s:hi("String",                          "strg", "")
 call s:hi("Constant",                        "grn1", "")
-call s:hi("Directory",                       "blu1", "")
-call s:hi("jsObjectBraces",                  "blu1", "")
-call s:hi("jsBrackets",                      "blu1", "")
-call s:hi("jsBlock",                         "blu1", "")
-call s:hi("jsFuncBlock",                     "blu1", "")
-call s:hi("jsClassBlock",                    "blu1", "")
-call s:hi("jsTryCatchBlock",                 "blu1", "")
-call s:hi("jsIfElseBlock",                   "blu1", "")
-call s:hi("jsFinallyBlock",                  "blu1", "")
-call s:hi("jsSwitchBlock",                   "blu1", "")
-call s:hi("jsRepeatBlock",                   "blu1", "")
-call s:hi("jsObjectValue",                   "blu1", "")
-call s:hi("jsClassValue",                    "blu1", "")
-call s:hi("jsParen",                         "blu1", "")
-call s:hi("jsParenSwitch",                   "blu1", "")
-call s:hi("jsParenCatch",                    "blu1", "")
-call s:hi("jsParenIfElse",                   "blu1", "")
-call s:hi("jsParenRepeat",                   "blu1", "")
-call s:hi("jsBracket",                       "blu1", "")
-call s:hi("jsTernaryIf",                     "blu1", "")
-call s:hi("jsTemplateString",                "blu1", "")
-call s:hi("jsTemplateVar",                   "blu1", "")
-call s:hi("cssAttr",                         "blu1", "")
-call s:hi("cssAttrRegion",                   "blu1", "")
-call s:hi("cssAttributeSelector",            "blu1", "")
-call s:hi("htmlTitle",                       "blu1", "")
-call s:hi("htmlH1",                          "blu1", "")
-call s:hi("htmlH2",                          "blu1", "")
-call s:hi("htmlH3",                          "blu1", "")
-call s:hi("htmlH4",                          "blu1", "")
-call s:hi("htmlH5",                          "blu1", "")
-call s:hi("htmlH6",                          "blu1", "")
-call s:hi("htmlLink",                        "blu1", "")
-call s:hi("markdownCode",                    "blu1", "")
-call s:hi("markdownCodeBlock",               "blu1", "")
-call s:hi("xmlString",                       "blu1", "")
-call s:hi("netrwPlain",                      "blu1", "")
-call s:hi("netrwDir",                        "blu1", "")
-call s:hi("shDerefSimple",                   "blu1", "")
-call s:hi("typescriptBracket",               "blu1", "")
-call s:hi("typescriptBlock",                 "blu1", "")
-call s:hi("goConst",                         "blu1", "")
+call s:hi("Directory",                       "grn1", "")
+call s:hi("jsObjectBraces",                  "grn1", "")
+call s:hi("jsBrackets",                      "grn1", "")
+call s:hi("jsBlock",                         "grn1", "")
+call s:hi("jsFuncBlock",                     "grn1", "")
+call s:hi("jsClassBlock",                    "grn1", "")
+call s:hi("jsTryCatchBlock",                 "grn1", "")
+call s:hi("jsIfElseBlock",                   "grn1", "")
+call s:hi("jsFinallyBlock",                  "grn1", "")
+call s:hi("jsSwitchBlock",                   "grn1", "")
+call s:hi("jsRepeatBlock",                   "grn1", "")
+call s:hi("jsObjectValue",                   "grn1", "")
+call s:hi("jsClassValue",                    "grn1", "")
+call s:hi("jsParen",                         "grn1", "")
+call s:hi("jsParenSwitch",                   "grn1", "")
+call s:hi("jsParenCatch",                    "grn1", "")
+call s:hi("jsParenIfElse",                   "grn1", "")
+call s:hi("jsParenRepeat",                   "grn1", "")
+call s:hi("jsBracket",                       "grn1", "")
+call s:hi("jsTernaryIf",                     "grn1", "")
+call s:hi("jsTemplateString",                "grn1", "")
+call s:hi("jsTemplateVar",                   "grn1", "")
+call s:hi("cssAttr",                         "grn1", "")
+call s:hi("cssAttrRegion",                   "grn1", "")
+call s:hi("cssAttributeSelector",            "grn1", "")
+call s:hi("htmlTitle",                       "grn1", "")
+call s:hi("htmlH1",                          "grn1", "")
+call s:hi("htmlH2",                          "grn1", "")
+call s:hi("htmlH3",                          "grn1", "")
+call s:hi("htmlH4",                          "grn1", "")
+call s:hi("htmlH5",                          "grn1", "")
+call s:hi("htmlH6",                          "grn1", "")
+call s:hi("htmlLink",                        "grn1", "")
+call s:hi("markdownCode",                    "grn1", "")
+call s:hi("markdownCodeBlock",               "grn1", "")
+call s:hi("xmlString",                       "grn1", "")
+call s:hi("netrwPlain",                      "grn1", "")
+call s:hi("netrwDir",                        "grn1", "")
+call s:hi("shDerefSimple",                   "grn1", "")
+call s:hi("typescriptBracket",               "grn1", "")
+call s:hi("typescriptBlock",                 "grn1", "")
+call s:hi("goConst",                         "grn1", "")
 
 " IDENTIFIER
 call s:hi("Identifier",                      "lgr2", "", "ITALIC")
 call s:hi("Function",                        "whi2", "")
-"call s:hi("Conditional",                    "#98BC99", "")
 call s:hi("jsVariableDef",                   "blu1", "")
 call s:hi("jsObject",                        "blu1", "")
 call s:hi("jsObjectKey",                     "blu1", "")
@@ -269,7 +293,14 @@ call s:hi("typescriptVars",                  "blu1", "")
 call s:hi("typescriptFunction",              "blu1", "")
 
 " STATEMENT
-call s:hi("Statement",                       "blu2", "")
+if s:conservative
+  call s:hi("Statement",                       "blu2", "")
+else
+  call s:hi("Statement",                       "blu2", "")
+  " call s:hi("Statement",                       "pin3", "")
+endif
+call s:hi("Conditional",                     "blu2", "")
+"call s:hi("Conditional",                    "#98BC99", "")
 
 " OPERATOR
 call s:hi("Operator",                        "yel1", "")
@@ -411,11 +442,6 @@ call s:hi("mkdRule",                         "purp", "")
 
 "PYTHON (POLYGLOT)
 
-augroup vsd-python
-  au!
-  au BufEnter *.py if !s:reloaded | let s:reloaded = 1 | filetype detect | endif
-augroup END
-
 call s:hi("pythonStatement",                 "blu2", "")
 call s:hi("pythonFunction",                  "cya2", "")
 call s:hi("pythonConditional",               "blu2", "")
@@ -450,6 +476,13 @@ call s:hi("pythonBuiltinFunc",               "pin1", "")
 call s:hi("pythonBraces",                    "yel2", "")
 "call s:hi("pythonAttribute",                "yel2", "")
 call s:hi("pythonExClass",                   "pin1", "")
+call s:hi("jediFat",                         "lgr1", "gre1", "ITALIC")
+
+"VISUAL-MULTI
+" call s:hi("VM_Extend",                   "gre2", "blu1")
+" hi link VM_Mono   DiffChange
+" hi link VM_Insert Pmenu
+" hi VM_Cursor guibg=#3A7CB2 guifg=#333233
 
 " ==================================================================
 " VARIABLES
@@ -497,18 +530,89 @@ let g:terminal_color_15 = "#E6EEF3"
 let g:fzf_colors = {
 \ "fg":      ["fg", "Normal"],
 \ "bg":      ["bg", "Normal"],
-\ "hl":      ["fg", "Statement"],
+\ "hl":      ["fg", "Conditional"],
 \ "fg+":     ["fg", "CursorLine", "CursorColumn", "Normal"],
 \ "bg+":     ["bg", "CursorLine", "CursorColumn"],
-\ "hl+":     ["fg", "Statement"],
-\ "info":    ["fg", "Statement"],
+\ "hl+":     ["fg", "Conditional"],
+\ "info":    ["fg", "Conditional"],
 \ "border":  ["fg", "Ignore"],
 \ "prompt":  ["fg", "Comment"],
-\ "pointer": ["fg", "Statement"],
-\ "marker":  ["fg", "Statement"],
-\ "spinner": ["fg", "Statement"],
-\ "header":  ["fg", "Statement"]
+\ "pointer": ["fg", "Conditional"],
+\ "marker":  ["fg", "Conditional"],
+\ "spinner": ["fg", "Conditional"],
+\ "header":  ["fg", "Conditional"]
 \}
 
 " VIM-POLYGLOT
 let g:javascript_plugin_flow = 1
+
+" VISUAL-MULTI
+
+" let g:VM_Selection_hl     = 'VM_Extend'
+" let g:VM_Mono_Cursor_hl   = 'VM_Mono'
+" let g:VM_Ins_Mode_hl      = 'VM_Insert'
+" let g:VM_Normal_Cursor_hl = 'VM_Cursor'
+
+" if exists('g:loaded_visual_multi')
+"   hi clear VM_Mono
+"   hi clear VM_Cursor
+"   hi clear VM_Extend
+"   hi clear VM_Insert
+"   call s:hi("VM_Mono",   "yel2", "blk2")
+"   " call s:hi("VM_Cursor", "blu2", "blu5")
+"   hi VM_Extend guibg=#005f87 guifg=NONE
+"   hi link VM_Insert Search
+"   hi link VM_Cursor Visual
+" endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"SYNTAX EXRAS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+if !get(g:, 'VSD_extra_syntax', 0) | finish | endif
+
+augroup vsd_extra_syntax
+  au!
+  au BufEnter *.py,*.vim if !s:reloaded | let s:reloaded = 1 | filetype detect | endif
+  au FileType python call s:python_extra()
+  au FileType vim    call s:vim_extra()
+augroup END
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+fun! s:vim_extra()
+  syn match vimDocstring '^\s\s\{-}"""\w.*'
+  hi link vimDocstring String
+  syn cluster vimFuncBodyList add=vimDocstring
+  if s:conservative | return | endif
+
+  "more colors
+  syn keyword vimConditional if elseif else endif while endwhile for endfor try catch finally endtry return
+  hi link vimConditional Conditional
+
+  syn keyword vimLet let nextgroup=vimLetVar
+  syn match vimLetVar '\(let \|for \)\@<=\(\w\|\.\|:\)\+'
+  syn keyword vimCall call nextgroup=Function
+  syn keyword vimSelf self
+  " call s:hi("vimLetCall",                      "lblu", "")
+  call s:hi("vimLet",                      "lgr3", "")
+  call s:hi("vimCall",                      "lgr3", "")
+  call s:hi("vimSelf",                      "cya1", "", "ITALIC")
+  hi link vimLetVar Identifier
+  syn cluster vimFuncBodyList add=vimConditional,vimSelf,vimCall,vimLet,vimLetVar
+endfun
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+fun! s:python_extra()
+  syn keyword pythonSelf self
+  syn match pythonOperatorSymbol   '\V=\|-\|+\|*\|@\|/\|%\|&\||\|^\|~\|<\|>\|!='
+  syn match pythonBraces           '{\|}\|\[\|\]'
+  syn match pythonGlobalVar        '\<[A-Z_]*\>'
+  syn match pythonStringType       '\((\)\@<=[rfub]\(["\']\)\@='
+  hi link pythonSelf Identifier
+  hi link pythonOperatorSymbol Operator
+  hi link pythonBraces Special
+  hi link pythonGlobalVar Special
+  hi link pythonStringType Statement
+endfun
