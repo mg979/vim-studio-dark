@@ -25,12 +25,13 @@ fun! vsd#vim()
   if !s:load_for('vim') | return | endif
 
   syn match vimDocstring '^\s\s\{-}"""\w.*'
-  syn keyword vimConditional if elseif else endif while endwhile for endfor try catch finally endtry return
+  syn keyword vimConditional if elseif else endif try catch finally endtry
+  syn keyword vimRepeat while endwhile for endfor in
   syn match vimLetVar '\(let \|for \)\@<=\(\w\|\.\|:\)\+'
   syn keyword vimLet  let unl[et] skipwhite nextgroup=vimVar,vimFuncVar,vimLetVar
   syn keyword vimCall call nextgroup=Function
   syn keyword vimSelf self
-  syn cluster vimFuncBodyList add=vimDocstring,vimConditional,vimSelf,vimCall,vimLetVar
+  syn cluster vimFuncBodyList add=vimDocstring,vimConditional,vimSelf,vimCall,vimLetVar,vimRepeat
 endfun
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -64,6 +65,7 @@ fun! vsd#reset()
   silent! syntax clear pythonStringType
   silent! syntax clear vimDocstring
   silent! syntax clear vimConditional
+  silent! syntax clear vimRepeat
   silent! syntax clear vimLetVar
   silent! syntax clear vimCall
   silent! syntax clear vimSelf

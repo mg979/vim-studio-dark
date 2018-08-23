@@ -25,9 +25,10 @@ Color:      lightgreen  #a8ce93 ~
 Color:      green     	#00af00 ~
 Color:      darkgreen   #608b4e ~
 Color:      cyan        #7fc1ca ~
+Color:      cya2        #42dcd7 ~
 Color:      purple      #9a93e1 ~
 Color:      pink1       #dfafdf ~
-Color:      pink2       #d18ec2 ~
+Color:      pink2       #c586c0 ~
 Color:      grey1       #556873 ~
 Color:      grey2       #3c4c55 ~
 Color:      grey3       #4c4e50 ~
@@ -122,6 +123,7 @@ Conceal                         darkgreen     	bg
 
 Cursor 				fg            	bg
 QuickFixLine 		-> 	Search
+Command                         pink1           bg
 
 # Plugins
 
@@ -134,6 +136,7 @@ GitGutterDelete                 red2    	bg
 
 vimDocstring   		-> 	String
 vimConditional 		-> 	Conditional
+vimRepeat      		-> 	Conditional
 vimLetVar      		-> 	Identifier
 vimLet  			lightgrey3 	bg
 vimCall 			lightgrey3 	bg
@@ -144,14 +147,30 @@ vimSelf 			cyan 	 	bg italic
 pythonSelf           	-> 	Identifier
 pythonOperatorSymbol 	-> 	Operator
 pythonBraces         	-> 	Special
-pythonGlobalVar      	-> 	Special
+pythonGlobalVar      	-> 	Define
 pythonStringType     	-> 	Statement
+pythonOperator          -> 	Statement
+pythonBoolean           ->      Command
+pythonNone              ->      Command
+pythonStructure         ->      Keyword
+pythonStorageClass      ->      Keyword
+pythonTypeDef           ->      Keyword
+pythonFunction                  cya2 bg
+
+# Markdown
+
+mkdItalic                  pink2           bg
+mkdBold                    pink2           bg
+mkdBoldItalic              pink2           bg
+mkdListItem                special         bg
+mkdID                      purple          bg
+mkdRule                    purple          bg
 
 verbatim
 call vsd#terminal_dark()
 call vsd#extras()
 if !g:VSD.conservative
-  hi vimCommand ctermfg=176 ctermbg=bg guifg=#C586C0 guibg=bg guisp=NONE cterm=NONE gui=NONE
+  hi link vimCommand Command
 endif
 filetype detect
 endverbatim
@@ -280,3 +299,39 @@ call vsd#terminal_light()
 filetype detect
 endverbatim
 
+# pythonStatement         -> 	Statement
+# pythonConditional       -> 	Statement
+# pythonRepeat            -> 	Statement
+# pythonOperatorSymbol            yellow bg
+# pythonGlobalVar                 lightgreen bg
+# pythonException                 blue bg
+# pythonAsync                     blue bg
+# pythonInclude                   purple bg
+# pythonDecorator                 lightgreen bg
+# pythonDecoratorName             cyan bg
+# pythonDoctestValue              purple bg
+# pythonMatrixMultiply            special bg
+# pythonTodo                      special bg
+# pythonComment                   special bg
+# pythonQuotes                    special bg
+# pythonEscape                    special bg
+# pythonString                    special bg
+# pythonTripleQuotes              special bg
+# pythonSpaceError                special bg
+# pythonDoctest                   special bg
+# pythonRawString                 special bg
+# pythonNumber                    special bg
+# pythonSelf                      lightgrey2 bg italic
+# pythonBuiltinFunc               pink1 bg
+# pythonExClass                   pink1 bg
+# jediFat                         lightgrey1 grey1 italic
+
+
+# mkdCode                    lightgreen      bg
+# mkdCodeBlock               lightgreen      bg
+# mkdHeadingDelimiter        special         bg
+# mkdRule                    special         bg
+# mkdListMarker              special         bg
+# mkdOrderedListMarker       special         bg
+# mkdLinkText                special         bg
+# mkdCodeDelimiter           special         bg

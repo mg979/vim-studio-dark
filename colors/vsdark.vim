@@ -2,7 +2,7 @@
 " Author:       Gianmaria Bajo <mg1979.git@gmail.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: gio 23 ago 2018 05:26:02 CEST
+" Last Updated: gio 23 ago 2018 15:23:40 CEST
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -90,12 +90,14 @@ if &background ==# 'dark'
   hi Conceal ctermfg=65 ctermbg=bg guifg=#608b4e guibg=bg guisp=NONE cterm=NONE gui=NONE
   hi Cursor ctermfg=fg ctermbg=bg guifg=fg guibg=bg guisp=NONE cterm=NONE gui=NONE
   hi! link QuickFixLine Search
+  hi Command ctermfg=182 ctermbg=bg guifg=#dfafdf guibg=bg guisp=NONE cterm=NONE gui=NONE
   hi GitGutterAdd ctermfg=34 ctermbg=bg guifg=#00af00 guibg=bg guisp=NONE cterm=NONE gui=NONE
   hi GitGutterChange ctermfg=223 ctermbg=bg guifg=#f2c38f guibg=bg guisp=NONE cterm=NONE gui=NONE
   hi GitGutterChangeDelete ctermfg=223 ctermbg=bg guifg=#f2c38f guibg=bg guisp=NONE cterm=NONE gui=NONE
   hi GitGutterDelete ctermfg=196 ctermbg=bg guifg=#ff0000 guibg=bg guisp=NONE cterm=NONE gui=NONE
   hi! link vimDocstring String
   hi! link vimConditional Conditional
+  hi! link vimRepeat Conditional
   hi! link vimLetVar Identifier
   hi vimLet ctermfg=248 ctermbg=bg guifg=#a9a9a9 guibg=bg guisp=NONE cterm=NONE gui=NONE
   hi vimCall ctermfg=248 ctermbg=bg guifg=#a9a9a9 guibg=bg guisp=NONE cterm=NONE gui=NONE
@@ -103,12 +105,25 @@ if &background ==# 'dark'
   hi! link pythonSelf Identifier
   hi! link pythonOperatorSymbol Operator
   hi! link pythonBraces Special
-  hi! link pythonGlobalVar Special
+  hi! link pythonGlobalVar Define
   hi! link pythonStringType Statement
+  hi! link pythonOperator Statement
+  hi! link pythonBoolean Command
+  hi! link pythonNone Command
+  hi! link pythonStructure Keyword
+  hi! link pythonStorageClass Keyword
+  hi! link pythonTypeDef Keyword
+  hi pythonFunction ctermfg=44 ctermbg=bg guifg=#42dcd7 guibg=bg guisp=NONE cterm=NONE gui=NONE
+  hi mkdItalic ctermfg=176 ctermbg=bg guifg=#c586c0 guibg=bg guisp=NONE cterm=NONE gui=NONE
+  hi mkdBold ctermfg=176 ctermbg=bg guifg=#c586c0 guibg=bg guisp=NONE cterm=NONE gui=NONE
+  hi mkdBoldItalic ctermfg=176 ctermbg=bg guifg=#c586c0 guibg=bg guisp=NONE cterm=NONE gui=NONE
+  hi mkdListItem ctermfg=223 ctermbg=bg guifg=#f2c38f guibg=bg guisp=NONE cterm=NONE gui=NONE
+  hi mkdID ctermfg=104 ctermbg=bg guifg=#9a93e1 guibg=bg guisp=NONE cterm=NONE gui=NONE
+  hi mkdRule ctermfg=104 ctermbg=bg guifg=#9a93e1 guibg=bg guisp=NONE cterm=NONE gui=NONE
   call vsd#terminal_dark()
   call vsd#extras()
   if !g:VSD.conservative
-    hi vimCommand ctermfg=176 ctermbg=bg guifg=#C586C0 guibg=bg guisp=NONE cterm=NONE gui=NONE
+    hi link vimCommand Command
   endif
   filetype detect
   finish
@@ -200,9 +215,10 @@ finish
 " Color:      green     	#00af00 ~
 " Color:      darkgreen   #608b4e ~
 " Color:      cyan        #7fc1ca ~
+" Color:      cya2        #42dcd7 ~
 " Color:      purple      #9a93e1 ~
 " Color:      pink1       #dfafdf ~
-" Color:      pink2       #d18ec2 ~
+" Color:      pink2       #c586c0 ~
 " Color:      grey1       #556873 ~
 " Color:      grey2       #3c4c55 ~
 " Color:      grey3       #4c4e50 ~
@@ -288,12 +304,14 @@ finish
 " Conceal                         darkgreen     	bg
 " Cursor 				fg            	bg
 " QuickFixLine 		-> 	Search
+" Command                         pink1           bg
 " GitGutterAdd                    green   	bg
 " GitGutterChange                 special 	bg
 " GitGutterChangeDelete           special 	bg
 " GitGutterDelete                 red2    	bg
 " vimDocstring   		-> 	String
 " vimConditional 		-> 	Conditional
+" vimRepeat      		-> 	Conditional
 " vimLetVar      		-> 	Identifier
 " vimLet  			lightgrey3 	bg
 " vimCall 			lightgrey3 	bg
@@ -301,8 +319,21 @@ finish
 " pythonSelf           	-> 	Identifier
 " pythonOperatorSymbol 	-> 	Operator
 " pythonBraces         	-> 	Special
-" pythonGlobalVar      	-> 	Special
+" pythonGlobalVar      	-> 	Define
 " pythonStringType     	-> 	Statement
+" pythonOperator          -> 	Statement
+" pythonBoolean           ->      Command
+" pythonNone              ->      Command
+" pythonStructure         ->      Keyword
+" pythonStorageClass      ->      Keyword
+" pythonTypeDef           ->      Keyword
+" pythonFunction                  cya2 bg
+" mkdItalic                  pink2           bg
+" mkdBold                    pink2           bg
+" mkdBoldItalic              pink2           bg
+" mkdListItem                special         bg
+" mkdID                      purple          bg
+" mkdRule                    purple          bg
 " Background: light
 " Color:      yel1 #ffbc29 ~
 " Color:      yel2 #f2c38f ~
