@@ -2,7 +2,7 @@
 " Author:       Gianmaria Bajo <mg1979.git@gmail.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: dom 26 ago 2018 02:01:41 CEST
+" Last Updated: lun 27 ago 2018 22:22:03 CEST
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -88,7 +88,7 @@ if &background ==# 'dark'
   hi Comment ctermfg=65 ctermbg=bg guifg=#608b4e guibg=bg guisp=NONE cterm=NONE gui=NONE
   hi Ignore ctermfg=65 ctermbg=bg guifg=#608b4e guibg=bg guisp=NONE cterm=NONE gui=NONE
   hi Conceal ctermfg=65 ctermbg=bg guifg=#608b4e guibg=bg guisp=NONE cterm=NONE gui=NONE
-  hi Cursor ctermfg=fg ctermbg=bg guifg=fg guibg=bg guisp=NONE cterm=NONE gui=NONE
+  hi Cursor ctermfg=235 ctermbg=34 guifg=#262626 guibg=#00af00 guisp=NONE cterm=NONE gui=NONE
   hi! link QuickFixLine Search
   hi Command ctermfg=182 ctermbg=bg guifg=#dfafdf guibg=bg guisp=NONE cterm=NONE gui=NONE
   hi GitGutterAdd ctermfg=34 ctermbg=bg guifg=#00af00 guibg=bg guisp=NONE cterm=NONE gui=NONE
@@ -102,6 +102,7 @@ if &background ==# 'dark'
   hi vimLet ctermfg=248 ctermbg=bg guifg=#a9a9a9 guibg=bg guisp=NONE cterm=NONE gui=NONE
   hi vimCall ctermfg=248 ctermbg=bg guifg=#a9a9a9 guibg=bg guisp=NONE cterm=NONE gui=NONE
   hi vimSelf ctermfg=109 ctermbg=bg guifg=#7fc1ca guibg=bg guisp=NONE cterm=NONE,italic gui=NONE,italic
+  hi! link helpCommand Type
   hi! link pythonSelf Identifier
   hi! link pythonOperatorSymbol Operator
   hi! link pythonBraces Special
@@ -198,6 +199,7 @@ hi Title ctermfg=25 ctermbg=bg guifg=#0070af guibg=bg guisp=NONE cterm=NONE gui=
 hi Comment ctermfg=28 ctermbg=bg guifg=#008000 guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi Ignore ctermfg=28 ctermbg=bg guifg=#008000 guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi Conceal ctermfg=28 ctermbg=bg guifg=#008000 guibg=bg guisp=NONE cterm=NONE gui=NONE
+hi Cursor ctermfg=34 ctermbg=252 guifg=#00af00 guibg=#cccccc guisp=NONE cterm=NONE gui=NONE
 hi GitGutterAdd ctermfg=34 ctermbg=bg guifg=#00af00 guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi GitGutterChange ctermfg=58 ctermbg=bg guifg=#666600 guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi GitGutterChangeDelete ctermfg=58 ctermbg=bg guifg=#666600 guibg=bg guisp=NONE cterm=NONE gui=NONE
@@ -309,7 +311,7 @@ finish
 " Comment                         darkgreen     	bg
 " Ignore                          darkgreen     	bg
 " Conceal                         darkgreen     	bg
-" Cursor 				fg            	bg
+" Cursor 				black          	green
 " QuickFixLine 		-> 	Search
 " Command                         pink1           bg
 " GitGutterAdd                    green   	bg
@@ -323,6 +325,7 @@ finish
 " vimLet  			lightgrey3 	bg
 " vimCall 			lightgrey3 	bg
 " vimSelf 			cyan 	 	bg italic
+" helpCommand             -> 	Type
 " pythonSelf           	-> 	Identifier
 " pythonOperatorSymbol 	-> 	Operator
 " pythonBraces         	-> 	Special
@@ -438,6 +441,7 @@ finish
 " Comment                         grn2    	bg
 " Ignore                          grn2    	bg
 " Conceal                         grn2    	bg
+" Cursor 				green          	whi1
 " GitGutterAdd                    green bg
 " GitGutterChange                 special bg
 " GitGutterChangeDelete           special bg

@@ -1,0 +1,145 @@
+# vim: ft=colortemplate
+Full name:  Tomorrow-Night-Eighties
+Short name: tomorrow_eighties
+Author:     Chris Kempson <http://chriskempson.com>
+Maintainer: Gianmaria Bajo <mg1979.git@gmail.com>
+
+#===================================================================
+# Dark variant
+#===================================================================
+
+Background: dark
+
+# Color palette
+Color:      foreground   #cccccc ~
+Color:      background   #2d2d2d ~
+Color:      selection    #515151 ~
+Color:      line         #393939 ~
+Color:      comment      #999999 ~
+Color:      red          #f2777a ~
+Color:      orange       #f99157 ~
+Color:      yellow       #ffcc66 ~
+Color:      green        #99cc99 ~
+Color:      aqua         #66cccc ~
+Color:      blue         #6699cc ~
+Color:      purple     	 #cc99cc ~
+Color:      window       #4d5057 ~
+Color:      special      #f2c38f ~
+Color:      lightgrey    #a9a9a9 ~
+
+Normal          foreground      background
+LineNr          selection       bg
+NonText         selection       bg
+Search          bg              yellow
+TabLine         window          fg              reverse
+TabLineFill     window          fg              reverse
+StatusLine      window          yellow          reverse
+StatusLineNC    window          fg              reverse
+VertSplit       window          window
+Visual          none            selection
+VisualNOS       none            selection
+Directory       blue            bg
+ModeMsg         green           bg
+MoreMsg         green           bg
+Question        green           bg
+WarningMsg      red             bg
+MatchParen      fg              selection
+Folded          comment         bg
+FoldColumn      fg              bg
+CursorLine      none            line
+CursorColumn    fg              line
+Pmenu           fg              selection
+PmenuSel        fg              selection       reverse
+SignColumn      fg              bg
+ColorColumn     fg              line
+
+Comment         comment         bg
+Todo            comment         bg
+Title           comment         bg
+Identifier      red             bg
+Statement       fg              bg
+Conditional     blue            bg
+Repeat          fg              bg
+Structure       purple          bg
+Function        fg              bg
+Constant        orange          bg
+Keyword         orange          bg
+String          green           bg
+Special         special         bg
+SpecialKey      selection       bg
+PreProc         purple          bg
+Operator        aqua            bg
+Type            blue            bg
+Define          purple          bg
+Include         blue            bg
+
+DiffAdd         fg              selection
+DiffDelete      bg              red
+DiffChange      fg              blue
+DiffText        line            blue
+
+diffAdded        green bg
+diffRemoved      red bg
+gitcommitSummary fg bg bold
+
+Cursor 				fg            	green
+QuickFixLine 		-> 	Search
+Command                         red             bg
+
+# Plugins
+
+GitGutterAdd                    green   	bg
+GitGutterChange                 special 	bg
+GitGutterChangeDelete           special 	bg
+GitGutterDelete                 red     	bg
+
+# vimL
+
+vimDocstring   		-> 	String
+vimConditional 		-> 	Conditional
+vimRepeat      		-> 	Conditional
+vimLetVar      		-> 	Identifier
+vimLet  			lightgrey 	bg
+vimCall 			lightgrey 	bg
+vimSelf 			special	        bg italic
+helpCommand             -> 	Type
+
+# Python
+
+pythonSelf           	-> 	Identifier
+pythonOperatorSymbol 	-> 	Operator
+pythonBraces         	-> 	Special
+pythonGlobalVar      	-> 	Define
+pythonStringType     	-> 	Statement
+pythonOperator          -> 	Statement
+pythonBoolean           ->      Command
+pythonNone              ->      Command
+pythonStructure         ->      Keyword
+pythonStorageClass      ->      Keyword
+pythonTypeDef           ->      Keyword
+pythonFunction                  blue bg
+
+# Markdown
+
+mkdItalic                  purple           bg
+mkdBold                    purple           bg
+mkdBoldItalic              purple           bg
+mkdListItem                special         bg
+mkdID                      purple          bg
+mkdRule                    purple          bg
+
+verbatim
+call vsd#terminal_dark()
+call vsd#extras()
+if !g:VSD.conservative
+  hi link vimCommand Command
+endif
+silent! LightlineTheme Tomorrow_Night_Eighties
+silent! VMTheme codedark
+if exists('loaded_xtabline')
+  let g:xtabline.Vars.has_reloaded_scheme = 1
+  silent! XTabTheme tomorrow
+endif
+filetype detect
+endverbatim
+

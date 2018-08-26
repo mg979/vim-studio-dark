@@ -122,7 +122,7 @@ Comment                         darkgreen     	bg
 Ignore                          darkgreen     	bg
 Conceal                         darkgreen     	bg
 
-Cursor 				fg            	bg
+Cursor 				black          	green
 QuickFixLine 		-> 	Search
 Command                         pink1           bg
 
@@ -142,6 +142,7 @@ vimLetVar      		-> 	Identifier
 vimLet  			lightgrey3 	bg
 vimCall 			lightgrey3 	bg
 vimSelf 			cyan 	 	bg italic
+helpCommand             -> 	Type
 
 # Python
 
@@ -294,6 +295,8 @@ Comment                         grn2    	bg
 Ignore                          grn2    	bg
 Conceal                         grn2    	bg
 
+Cursor 				green          	whi1
+
 # Plugins
 
 GitGutterAdd                    green bg
@@ -306,39 +309,3 @@ call vsd#terminal_light()
 filetype detect
 endverbatim
 
-# pythonStatement         -> 	Statement
-# pythonConditional       -> 	Statement
-# pythonRepeat            -> 	Statement
-# pythonOperatorSymbol            yellow bg
-# pythonGlobalVar                 lightgreen bg
-# pythonException                 blue bg
-# pythonAsync                     blue bg
-# pythonInclude                   purple bg
-# pythonDecorator                 lightgreen bg
-# pythonDecoratorName             cyan bg
-# pythonDoctestValue              purple bg
-# pythonMatrixMultiply            special bg
-# pythonTodo                      special bg
-# pythonComment                   special bg
-# pythonQuotes                    special bg
-# pythonEscape                    special bg
-# pythonString                    special bg
-# pythonTripleQuotes              special bg
-# pythonSpaceError                special bg
-# pythonDoctest                   special bg
-# pythonRawString                 special bg
-# pythonNumber                    special bg
-# pythonSelf                      lightgrey2 bg italic
-# pythonBuiltinFunc               pink1 bg
-# pythonExClass                   pink1 bg
-# jediFat                         lightgrey1 grey1 italic
-
-
-# mkdCode                    lightgreen      bg
-# mkdCodeBlock               lightgreen      bg
-# mkdHeadingDelimiter        special         bg
-# mkdRule                    special         bg
-# mkdListMarker              special         bg
-# mkdOrderedListMarker       special         bg
-# mkdLinkText                special         bg
-# mkdCodeDelimiter           special         bg

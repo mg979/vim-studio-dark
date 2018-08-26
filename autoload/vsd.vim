@@ -3,6 +3,8 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let s:load_for = { ft -> g:VSD[ft] || g:VSD.extra_syntax }
+let s:schemes  = ['vsdark', 'tomorrow_eighties']
+let s:skip     = { -> exists('g:colors_name') && index(s:schemes, g:colors_name) >= 0 }
 
 fun! vsd#extras()
   let g:VSD              = get(g:, 'VSD', {})
@@ -49,7 +51,7 @@ endfun
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 fun! vsd#reset()
-  if exists('g:colors_name') && g:colors_name == 'vsdark'
+  if s:skip()
     return
   endif
   augroup vsd_extra_syntax
@@ -78,6 +80,13 @@ fun! vsd#reset()
   hi! link pythonFunction               Function
   hi! link vimCommand                   Statement
   hi! link vimLet                       Statement
+  hi! link helpCommand                  Comment
+  hi! link mkdItalic                    htmlItalic
+  hi! link mkdBold                      htmlBold
+  hi! link mkdBoldItalic                htmlBoldItalic
+  hi! link mkdListItem                  Identifier
+  hi! link mkdID                        Identifier
+  hi! link mkdRule                      Identifier
 endfun
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
