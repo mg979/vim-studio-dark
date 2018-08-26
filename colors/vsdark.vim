@@ -2,7 +2,7 @@
 " Author:       Gianmaria Bajo <mg1979.git@gmail.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: gio 23 ago 2018 15:23:40 CEST
+" Last Updated: dom 26 ago 2018 02:01:41 CEST
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -56,7 +56,7 @@ if &background ==# 'dark'
   hi diffLine ctermfg=186 ctermbg=bg guifg=#dada93 guibg=bg guisp=NONE cterm=NONE,italic gui=NONE,italic
   hi SignColumn ctermfg=fg ctermbg=bg guifg=fg guibg=bg guisp=NONE cterm=NONE gui=NONE
   hi LineNr ctermfg=243 ctermbg=bg guifg=#6a7d89 guibg=bg guisp=NONE cterm=NONE gui=NONE
-  hi CursorLine ctermfg=fg ctermbg=236 guifg=fg guibg=#333233 guisp=NONE cterm=NONE gui=NONE
+  hi CursorLine ctermfg=NONE ctermbg=237 guifg=NONE guibg=#393939 guisp=NONE cterm=NONE gui=NONE
   hi CursorColumn ctermfg=fg ctermbg=236 guifg=fg guibg=#333233 guisp=NONE cterm=NONE gui=NONE
   hi ColorColumn ctermfg=fg ctermbg=236 guifg=fg guibg=#333233 guisp=NONE cterm=NONE gui=NONE
   hi EndOfBuffer ctermfg=235 ctermbg=bg guifg=#262626 guibg=bg guisp=NONE cterm=NONE gui=NONE
@@ -124,6 +124,12 @@ if &background ==# 'dark'
   call vsd#extras()
   if !g:VSD.conservative
     hi link vimCommand Command
+  endif
+  silent! LightlineTheme deus
+  silent! VMTheme iceblue
+  if exists('loaded_xtabline')
+    let g:xtabline.Vars.has_reloaded_scheme = 1
+    silent! XTabTheme codedark
   endif
   filetype detect
   finish
@@ -232,6 +238,7 @@ finish
 " Color:      string      #ce9178 ~
 " Color:      red1        #df8c8c ~
 " Color:      red2        #ff0000 ~
+" Color:      line        #393939 ~
 " Normal 				white         	black
 " MatchParen                      red2          	bg
 " CursorLineNr                    lightblue     	bg
@@ -270,7 +277,7 @@ finish
 " diffLine                        yellow          bg italic
 " SignColumn                      fg            	bg
 " LineNr                          bluegrey      	bg
-" CursorLine                      fg            	darkgrey
+" CursorLine                      none            line
 " CursorColumn                    fg            	darkgrey
 " ColorColumn                     fg            	darkgrey
 " EndOfBuffer                     black         	bg

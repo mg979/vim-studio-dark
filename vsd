@@ -42,6 +42,7 @@ Color:      bluegrey    #6a7d89 ~
 Color:      string      #ce9178 ~
 Color:      red1        #df8c8c ~
 Color:      red2        #ff0000 ~
+Color:      line        #393939 ~
 
 Normal 				white         	black
 
@@ -86,7 +87,7 @@ diffLine                        yellow          bg italic
 
 SignColumn                      fg            	bg
 LineNr                          bluegrey      	bg
-CursorLine                      fg            	darkgrey
+CursorLine                      none            line
 CursorColumn                    fg            	darkgrey
 ColorColumn                     fg            	darkgrey
 EndOfBuffer                     black         	bg
@@ -171,6 +172,12 @@ call vsd#terminal_dark()
 call vsd#extras()
 if !g:VSD.conservative
   hi link vimCommand Command
+endif
+silent! LightlineTheme deus
+silent! VMTheme iceblue
+if exists('loaded_xtabline')
+  let g:xtabline.Vars.has_reloaded_scheme = 1
+  silent! XTabTheme codedark
 endif
 filetype detect
 endverbatim

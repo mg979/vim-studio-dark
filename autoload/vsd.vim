@@ -27,7 +27,7 @@ fun! vsd#vim()
   syn match vimDocstring '^\s\s\{-}"""\w.*'
   syn keyword vimConditional if elseif else endif try catch finally endtry
   syn keyword vimRepeat while endwhile for endfor in
-  syn match vimLetVar '\(let \|for \)\@<=\(\w\|\.\|:\)\+'
+  syn match vimLetVar '\(let \|for \)\@<=\(\w\|\.\|:\|#\)\+'
   syn keyword vimLet  let unl[et] skipwhite nextgroup=vimVar,vimFuncVar,vimLetVar
   syn keyword vimCall call nextgroup=Function
   syn keyword vimSelf self
@@ -69,8 +69,15 @@ fun! vsd#reset()
   silent! syntax clear vimLetVar
   silent! syntax clear vimCall
   silent! syntax clear vimSelf
-  hi! link vimCommand Statement
-  hi! link vimLet Statement
+  hi! link pythonOperator               Operator
+  hi! link pythonBoolean                Boolean
+  hi! link pythonNone                   Constant
+  hi! link pythonStructure              Keyword
+  hi! link pythonStorageClass           Keyword
+  hi! link pythonTypeDef                Keyword
+  hi! link pythonFunction               Function
+  hi! link vimCommand                   Statement
+  hi! link vimLet                       Statement
 endfun
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
