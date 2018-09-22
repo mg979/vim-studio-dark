@@ -4,6 +4,11 @@ Short name: vsdark
 Author:     Gianmaria Bajo <mg1979.git@gmail.com>
 Maintainer: Gianmaria Bajo <mg1979.git@gmail.com>
 
+verbatim
+call vsd#init()
+let s:load_for = { ft -> g:VSD[ft] || g:VSD.extra_syntax }
+endverbatim
+
 #===================================================================
 # Dark variant
 #===================================================================
@@ -11,7 +16,7 @@ Maintainer: Gianmaria Bajo <mg1979.git@gmail.com>
 Background: dark
 
 # Color palette
-Color:      black       #262626 ~
+Color:      black       #1e1e1e ~
 Color:      white       #c5d4dd ~
 Color:      white2      #e6eef3 ~
 Color:      yellow      #dada93 ~
@@ -42,7 +47,7 @@ Color:      bluegrey    #6a7d89 ~
 Color:      string      #ce9178 ~
 Color:      red1        #df8c8c ~
 Color:      red2        #ff0000 ~
-Color:      line        #393939 ~
+Color:      line        #262626 ~
 
 Normal 				white         	black
 
@@ -122,9 +127,9 @@ Comment                         darkgreen     	bg
 Ignore                          darkgreen     	bg
 Conceal                         darkgreen     	bg
 
-Cursor 				black          	green
-QuickFixLine 		-> 	Search
-Command                         pink1           bg
+Cursor 				            black          	green
+Command                         pink2           bg
+QuickFixLine -> Search
 
 # Plugins
 
@@ -132,41 +137,75 @@ GitGutterAdd                    green   	bg
 GitGutterChange                 special 	bg
 GitGutterChangeDelete           special 	bg
 GitGutterDelete                 red2    	bg
+SignifySignAdd                  green   	bg
+SignifySignChange               special 	bg
+SignifySignChangeDelete         special 	bg
+SignifySignDelete               red2    	bg
 
 # vimL
 
-vimDocstring   		-> 	String
-vimConditional 		-> 	Conditional
-vimRepeat      		-> 	Conditional
-vimLetVar      		-> 	Identifier
-vimLet  			lightgrey3 	bg
-vimCall 			lightgrey3 	bg
-vimSelf 			cyan 	 	bg italic
+verbatim
+if s:load_for('vim')
+endverbatim
+vimDocstring   		    -> 	String
+vimConditional 		    -> 	Conditional
+vimRepeat      		    -> 	Conditional
+vimLetVar      		    -> 	Identifier
 helpCommand             -> 	Type
+vimLet  			        lightgrey3 	bg
+vimCall 			        lightgrey3 	bg
+vimSelf 			        cyan 	 	bg italic
+verbatim
+endif
+endverbatim
 
 # Python
 
+verbatim
+if s:load_for('python')
+endverbatim
 pythonSelf           	-> 	Identifier
 pythonOperatorSymbol 	-> 	Operator
 pythonBraces         	-> 	Special
 pythonGlobalVar      	-> 	Define
 pythonStringType     	-> 	Statement
 pythonOperator          -> 	Statement
-pythonBoolean           ->      Command
-pythonNone              ->      Command
-pythonStructure         ->      Keyword
-pythonStorageClass      ->      Keyword
-pythonTypeDef           ->      Keyword
-pythonFunction                  cya2 bg
+pythonBoolean           ->  Command
+pythonNone              ->  Command
+pythonStructure         ->  Keyword
+pythonStorageClass      ->  Keyword
+pythonTypeDef           ->  Keyword
+pythonFunction              cya2 bg
+verbatim
+endif
+endverbatim
 
 # Markdown
 
+verbatim
+if s:load_for('markdown')
+endverbatim
 mkdItalic                  pink2           bg
 mkdBold                    pink2           bg
 mkdBoldItalic              pink2           bg
 mkdListItem                special         bg
 mkdID                      purple          bg
 mkdRule                    purple          bg
+verbatim
+endif
+endverbatim
+
+# cpp
+
+verbatim
+if s:load_for('cpp')
+endverbatim
+cppStructure      pink2 bg
+cCharacter        -> String
+cppOperatorSymbol -> Operator
+verbatim
+endif
+endverbatim
 
 verbatim
 call vsd#terminal_dark()

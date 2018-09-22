@@ -6,18 +6,24 @@ let s:load_for = { ft -> g:VSD[ft] || g:VSD.extra_syntax }
 let s:schemes  = ['vsdark', 'tomorrow_eighties']
 let s:skip     = { -> exists('g:colors_name') && index(s:schemes, g:colors_name) >= 0 }
 
-fun! vsd#extras()
+fun! vsd#init()
   let g:VSD              = get(g:, 'VSD', {})
   let g:VSD.conservative = get(g:VSD, 'conservative', 0)
   let g:VSD.extra_syntax = get(g:VSD, 'extra_syntax', 1)
-  let g:VSD.vim          = get(g:VSD, 'vim', 0)
-  let g:VSD.python       = get(g:VSD, 'python', 0)
+  let g:VSD.all_syntaxes = get(g:VSD, 'all_syntaxes', 0)
+  let g:VSD.vim          = get(g:VSD, 'vim', g:VSD.all_syntaxes)
+  let g:VSD.python       = get(g:VSD, 'python', g:VSD.all_syntaxes)
+  let g:VSD.cpp          = get(g:VSD, 'cpp', g:VSD.all_syntaxes)
+  let g:VSD.markdown     = get(g:VSD, 'markdown', g:VSD.all_syntaxes)
+endfun
 
+fun! vsd#extras()
   augroup vsd_extra_syntax
     au!
-    au filetype python call vsd#python()
-    au filetype vim    call vsd#vim()
     au ColorScheme *   call vsd#reset()
+    au filetype vim    call vsd#vim()
+    au filetype python call vsd#python()
+    au filetype cpp    call vsd#cpp()
   augroup end
 endfun
 
@@ -36,8 +42,6 @@ fun! vsd#vim()
   syn cluster vimFuncBodyList add=vimDocstring,vimConditional,vimSelf,vimCall,vimLetVar,vimRepeat
 endfun
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 fun! vsd#python()
   if !s:load_for('python') | return | endif
 
@@ -46,6 +50,11 @@ fun! vsd#python()
   syn match pythonBraces           '{\|}\|\[\|\]'
   syn match pythonGlobalVar        '\<[A-Z_]*\>'
   syn match pythonStringType       '\((\)\@<=[rfub]\(["\']\)\@='
+endfun
+
+fun! vsd#cpp()
+  if !g:VSD.extra_syntax && !g:VSD['cpp'] | return | endif
+  syn match cppOperatorSymbol   '\V = \| > \| < \| - \| + \| * \| / \| % \| && \| || \|^\|<<\|>>\| != \| <= \| >= \| == \| += \| -= \| *= \| /= \| %= '
 endfun
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -57,36 +66,54 @@ fun! vsd#reset()
   augroup vsd_extra_syntax
     au!
   augroup end
+  call s:reset_syntax()
+endfun
 
-  syn cluster vimFuncBodyList remove=vimDocstring,vimConditional,vimSelf,vimCall,vimLetVar
-  syn keyword vimLet  let unl[et] skipwhite nextgroup=vimVar,vimFuncVar
-  silent! syntax clear pythonSelf
-  silent! syntax clear pythonOperatorSymbol
-  silent! syntax clear pythonBraces
-  silent! syntax clear pythonGlobalVar
-  silent! syntax clear pythonStringType
-  silent! syntax clear vimDocstring
-  silent! syntax clear vimConditional
-  silent! syntax clear vimRepeat
-  silent! syntax clear vimLetVar
-  silent! syntax clear vimCall
-  silent! syntax clear vimSelf
-  hi! link pythonOperator               Operator
-  hi! link pythonBoolean                Boolean
-  hi! link pythonNone                   Constant
-  hi! link pythonStructure              Keyword
-  hi! link pythonStorageClass           Keyword
-  hi! link pythonTypeDef                Keyword
-  hi! link pythonFunction               Function
-  hi! link vimCommand                   Statement
-  hi! link vimLet                       Statement
-  hi! link helpCommand                  Comment
-  hi! link mkdItalic                    htmlItalic
-  hi! link mkdBold                      htmlBold
-  hi! link mkdBoldItalic                htmlBoldItalic
-  hi! link mkdListItem                  Identifier
-  hi! link mkdID                        Identifier
-  hi! link mkdRule                      Identifier
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+fun! s:reset_syntax()
+
+  if s:load_for('vim')
+    syn cluster vimFuncBodyList remove=vimDocstring,vimConditional,vimSelf,vimCall,vimLetVar
+    syn keyword vimLet  let unl[et] skipwhite nextgroup=vimVar,vimFuncVar
+    silent! syntax clear vimDocstring
+    silent! syntax clear vimConditional
+    silent! syntax clear vimRepeat
+    silent! syntax clear vimLetVar
+    silent! syntax clear vimCall
+    silent! syntax clear vimSelf
+    hi! link vimCommand                   Statement
+    hi! link vimLet                       Statement
+    hi! link helpCommand                  Comment
+  endif
+  if s:load_for('python')
+    silent! syntax clear pythonSelf
+    silent! syntax clear pythonOperatorSymbol
+    silent! syntax clear pythonBraces
+    silent! syntax clear pythonGlobalVar
+    silent! syntax clear pythonStringType
+    hi! link pythonOperator               Operator
+    hi! link pythonBoolean                Boolean
+    hi! link pythonNone                   Constant
+    hi! link pythonStructure              Keyword
+    hi! link pythonStorageClass           Keyword
+    hi! link pythonTypeDef                Keyword
+    hi! link pythonFunction               Function
+  endif
+  if s:load_for('cpp')
+    silent! syntax clear cppOperatorSymbol
+    silent! syntax clear cppBraces
+    hi! link cCharacter                   Constant
+    hi! link cppStructure                 Type
+  endif
+  if s:load_for('markdown')
+    hi! link mkdItalic                    htmlItalic
+    hi! link mkdBold                      htmlBold
+    hi! link mkdBoldItalic                htmlBoldItalic
+    hi! link mkdListItem                  Identifier
+    hi! link mkdID                        Identifier
+    hi! link mkdRule                      Identifier
+  endif
 endfun
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

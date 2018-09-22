@@ -5,13 +5,7 @@
 
 Inspired by [codedark](https://github.com/tomasiser/vim-code-dark), with dark and light variants.
 
-Dark:
-
-![Imgur](https://i.imgur.com/6nGqPoU.png)
-
-Light:
-
-![Imgur](https://i.imgur.com/rLLdFr2.png)
+![Imgur](https://i.imgur.com/fzildns.png)
 
 ------------
 
@@ -19,13 +13,29 @@ Options:
 
     let g:VSD = {}
 
-For python and vimscript there are some new highlight groups. You can enable them with:
-
-    let g:VSD.extra_syntax = 1
-
-![Imgur](https://i.imgur.com/6UGT4cq.png)
-
 Conservative mode, if you prefer less colors:
 
     let g:VSD.conservative = 1
+
+Enable new highlight groups for all filetypes:
+
+    let g:VSD.extra_syntax = 1
+
+Enable new highlight groups for certain filetypes:
+
+    let g:VSD.extra_syntax = 0
+    let g:VSD.vim = 1
+    let g:VSD.python = 1
+    let g:VSD.cpp = 1
+    let g:VSD.markdown = 1
+
+Disable new highlight groups only certain filetypes:
+
+    let g:VSD.extra_syntax = 0
+    let g:VSD.all_syntaxes = 1
+    let g:VSD.cpp = 0
+
+![Imgur](https://i.imgur.com/gH8lBAv.png)
+
+![Imgur](https://i.imgur.com/wQ2UfpZ.png)
 

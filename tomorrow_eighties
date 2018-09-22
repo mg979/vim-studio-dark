@@ -4,6 +4,11 @@ Short name: tomorrow_eighties
 Author:     Chris Kempson <http://chriskempson.com>
 Maintainer: Gianmaria Bajo <mg1979.git@gmail.com>
 
+verbatim
+call vsd#init()
+let s:load_for = { ft -> g:VSD[ft] || g:VSD.extra_syntax }
+endverbatim
+
 #===================================================================
 # Dark variant
 #===================================================================
@@ -27,106 +32,138 @@ Color:      window       #4d5057 ~
 Color:      special      #f2c38f ~
 Color:      lightgrey    #a9a9a9 ~
 
-Normal          foreground      background
-LineNr          selection       bg
-NonText         selection       bg
-Search          bg              yellow
-TabLine         window          fg              reverse
-TabLineFill     window          fg              reverse
-StatusLine      window          yellow          reverse
-StatusLineNC    window          fg              reverse
-VertSplit       window          window
-Visual          none            selection
-VisualNOS       none            selection
-Directory       blue            bg
-ModeMsg         green           bg
-MoreMsg         green           bg
-Question        green           bg
-WarningMsg      red             bg
-MatchParen      fg              selection
-Folded          comment         bg
-FoldColumn      fg              bg
-CursorLine      none            line
-CursorColumn    fg              line
-Pmenu           fg              selection
-PmenuSel        fg              selection       reverse
-SignColumn      fg              bg
-ColorColumn     fg              line
+Normal              foreground      background
+LineNr              selection       bg
+NonText             selection       bg
+Search              bg              yellow
+TabLine             window          fg reverse
+TabLineFill         window          fg reverse
+StatusLine          window          yellow reverse
+StatusLineNC        window          fg reverse
+VertSplit           window          window
+Visual              none            selection
+VisualNOS           none            selection
+Directory           blue            bg
+ModeMsg             green           bg
+MoreMsg             green           bg
+Question            green           bg
+WarningMsg          red             bg
+MatchParen          fg              selection
+Folded              comment         bg
+FoldColumn          fg              bg
+CursorLine          none            line
+CursorColumn        fg              line
+Pmenu               fg              selection
+PmenuSel            fg              selection reverse
+SignColumn          fg              bg
+ColorColumn         fg              line
 
-Comment         comment         bg
-Todo            comment         bg
-Title           comment         bg
-Identifier      red             bg
-Statement       fg              bg
-Conditional     blue            bg
-Repeat          fg              bg
-Structure       purple          bg
-Function        fg              bg
-Constant        orange          bg
-Keyword         orange          bg
-String          green           bg
-Special         special         bg
-SpecialKey      selection       bg
-PreProc         purple          bg
-Operator        aqua            bg
-Type            blue            bg
-Define          purple          bg
-Include         blue            bg
+Comment             comment         bg
+Todo                comment         bg
+Title               comment         bg
+Identifier          red             bg
+Statement           fg              bg
+Conditional         blue            bg
+Repeat              fg              bg
+Structure           purple          bg
+Function            fg              bg
+Constant            orange          bg
+Keyword             orange          bg
+String              green           bg
+Special             special         bg
+SpecialKey          selection       bg
+PreProc             purple          bg
+Operator            aqua            bg
+Type                blue            bg
+Define              purple          bg
+Include             blue            bg
 
-DiffAdd         fg              selection
-DiffDelete      bg              red
-DiffChange      fg              blue
-DiffText        line            blue
+DiffAdd             fg              selection
+DiffDelete          bg              red
+DiffChange          fg              blue
+DiffText            line            blue
 
-diffAdded        green bg
-diffRemoved      red bg
-gitcommitSummary fg bg bold
+diffAdded           green           bg
+diffRemoved         red             bg
+gitcommitSummary    fg              bg bold
 
 Cursor 				fg            	green
 QuickFixLine 		-> 	Search
-Command                         red             bg
+Command             red             bg
 
 # Plugins
 
-GitGutterAdd                    green   	bg
-GitGutterChange                 special 	bg
-GitGutterChangeDelete           special 	bg
-GitGutterDelete                 red     	bg
+GitGutterAdd            green       bg
+GitGutterChange         special     bg
+GitGutterChangeDelete   special     bg
+GitGutterDelete         red         bg
+SignifySignAdd          green       bg
+SignifySignChange       special     bg
+SignifySignChangeDelete special     bg
+SignifySignDelete       red         bg
 
 # vimL
 
+verbatim
+if s:load_for('vim')
+endverbatim
 vimDocstring   		-> 	String
 vimConditional 		-> 	Conditional
 vimRepeat      		-> 	Conditional
 vimLetVar      		-> 	Identifier
+helpCommand         -> 	Type
 vimLet  			lightgrey 	bg
 vimCall 			lightgrey 	bg
-vimSelf 			special	        bg italic
-helpCommand             -> 	Type
+vimSelf 			special	    bg italic
+verbatim
+endif
+endverbatim
 
 # Python
 
+verbatim
+if s:load_for('python')
+endverbatim
 pythonSelf           	-> 	Identifier
 pythonOperatorSymbol 	-> 	Operator
 pythonBraces         	-> 	Special
 pythonGlobalVar      	-> 	Define
 pythonStringType     	-> 	Statement
 pythonOperator          -> 	Statement
-pythonBoolean           ->      Command
-pythonNone              ->      Command
-pythonStructure         ->      Keyword
-pythonStorageClass      ->      Keyword
-pythonTypeDef           ->      Keyword
-pythonFunction                  blue bg
+pythonBoolean           ->  Command
+pythonNone              ->  Command
+pythonStructure         ->  Keyword
+pythonStorageClass      ->  Keyword
+pythonTypeDef           ->  Keyword
+pythonFunction              blue bg
+verbatim
+endif
+endverbatim
 
 # Markdown
 
-mkdItalic                  purple           bg
-mkdBold                    purple           bg
-mkdBoldItalic              purple           bg
-mkdListItem                special         bg
-mkdID                      purple          bg
-mkdRule                    purple          bg
+verbatim
+if s:load_for('markdown')
+endverbatim
+mkdItalic                  purple  bg
+mkdBold                    purple  bg
+mkdBoldItalic              purple  bg
+mkdListItem                special bg
+mkdID                      purple  bg
+mkdRule                    purple  bg
+verbatim
+endif
+endverbatim
+
+# cpp
+
+verbatim
+if s:load_for('cpp')
+endverbatim
+cppOperatorSymbol -> Operator
+verbatim
+endif
+endverbatim
 
 verbatim
 call vsd#terminal_dark()

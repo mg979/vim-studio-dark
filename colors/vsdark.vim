@@ -2,7 +2,7 @@
 " Author:       Gianmaria Bajo <mg1979.git@gmail.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: lun 27 ago 2018 22:22:03 CEST
+" Last Updated: sab 22 set 2018 14:28:04 CEST
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -17,8 +17,11 @@ endif
 
 let g:colors_name = 'vsdark'
 
+call vsd#init()
+let s:load_for = { ft -> g:VSD[ft] || g:VSD.extra_syntax }
+
 if &background ==# 'dark'
-  hi Normal ctermfg=252 ctermbg=235 guifg=#c5d4dd guibg=#262626 guisp=NONE cterm=NONE gui=NONE
+  hi Normal ctermfg=252 ctermbg=234 guifg=#c5d4dd guibg=#1e1e1e guisp=NONE cterm=NONE gui=NONE
   hi MatchParen ctermfg=196 ctermbg=bg guifg=#ff0000 guibg=bg guisp=NONE cterm=NONE gui=NONE
   hi CursorLineNr ctermfg=110 ctermbg=bg guifg=#83afe5 guibg=bg guisp=NONE cterm=NONE gui=NONE
   hi Visual ctermfg=NONE ctermbg=24 guifg=NONE guibg=#264f78 guisp=NONE cterm=NONE gui=NONE
@@ -56,10 +59,10 @@ if &background ==# 'dark'
   hi diffLine ctermfg=186 ctermbg=bg guifg=#dada93 guibg=bg guisp=NONE cterm=NONE,italic gui=NONE,italic
   hi SignColumn ctermfg=fg ctermbg=bg guifg=fg guibg=bg guisp=NONE cterm=NONE gui=NONE
   hi LineNr ctermfg=243 ctermbg=bg guifg=#6a7d89 guibg=bg guisp=NONE cterm=NONE gui=NONE
-  hi CursorLine ctermfg=NONE ctermbg=237 guifg=NONE guibg=#393939 guisp=NONE cterm=NONE gui=NONE
+  hi CursorLine ctermfg=NONE ctermbg=235 guifg=NONE guibg=#262626 guisp=NONE cterm=NONE gui=NONE
   hi CursorColumn ctermfg=fg ctermbg=236 guifg=fg guibg=#333233 guisp=NONE cterm=NONE gui=NONE
   hi ColorColumn ctermfg=fg ctermbg=236 guifg=fg guibg=#333233 guisp=NONE cterm=NONE gui=NONE
-  hi EndOfBuffer ctermfg=235 ctermbg=bg guifg=#262626 guibg=bg guisp=NONE cterm=NONE gui=NONE
+  hi EndOfBuffer ctermfg=234 ctermbg=bg guifg=#1e1e1e guibg=bg guisp=NONE cterm=NONE gui=NONE
   hi VertSplit ctermfg=236 ctermbg=235 guifg=#333233 guibg=#212733 guisp=NONE cterm=NONE gui=NONE
   hi StatusLineNC ctermfg=252 ctermbg=243 guifg=#c5d4dd guibg=#6a7d89 guisp=NONE cterm=NONE gui=NONE
   hi StatusLineTermNC ctermfg=252 ctermbg=243 guifg=#c5d4dd guibg=#6a7d89 guisp=NONE cterm=NONE gui=NONE
@@ -88,39 +91,54 @@ if &background ==# 'dark'
   hi Comment ctermfg=65 ctermbg=bg guifg=#608b4e guibg=bg guisp=NONE cterm=NONE gui=NONE
   hi Ignore ctermfg=65 ctermbg=bg guifg=#608b4e guibg=bg guisp=NONE cterm=NONE gui=NONE
   hi Conceal ctermfg=65 ctermbg=bg guifg=#608b4e guibg=bg guisp=NONE cterm=NONE gui=NONE
-  hi Cursor ctermfg=235 ctermbg=34 guifg=#262626 guibg=#00af00 guisp=NONE cterm=NONE gui=NONE
+  hi Cursor ctermfg=234 ctermbg=34 guifg=#1e1e1e guibg=#00af00 guisp=NONE cterm=NONE gui=NONE
+  hi Command ctermfg=176 ctermbg=bg guifg=#c586c0 guibg=bg guisp=NONE cterm=NONE gui=NONE
   hi! link QuickFixLine Search
-  hi Command ctermfg=182 ctermbg=bg guifg=#dfafdf guibg=bg guisp=NONE cterm=NONE gui=NONE
   hi GitGutterAdd ctermfg=34 ctermbg=bg guifg=#00af00 guibg=bg guisp=NONE cterm=NONE gui=NONE
   hi GitGutterChange ctermfg=223 ctermbg=bg guifg=#f2c38f guibg=bg guisp=NONE cterm=NONE gui=NONE
   hi GitGutterChangeDelete ctermfg=223 ctermbg=bg guifg=#f2c38f guibg=bg guisp=NONE cterm=NONE gui=NONE
   hi GitGutterDelete ctermfg=196 ctermbg=bg guifg=#ff0000 guibg=bg guisp=NONE cterm=NONE gui=NONE
-  hi! link vimDocstring String
-  hi! link vimConditional Conditional
-  hi! link vimRepeat Conditional
-  hi! link vimLetVar Identifier
-  hi vimLet ctermfg=248 ctermbg=bg guifg=#a9a9a9 guibg=bg guisp=NONE cterm=NONE gui=NONE
-  hi vimCall ctermfg=248 ctermbg=bg guifg=#a9a9a9 guibg=bg guisp=NONE cterm=NONE gui=NONE
-  hi vimSelf ctermfg=109 ctermbg=bg guifg=#7fc1ca guibg=bg guisp=NONE cterm=NONE,italic gui=NONE,italic
-  hi! link helpCommand Type
-  hi! link pythonSelf Identifier
-  hi! link pythonOperatorSymbol Operator
-  hi! link pythonBraces Special
-  hi! link pythonGlobalVar Define
-  hi! link pythonStringType Statement
-  hi! link pythonOperator Statement
-  hi! link pythonBoolean Command
-  hi! link pythonNone Command
-  hi! link pythonStructure Keyword
-  hi! link pythonStorageClass Keyword
-  hi! link pythonTypeDef Keyword
-  hi pythonFunction ctermfg=44 ctermbg=bg guifg=#42dcd7 guibg=bg guisp=NONE cterm=NONE gui=NONE
-  hi mkdItalic ctermfg=176 ctermbg=bg guifg=#c586c0 guibg=bg guisp=NONE cterm=NONE gui=NONE
-  hi mkdBold ctermfg=176 ctermbg=bg guifg=#c586c0 guibg=bg guisp=NONE cterm=NONE gui=NONE
-  hi mkdBoldItalic ctermfg=176 ctermbg=bg guifg=#c586c0 guibg=bg guisp=NONE cterm=NONE gui=NONE
-  hi mkdListItem ctermfg=223 ctermbg=bg guifg=#f2c38f guibg=bg guisp=NONE cterm=NONE gui=NONE
-  hi mkdID ctermfg=104 ctermbg=bg guifg=#9a93e1 guibg=bg guisp=NONE cterm=NONE gui=NONE
-  hi mkdRule ctermfg=104 ctermbg=bg guifg=#9a93e1 guibg=bg guisp=NONE cterm=NONE gui=NONE
+  hi SignifySignAdd ctermfg=34 ctermbg=bg guifg=#00af00 guibg=bg guisp=NONE cterm=NONE gui=NONE
+  hi SignifySignChange ctermfg=223 ctermbg=bg guifg=#f2c38f guibg=bg guisp=NONE cterm=NONE gui=NONE
+  hi SignifySignChangeDelete ctermfg=223 ctermbg=bg guifg=#f2c38f guibg=bg guisp=NONE cterm=NONE gui=NONE
+  hi SignifySignDelete ctermfg=196 ctermbg=bg guifg=#ff0000 guibg=bg guisp=NONE cterm=NONE gui=NONE
+  if s:load_for('vim')
+    hi! link vimDocstring String
+    hi! link vimConditional Conditional
+    hi! link vimRepeat Conditional
+    hi! link vimLetVar Identifier
+    hi! link helpCommand Type
+    hi vimLet ctermfg=248 ctermbg=bg guifg=#a9a9a9 guibg=bg guisp=NONE cterm=NONE gui=NONE
+    hi vimCall ctermfg=248 ctermbg=bg guifg=#a9a9a9 guibg=bg guisp=NONE cterm=NONE gui=NONE
+    hi vimSelf ctermfg=109 ctermbg=bg guifg=#7fc1ca guibg=bg guisp=NONE cterm=NONE,italic gui=NONE,italic
+  endif
+  if s:load_for('python')
+    hi! link pythonSelf Identifier
+    hi! link pythonOperatorSymbol Operator
+    hi! link pythonBraces Special
+    hi! link pythonGlobalVar Define
+    hi! link pythonStringType Statement
+    hi! link pythonOperator Statement
+    hi! link pythonBoolean Command
+    hi! link pythonNone Command
+    hi! link pythonStructure Keyword
+    hi! link pythonStorageClass Keyword
+    hi! link pythonTypeDef Keyword
+    hi pythonFunction ctermfg=44 ctermbg=bg guifg=#42dcd7 guibg=bg guisp=NONE cterm=NONE gui=NONE
+  endif
+  if s:load_for('markdown')
+    hi mkdItalic ctermfg=176 ctermbg=bg guifg=#c586c0 guibg=bg guisp=NONE cterm=NONE gui=NONE
+    hi mkdBold ctermfg=176 ctermbg=bg guifg=#c586c0 guibg=bg guisp=NONE cterm=NONE gui=NONE
+    hi mkdBoldItalic ctermfg=176 ctermbg=bg guifg=#c586c0 guibg=bg guisp=NONE cterm=NONE gui=NONE
+    hi mkdListItem ctermfg=223 ctermbg=bg guifg=#f2c38f guibg=bg guisp=NONE cterm=NONE gui=NONE
+    hi mkdID ctermfg=104 ctermbg=bg guifg=#9a93e1 guibg=bg guisp=NONE cterm=NONE gui=NONE
+    hi mkdRule ctermfg=104 ctermbg=bg guifg=#9a93e1 guibg=bg guisp=NONE cterm=NONE gui=NONE
+  endif
+  if s:load_for('cpp')
+    hi cppStructure ctermfg=176 ctermbg=bg guifg=#c586c0 guibg=bg guisp=NONE cterm=NONE gui=NONE
+    hi! link cCharacter String
+    hi! link cppOperatorSymbol Operator
+  endif
   call vsd#terminal_dark()
   call vsd#extras()
   if !g:VSD.conservative
@@ -209,7 +227,7 @@ filetype detect
 finish
 
 " Background: dark
-" Color:      black       #262626 ~
+" Color:      black       #1e1e1e ~
 " Color:      white       #c5d4dd ~
 " Color:      white2      #e6eef3 ~
 " Color:      yellow      #dada93 ~
@@ -240,7 +258,7 @@ finish
 " Color:      string      #ce9178 ~
 " Color:      red1        #df8c8c ~
 " Color:      red2        #ff0000 ~
-" Color:      line        #393939 ~
+" Color:      line        #262626 ~
 " Normal 				white         	black
 " MatchParen                      red2          	bg
 " CursorLineNr                    lightblue     	bg
@@ -311,39 +329,46 @@ finish
 " Comment                         darkgreen     	bg
 " Ignore                          darkgreen     	bg
 " Conceal                         darkgreen     	bg
-" Cursor 				black          	green
-" QuickFixLine 		-> 	Search
-" Command                         pink1           bg
+" Cursor 				            black          	green
+" Command                         pink2           bg
+" QuickFixLine -> Search
 " GitGutterAdd                    green   	bg
 " GitGutterChange                 special 	bg
 " GitGutterChangeDelete           special 	bg
 " GitGutterDelete                 red2    	bg
-" vimDocstring   		-> 	String
-" vimConditional 		-> 	Conditional
-" vimRepeat      		-> 	Conditional
-" vimLetVar      		-> 	Identifier
-" vimLet  			lightgrey3 	bg
-" vimCall 			lightgrey3 	bg
-" vimSelf 			cyan 	 	bg italic
+" SignifySignAdd                  green   	bg
+" SignifySignChange               special 	bg
+" SignifySignChangeDelete         special 	bg
+" SignifySignDelete               red2    	bg
+" vimDocstring   		    -> 	String
+" vimConditional 		    -> 	Conditional
+" vimRepeat      		    -> 	Conditional
+" vimLetVar      		    -> 	Identifier
 " helpCommand             -> 	Type
+" vimLet  			        lightgrey3 	bg
+" vimCall 			        lightgrey3 	bg
+" vimSelf 			        cyan 	 	bg italic
 " pythonSelf           	-> 	Identifier
 " pythonOperatorSymbol 	-> 	Operator
 " pythonBraces         	-> 	Special
 " pythonGlobalVar      	-> 	Define
 " pythonStringType     	-> 	Statement
 " pythonOperator          -> 	Statement
-" pythonBoolean           ->      Command
-" pythonNone              ->      Command
-" pythonStructure         ->      Keyword
-" pythonStorageClass      ->      Keyword
-" pythonTypeDef           ->      Keyword
-" pythonFunction                  cya2 bg
+" pythonBoolean           ->  Command
+" pythonNone              ->  Command
+" pythonStructure         ->  Keyword
+" pythonStorageClass      ->  Keyword
+" pythonTypeDef           ->  Keyword
+" pythonFunction              cya2 bg
 " mkdItalic                  pink2           bg
 " mkdBold                    pink2           bg
 " mkdBoldItalic              pink2           bg
 " mkdListItem                special         bg
 " mkdID                      purple          bg
 " mkdRule                    purple          bg
+" cppStructure      pink2 bg
+" cCharacter        -> String
+" cppOperatorSymbol -> Operator
 " Background: light
 " Color:      yel1 #ffbc29 ~
 " Color:      yel2 #f2c38f ~
