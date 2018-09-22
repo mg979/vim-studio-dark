@@ -1,0 +1,202 @@
+# vim: ft=colortemplate
+Full name:  Vim Studio Light
+Short name: vslight
+Author:     Gianmaria Bajo <mg1979.git@gmail.com>
+Maintainer: Gianmaria Bajo <mg1979.git@gmail.com>
+
+verbatim
+call vsd#init()
+let s:load_for = { ft -> g:VSD[ft] || g:VSD.extra_syntax }
+endverbatim
+
+#===================================================================
+# Light variant
+#===================================================================
+
+Background: light
+
+# Color palette
+Color:      foreground   #1e1e1e ~ 
+Color:      background   #bdbdbd ~ 
+Color:      gold         #ffbc29 ~ 
+Color:      yellow       #f2c38f ~ 
+Color:      darkblue     #2222ff ~ 
+Color:      blue         #0070af ~ 
+Color:      green        #006600 ~ 
+# Color:      cyan #7fc1ca ~ 
+Color:      cyan         #42dcd7 ~ 
+Color:      purple       #6f008a ~ 
+Color:      pink         #d18ec2 ~ 
+Color:      darkgrey     #333333 ~ 
+Color:      lightgrey    #aaaaaa ~ 
+Color:      darkred      #a31515 ~ 
+Color:      lightred     #df8c8c ~ 
+Color:      red          #ff0000 ~ 
+Color:      white        #f2f2f2 ~ 
+Color:      special      #682900 ~ 
+
+Normal 				            foreground      background
+
+MatchParen                      red    	        bg
+CursorLineNr                    darkblue    	bg
+Visual                          none      	    lightgrey
+VisualNOS                       none      	    lightgrey
+Folded                          darkblue    	bg
+FoldColumn                      darkblue    	bg
+IncSearch                       red    	        gold
+Search                          blue    	    yellow
+WildMenu                        bg    	        blue
+ToolbarButton                   darkblue    	blue
+Question                        darkblue    	gold
+MoreMsg                         darkblue    	bg
+ModeMsg                         darkblue    	bg
+StatusLine                      darkblue    	white
+StatusLineTerm                  blue    	    darkblue
+
+Error                           red    	        bg
+ErrorMsg                        red    	        bg
+WarningMsg                      lightred    	bg
+SpellBad                        lightred    	bg
+SpellCap                        lightred    	bg
+Todo                            darkblue    	bg
+
+Pmenu                           darkgrey    	lightgrey
+PmenuSel                        bg    	        blue
+PmenuThumb                      darkblue    	darkblue
+PmenuSbar                       green    	green
+
+DiffAdd                         fg    	        green
+DiffChange                      fg    	        yellow
+DiffDelete                      lightred    	bg
+DiffText                        fg    	        yellow bold
+
+SignColumn                      fg      	    bg
+LineNr                          blue    	    bg
+CursorLine                      fg      	    lightgrey
+CursorColumn                    fg      	    lightgrey
+ColorColumn                     fg      	    lightgrey
+EndOfBuffer                     white    	    bg
+VertSplit                       blue    	    blue
+StatusLineNC                    blue    	    lightgrey
+StatusLineTermNC                blue    	    lightgrey
+TabLine                         fg    	        lightgrey
+TabLineSel                      darkgrey    	darkblue
+TabLineFill                     fg    	        lightgrey
+ToolbarLine                     fg      	    cyan
+
+String                          darkred    	    bg
+Constant                        purple    	    bg
+Directory                       darkblue    	bg
+
+Identifier                      darkgrey    	bg italic
+Function                        darkgrey   	    bg bold
+Conditional                     darkblue 		bg bold
+Statement                       darkblue    	bg bold
+Operator                        darkgrey	    bg
+Number                          fg    	        bg
+Type                            darkblue	    bg
+PreProc                         purple    	    bg
+Keyword                         purple    	    bg
+Underlined                      pink    	    bg
+Special                         special		    bg
+SpecialKey                      special    	    bg
+NonText                         blue    	    bg
+Title                           blue    	    bg
+Comment                         green    	bg
+Ignore                          green    	bg
+Conceal                         green    	bg
+
+Cursor 				            green      bg
+Command                         purple          bg
+QuickFixLine            ->      Search
+
+# Plugins
+
+GitGutterAdd                    green      bg
+GitGutterChange                 special         bg
+GitGutterChangeDelete           special         bg
+GitGutterDelete                 red             bg
+SignifySignAdd                  green   	bg
+SignifySignChange               special 	    bg
+SignifySignChangeDelete         special 	    bg
+SignifySignDelete               red    	        bg
+
+# vimL
+
+verbatim
+if s:load_for('vim')
+endverbatim
+vimDocstring   		    -> 	    String
+vimConditional 		    -> 	    Conditional
+vimRepeat      		    -> 	    Conditional
+vimLetVar      		    -> 	    Identifier
+helpCommand             -> 	    Type
+vimLet  			            darkgrey 	    bg
+vimCall 			            darkgrey 	    bg
+vimSelf 			            cyan 	 	    bg italic
+verbatim
+endif
+endverbatim
+
+# Python
+
+verbatim
+if s:load_for('python')
+endverbatim
+pythonSelf           	-> 	    Identifier
+pythonOperatorSymbol 	-> 	    Operator
+pythonBraces         	-> 	    Special
+pythonStringType     	-> 	    Statement
+pythonOperator          -> 	    Statement
+pythonBoolean           ->      Command
+pythonNone              ->      Command
+pythonStructure         ->      Keyword
+pythonStorageClass      ->      Keyword
+pythonTypeDef           ->      Keyword
+pythonGlobalVar      	        darkblue        bg italic
+pythonFunction                  purple          bg bold
+verbatim
+endif
+endverbatim
+
+# Markdown
+
+verbatim
+if s:load_for('markdown')
+endverbatim
+mkdItalic                       purple           bg
+mkdBold                         purple           bg
+mkdBoldItalic                   purple           bg
+mkdListItem                     special          bg
+mkdID                           purple           bg
+mkdRule                         purple           bg
+verbatim
+endif
+endverbatim
+
+# cpp
+
+verbatim
+if s:load_for('cpp')
+endverbatim
+cppStructure                    purple          bg
+cCharacter              ->      String
+cppOperatorSymbol       ->      Operator
+verbatim
+endif
+endverbatim
+
+verbatim
+call vsd#terminal_light()
+call vsd#extras()
+call vsd#more_colors()
+silent! LightlineTheme Tomorrow_Night_Bright
+silent! VMTheme lightblue1
+if exists('loaded_xtabline')
+  let g:xtabline.Vars.has_reloaded_scheme = 1
+  silent! XTabTheme codedark
+endif
+filetype detect
+endverbatim
+
+

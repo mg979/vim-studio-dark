@@ -3,7 +3,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let s:load_for = { ft -> g:VSD[ft] || g:VSD.extra_syntax }
-let s:schemes  = ['vsdark', 'tomorrow_eighties']
+let s:schemes  = ['vsdark', 'vslight', 'tomorrow_eighties']
 let s:skip     = { -> exists('g:colors_name') && index(s:schemes, g:colors_name) >= 0 }
 
 fun! vsd#init()
@@ -25,6 +25,11 @@ fun! vsd#extras()
     au filetype python call vsd#python()
     au filetype cpp    call vsd#cpp()
   augroup end
+endfun
+
+fun! vsd#more_colors()
+  if g:VSD.conservative | return | endif
+  hi! link vimCommand Command
 endfun
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

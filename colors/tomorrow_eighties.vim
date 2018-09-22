@@ -2,7 +2,7 @@
 " Author:       Chris Kempson <http://chriskempson.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: sab 22 set 2018 15:10:34 CEST
+" Last Updated: sab 22 set 2018 15:31:44 CEST
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -121,9 +121,7 @@ if s:load_for('cpp')
 endif
 call vsd#terminal_dark()
 call vsd#extras()
-if !g:VSD.conservative
-  hi link vimCommand Command
-endif
+call vsd#more_colors()
 silent! LightlineTheme Tomorrow_Night_Eighties
 silent! VMTheme codedark
 if exists('loaded_xtabline')

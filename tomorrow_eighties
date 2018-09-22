@@ -168,9 +168,7 @@ endverbatim
 verbatim
 call vsd#terminal_dark()
 call vsd#extras()
-if !g:VSD.conservative
-  hi link vimCommand Command
-endif
+call vsd#more_colors()
 silent! LightlineTheme Tomorrow_Night_Eighties
 silent! VMTheme codedark
 if exists('loaded_xtabline')
