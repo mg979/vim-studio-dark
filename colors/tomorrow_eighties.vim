@@ -2,7 +2,7 @@
 " Author:       Chris Kempson <http://chriskempson.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: sab 22 set 2018 15:31:44 CEST
+" Last Updated: dom 23 set 2018 15:30:07 CEST
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -30,6 +30,8 @@ hi TabLine ctermfg=239 ctermbg=fg guifg=#4d5057 guibg=fg guisp=NONE cterm=NONE,r
 hi TabLineFill ctermfg=239 ctermbg=fg guifg=#4d5057 guibg=fg guisp=NONE cterm=NONE,reverse gui=NONE,reverse
 hi StatusLine ctermfg=239 ctermbg=222 guifg=#4d5057 guibg=#ffcc66 guisp=NONE cterm=NONE,reverse gui=NONE,reverse
 hi StatusLineNC ctermfg=239 ctermbg=fg guifg=#4d5057 guibg=fg guisp=NONE cterm=NONE,reverse gui=NONE,reverse
+hi StatusLineTerm ctermfg=239 ctermbg=222 guifg=#4d5057 guibg=#ffcc66 guisp=NONE cterm=NONE,reverse gui=NONE,reverse
+hi StatusLineTermNC ctermfg=239 ctermbg=fg guifg=#4d5057 guibg=fg guisp=NONE cterm=NONE,reverse gui=NONE,reverse
 hi VertSplit ctermfg=239 ctermbg=239 guifg=#4d5057 guibg=#4d5057 guisp=NONE cterm=NONE gui=NONE
 hi Visual ctermfg=NONE ctermbg=239 guifg=NONE guibg=#515151 guisp=NONE cterm=NONE gui=NONE
 hi VisualNOS ctermfg=NONE ctermbg=239 guifg=NONE guibg=#515151 guisp=NONE cterm=NONE gui=NONE
@@ -132,107 +134,109 @@ filetype detect
 finish
 
 " Background: dark
-" Color:      foreground   #cccccc ~
-" Color:      background   #2d2d2d ~
-" Color:      selection    #515151 ~
-" Color:      line         #393939 ~
-" Color:      comment      #999999 ~
-" Color:      red          #f2777a ~
-" Color:      orange       #f99157 ~
-" Color:      yellow       #ffcc66 ~
-" Color:      green        #99cc99 ~
-" Color:      aqua         #66cccc ~
-" Color:      blue         #6699cc ~
-" Color:      purple     	 #cc99cc ~
-" Color:      window       #4d5057 ~
-" Color:      special      #f2c38f ~
-" Color:      lightgrey    #a9a9a9 ~
-" Normal              foreground      background
-" LineNr              selection       bg
-" NonText             selection       bg
-" Search              bg              yellow
-" TabLine             window          fg reverse
-" TabLineFill         window          fg reverse
-" StatusLine          window          yellow reverse
-" StatusLineNC        window          fg reverse
-" VertSplit           window          window
-" Visual              none            selection
-" VisualNOS           none            selection
-" Directory           blue            bg
-" ModeMsg             green           bg
-" MoreMsg             green           bg
-" Question            green           bg
-" WarningMsg          red             bg
-" MatchParen          fg              selection
-" Folded              comment         bg
-" FoldColumn          fg              bg
-" CursorLine          none            line
-" CursorColumn        fg              line
-" Pmenu               fg              selection
-" PmenuSel            fg              selection reverse
-" SignColumn          fg              bg
-" ColorColumn         fg              line
-" Comment             comment         bg
-" Todo                comment         bg
-" Title               comment         bg
-" Identifier          red             bg
-" Statement           fg              bg
-" Conditional         blue            bg
-" Repeat              fg              bg
-" Structure           purple          bg
-" Function            fg              bg
-" Constant            orange          bg
-" Keyword             orange          bg
-" String              green           bg
-" Special             special         bg
-" SpecialKey          selection       bg
-" PreProc             purple          bg
-" Operator            aqua            bg
-" Type                blue            bg
-" Define              purple          bg
-" Include             blue            bg
-" DiffAdd             fg              selection
-" DiffDelete          bg              red
-" DiffChange          fg              blue
-" DiffText            line            blue
-" diffAdded           green           bg
-" diffRemoved         red             bg
-" gitcommitSummary    fg              bg bold
-" Cursor 				fg            	green
-" QuickFixLine 		-> 	Search
-" Command             red             bg
-" GitGutterAdd            green       bg
-" GitGutterChange         special     bg
-" GitGutterChangeDelete   special     bg
-" GitGutterDelete         red         bg
-" SignifySignAdd          green       bg
-" SignifySignChange       special     bg
-" SignifySignChangeDelete special     bg
-" SignifySignDelete       red         bg
-" vimDocstring   		-> 	String
-" vimConditional 		-> 	Conditional
-" vimRepeat      		-> 	Conditional
-" vimLetVar      		-> 	Identifier
-" helpCommand         -> 	Type
-" vimLet  			lightgrey 	bg
-" vimCall 			lightgrey 	bg
-" vimSelf 			special	    bg italic
-" pythonSelf           	-> 	Identifier
-" pythonOperatorSymbol 	-> 	Operator
-" pythonBraces         	-> 	Special
-" pythonGlobalVar      	-> 	Define
-" pythonStringType     	-> 	Statement
-" pythonOperator          -> 	Statement
-" pythonBoolean           ->  Command
-" pythonNone              ->  Command
-" pythonStructure         ->  Keyword
-" pythonStorageClass      ->  Keyword
-" pythonTypeDef           ->  Keyword
-" pythonFunction              blue bg
-" mkdItalic                  purple  bg
-" mkdBold                    purple  bg
-" mkdBoldItalic              purple  bg
-" mkdListItem                special bg
-" mkdID                      purple  bg
-" mkdRule                    purple  bg
+" Color:	    foreground	 #cccccc ~
+" Color:	    background	 #2d2d2d ~
+" Color:	    selection	 #515151 ~
+" Color:	    line	 #393939 ~
+" Color:	    comment	 #999999 ~
+" Color:	    red		 #f2777a ~
+" Color:	    orange	 #f99157 ~
+" Color:	    yellow	 #ffcc66 ~
+" Color:	    green	 #99cc99 ~
+" Color:	    aqua	 #66cccc ~
+" Color:	    blue	 #6699cc ~
+" Color:	    purple	 #cc99cc ~
+" Color:	    window	 #4d5057 ~
+" Color:	    special	 #f2c38f ~
+" Color:	    lightgrey	 #a9a9a9 ~
+" Normal				foreground	background
+" LineNr				selection	bg
+" NonText				selection	bg
+" Search				bg		yellow
+" TabLine				window		fg reverse
+" TabLineFill			window		fg reverse
+" StatusLine			window		yellow reverse
+" StatusLineNC			window		fg reverse
+" StatusLineTerm			window		yellow reverse
+" StatusLineTermNC		window		fg reverse
+" VertSplit			window		window
+" Visual				none		selection
+" VisualNOS			none		selection
+" Directory			blue		bg
+" ModeMsg				green		bg
+" MoreMsg				green		bg
+" Question			green		bg
+" WarningMsg			red		bg
+" MatchParen			fg		selection
+" Folded				comment		bg
+" FoldColumn			fg		bg
+" CursorLine			none		line
+" CursorColumn			fg		line
+" Pmenu				fg		selection
+" PmenuSel			fg		selection reverse
+" SignColumn			fg		bg
+" ColorColumn			fg		line
+" Comment				comment		bg
+" Todo				comment		bg
+" Title				comment		bg
+" Identifier			red		bg
+" Statement			fg		bg
+" Conditional			blue		bg
+" Repeat				fg		bg
+" Structure			purple		bg
+" Function			fg		bg
+" Constant			orange		bg
+" Keyword				orange		bg
+" String				green		bg
+" Special				special		bg
+" SpecialKey			selection	bg
+" PreProc				purple		bg
+" Operator			aqua		bg
+" Type				blue		bg
+" Define				purple		bg
+" Include				blue		bg
+" DiffAdd				fg		selection
+" DiffDelete			bg		red
+" DiffChange			fg		blue
+" DiffText			line		blue
+" diffAdded			green		bg
+" diffRemoved			red		bg
+" gitcommitSummary		fg		bg bold
+" Cursor				fg		green
+" QuickFixLine		->	Search
+" Command				red		bg
+" GitGutterAdd			green		bg
+" GitGutterChange			special		bg
+" GitGutterChangeDelete		special		bg
+" GitGutterDelete			red		bg
+" SignifySignAdd			green		bg
+" SignifySignChange		special		bg
+" SignifySignChangeDelete		special		bg
+" SignifySignDelete		red		bg
+" vimDocstring		->	String
+" vimConditional		->	Conditional
+" vimRepeat		->	Conditional
+" vimLetVar		->	Identifier
+" helpCommand		->	Type
+" vimLet				lightgrey	bg
+" vimCall				lightgrey	bg
+" vimSelf				special		bg italic
+" pythonSelf		->	Identifier
+" pythonOperatorSymbol	->	Operator
+" pythonBraces		->	Special
+" pythonGlobalVar		->	Define
+" pythonStringType	->	Statement
+" pythonOperator		->	Statement
+" pythonBoolean		->	Command
+" pythonNone		->	Command
+" pythonStructure		->	Keyword
+" pythonStorageClass	->	Keyword
+" pythonTypeDef		->	Keyword
+" pythonFunction			blue		bg
+" mkdItalic			purple		bg
+" mkdBold				purple		bg
+" mkdBoldItalic			purple		bg
+" mkdListItem			special		bg
+" mkdID				purple		bg
+" mkdRule				purple		bg
 " cppOperatorSymbol -> Operator

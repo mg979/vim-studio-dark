@@ -2,7 +2,7 @@
 " Author:       Gianmaria Bajo <mg1979.git@gmail.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: sab 22 set 2018 20:55:13 CEST
+" Last Updated: dom 23 set 2018 14:45:36 CEST
 
 if &background == 'dark'
   exe "so ".fnamemodify(expand('<sfile>:p'), ":h")."/vsdark.vim"
@@ -37,12 +37,13 @@ hi FoldColumn ctermfg=21 ctermbg=bg guifg=#2222ff guibg=bg guisp=NONE cterm=NONE
 hi IncSearch ctermfg=196 ctermbg=214 guifg=#ff0000 guibg=#ffbc29 guisp=NONE cterm=NONE gui=NONE
 hi Search ctermfg=25 ctermbg=223 guifg=#0070af guibg=#f2c38f guisp=NONE cterm=NONE gui=NONE
 hi WildMenu ctermfg=bg ctermbg=25 guifg=bg guibg=#0070af guisp=NONE cterm=NONE gui=NONE
-hi ToolbarButton ctermfg=21 ctermbg=25 guifg=#2222ff guibg=#0070af guisp=NONE cterm=NONE gui=NONE
 hi Question ctermfg=21 ctermbg=214 guifg=#2222ff guibg=#ffbc29 guisp=NONE cterm=NONE gui=NONE
 hi MoreMsg ctermfg=21 ctermbg=bg guifg=#2222ff guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi ModeMsg ctermfg=21 ctermbg=bg guifg=#2222ff guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi StatusLine ctermfg=21 ctermbg=255 guifg=#2222ff guibg=#f2f2f2 guisp=NONE cterm=NONE gui=NONE
-hi StatusLineTerm ctermfg=25 ctermbg=21 guifg=#0070af guibg=#2222ff guisp=NONE cterm=NONE gui=NONE
+hi StatusLine ctermfg=25 ctermbg=248 guifg=#0070af guibg=#aaaaaa guisp=NONE cterm=NONE gui=NONE
+hi StatusLineTerm ctermfg=25 ctermbg=248 guifg=#0070af guibg=#aaaaaa guisp=NONE cterm=NONE gui=NONE
+hi StatusLineNC ctermfg=fg ctermbg=bg guifg=fg guibg=bg guisp=NONE cterm=NONE gui=NONE
+hi StatusLineTermNC ctermfg=fg ctermbg=bg guifg=fg guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi Error ctermfg=196 ctermbg=bg guifg=#ff0000 guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi ErrorMsg ctermfg=196 ctermbg=bg guifg=#ff0000 guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi WarningMsg ctermfg=174 ctermbg=bg guifg=#df8c8c guibg=bg guisp=NONE cterm=NONE gui=NONE
@@ -58,18 +59,17 @@ hi DiffChange ctermfg=fg ctermbg=223 guifg=fg guibg=#f2c38f guisp=NONE cterm=NON
 hi DiffDelete ctermfg=174 ctermbg=bg guifg=#df8c8c guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi DiffText ctermfg=fg ctermbg=223 guifg=fg guibg=#f2c38f guisp=NONE cterm=NONE,bold gui=NONE,bold
 hi SignColumn ctermfg=fg ctermbg=bg guifg=fg guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi LineNr ctermfg=25 ctermbg=bg guifg=#0070af guibg=bg guisp=NONE cterm=NONE gui=NONE
+hi LineNr ctermfg=102 ctermbg=bg guifg=#888888 guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi CursorLine ctermfg=fg ctermbg=248 guifg=fg guibg=#aaaaaa guisp=NONE cterm=NONE gui=NONE
 hi CursorColumn ctermfg=fg ctermbg=248 guifg=fg guibg=#aaaaaa guisp=NONE cterm=NONE gui=NONE
 hi ColorColumn ctermfg=fg ctermbg=248 guifg=fg guibg=#aaaaaa guisp=NONE cterm=NONE gui=NONE
 hi EndOfBuffer ctermfg=255 ctermbg=bg guifg=#f2f2f2 guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi VertSplit ctermfg=25 ctermbg=25 guifg=#0070af guibg=#0070af guisp=NONE cterm=NONE gui=NONE
-hi StatusLineNC ctermfg=25 ctermbg=248 guifg=#0070af guibg=#aaaaaa guisp=NONE cterm=NONE gui=NONE
-hi StatusLineTermNC ctermfg=25 ctermbg=248 guifg=#0070af guibg=#aaaaaa guisp=NONE cterm=NONE gui=NONE
 hi TabLine ctermfg=fg ctermbg=248 guifg=fg guibg=#aaaaaa guisp=NONE cterm=NONE gui=NONE
-hi TabLineSel ctermfg=236 ctermbg=21 guifg=#333333 guibg=#2222ff guisp=NONE cterm=NONE gui=NONE
+hi TabLineSel ctermfg=248 ctermbg=21 guifg=#aaaaaa guibg=#2222ff guisp=NONE cterm=NONE gui=NONE
 hi TabLineFill ctermfg=fg ctermbg=248 guifg=fg guibg=#aaaaaa guisp=NONE cterm=NONE gui=NONE
-hi ToolbarLine ctermfg=fg ctermbg=44 guifg=fg guibg=#42dcd7 guisp=NONE cterm=NONE gui=NONE
+hi ToolbarLine ctermfg=248 ctermbg=21 guifg=#aaaaaa guibg=#2222ff guisp=NONE cterm=NONE gui=NONE
+hi ToolbarButton ctermfg=21 ctermbg=248 guifg=#2222ff guibg=#aaaaaa guisp=NONE cterm=NONE gui=NONE
 hi String ctermfg=124 ctermbg=bg guifg=#a31515 guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi Constant ctermfg=54 ctermbg=bg guifg=#6f008a guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi Directory ctermfg=21 ctermbg=bg guifg=#2222ff guibg=bg guisp=NONE cterm=NONE gui=NONE
@@ -151,123 +151,124 @@ filetype detect
 finish
 
 " Background: light
-" Color:      foreground   #1e1e1e ~
-" Color:      background   #bdbdbd ~
-" Color:      gold         #ffbc29 ~
-" Color:      yellow       #f2c38f ~
-" Color:      darkblue     #2222ff ~
-" Color:      blue         #0070af ~
-" Color:      green        #006600 ~
-" Color:      cyan         #42dcd7 ~
-" Color:      purple       #6f008a ~
-" Color:      pink         #d18ec2 ~
-" Color:      darkgrey     #333333 ~
-" Color:      lightgrey    #aaaaaa ~
-" Color:      darkred      #a31515 ~
-" Color:      lightred     #df8c8c ~
-" Color:      red          #ff0000 ~
-" Color:      white        #f2f2f2 ~
-" Color:      special      #682900 ~
-" Normal 				            foreground      background
-" MatchParen                      red    	        bg
-" CursorLineNr                    darkblue    	bg
-" Visual                          none      	    lightgrey
-" VisualNOS                       none      	    lightgrey
-" Folded                          darkblue    	bg
-" FoldColumn                      darkblue    	bg
-" IncSearch                       red    	        gold
-" Search                          blue    	    yellow
-" WildMenu                        bg    	        blue
-" ToolbarButton                   darkblue    	blue
-" Question                        darkblue    	gold
-" MoreMsg                         darkblue    	bg
-" ModeMsg                         darkblue    	bg
-" StatusLine                      darkblue    	white
-" StatusLineTerm                  blue    	    darkblue
-" Error                           red    	        bg
-" ErrorMsg                        red    	        bg
-" WarningMsg                      lightred    	bg
-" SpellBad                        lightred    	bg
-" SpellCap                        lightred    	bg
-" Todo                            darkblue    	bg
-" Pmenu                           darkgrey    	lightgrey
-" PmenuSel                        bg    	        blue
-" PmenuThumb                      darkblue    	darkblue
-" PmenuSbar                       green    	green
-" DiffAdd                         fg    	        green
-" DiffChange                      fg    	        yellow
-" DiffDelete                      lightred    	bg
-" DiffText                        fg    	        yellow bold
-" SignColumn                      fg      	    bg
-" LineNr                          blue    	    bg
-" CursorLine                      fg      	    lightgrey
-" CursorColumn                    fg      	    lightgrey
-" ColorColumn                     fg      	    lightgrey
-" EndOfBuffer                     white    	    bg
-" VertSplit                       blue    	    blue
-" StatusLineNC                    blue    	    lightgrey
-" StatusLineTermNC                blue    	    lightgrey
-" TabLine                         fg    	        lightgrey
-" TabLineSel                      darkgrey    	darkblue
-" TabLineFill                     fg    	        lightgrey
-" ToolbarLine                     fg      	    cyan
-" String                          darkred    	    bg
-" Constant                        purple    	    bg
-" Directory                       darkblue    	bg
-" Identifier                      darkgrey    	bg italic
-" Function                        darkgrey   	    bg bold
-" Conditional                     darkblue 		bg bold
-" Statement                       darkblue    	bg bold
-" Operator                        darkgrey	    bg
-" Number                          fg    	        bg
-" Type                            darkblue	    bg
-" PreProc                         purple    	    bg
-" Keyword                         purple    	    bg
-" Underlined                      pink    	    bg
-" Special                         special		    bg
-" SpecialKey                      special    	    bg
-" NonText                         blue    	    bg
-" Title                           blue    	    bg
-" Comment                         green    	bg
-" Ignore                          green    	bg
-" Conceal                         green    	bg
-" Cursor 				            green      bg
-" Command                         purple          bg
-" QuickFixLine            ->      Search
-" GitGutterAdd                    green      bg
-" GitGutterChange                 special         bg
-" GitGutterChangeDelete           special         bg
-" GitGutterDelete                 red             bg
-" SignifySignAdd                  green   	bg
-" SignifySignChange               special 	    bg
-" SignifySignChangeDelete         special 	    bg
-" SignifySignDelete               red    	        bg
-" vimDocstring   		    -> 	    String
-" vimConditional 		    -> 	    Conditional
-" vimRepeat      		    -> 	    Conditional
-" vimLetVar      		    -> 	    Identifier
-" helpCommand             -> 	    Type
-" vimLet  			            darkgrey 	    bg
-" vimCall 			            darkgrey 	    bg
-" vimSelf 			            cyan 	 	    bg italic
-" pythonSelf           	-> 	    Identifier
-" pythonOperatorSymbol 	-> 	    Operator
-" pythonBraces         	-> 	    Special
-" pythonStringType     	-> 	    Statement
-" pythonOperator          -> 	    Statement
-" pythonBoolean           ->      Command
-" pythonNone              ->      Command
-" pythonStructure         ->      Keyword
-" pythonStorageClass      ->      Keyword
-" pythonTypeDef           ->      Keyword
-" pythonGlobalVar      	        darkblue        bg italic
-" pythonFunction                  purple          bg bold
-" mkdItalic                       purple           bg
-" mkdBold                         purple           bg
-" mkdBoldItalic                   purple           bg
-" mkdListItem                     special          bg
-" mkdID                           purple           bg
-" mkdRule                         purple           bg
-" cppStructure                    purple          bg
-" cCharacter              ->      String
-" cppOperatorSymbol       ->      Operator
+" Color:	    foreground	#1e1e1e ~
+" Color:	    background	#bdbdbd ~
+" Color:	    gold	#ffbc29 ~
+" Color:	    yellow	#f2c38f ~
+" Color:	    darkblue	#2222ff ~
+" Color:	    blue	#0070af ~
+" Color:	    green	#006600 ~
+" Color:	    cyan	#42dcd7 ~
+" Color:	    purple	#6f008a ~
+" Color:	    pink	#d18ec2 ~
+" Color:	    darkgrey	#333333 ~
+" Color:	    lightgrey	#aaaaaa ~
+" Color:	    grey	#888888 ~
+" Color:	    darkred	#a31515 ~
+" Color:	    lightred	#df8c8c ~
+" Color:	    red		#ff0000 ~
+" Color:	    white	#f2f2f2 ~
+" Color:	    special	#682900 ~
+" Normal				foreground	background
+" MatchParen			red		bg
+" CursorLineNr			darkblue	bg
+" Visual				none		lightgrey
+" VisualNOS			none		lightgrey
+" Folded				darkblue	bg
+" FoldColumn			darkblue	bg
+" IncSearch			red		gold
+" Search				blue		yellow
+" WildMenu			bg		blue
+" Question			darkblue	gold
+" MoreMsg				darkblue	bg
+" ModeMsg				darkblue	bg
+" StatusLine			blue	        lightgrey
+" StatusLineTerm			blue	        lightgrey
+" StatusLineNC			fg		bg
+" StatusLineTermNC		fg		bg
+" Error				red		bg
+" ErrorMsg			red		bg
+" WarningMsg			lightred	bg
+" SpellBad			lightred	bg
+" SpellCap			lightred	bg
+" Todo				darkblue	bg
+" Pmenu				darkgrey	lightgrey
+" PmenuSel			bg		blue
+" PmenuThumb			darkblue	darkblue
+" PmenuSbar			green		green
+" DiffAdd				fg		green
+" DiffChange			fg		yellow
+" DiffDelete			lightred	bg
+" DiffText			fg		yellow bold
+" SignColumn			fg		bg
+" LineNr				grey 		bg
+" CursorLine			fg		lightgrey
+" CursorColumn			fg		lightgrey
+" ColorColumn			fg		lightgrey
+" EndOfBuffer			white		bg
+" VertSplit			blue		blue
+" TabLine				fg		lightgrey
+" TabLineSel			lightgrey	darkblue
+" TabLineFill			fg		lightgrey
+" ToolbarLine			lightgrey	darkblue
+" ToolbarButton			darkblue	lightgrey
+" String				darkred		bg
+" Constant			purple		bg
+" Directory			darkblue	bg
+" Identifier			darkgrey	bg italic
+" Function			darkgrey	bg bold
+" Conditional			darkblue	bg bold
+" Statement			darkblue	bg bold
+" Operator			darkgrey	bg
+" Number				fg		bg
+" Type				darkblue	bg
+" PreProc				purple		bg
+" Keyword				purple		bg
+" Underlined			pink		bg
+" Special				special		bg
+" SpecialKey			special		bg
+" NonText				blue		bg
+" Title				blue		bg
+" Comment				green		bg
+" Ignore				green		bg
+" Conceal				green		bg
+" Cursor				green		bg
+" Command				purple		bg
+" QuickFixLine		->	Search
+" GitGutterAdd			green		bg
+" GitGutterChange			special		bg
+" GitGutterChangeDelete		special		bg
+" GitGutterDelete			red		bg
+" SignifySignAdd			green		bg
+" SignifySignChange		special		bg
+" SignifySignChangeDelete		special		bg
+" SignifySignDelete		red		bg
+" vimDocstring		->	String
+" vimConditional		->	Conditional
+" vimRepeat		->	Conditional
+" vimLetVar		->	Identifier
+" helpCommand		->	Type
+" vimLet				darkgrey	bg
+" vimCall				darkgrey	bg
+" vimSelf				cyan		bg italic
+" pythonSelf		->	Identifier
+" pythonOperatorSymbol	->	Operator
+" pythonBraces		->	Special
+" pythonStringType	->	Statement
+" pythonOperator		->	Statement
+" pythonBoolean		->	Command
+" pythonNone		->	Command
+" pythonStructure		->	Keyword
+" pythonStorageClass	->	Keyword
+" pythonTypeDef		->	Keyword
+" pythonGlobalVar			darkblue	bg italic
+" pythonFunction			purple		bg bold
+" mkdItalic			purple		 bg
+" mkdBold				purple		 bg
+" mkdBoldItalic			purple		 bg
+" mkdListItem			special		 bg
+" mkdID				purple		 bg
+" mkdRule				purple		 bg
+" cppStructure			purple		bg
+" cCharacter		->	String
+" cppOperatorSymbol	->	Operator

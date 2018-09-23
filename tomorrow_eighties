@@ -16,105 +16,107 @@ endverbatim
 Background: dark
 
 # Color palette
-Color:      foreground   #cccccc ~
-Color:      background   #2d2d2d ~
-Color:      selection    #515151 ~
-Color:      line         #393939 ~
-Color:      comment      #999999 ~
-Color:      red          #f2777a ~
-Color:      orange       #f99157 ~
-Color:      yellow       #ffcc66 ~
-Color:      green        #99cc99 ~
-Color:      aqua         #66cccc ~
-Color:      blue         #6699cc ~
-Color:      purple     	 #cc99cc ~
-Color:      window       #4d5057 ~
-Color:      special      #f2c38f ~
-Color:      lightgrey    #a9a9a9 ~
+Color:	    foreground	 #cccccc ~
+Color:	    background	 #2d2d2d ~
+Color:	    selection	 #515151 ~
+Color:	    line	 #393939 ~
+Color:	    comment	 #999999 ~
+Color:	    red		 #f2777a ~
+Color:	    orange	 #f99157 ~
+Color:	    yellow	 #ffcc66 ~
+Color:	    green	 #99cc99 ~
+Color:	    aqua	 #66cccc ~
+Color:	    blue	 #6699cc ~
+Color:	    purple	 #cc99cc ~
+Color:	    window	 #4d5057 ~
+Color:	    special	 #f2c38f ~
+Color:	    lightgrey	 #a9a9a9 ~
 
-Normal              foreground      background
-LineNr              selection       bg
-NonText             selection       bg
-Search              bg              yellow
-TabLine             window          fg reverse
-TabLineFill         window          fg reverse
-StatusLine          window          yellow reverse
-StatusLineNC        window          fg reverse
-VertSplit           window          window
-Visual              none            selection
-VisualNOS           none            selection
-Directory           blue            bg
-ModeMsg             green           bg
-MoreMsg             green           bg
-Question            green           bg
-WarningMsg          red             bg
-MatchParen          fg              selection
-Folded              comment         bg
-FoldColumn          fg              bg
-CursorLine          none            line
-CursorColumn        fg              line
-Pmenu               fg              selection
-PmenuSel            fg              selection reverse
-SignColumn          fg              bg
-ColorColumn         fg              line
+Normal				foreground	background
+LineNr				selection	bg
+NonText				selection	bg
+Search				bg		yellow
+TabLine				window		fg reverse
+TabLineFill			window		fg reverse
+StatusLine			window		yellow reverse
+StatusLineNC			window		fg reverse
+StatusLineTerm			window		yellow reverse
+StatusLineTermNC		window		fg reverse
+VertSplit			window		window
+Visual				none		selection
+VisualNOS			none		selection
+Directory			blue		bg
+ModeMsg				green		bg
+MoreMsg				green		bg
+Question			green		bg
+WarningMsg			red		bg
+MatchParen			fg		selection
+Folded				comment		bg
+FoldColumn			fg		bg
+CursorLine			none		line
+CursorColumn			fg		line
+Pmenu				fg		selection
+PmenuSel			fg		selection reverse
+SignColumn			fg		bg
+ColorColumn			fg		line
 
-Comment             comment         bg
-Todo                comment         bg
-Title               comment         bg
-Identifier          red             bg
-Statement           fg              bg
-Conditional         blue            bg
-Repeat              fg              bg
-Structure           purple          bg
-Function            fg              bg
-Constant            orange          bg
-Keyword             orange          bg
-String              green           bg
-Special             special         bg
-SpecialKey          selection       bg
-PreProc             purple          bg
-Operator            aqua            bg
-Type                blue            bg
-Define              purple          bg
-Include             blue            bg
+Comment				comment		bg
+Todo				comment		bg
+Title				comment		bg
+Identifier			red		bg
+Statement			fg		bg
+Conditional			blue		bg
+Repeat				fg		bg
+Structure			purple		bg
+Function			fg		bg
+Constant			orange		bg
+Keyword				orange		bg
+String				green		bg
+Special				special		bg
+SpecialKey			selection	bg
+PreProc				purple		bg
+Operator			aqua		bg
+Type				blue		bg
+Define				purple		bg
+Include				blue		bg
 
-DiffAdd             fg              selection
-DiffDelete          bg              red
-DiffChange          fg              blue
-DiffText            line            blue
+DiffAdd				fg		selection
+DiffDelete			bg		red
+DiffChange			fg		blue
+DiffText			line		blue
 
-diffAdded           green           bg
-diffRemoved         red             bg
-gitcommitSummary    fg              bg bold
+diffAdded			green		bg
+diffRemoved			red		bg
+gitcommitSummary		fg		bg bold
 
-Cursor 				fg            	green
-QuickFixLine 		-> 	Search
-Command             red             bg
+Cursor				fg		green
+QuickFixLine		->	Search
+Command				red		bg
 
 # Plugins
 
-GitGutterAdd            green       bg
-GitGutterChange         special     bg
-GitGutterChangeDelete   special     bg
-GitGutterDelete         red         bg
-SignifySignAdd          green       bg
-SignifySignChange       special     bg
-SignifySignChangeDelete special     bg
-SignifySignDelete       red         bg
+GitGutterAdd			green		bg
+GitGutterChange			special		bg
+GitGutterChangeDelete		special		bg
+GitGutterDelete			red		bg
+SignifySignAdd			green		bg
+SignifySignChange		special		bg
+SignifySignChangeDelete		special		bg
+SignifySignDelete		red		bg
 
 # vimL
 
 verbatim
 if s:load_for('vim')
 endverbatim
-vimDocstring   		-> 	String
-vimConditional 		-> 	Conditional
-vimRepeat      		-> 	Conditional
-vimLetVar      		-> 	Identifier
-helpCommand         -> 	Type
-vimLet  			lightgrey 	bg
-vimCall 			lightgrey 	bg
-vimSelf 			special	    bg italic
+vimDocstring		->	String
+vimConditional		->	Conditional
+vimRepeat		->	Conditional
+vimLetVar		->	Identifier
+helpCommand		->	Type
+vimLet				lightgrey	bg
+vimCall				lightgrey	bg
+vimSelf				special		bg italic
 verbatim
 endif
 endverbatim
@@ -124,18 +126,18 @@ endverbatim
 verbatim
 if s:load_for('python')
 endverbatim
-pythonSelf           	-> 	Identifier
-pythonOperatorSymbol 	-> 	Operator
-pythonBraces         	-> 	Special
-pythonGlobalVar      	-> 	Define
-pythonStringType     	-> 	Statement
-pythonOperator          -> 	Statement
-pythonBoolean           ->  Command
-pythonNone              ->  Command
-pythonStructure         ->  Keyword
-pythonStorageClass      ->  Keyword
-pythonTypeDef           ->  Keyword
-pythonFunction              blue bg
+pythonSelf		->	Identifier
+pythonOperatorSymbol	->	Operator
+pythonBraces		->	Special
+pythonGlobalVar		->	Define
+pythonStringType	->	Statement
+pythonOperator		->	Statement
+pythonBoolean		->	Command
+pythonNone		->	Command
+pythonStructure		->	Keyword
+pythonStorageClass	->	Keyword
+pythonTypeDef		->	Keyword
+pythonFunction			blue		bg
 verbatim
 endif
 endverbatim
@@ -145,12 +147,12 @@ endverbatim
 verbatim
 if s:load_for('markdown')
 endverbatim
-mkdItalic                  purple  bg
-mkdBold                    purple  bg
-mkdBoldItalic              purple  bg
-mkdListItem                special bg
-mkdID                      purple  bg
-mkdRule                    purple  bg
+mkdItalic			purple		bg
+mkdBold				purple		bg
+mkdBoldItalic			purple		bg
+mkdListItem			special		bg
+mkdID				purple		bg
+mkdRule				purple		bg
 verbatim
 endif
 endverbatim
