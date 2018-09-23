@@ -45,6 +45,9 @@ fun! vsd#vim()
   syn keyword vimCall call nextgroup=Function
   syn keyword vimSelf self
   syn cluster vimFuncBodyList add=vimDocstring,vimConditional,vimSelf,vimCall,vimLetVar,vimRepeat
+  if has_key(b:, 'endwise_syngroups')
+    let b:endwise_syngroups .= ',vimConditional,vimRepeat'
+  endif
 endfun
 
 fun! vsd#python()
@@ -90,6 +93,9 @@ fun! s:reset_syntax()
     hi! link vimCommand                   Statement
     hi! link vimLet                       Statement
     hi! link helpCommand                  Comment
+    if has_key(b:, 'endwise_syngroups')
+      let b:endwise_syngroups = substitute(b:endwise_syngroups, ',vimConditional,vimRepeat', '', '')
+    endif
   endif
   if s:load_for('python')
     silent! syntax clear pythonSelf
