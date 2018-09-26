@@ -2,7 +2,7 @@
 " Author:       Chris Kempson <http://chriskempson.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: dom 23 set 2018 15:30:07 CEST
+" Last Updated: 26/09/2018 22:34:21
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -22,10 +22,11 @@ let g:colors_name = 'tomorrow_eighties'
 call vsd#init()
 let s:load_for = { ft -> g:VSD[ft] || g:VSD.extra_syntax }
 
-hi Normal ctermfg=252 ctermbg=236 guifg=#cccccc guibg=#2d2d2d guisp=NONE cterm=NONE gui=NONE
-hi LineNr ctermfg=239 ctermbg=bg guifg=#515151 guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi NonText ctermfg=239 ctermbg=bg guifg=#515151 guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi Search ctermfg=bg ctermbg=222 guifg=bg guibg=#ffcc66 guisp=NONE cterm=NONE gui=NONE
+hi Normal ctermfg=252 ctermbg=235 guifg=#cccccc guibg=#262626 guisp=NONE cterm=NONE gui=NONE
+hi LineNr ctermfg=239 ctermbg=bg guifg=#4d5057 guibg=bg guisp=NONE cterm=NONE gui=NONE
+hi NonText ctermfg=237 ctermbg=bg guifg=#393939 guibg=bg guisp=NONE cterm=NONE gui=NONE
+hi Search ctermfg=bg ctermbg=223 guifg=bg guibg=#f2c38f guisp=NONE cterm=NONE gui=NONE
+hi IncSearch ctermfg=210 ctermbg=223 guifg=#f2777a guibg=#f2c38f guisp=NONE cterm=NONE,bold gui=NONE,bold
 hi TabLine ctermfg=239 ctermbg=fg guifg=#4d5057 guibg=fg guisp=NONE cterm=NONE,reverse gui=NONE,reverse
 hi TabLineFill ctermfg=239 ctermbg=fg guifg=#4d5057 guibg=fg guisp=NONE cterm=NONE,reverse gui=NONE,reverse
 hi StatusLine ctermfg=239 ctermbg=222 guifg=#4d5057 guibg=#ffcc66 guisp=NONE cterm=NONE,reverse gui=NONE,reverse
@@ -33,20 +34,21 @@ hi StatusLineNC ctermfg=239 ctermbg=fg guifg=#4d5057 guibg=fg guisp=NONE cterm=N
 hi StatusLineTerm ctermfg=239 ctermbg=222 guifg=#4d5057 guibg=#ffcc66 guisp=NONE cterm=NONE,reverse gui=NONE,reverse
 hi StatusLineTermNC ctermfg=239 ctermbg=fg guifg=#4d5057 guibg=fg guisp=NONE cterm=NONE,reverse gui=NONE,reverse
 hi VertSplit ctermfg=239 ctermbg=239 guifg=#4d5057 guibg=#4d5057 guisp=NONE cterm=NONE gui=NONE
-hi Visual ctermfg=NONE ctermbg=239 guifg=NONE guibg=#515151 guisp=NONE cterm=NONE gui=NONE
-hi VisualNOS ctermfg=NONE ctermbg=239 guifg=NONE guibg=#515151 guisp=NONE cterm=NONE gui=NONE
+hi Visual ctermfg=NONE ctermbg=237 guifg=NONE guibg=#393939 guisp=NONE cterm=NONE gui=NONE
+hi VisualNOS ctermfg=NONE ctermbg=237 guifg=NONE guibg=#393939 guisp=NONE cterm=NONE gui=NONE
 hi Directory ctermfg=67 ctermbg=bg guifg=#6699cc guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi ModeMsg ctermfg=151 ctermbg=bg guifg=#99cc99 guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi MoreMsg ctermfg=151 ctermbg=bg guifg=#99cc99 guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi Question ctermfg=151 ctermbg=bg guifg=#99cc99 guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi WarningMsg ctermfg=210 ctermbg=bg guifg=#f2777a guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi MatchParen ctermfg=fg ctermbg=239 guifg=fg guibg=#515151 guisp=NONE cterm=NONE gui=NONE
+hi MatchParen ctermfg=210 ctermbg=239 guifg=#f2777a guibg=#4d5057 guisp=NONE cterm=NONE,bold gui=NONE,bold
 hi Folded ctermfg=247 ctermbg=bg guifg=#999999 guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi FoldColumn ctermfg=fg ctermbg=bg guifg=fg guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi CursorLine ctermfg=NONE ctermbg=237 guifg=NONE guibg=#393939 guisp=NONE cterm=NONE gui=NONE
+hi CursorLineNr ctermfg=222 ctermbg=bg guifg=#ffcc66 guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi CursorColumn ctermfg=fg ctermbg=237 guifg=fg guibg=#393939 guisp=NONE cterm=NONE gui=NONE
-hi Pmenu ctermfg=fg ctermbg=239 guifg=fg guibg=#515151 guisp=NONE cterm=NONE gui=NONE
-hi PmenuSel ctermfg=fg ctermbg=239 guifg=fg guibg=#515151 guisp=NONE cterm=NONE,reverse gui=NONE,reverse
+hi Pmenu ctermfg=fg ctermbg=237 guifg=fg guibg=#393939 guisp=NONE cterm=NONE gui=NONE
+hi PmenuSel ctermfg=fg ctermbg=237 guifg=fg guibg=#393939 guisp=NONE cterm=NONE,reverse gui=NONE,reverse
 hi SignColumn ctermfg=fg ctermbg=bg guifg=fg guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi ColorColumn ctermfg=fg ctermbg=237 guifg=fg guibg=#393939 guisp=NONE cterm=NONE gui=NONE
 hi Comment ctermfg=247 ctermbg=bg guifg=#999999 guibg=bg guisp=NONE cterm=NONE gui=NONE
@@ -57,26 +59,26 @@ hi Statement ctermfg=fg ctermbg=bg guifg=fg guibg=bg guisp=NONE cterm=NONE gui=N
 hi Conditional ctermfg=67 ctermbg=bg guifg=#6699cc guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi Repeat ctermfg=fg ctermbg=bg guifg=fg guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi Structure ctermfg=182 ctermbg=bg guifg=#cc99cc guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi Function ctermfg=fg ctermbg=bg guifg=fg guibg=bg guisp=NONE cterm=NONE gui=NONE
+hi Function ctermfg=67 ctermbg=bg guifg=#6699cc guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi Constant ctermfg=209 ctermbg=bg guifg=#f99157 guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi Keyword ctermfg=209 ctermbg=bg guifg=#f99157 guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi String ctermfg=151 ctermbg=bg guifg=#99cc99 guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi Special ctermfg=223 ctermbg=bg guifg=#f2c38f guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi SpecialKey ctermfg=239 ctermbg=bg guifg=#515151 guibg=bg guisp=NONE cterm=NONE gui=NONE
+hi SpecialKey ctermfg=223 ctermbg=bg guifg=#f2c38f guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi PreProc ctermfg=182 ctermbg=bg guifg=#cc99cc guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi Operator ctermfg=80 ctermbg=bg guifg=#66cccc guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi Type ctermfg=67 ctermbg=bg guifg=#6699cc guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi Define ctermfg=182 ctermbg=bg guifg=#cc99cc guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi Include ctermfg=67 ctermbg=bg guifg=#6699cc guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi DiffAdd ctermfg=fg ctermbg=239 guifg=fg guibg=#515151 guisp=NONE cterm=NONE gui=NONE
+hi DiffAdd ctermfg=fg ctermbg=237 guifg=fg guibg=#393939 guisp=NONE cterm=NONE gui=NONE
 hi DiffDelete ctermfg=bg ctermbg=210 guifg=bg guibg=#f2777a guisp=NONE cterm=NONE gui=NONE
 hi DiffChange ctermfg=fg ctermbg=67 guifg=fg guibg=#6699cc guisp=NONE cterm=NONE gui=NONE
 hi DiffText ctermfg=237 ctermbg=67 guifg=#393939 guibg=#6699cc guisp=NONE cterm=NONE gui=NONE
+hi Cursor ctermfg=bg ctermbg=151 guifg=bg guibg=#99cc99 guisp=NONE cterm=NONE gui=NONE
+hi! link QuickFixLine Search
 hi diffAdded ctermfg=151 ctermbg=bg guifg=#99cc99 guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi diffRemoved ctermfg=210 ctermbg=bg guifg=#f2777a guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi gitcommitSummary ctermfg=fg ctermbg=bg guifg=fg guibg=bg guisp=NONE cterm=NONE,bold gui=NONE,bold
-hi Cursor ctermfg=fg ctermbg=151 guifg=fg guibg=#99cc99 guisp=NONE cterm=NONE gui=NONE
-hi! link QuickFixLine Search
 hi Command ctermfg=210 ctermbg=bg guifg=#f2777a guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi GitGutterAdd ctermfg=151 ctermbg=bg guifg=#99cc99 guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi GitGutterChange ctermfg=223 ctermbg=bg guifg=#f2c38f guibg=bg guisp=NONE cterm=NONE gui=NONE
@@ -135,9 +137,8 @@ finish
 
 " Background: dark
 " Color:	    foreground	 #cccccc ~
-" Color:	    background	 #2d2d2d ~
-" Color:	    selection	 #515151 ~
-" Color:	    line	 #393939 ~
+" Color:	    background	 #262626 ~
+" Color:	    selection	 #393939 ~
 " Color:	    comment	 #999999 ~
 " Color:	    red		 #f2777a ~
 " Color:	    orange	 #f99157 ~
@@ -150,9 +151,10 @@ finish
 " Color:	    special	 #f2c38f ~
 " Color:	    lightgrey	 #a9a9a9 ~
 " Normal				foreground	background
-" LineNr				selection	bg
+" LineNr				window	        bg
 " NonText				selection	bg
-" Search				bg		yellow
+" Search				bg		special
+" IncSearch			red		special bold
 " TabLine				window		fg reverse
 " TabLineFill			window		fg reverse
 " StatusLine			window		yellow reverse
@@ -167,15 +169,16 @@ finish
 " MoreMsg				green		bg
 " Question			green		bg
 " WarningMsg			red		bg
-" MatchParen			fg		selection
+" MatchParen			red		window bold
 " Folded				comment		bg
 " FoldColumn			fg		bg
-" CursorLine			none		line
-" CursorColumn			fg		line
+" CursorLine			none		selection
+" CursorLineNr			yellow		bg
+" CursorColumn			fg		selection
 " Pmenu				fg		selection
 " PmenuSel			fg		selection reverse
 " SignColumn			fg		bg
-" ColorColumn			fg		line
+" ColorColumn			fg		selection
 " Comment				comment		bg
 " Todo				comment		bg
 " Title				comment		bg
@@ -184,12 +187,12 @@ finish
 " Conditional			blue		bg
 " Repeat				fg		bg
 " Structure			purple		bg
-" Function			fg		bg
+" Function			blue		bg
 " Constant			orange		bg
 " Keyword				orange		bg
 " String				green		bg
 " Special				special		bg
-" SpecialKey			selection	bg
+" SpecialKey			special	        bg
 " PreProc				purple		bg
 " Operator			aqua		bg
 " Type				blue		bg
@@ -198,12 +201,12 @@ finish
 " DiffAdd				fg		selection
 " DiffDelete			bg		red
 " DiffChange			fg		blue
-" DiffText			line		blue
+" DiffText			selection	blue
+" Cursor				bg		green
+" QuickFixLine		->	Search
 " diffAdded			green		bg
 " diffRemoved			red		bg
 " gitcommitSummary		fg		bg bold
-" Cursor				fg		green
-" QuickFixLine		->	Search
 " Command				red		bg
 " GitGutterAdd			green		bg
 " GitGutterChange			special		bg

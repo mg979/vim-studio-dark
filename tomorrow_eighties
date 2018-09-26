@@ -17,9 +17,8 @@ Background: dark
 
 # Color palette
 Color:	    foreground	 #cccccc ~
-Color:	    background	 #2d2d2d ~
-Color:	    selection	 #515151 ~
-Color:	    line	 #393939 ~
+Color:	    background	 #262626 ~
+Color:	    selection	 #393939 ~
 Color:	    comment	 #999999 ~
 Color:	    red		 #f2777a ~
 Color:	    orange	 #f99157 ~
@@ -33,9 +32,10 @@ Color:	    special	 #f2c38f ~
 Color:	    lightgrey	 #a9a9a9 ~
 
 Normal				foreground	background
-LineNr				selection	bg
+LineNr				window	        bg
 NonText				selection	bg
-Search				bg		yellow
+Search				bg		special
+IncSearch			red		special bold
 TabLine				window		fg reverse
 TabLineFill			window		fg reverse
 StatusLine			window		yellow reverse
@@ -50,15 +50,16 @@ ModeMsg				green		bg
 MoreMsg				green		bg
 Question			green		bg
 WarningMsg			red		bg
-MatchParen			fg		selection
+MatchParen			red		window bold
 Folded				comment		bg
 FoldColumn			fg		bg
-CursorLine			none		line
-CursorColumn			fg		line
+CursorLine			none		selection
+CursorLineNr			yellow		bg
+CursorColumn			fg		selection
 Pmenu				fg		selection
 PmenuSel			fg		selection reverse
 SignColumn			fg		bg
-ColorColumn			fg		line
+ColorColumn			fg		selection
 
 Comment				comment		bg
 Todo				comment		bg
@@ -68,12 +69,12 @@ Statement			fg		bg
 Conditional			blue		bg
 Repeat				fg		bg
 Structure			purple		bg
-Function			fg		bg
+Function			blue		bg
 Constant			orange		bg
 Keyword				orange		bg
 String				green		bg
 Special				special		bg
-SpecialKey			selection	bg
+SpecialKey			special	        bg
 PreProc				purple		bg
 Operator			aqua		bg
 Type				blue		bg
@@ -83,14 +84,15 @@ Include				blue		bg
 DiffAdd				fg		selection
 DiffDelete			bg		red
 DiffChange			fg		blue
-DiffText			line		blue
+DiffText			selection	blue
+
+Cursor				bg		green
+QuickFixLine		->	Search
 
 diffAdded			green		bg
 diffRemoved			red		bg
 gitcommitSummary		fg		bg bold
 
-Cursor				fg		green
-QuickFixLine		->	Search
 Command				red		bg
 
 # Plugins

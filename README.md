@@ -7,6 +7,12 @@ Inspired by [codedark](https://github.com/tomasiser/vim-code-dark), with dark an
 
 ![Imgur](https://i.imgur.com/fzildns.png)
 
+Also included, a [Tomorrow Night Eighties](https://github.com/chriskempson/tomorrow-theme) variant:
+
+![Imgur](https://i.imgur.com/KeeOGtF.png)
+
+These schemes can optionally define some new highlight and syntax groups, as you can see in the pictures, but these groups are disabled when the color scheme is unloaded. They also try to set as few non-standard (eg. provided by plugins) highlight groups as possible, to minimize the possibility of syntax breakages on colorscheme switching.
+
 ------------
 
 Options:
