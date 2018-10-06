@@ -102,17 +102,11 @@ Special				special			bg
 Title				title			bg
 # Delimiter			  guifg=#af5a5a
 
-# DiffAdd        xxx term=bold ctermbg=22 guibg=#006F00
-# DiffChange     xxx term=bold ctermbg=238 guibg=#565656
-# DiffDelete     xxx term=bold ctermbg=95 gui=bold guibg=#9A7372
-# DiffText       xxx term=reverse cterm=bold ctermbg=52 gui=bold guibg=#730B00
 # DiffAdd        			fg	                green
 DiffChange			none		grey
 DiffDelete			red	        bg bold
 DiffText       			none	        darkred bold
-# DiffChange     			none	                grey
-# DiffDelete     			none	                peru bold
-# DiffText       			none	                darkred bold
+
 diffAdded			green	                bg
 diffChanged			special		        bg
 diffRemoved			red	                bg

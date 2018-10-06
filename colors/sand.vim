@@ -2,7 +2,7 @@
 " Author:       Gianmaria Bajo <mg1979.git@gmail.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: sab 06 ott 2018 17:47:57 CEST
+" Last Updated: dom 07 ott 2018 00:34:29 CEST
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -67,7 +67,7 @@ hi StatusLine	cterm=bold,reverse
 hi StatusLineNC cterm=reverse
 hi VertSplit	cterm=reverse
 hi Title	ctermfg=5
-hi Visual	cterm=reverse
+hi Visual	cterm=none ctermfg=186 ctermbg=64
 hi VisualNOS	cterm=bold,underline
 hi WarningMsg	ctermfg=1
 hi WildMenu	ctermfg=0 ctermbg=3
@@ -94,7 +94,7 @@ hi Folded ctermfg=242 ctermbg=238 guifg=#6b6a61 guibg=#404040 guisp=NONE cterm=N
 hi LineNr ctermfg=239 ctermbg=bg guifg=#4d4d4d guibg=bg guisp=NONE cterm=NONE,italic gui=NONE,italic
 hi SignColumn ctermfg=239 ctermbg=235 guifg=#4d4d4d guibg=#262626 guisp=NONE cterm=NONE,italic gui=NONE,italic
 hi VertSplit ctermfg=fg ctermbg=235 guifg=fg guibg=#262626 guisp=NONE cterm=NONE gui=NONE
-hi Search ctermfg=255 ctermbg=172 guifg=#e6eef3 guibg=#cd853f guisp=NONE cterm=NONE gui=NONE
+hi Search ctermfg=255 ctermbg=172 guifg=#e6eef3 guibg=peru guisp=NONE cterm=NONE gui=NONE
 hi IncSearch ctermfg=255 ctermbg=167 guifg=#e6eef3 guibg=#cd5c5c guisp=NONE cterm=NONE gui=NONE
 hi Pmenu ctermfg=bg ctermbg=101 guifg=bg guibg=#999966 guisp=NONE cterm=NONE gui=NONE
 hi PmenuSel ctermfg=fg ctermbg=239 guifg=fg guibg=#4d4d4d guisp=NONE cterm=NONE gui=NONE
