@@ -2,7 +2,7 @@
 " Author:       Gianmaria Bajo <mg1979.git@gmail.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: dom 23 set 2018 14:45:36 CEST
+" Last Updated: 06/10/2018 05:20:58
 
 if &background == 'dark'
   exe "so ".fnamemodify(expand('<sfile>:p'), ":h")."/vsdark.vim"
@@ -54,10 +54,10 @@ hi Pmenu ctermfg=236 ctermbg=248 guifg=#333333 guibg=#aaaaaa guisp=NONE cterm=NO
 hi PmenuSel ctermfg=bg ctermbg=25 guifg=bg guibg=#0070af guisp=NONE cterm=NONE gui=NONE
 hi PmenuThumb ctermfg=21 ctermbg=21 guifg=#2222ff guibg=#2222ff guisp=NONE cterm=NONE gui=NONE
 hi PmenuSbar ctermfg=22 ctermbg=22 guifg=#006600 guibg=#006600 guisp=NONE cterm=NONE gui=NONE
-hi DiffAdd ctermfg=fg ctermbg=22 guifg=fg guibg=#006600 guisp=NONE cterm=NONE gui=NONE
-hi DiffChange ctermfg=fg ctermbg=223 guifg=fg guibg=#f2c38f guisp=NONE cterm=NONE gui=NONE
-hi DiffDelete ctermfg=174 ctermbg=bg guifg=#df8c8c guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi DiffText ctermfg=fg ctermbg=223 guifg=fg guibg=#f2c38f guisp=NONE cterm=NONE,bold gui=NONE,bold
+hi DiffAdd ctermfg=NONE ctermbg=109 guifg=NONE guibg=#7fc1ca guisp=NONE cterm=NONE gui=NONE
+hi DiffChange ctermfg=NONE ctermbg=248 guifg=NONE guibg=#aaaaaa guisp=NONE cterm=NONE gui=NONE
+hi DiffDelete ctermfg=174 ctermbg=bg guifg=#df8c8c guibg=bg guisp=NONE cterm=NONE,bold gui=NONE,bold
+hi DiffText ctermfg=NONE ctermbg=223 guifg=NONE guibg=#f2c38f guisp=NONE cterm=NONE,bold gui=NONE,bold
 hi SignColumn ctermfg=fg ctermbg=bg guifg=fg guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi LineNr ctermfg=102 ctermbg=bg guifg=#888888 guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi CursorLine ctermfg=fg ctermbg=248 guifg=fg guibg=#aaaaaa guisp=NONE cterm=NONE gui=NONE
@@ -90,7 +90,7 @@ hi Title ctermfg=25 ctermbg=bg guifg=#0070af guibg=bg guisp=NONE cterm=NONE gui=
 hi Comment ctermfg=22 ctermbg=bg guifg=#006600 guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi Ignore ctermfg=22 ctermbg=bg guifg=#006600 guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi Conceal ctermfg=22 ctermbg=bg guifg=#006600 guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi Cursor ctermfg=22 ctermbg=bg guifg=#006600 guibg=bg guisp=NONE cterm=NONE gui=NONE
+hi Cursor ctermfg=bg ctermbg=21 guifg=bg guibg=#2222ff guisp=NONE cterm=NONE gui=NONE
 hi Command ctermfg=54 ctermbg=bg guifg=#6f008a guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi! link QuickFixLine Search
 hi GitGutterAdd ctermfg=22 ctermbg=bg guifg=#006600 guibg=bg guisp=NONE cterm=NONE gui=NONE
@@ -158,6 +158,8 @@ finish
 " Color:	    darkblue	#2222ff ~
 " Color:	    blue	#0070af ~
 " Color:	    green	#006600 ~
+" Color:	    lightgreen	#a8ce93 ~
+" Color:      cyangrey 	#7fc1ca ~
 " Color:	    cyan	#42dcd7 ~
 " Color:	    purple	#6f008a ~
 " Color:	    pink	#d18ec2 ~
@@ -196,10 +198,10 @@ finish
 " PmenuSel			bg		blue
 " PmenuThumb			darkblue	darkblue
 " PmenuSbar			green		green
-" DiffAdd				fg		green
-" DiffChange			fg		yellow
-" DiffDelete			lightred	bg
-" DiffText			fg		yellow bold
+" DiffAdd				none		cyangrey
+" DiffChange			none		lightgrey
+" DiffDelete			lightred	bg bold
+" DiffText			none		yellow bold
 " SignColumn			fg		bg
 " LineNr				grey 		bg
 " CursorLine			fg		lightgrey
@@ -232,7 +234,7 @@ finish
 " Comment				green		bg
 " Ignore				green		bg
 " Conceal				green		bg
-" Cursor				green		bg
+" Cursor				bg		darkblue
 " Command				purple		bg
 " QuickFixLine		->	Search
 " GitGutterAdd			green		bg

@@ -2,7 +2,7 @@
 " Author:       Gianmaria Bajo <mg1979.git@gmail.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: dom 23 set 2018 14:34:41 CEST
+" Last Updated: 05/10/2018 19:47:36
 
 if &background == 'light'
   exe "so ".fnamemodify(expand('<sfile>:p'), ":h")."/vslight.vim"
@@ -54,10 +54,10 @@ hi Pmenu ctermfg=fg ctermbg=239 guifg=fg guibg=#4c4e50 guisp=NONE cterm=NONE gui
 hi PmenuSel ctermfg=fg ctermbg=24 guifg=fg guibg=#073655 guisp=NONE cterm=NONE gui=NONE
 hi PmenuSbar ctermfg=65 ctermbg=65 guifg=#608b4e guibg=#608b4e guisp=NONE cterm=NONE gui=NONE
 hi PmenuThumb ctermfg=39 ctermbg=39 guifg=#569cd6 guibg=#569cd6 guisp=NONE cterm=NONE gui=NONE
-hi DiffAdd ctermfg=239 ctermbg=150 guifg=#4c4e50 guibg=#a8ce93 guisp=NONE cterm=NONE gui=NONE
-hi DiffChange ctermfg=239 ctermbg=223 guifg=#4c4e50 guibg=#f2c38f guisp=NONE cterm=NONE gui=NONE
-hi DiffDelete ctermfg=174 ctermbg=bg guifg=#df8c8c guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi DiffText ctermfg=239 ctermbg=223 guifg=#4c4e50 guibg=#f2c38f guisp=NONE cterm=NONE,bold gui=NONE,bold
+hi DiffAdd ctermfg=NONE ctermbg=24 guifg=NONE guibg=#264f78 guisp=NONE cterm=NONE gui=NONE
+hi DiffChange ctermfg=NONE ctermbg=236 guifg=NONE guibg=#333233 guisp=NONE cterm=NONE gui=NONE
+hi DiffDelete ctermfg=196 ctermbg=bg guifg=#ff0000 guibg=bg guisp=NONE cterm=NONE,bold gui=NONE,bold
+hi DiffText ctermfg=NONE ctermbg=88 guifg=NONE guibg=#730b00 guisp=NONE cterm=NONE,bold gui=NONE,bold
 hi diffAdded ctermfg=150 ctermbg=bg guifg=#a8ce93 guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi diffChanged ctermfg=223 ctermbg=bg guifg=#f2c38f guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi diffRemoved ctermfg=174 ctermbg=bg guifg=#df8c8c guibg=bg guisp=NONE cterm=NONE gui=NONE
@@ -139,6 +139,7 @@ if s:load_for('markdown')
   hi mkdListItem ctermfg=223 ctermbg=bg guifg=#f2c38f guibg=bg guisp=NONE cterm=NONE gui=NONE
   hi mkdID ctermfg=104 ctermbg=bg guifg=#9a93e1 guibg=bg guisp=NONE cterm=NONE gui=NONE
   hi mkdRule ctermfg=104 ctermbg=bg guifg=#9a93e1 guibg=bg guisp=NONE cterm=NONE gui=NONE
+  hi mkdCode ctermfg=248 ctermbg=bg guifg=#a9a9a9 guibg=bg guisp=NONE cterm=NONE,italic gui=NONE,italic
 endif
 if s:load_for('cpp')
   hi cppStructure ctermfg=176 ctermbg=bg guifg=#c586c0 guibg=bg guisp=NONE cterm=NONE gui=NONE
@@ -182,6 +183,7 @@ finish
 " Color:	    string		#ce9178 ~
 " Color:	    lightred		#df8c8c ~
 " Color:	    red			#ff0000 ~
+" Color:	    darkred		#730b00 ~
 " Normal				foreground	background
 " MatchParen			red		bg
 " CursorLineNr			lightblue	bg
@@ -209,10 +211,10 @@ finish
 " PmenuSel			fg		darkblue
 " PmenuSbar			darkgreen	darkgreen
 " PmenuThumb			skyblue		skyblue
-" DiffAdd				grey		lightgreen
-" DiffChange			grey		special
-" DiffDelete			lightred	bg
-" DiffText			grey		special bold
+" DiffAdd				none		blue
+" DiffChange			none		darkgrey
+" DiffDelete			red	        bg bold
+" DiffText       			none	        darkred bold
 " diffAdded			lightgreen	bg
 " diffChanged			special		bg
 " diffRemoved			lightred	bg
@@ -289,6 +291,7 @@ finish
 " mkdListItem			special		bg
 " mkdID				purple		bg
 " mkdRule				purple		bg
+" mkdCode			        lightgrey	bg italic
 " cppStructure			pink		bg
 " cCharacter		->	String
 " cppOperatorSymbol	->	Operator

@@ -40,6 +40,7 @@ Color:	    identifier		#c9c6c9 ~
 Color:	    string		#ce9178 ~
 Color:	    lightred		#df8c8c ~
 Color:	    red			#ff0000 ~
+Color:	    darkred		#730b00 ~
 
 Normal				foreground	background
 
@@ -72,10 +73,10 @@ PmenuSel			fg		darkblue
 PmenuSbar			darkgreen	darkgreen
 PmenuThumb			skyblue		skyblue
 
-DiffAdd				grey		lightgreen
-DiffChange			grey		special
-DiffDelete			lightred	bg
-DiffText			grey		special bold
+DiffAdd				none		blue
+DiffChange			none		darkgrey
+DiffDelete			red	        bg bold
+DiffText       			none	        darkred bold
 diffAdded			lightgreen	bg
 diffChanged			special		bg
 diffRemoved			lightred	bg
@@ -183,6 +184,7 @@ mkdBoldItalic			pink		bg
 mkdListItem			special		bg
 mkdID				purple		bg
 mkdRule				purple		bg
+mkdCode			        lightgrey	bg italic
 verbatim
 endif
 endverbatim

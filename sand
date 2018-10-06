@@ -1,0 +1,233 @@
+# vim: ft=colortemplate
+Full name:  Sand
+Short name: sand
+Author:     Gianmaria Bajo <mg1979.git@gmail.com>
+Maintainer: Gianmaria Bajo <mg1979.git@gmail.com>
+
+verbatim
+call vsd#init()
+let s:load_for = { ft -> g:VSD[ft] || g:VSD.extra_syntax }
+endverbatim
+
+#===================================================================
+# Dark variant
+#===================================================================
+
+# #c6c6b9, #6b6a61, #262626, #4d4d4d, #997a00, #804d00, #999966,
+# #333333, #404040, #af5a5a, #248f8f, #143927, #5e4e21, #cd5c5c, #ed8e5e,
+# #999900, #b68554, #c9acd2, #7ab87a
+
+
+Background: dark
+
+# Original desert.vim
+Include: desert_vim
+
+# Color palette
+Color:	    background		#2d2d2d ~
+Color:	    foreground		#c6c6b9 ~
+Color:	    lightgrey		#6b6a61 ~
+Color:	    black		#262626 ~
+Color:	    grey		#4d4d4d ~
+Color:	    grey2		#404040 ~
+Color:	    darkgrey		#333333 ~
+Color:	    sepia		#999966 ~
+Color:	    title		#ed8e5e ~
+Color:	    peru		#cd853f ~
+Color:	    white		#e6eef3 ~
+Color:	    red			#cd5c5c ~
+Color:	    darkred		#730b00 ~
+Color:	    lightgreen		#a8ce93 ~
+Color:	    green		#7ab87a ~
+Color:	    pink		#c9acd2 ~
+# Color:	    yellow		#dada93 ~
+Color:	    special		#f2c38f ~
+Color:	    cursor 		#dfaf87 ~
+# Color:	    skyblue		#569cd6 ~
+# Color:	    darkblue		#073655 ~
+# Color:	    lightblue		#83afe5 ~
+# Color:	    blue		#264f78 ~
+# Color:	    nightblue		#212733 ~
+# Color:	    lightgreen		#a8ce93 ~
+# Color:	    green		#00af00 ~
+# Color:	    darkgreen		#608b4e ~
+# Color:	    cyangrey		#7fc1ca ~
+# Color:	    cyan		#42dcd7 ~
+# Color:	    purple		#9a93e1 ~
+Color:	    string		#8d8d8d ~
+# Color:	    string		#ce9178 ~
+# Color:	    lightred		#df8c8c ~
+# #98BC99
+Normal				foreground		background
+
+Comment				lightgrey		bg italic
+Folded				lightgrey		grey2
+LineNr				grey			bg italic
+SignColumn			grey			black italic
+VertSplit			fg			black
+Search				white			peru
+IncSearch			white			red
+
+Pmenu				bg			sepia
+PmenuSel			fg			grey
+PmenuSbar			bg			black
+PmenuThumb			sepia			lightgrey
+
+Todo				fg			red bold
+NonText				darkgrey		bg
+ColorColumn			fg			black
+Cursor			        bg			cursor
+CursorLine			fg			grey2
+CursorColumn		  ->	CursorLine
+# Error				  fg			  guibg=#af5a5a
+# ErrorMsg		  ->	  Error
+# TabLine			  fg			  guibg=#248f8f
+# TabLineFill			  guifg=#248f8f
+# TabLineSel			  fg			  darkgrey
+# DiffAdd			  fg			  guibg=#143927
+# DiffChange			  fg			  guibg=#5e4e21
+# DiffDelete			  guifg=#cd5c5c		  bg
+# DiffText			  fg			  guibg=#5e4e21
+#
+# Constant			constant		bg
+# Function			  guifg=#999900
+# Type				  guifg=#b68554
+Identifier			fg			bg
+Statement			lightgreen		bg
+# Number		  ->	  Identifier
+# Boolean		  ->	  Identifier
+String				string			bg
+PreProc				pink			bg
+Special				special			bg
+Title				title			bg
+# Delimiter			  guifg=#af5a5a
+
+# DiffAdd        xxx term=bold ctermbg=22 guibg=#006F00
+# DiffChange     xxx term=bold ctermbg=238 guibg=#565656
+# DiffDelete     xxx term=bold ctermbg=95 gui=bold guibg=#9A7372
+# DiffText       xxx term=reverse cterm=bold ctermbg=52 gui=bold guibg=#730B00
+# DiffAdd        			fg	                green
+DiffChange			none		grey
+DiffDelete			red	        bg bold
+DiffText       			none	        darkred bold
+# DiffChange     			none	                grey
+# DiffDelete     			none	                peru bold
+# DiffText       			none	                darkred bold
+diffAdded			green	                bg
+diffChanged			special		        bg
+diffRemoved			red	                bg
+diffDiffer			special		        bg bold
+diffFile			string		        bg bold
+diffLine			sepia		        bg italic
+
+# Plugins
+
+GitGutterAdd			green		bg
+GitGutterChange			special		bg
+GitGutterChangeDelete		special		bg
+GitGutterDelete			red		bg
+SignifySignAdd			green		bg
+SignifySignChange		special		bg
+SignifySignChangeDelete		special		bg
+SignifySignDelete		red		bg
+
+# vimL
+
+# verbatim
+# if s:load_for('vim')
+# endverbatim
+# vimDocstring		->	String
+# vimConditional		->	Conditional
+# vimRepeat		->	Conditional
+# vimLetVar		->	Identifier
+# helpCommand		->	Type
+# vimLet				lightgrey	bg
+# vimCall				lightgrey	bg
+# vimSelf				cyangrey	bg italic
+# verbatim
+# endif
+# endverbatim
+
+# Python
+
+# verbatim
+# if s:load_for('python')
+# endverbatim
+# pythonSelf		->	Identifier
+# pythonOperatorSymbol	->	Operator
+# pythonBraces		->	Special
+# pythonGlobalVar		->	Define
+# pythonStringType	->	Statement
+# pythonOperator		->	Statement
+# pythonBoolean		->	Command
+# pythonNone		->	Command
+# pythonStructure		->	Keyword
+# pythonStorageClass	->	Keyword
+# pythonTypeDef		->	Keyword
+# pythonFunction			cyan		bg
+# verbatim
+# endif
+# endverbatim
+
+# Markdown
+
+# verbatim
+# if s:load_for('markdown')
+# endverbatim
+# mkdItalic			pink		bg
+# mkdBold				pink		bg
+# mkdBoldItalic			pink		bg
+# mkdListItem			special		bg
+# mkdID				purple		bg
+# mkdRule				purple		bg
+# verbatim
+# endif
+# endverbatim
+
+# cpp
+
+# verbatim
+# if s:load_for('cpp')
+# endverbatim
+# cppStructure			pink		bg
+# cCharacter		->	String
+# cppOperatorSymbol	->	Operator
+# verbatim
+# endif
+# endverbatim
+
+verbatim
+"call vsd#extras()
+"call vsd#more_colors()
+silent! LightlineTheme seoul256
+silent! VMTheme sand
+if exists('loaded_xtabline')
+  let g:xtabline.Vars.has_reloaded_scheme = 1
+  silent! XTabTheme tomorrow
+endif
+filetype detect
+endverbatim
+
+verbatim
+" Neovim terminal colors
+let g:terminal_color_foreground = "#e6e1dc"
+let g:terminal_color_background = "#2b2b2b"
+let g:terminal_color_0 = "#2b2b2b"
+let g:terminal_color_8 = "#5a647e"
+let g:terminal_color_1 = "#da4939"
+let g:terminal_color_9 = "#da4939"
+let g:terminal_color_2 = "#a5c261"
+let g:terminal_color_10 = "#a5c261"
+let g:terminal_color_3 = "#ffc66d"
+let g:terminal_color_11 = "#ffc66d"
+let g:terminal_color_4 = "#6d9cbe"
+let g:terminal_color_12 = "#6d9cbe"
+let g:terminal_color_5 = "#b6b3eb"
+let g:terminal_color_13 = "#b6b3eb"
+let g:terminal_color_6 = "#519f50"
+let g:terminal_color_14 = "#519f50"
+let g:terminal_color_7 = "#e6e1dc"
+let g:terminal_color_15 = "#f9f7f3"
+endverbatim
+
+

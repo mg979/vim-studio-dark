@@ -124,6 +124,7 @@ fun! s:reset_syntax()
     hi! link mkdListItem                  Identifier
     hi! link mkdID                        Identifier
     hi! link mkdRule                      Identifier
+    hi! link mkdCode                      String
   endif
 endfun
 

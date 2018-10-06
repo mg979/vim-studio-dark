@@ -23,7 +23,8 @@ Color:	    yellow	#f2c38f ~
 Color:	    darkblue	#2222ff ~ 
 Color:	    blue	#0070af ~ 
 Color:	    green	#006600 ~ 
-# Color:      cyangrey 	#7fc1ca ~ 
+Color:	    lightgreen	#a8ce93 ~
+Color:      cyangrey 	#7fc1ca ~ 
 Color:	    cyan	#42dcd7 ~ 
 Color:	    purple	#6f008a ~ 
 Color:	    pink	#d18ec2 ~ 
@@ -67,10 +68,14 @@ PmenuSel			bg		blue
 PmenuThumb			darkblue	darkblue
 PmenuSbar			green		green
 
-DiffAdd				fg		green
-DiffChange			fg		yellow
-DiffDelete			lightred	bg
-DiffText			fg		yellow bold
+# DiffAdd				none		blue
+# DiffChange			none		darkgrey
+# DiffDelete			red	        bg bold
+# DiffText       			none	        darkred bold
+DiffAdd				none		cyangrey
+DiffChange			none		lightgrey
+DiffDelete			lightred	bg bold
+DiffText			none		yellow bold
 
 SignColumn			fg		bg
 LineNr				grey 		bg
@@ -107,7 +112,7 @@ Comment				green		bg
 Ignore				green		bg
 Conceal				green		bg
 
-Cursor				green		bg
+Cursor				bg		darkblue
 Command				purple		bg
 QuickFixLine		->	Search
 
