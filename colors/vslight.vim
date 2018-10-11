@@ -2,7 +2,7 @@
 " Author:       Gianmaria Bajo <mg1979.git@gmail.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: 06/10/2018 05:20:58
+" Last Updated: ven 12 ott 2018 01:25:51 CEST
 
 if &background == 'dark'
   exe "so ".fnamemodify(expand('<sfile>:p'), ":h")."/vsdark.vim"
@@ -111,6 +111,9 @@ if s:load_for('vim')
   hi vimCall ctermfg=236 ctermbg=bg guifg=#333333 guibg=bg guisp=NONE cterm=NONE gui=NONE
   hi vimSelf ctermfg=44 ctermbg=bg guifg=#42dcd7 guibg=bg guisp=NONE cterm=NONE,italic gui=NONE,italic
 endif
+hi! link helpCommand Type
+hi! link helpSectionDelim PreProc
+hi! link HelpHeadline Statement
 if s:load_for('python')
   hi! link pythonSelf Identifier
   hi! link pythonOperatorSymbol Operator
@@ -138,7 +141,59 @@ if s:load_for('cpp')
   hi! link cCharacter String
   hi! link cppOperatorSymbol Operator
 endif
-call vsd#terminal_light()
+let g:terminal_ansi_colors = [
+      \ "#3C4C55",
+      \ "#DF8C8C",
+      \ "#A8CE93",
+      \ "#DADA93",
+      \ "#83AFE5",
+      \ "#9A93E1",
+      \ "#83AFE5",
+      \ "#C5D4DD",
+      \ "#608b4e",
+      \ "#F2C38F",
+      \ "#A8CE93",
+      \ "#DADA93",
+      \ "#83AFE5",
+      \ "#D18EC2",
+      \ "#83AFE5",
+      \ "#E6EEF3"
+      \]
+
+" NEOVIM TERMINAL MODE
+let g:terminal_color_0 = "#3C4C55"
+let g:terminal_color_1 = "#DF8C8C"
+let g:terminal_color_2 = "#A8CE93"
+let g:terminal_color_3 = "#DADA93"
+let g:terminal_color_4 = "#83AFE5"
+let g:terminal_color_5 = "#9A93E1"
+let g:terminal_color_6 = "#83AFE5"
+let g:terminal_color_7 = "#C5D4DD"
+let g:terminal_color_8 = "#608b4e"
+let g:terminal_color_9 = "#F2C38F"
+let g:terminal_color_10 = "#A8CE93"
+let g:terminal_color_11 = "#DADA93"
+let g:terminal_color_12 = "#83AFE5"
+let g:terminal_color_13 = "#D18EC2"
+let g:terminal_color_14 = "#83AFE5"
+let g:terminal_color_15 = "#E6EEF3"
+
+" FZF
+let g:fzf_colors = {
+      \ "fg":      ["fg", "Normal"],
+      \ "bg":      ["bg", "Normal"],
+      \ "hl":      ["fg", "Conditional"],
+      \ "fg+":     ["fg", "CursorLine", "CursorColumn", "Normal"],
+      \ "bg+":     ["bg", "CursorLine", "CursorColumn"],
+      \ "hl+":     ["fg", "Conditional"],
+      \ "info":    ["fg", "Conditional"],
+      \ "border":  ["fg", "Ignore"],
+      \ "prompt":  ["fg", "Comment"],
+      \ "pointer": ["fg", "Conditional"],
+      \ "marker":  ["fg", "Conditional"],
+      \ "spinner": ["fg", "Conditional"],
+      \ "header":  ["fg", "Conditional"]
+      \}
 call vsd#extras()
 call vsd#more_colors()
 silent! LightlineTheme Tomorrow_Night_Bright
@@ -253,6 +308,9 @@ finish
 " vimLet				darkgrey	bg
 " vimCall				darkgrey	bg
 " vimSelf				cyan		bg italic
+" helpCommand		->	Type
+" helpSectionDelim	->	PreProc
+" HelpHeadline		->	Statement
 " pythonSelf		->	Identifier
 " pythonOperatorSymbol	->	Operator
 " pythonBraces		->	Special

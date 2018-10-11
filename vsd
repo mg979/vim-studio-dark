@@ -15,7 +15,8 @@ endverbatim
 
 Background: dark
 
-# Color palette
+# Color palette {{{1
+
 Color:	    background		#1e1e1e ~
 Color:	    foreground		#c5d4dd ~
 Color:	    white		#e6eef3 ~
@@ -41,6 +42,8 @@ Color:	    string		#ce9178 ~
 Color:	    lightred		#df8c8c ~
 Color:	    red			#ff0000 ~
 Color:	    darkred		#730b00 ~
+
+# Colors {{{1
 
 Normal				foreground	background
 
@@ -124,7 +127,7 @@ Cursor				bg		green
 Command				pink		bg
 QuickFixLine		->	Search
 
-# Plugins
+# Plugins {{{2
 
 GitGutterAdd			green		bg
 GitGutterChange			special		bg
@@ -135,7 +138,7 @@ SignifySignChange		special		bg
 SignifySignChangeDelete		special		bg
 SignifySignDelete		red		bg
 
-# vimL
+# vimL {{{2
 
 verbatim
 if s:load_for('vim')
@@ -144,7 +147,6 @@ vimDocstring		->	String
 vimConditional		->	Conditional
 vimRepeat		->	Conditional
 vimLetVar		->	Identifier
-helpCommand		->	Type
 vimLet				lightgrey	bg
 vimCall				lightgrey	bg
 vimSelf				cyangrey	bg italic
@@ -152,7 +154,13 @@ verbatim
 endif
 endverbatim
 
-# Python
+# help {{{2
+
+helpCommand		->	Type
+helpSectionDelim	->	PreProc
+HelpHeadline		->	Statement
+
+# Python {{{2
 
 verbatim
 if s:load_for('python')
@@ -173,7 +181,7 @@ verbatim
 endif
 endverbatim
 
-# Markdown
+# Markdown {{{2
 
 verbatim
 if s:load_for('markdown')
@@ -189,7 +197,7 @@ verbatim
 endif
 endverbatim
 
-# cpp
+# cpp {{{2
 
 verbatim
 if s:load_for('cpp')
@@ -201,8 +209,67 @@ verbatim
 endif
 endverbatim
 
+# Terminals {{{2
+
 verbatim
-call vsd#terminal_dark()
+let g:terminal_ansi_colors = [
+	\ "#3C4C55",
+	\ "#DF8C8C",
+	\ "#A8CE93",
+	\ "#DADA93",
+	\ "#83AFE5",
+	\ "#9A93E1",
+	\ "#83AFE5",
+	\ "#C5D4DD",
+	\ "#608b4e",
+	\ "#F2C38F",
+	\ "#A8CE93",
+	\ "#DADA93",
+	\ "#83AFE5",
+	\ "#D18EC2",
+	\ "#83AFE5",
+	\ "#E6EEF3"
+	\]
+
+" NEOVIM TERMINAL MODE
+let g:terminal_color_0 = "#3C4C55"
+let g:terminal_color_1 = "#DF8C8C"
+let g:terminal_color_2 = "#A8CE93"
+let g:terminal_color_3 = "#DADA93"
+let g:terminal_color_4 = "#83AFE5"
+let g:terminal_color_5 = "#9A93E1"
+let g:terminal_color_6 = "#83AFE5"
+let g:terminal_color_7 = "#C5D4DD"
+let g:terminal_color_8 = "#608b4e"
+let g:terminal_color_9 = "#F2C38F"
+let g:terminal_color_10 = "#A8CE93"
+let g:terminal_color_11 = "#DADA93"
+let g:terminal_color_12 = "#83AFE5"
+let g:terminal_color_13 = "#D18EC2"
+let g:terminal_color_14 = "#83AFE5"
+let g:terminal_color_15 = "#E6EEF3"
+
+" FZF
+let g:fzf_colors = {
+	\ "fg":      ["fg", "Normal"],
+	\ "bg":      ["bg", "Normal"],
+	\ "hl":      ["fg", "Conditional"],
+	\ "fg+":     ["fg", "CursorLine", "CursorColumn", "Normal"],
+	\ "bg+":     ["bg", "CursorLine", "CursorColumn"],
+	\ "hl+":     ["fg", "Conditional"],
+	\ "info":    ["fg", "Conditional"],
+	\ "border":  ["fg", "Ignore"],
+	\ "prompt":  ["fg", "Comment"],
+	\ "pointer": ["fg", "Conditional"],
+	\ "marker":  ["fg", "Conditional"],
+	\ "spinner": ["fg", "Conditional"],
+	\ "header":  ["fg", "Conditional"]
+	\}
+endverbatim
+
+# Functions {{{1
+
+verbatim
 call vsd#extras()
 call vsd#more_colors()
 silent! LightlineTheme deus

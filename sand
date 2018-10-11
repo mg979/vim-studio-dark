@@ -23,11 +23,13 @@ Background: dark
 # Original desert.vim
 Include: desert_vim
 
-# Color palette
+# Color palette {{{1
+
 Color:	    background		#2d2d2d ~
 Color:	    foreground		#c6c6b9 ~
 Color:	    lightgrey		#6b6a61 ~
 Color:	    black		#262626 ~
+Color:	    skyblue		SkyBlue ~
 Color:	    grey		#4d4d4d ~
 Color:	    grey2		#404040 ~
 Color:	    darkgrey		#333333 ~
@@ -40,7 +42,7 @@ Color:	    darkred		#730b00 ~
 Color:	    lightgreen		#a8ce93 ~
 Color:	    green		#7ab87a ~
 Color:	    pink		#c9acd2 ~
-# Color:	    yellow		#dada93 ~
+Color:	    yellow		#dada93 ~
 Color:	    special		#f2c38f ~
 Color:	    cursor 		#dfaf87 ~
 # Color:	    skyblue		#569cd6 ~
@@ -114,7 +116,7 @@ diffDiffer			special		        bg bold
 diffFile			string		        bg bold
 diffLine			sepia		        bg italic
 
-# Plugins
+# Plugins {{{1
 
 GitGutterAdd			green		bg
 GitGutterChange			special		bg
@@ -125,7 +127,11 @@ SignifySignChange		special		bg
 SignifySignChangeDelete		special		bg
 SignifySignDelete		red		bg
 
-# vimL
+# help {{{1
+
+helpCommand			skyblue		bg
+helpSectionDelim	->	Constant
+HelpHeadline			yellow		bg
 
 # verbatim
 # if s:load_for('vim')
@@ -190,20 +196,29 @@ SignifySignDelete		red		bg
 # endif
 # endverbatim
 
-verbatim
-"call vsd#extras()
-"call vsd#more_colors()
-silent! LightlineTheme seoul256
-silent! VMTheme sand
-if exists('loaded_xtabline')
-  let g:xtabline.Vars.has_reloaded_scheme = 1
-  silent! XTabTheme tomorrow
-endif
-filetype detect
-endverbatim
+# Terminals {{{2
 
 verbatim
-" Neovim terminal colors
+let g:terminal_ansi_colors = [
+	\ "#3C4C55",
+	\ "#DF8C8C",
+	\ "#A8CE93",
+	\ "#DADA93",
+	\ "#83AFE5",
+	\ "#9A93E1",
+	\ "#83AFE5",
+	\ "#C5D4DD",
+	\ "#608b4e",
+	\ "#F2C38F",
+	\ "#A8CE93",
+	\ "#DADA93",
+	\ "#83AFE5",
+	\ "#D18EC2",
+	\ "#83AFE5",
+	\ "#E6EEF3"
+	\]
+
+" NEOVIM TERMINAL MODE
 let g:terminal_color_foreground = "#e6e1dc"
 let g:terminal_color_background = "#2b2b2b"
 let g:terminal_color_0 = "#2b2b2b"
@@ -222,6 +237,35 @@ let g:terminal_color_6 = "#519f50"
 let g:terminal_color_14 = "#519f50"
 let g:terminal_color_7 = "#e6e1dc"
 let g:terminal_color_15 = "#f9f7f3"
+
+" FZF
+let g:fzf_colors = {
+	\ "fg":      ["fg", "Normal"],
+	\ "bg":      ["bg", "Normal"],
+	\ "hl":      ["fg", "Conditional"],
+	\ "fg+":     ["fg", "CursorLine", "CursorColumn", "Normal"],
+	\ "bg+":     ["bg", "CursorLine", "CursorColumn"],
+	\ "hl+":     ["fg", "Conditional"],
+	\ "info":    ["fg", "Conditional"],
+	\ "border":  ["fg", "Ignore"],
+	\ "prompt":  ["fg", "Comment"],
+	\ "pointer": ["fg", "Conditional"],
+	\ "marker":  ["fg", "Conditional"],
+	\ "spinner": ["fg", "Conditional"],
+	\ "header":  ["fg", "Conditional"]
+	\}
 endverbatim
 
+# Functions {{{1
 
+verbatim
+"call vsd#extras()
+"call vsd#more_colors()
+silent! LightlineTheme seoul256
+silent! VMTheme sand
+if exists('loaded_xtabline')
+  let g:xtabline.Vars.has_reloaded_scheme = 1
+  silent! XTabTheme tomorrow
+endif
+filetype detect
+endverbatim

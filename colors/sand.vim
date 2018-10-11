@@ -2,7 +2,7 @@
 " Author:       Gianmaria Bajo <mg1979.git@gmail.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: dom 07 ott 2018 00:34:29 CEST
+" Last Updated: ven 12 ott 2018 01:32:46 CEST
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -94,7 +94,7 @@ hi Folded ctermfg=242 ctermbg=238 guifg=#6b6a61 guibg=#404040 guisp=NONE cterm=N
 hi LineNr ctermfg=239 ctermbg=bg guifg=#4d4d4d guibg=bg guisp=NONE cterm=NONE,italic gui=NONE,italic
 hi SignColumn ctermfg=239 ctermbg=235 guifg=#4d4d4d guibg=#262626 guisp=NONE cterm=NONE,italic gui=NONE,italic
 hi VertSplit ctermfg=fg ctermbg=235 guifg=fg guibg=#262626 guisp=NONE cterm=NONE gui=NONE
-hi Search ctermfg=255 ctermbg=172 guifg=#e6eef3 guibg=peru guisp=NONE cterm=NONE gui=NONE
+hi Search ctermfg=255 ctermbg=172 guifg=#e6eef3 guibg=#cd853f guisp=NONE cterm=NONE gui=NONE
 hi IncSearch ctermfg=255 ctermbg=167 guifg=#e6eef3 guibg=#cd5c5c guisp=NONE cterm=NONE gui=NONE
 hi Pmenu ctermfg=bg ctermbg=101 guifg=bg guibg=#999966 guisp=NONE cterm=NONE gui=NONE
 hi PmenuSel ctermfg=fg ctermbg=239 guifg=fg guibg=#4d4d4d guisp=NONE cterm=NONE gui=NONE
@@ -129,16 +129,29 @@ hi SignifySignAdd ctermfg=71 ctermbg=bg guifg=#7ab87a guibg=bg guisp=NONE cterm=
 hi SignifySignChange ctermfg=223 ctermbg=bg guifg=#f2c38f guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi SignifySignChangeDelete ctermfg=223 ctermbg=bg guifg=#f2c38f guibg=bg guisp=NONE cterm=NONE gui=NONE
 hi SignifySignDelete ctermfg=167 ctermbg=bg guifg=#cd5c5c guibg=bg guisp=NONE cterm=NONE gui=NONE
-"call vsd#extras()
-"call vsd#more_colors()
-silent! LightlineTheme seoul256
-silent! VMTheme sand
-if exists('loaded_xtabline')
-  let g:xtabline.Vars.has_reloaded_scheme = 1
-  silent! XTabTheme tomorrow
-endif
-filetype detect
-" Neovim terminal colors
+hi helpCommand ctermfg=117 ctermbg=bg guifg=SkyBlue guibg=bg guisp=NONE cterm=NONE gui=NONE
+hi! link helpSectionDelim Constant
+hi HelpHeadline ctermfg=186 ctermbg=bg guifg=#dada93 guibg=bg guisp=NONE cterm=NONE gui=NONE
+let g:terminal_ansi_colors = [
+      \ "#3C4C55",
+      \ "#DF8C8C",
+      \ "#A8CE93",
+      \ "#DADA93",
+      \ "#83AFE5",
+      \ "#9A93E1",
+      \ "#83AFE5",
+      \ "#C5D4DD",
+      \ "#608b4e",
+      \ "#F2C38F",
+      \ "#A8CE93",
+      \ "#DADA93",
+      \ "#83AFE5",
+      \ "#D18EC2",
+      \ "#83AFE5",
+      \ "#E6EEF3"
+      \]
+
+" NEOVIM TERMINAL MODE
 let g:terminal_color_foreground = "#e6e1dc"
 let g:terminal_color_background = "#2b2b2b"
 let g:terminal_color_0 = "#2b2b2b"
@@ -157,6 +170,32 @@ let g:terminal_color_6 = "#519f50"
 let g:terminal_color_14 = "#519f50"
 let g:terminal_color_7 = "#e6e1dc"
 let g:terminal_color_15 = "#f9f7f3"
+
+" FZF
+let g:fzf_colors = {
+      \ "fg":      ["fg", "Normal"],
+      \ "bg":      ["bg", "Normal"],
+      \ "hl":      ["fg", "Conditional"],
+      \ "fg+":     ["fg", "CursorLine", "CursorColumn", "Normal"],
+      \ "bg+":     ["bg", "CursorLine", "CursorColumn"],
+      \ "hl+":     ["fg", "Conditional"],
+      \ "info":    ["fg", "Conditional"],
+      \ "border":  ["fg", "Ignore"],
+      \ "prompt":  ["fg", "Comment"],
+      \ "pointer": ["fg", "Conditional"],
+      \ "marker":  ["fg", "Conditional"],
+      \ "spinner": ["fg", "Conditional"],
+      \ "header":  ["fg", "Conditional"]
+      \}
+"call vsd#extras()
+"call vsd#more_colors()
+silent! LightlineTheme seoul256
+silent! VMTheme sand
+if exists('loaded_xtabline')
+  let g:xtabline.Vars.has_reloaded_scheme = 1
+  silent! XTabTheme tomorrow
+endif
+filetype detect
 finish
 
 " Background: dark
@@ -164,6 +203,7 @@ finish
 " Color:	    foreground		#c6c6b9 ~
 " Color:	    lightgrey		#6b6a61 ~
 " Color:	    black		#262626 ~
+" Color:	    skyblue		SkyBlue ~
 " Color:	    grey		#4d4d4d ~
 " Color:	    grey2		#404040 ~
 " Color:	    darkgrey		#333333 ~
@@ -176,6 +216,7 @@ finish
 " Color:	    lightgreen		#a8ce93 ~
 " Color:	    green		#7ab87a ~
 " Color:	    pink		#c9acd2 ~
+" Color:	    yellow		#dada93 ~
 " Color:	    special		#f2c38f ~
 " Color:	    cursor 		#dfaf87 ~
 " Color:	    string		#8d8d8d ~
@@ -220,3 +261,6 @@ finish
 " SignifySignChange		special		bg
 " SignifySignChangeDelete		special		bg
 " SignifySignDelete		red		bg
+" helpCommand			skyblue		bg
+" helpSectionDelim	->	Constant
+" HelpHeadline			yellow		bg
