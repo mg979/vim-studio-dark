@@ -6,7 +6,7 @@ Maintainer: Gianmaria Bajo <mg1979.git@gmail.com>
 
 verbatim
 call vsd#init()
-let s:load_for = { ft -> g:VSD[ft] || g:VSD.extra_syntax }
+let s:load_for = { ft -> g:Vsd[ft] || g:Vsd.extra_syntax }
 endverbatim
 
 #===================================================================
@@ -47,29 +47,45 @@ Color:	    darkred		#730b00 ~
 
 Normal				foreground	background
 
-MatchParen			red		bg
-CursorLineNr			lightblue	bg
+verbatim
+let contrast = [ ['#1e1e1e', '234'],
+		\['#181818', '233']]
+let gui  = contrast[g:Vsd.contrast][0]
+let term = contrast[g:Vsd.contrast][1]
+exe "hi! Normal guibg=".gui." ctermbg=".term
+if &termguicolors
+  hi Normal ctermbg=0
+else
+  set bg=dark
+endif
+endverbatim
+
+MatchParen			red		none
+CursorLineNr			lightblue	none
 Visual				none		blue
 VisualNOS			none		blue
-Folded				skyblue		bg
-FoldColumn			skyblue		bg
+Folded				skyblue		none
+FoldColumn			skyblue		none
 IncSearch			darkgrey	lightred
 Search				none		grey
-Question			skyblue		bg
-MoreMsg				skyblue		bg
-ModeMsg				skyblue		bg
+Question			skyblue		none
+MoreMsg				skyblue		none
+ModeMsg				skyblue		none
 WildMenu			fg		darkblue
 StatusLine			fg		grey
 StatusLineTerm                  fg           	grey
-StatusLineNC			fg		bg
-StatusLineTermNC		fg		bg
+StatusLineNC			fg		none
+StatusLineTermNC		fg		none
 
-Error				red		bg
-ErrorMsg			red		bg
-WarningMsg			lightred	bg
-SpellBad			lightred	bg
-SpellCap			lightred	bg
-Todo				lightred	bg
+Error				red		none
+ErrorMsg			red		none
+WarningMsg			lightred	none
+Todo				lightred	none
+
+SpellBad			red   		none undercurl
+SpellCap			lightred	none undercurl
+SpellLocal			skyblue		none undercurl
+SpellRare			lightred	none undercurl
 
 Pmenu				fg		grey
 PmenuSel			fg		darkblue
@@ -78,21 +94,21 @@ PmenuThumb			skyblue		skyblue
 
 DiffAdd				none		blue
 DiffChange			none		darkgrey
-DiffDelete			red	        bg bold
+DiffDelete			red	        none bold
 DiffText       			none	        darkred bold
-diffAdded			lightgreen	bg
-diffChanged			special		bg
-diffRemoved			lightred	bg
-diffDiffer			special		bg bold
-diffFile			string		bg bold
-diffLine			yellow		bg italic
+diffAdded			lightgreen	none
+diffChanged			special		none
+diffRemoved			lightred	none
+diffDiffer			special		none bold
+diffFile			string		none bold
+diffLine			yellow		none italic
 
-SignColumn			fg		bg
-LineNr				grey	bg
+SignColumn			fg		none
+LineNr				grey		none
 CursorLine			none		darkgrey
 CursorColumn			fg		darkgrey
 ColorColumn			fg		darkgrey
-EndOfBuffer			bg		bg
+EndOfBuffer			none		none
 VertSplit			darkgrey	nightblue
 TabLine				lightgrey	darkgrey
 TabLineSel			skyblue		grey
@@ -100,43 +116,43 @@ TabLineFill			lightgrey	darkgrey
 ToolbarLine			fg		grey
 ToolbarButton                   grey      	lightblue
 
-String				string		bg
-Constant			lightgreen	bg
-Directory			skyblue		bg
-Identifier			identifier	bg italic
-Function			white		bg
-Statement			skyblue		bg
-Conditional			skyblue		bg
+String				string		none
+Constant			lightgreen	none
+Directory			skyblue		none
+Identifier			identifier	none italic
+Function			white		none
+Statement			skyblue		none
+Conditional			skyblue		none
 
-Operator			yellow		bg
-Number				cyangrey	bg
-Type				lightgreen	bg
-Define				lightgreen	bg
-PreProc				purple		bg
-Keyword				purple		bg
-Underlined			pink		bg
-Special				special		bg
-SpecialKey			special		bg
-NonText				special		bg
-Title				special		bg
-Comment				darkgreen	bg
-Ignore				darkgreen	bg
-Conceal				darkgreen	bg
+Operator			yellow		none
+Number				cyangrey	none
+Type				lightgreen	none
+Define				lightgreen	none
+PreProc				purple		none
+Keyword				purple		none
+Underlined			pink		none
+Special				special		none
+SpecialKey			special		none
+NonText				special		none
+Title				special		none
+Comment				darkgreen	none
+Ignore				darkgreen	none
+Conceal				darkgreen	none
 
-Cursor				bg		green
-Command				pink		bg
+Cursor				none		green
+Command				pink		none
 QuickFixLine		->	Search
 
 # Plugins {{{2
 
-GitGutterAdd			green		bg
-GitGutterChange			special		bg
-GitGutterChangeDelete		special		bg
-GitGutterDelete			red		bg
-SignifySignAdd			green		bg
-SignifySignChange		special		bg
-SignifySignChangeDelete		special		bg
-SignifySignDelete		red		bg
+GitGutterAdd			green		none
+GitGutterChange			special		none
+GitGutterChangeDelete		special		none
+GitGutterDelete			red		none
+SignifySignAdd			green		none
+SignifySignChange		special		none
+SignifySignChangeDelete		special		none
+SignifySignDelete		red		none
 
 # vimL {{{2
 
@@ -147,9 +163,10 @@ vimDocstring		->	String
 vimConditional		->	Conditional
 vimRepeat		->	Conditional
 vimLetVar		->	Identifier
-vimLet				lightgrey	bg
-vimCall				lightgrey	bg
-vimSelf				cyangrey	bg italic
+vimLet				lightgrey	none
+vimCall				lightgrey	none
+vimCommand		->	Command
+vimSelf				cyangrey	none italic
 verbatim
 endif
 endverbatim
@@ -176,7 +193,7 @@ pythonNone		->	Command
 pythonStructure		->	Keyword
 pythonStorageClass	->	Keyword
 pythonTypeDef		->	Keyword
-pythonFunction			cyan		bg
+pythonFunction			cyan		none
 verbatim
 endif
 endverbatim
@@ -186,13 +203,13 @@ endverbatim
 verbatim
 if s:load_for('markdown')
 endverbatim
-mkdItalic			pink		bg
-mkdBold				pink		bg
-mkdBoldItalic			pink		bg
-mkdListItem			special		bg
-mkdID				purple		bg
-mkdRule				purple		bg
-mkdCode			        lightgrey	bg italic
+mkdItalic			pink		none
+mkdBold				pink		none
+mkdBoldItalic			pink		none
+mkdListItem			special		none
+mkdID				purple		none
+mkdRule				purple		none
+mkdCode			        lightgrey	none italic
 verbatim
 endif
 endverbatim
@@ -202,7 +219,8 @@ endverbatim
 verbatim
 if s:load_for('cpp')
 endverbatim
-cppStructure			pink		bg
+cppStructure			pink		none
+cStorageClass			pink		none
 cCharacter		->	String
 cppOperatorSymbol	->	Operator
 verbatim
@@ -270,14 +288,7 @@ endverbatim
 # Functions {{{1
 
 verbatim
-call vsd#extras()
-call vsd#more_colors()
-silent! LightlineTheme deus
-silent! VMTheme iceblue
-if exists('loaded_xtabline')
-  let g:xtabline.Vars.has_reloaded_scheme = 1
-  silent! XTabTheme codedark
-endif
+call vsd#extras('vsdark')
 filetype detect
 endverbatim
 

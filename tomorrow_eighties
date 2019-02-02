@@ -6,7 +6,7 @@ Maintainer: Gianmaria Bajo <mg1979.git@gmail.com>
 
 verbatim
 call vsd#init()
-let s:load_for = { ft -> g:VSD[ft] || g:VSD.extra_syntax }
+let s:load_for = { ft -> g:Vsd[ft] || g:Vsd.extra_syntax }
 endverbatim
 
 #===================================================================
@@ -32,10 +32,28 @@ Color:	    window	 #4d5057 ~
 Color:	    special	 #f2c38f ~
 Color:	    lightgrey	 #a9a9a9 ~
 
-Normal				foreground	background
-LineNr				window	        bg
-NonText				selection	bg
-Search				bg		special
+#===================================================================
+# Highlight groups
+#===================================================================
+
+Normal				foreground		background
+
+verbatim
+let contrast = [ ['#262626', '235'],
+		\['#1e1e1e', '234']]
+let gui  = contrast[g:Vsd.contrast][0]
+let term = contrast[g:Vsd.contrast][1]
+exe "hi! Normal guibg=".gui." ctermbg=".term
+if &termguicolors
+  hi Normal ctermbg=0
+else
+  set bg=dark
+endif
+endverbatim
+
+LineNr				window	        none
+NonText				selection	none
+Search				background	special
 IncSearch			red		special bold
 TabLine				window		fg reverse
 TabLineFill			window		fg reverse
@@ -46,66 +64,71 @@ StatusLineTermNC		window		fg reverse
 VertSplit			window		window
 Visual				none		selection
 VisualNOS			none		selection
-Directory			blue		bg
-ModeMsg				green		bg
-MoreMsg				green		bg
-Question			green		bg
-WarningMsg			red		bg
+Directory			blue		none
+ModeMsg				green		none
+MoreMsg				green		none
+Question			green		none
+WarningMsg			red		none
 MatchParen			red		window bold
-Folded				comment		bg
-FoldColumn			fg		bg
+Folded				comment		none
+FoldColumn			fg		none
 CursorLine			none		selection
-CursorLineNr			yellow		bg
+CursorLineNr			yellow		none
 CursorColumn			fg		selection
 Pmenu				fg		selection
 PmenuSel			fg		selection reverse
-SignColumn			fg		bg
+SignColumn			fg		none
 ColorColumn			fg		selection
 
-Comment				comment		bg
-Todo				comment		bg
-Title				comment		bg
-Identifier			red		bg
-Statement			fg		bg
-Conditional			blue		bg
-Repeat				fg		bg
-Structure			purple		bg
-Function			blue		bg
-Constant			orange		bg
-Keyword				orange		bg
-String				green		bg
-Special				special		bg
-SpecialKey			special	        bg
-PreProc				purple		bg
-Operator			aqua		bg
-Type				blue		bg
-Define				purple		bg
-Include				blue		bg
+Comment				comment		none
+Todo				comment		none
+Title				comment		none
+Identifier			red		none
+Statement			purple		none
+Conditional			blue		none
+Repeat				blue		none
+Structure			yellow		none
+Function			blue		none
+Constant			orange		none
+Keyword				orange		none
+String				green		none
+Special				special		none
+SpecialKey			special	        none
+PreProc				purple		none
+Operator			aqua		none
+Type				yellow		none
+Define				purple		none
+Include				purple		none
+
+SpellBad			red   		none undercurl
+SpellCap			orange		none undercurl
+SpellLocal			orange		none undercurl
+SpellRare			purple 		none undercurl
 
 DiffAdd				fg		selection
-DiffDelete			bg		red
+DiffDelete			none		red
 DiffChange			fg		blue
 DiffText			selection	blue
 
-Cursor				bg		green
+Cursor				none		green
 QuickFixLine		->	Search
 
-diffAdded			green		bg
-diffRemoved			red		bg
-gitcommitSummary		fg		bg bold
+diffAdded			green		none
+diffRemoved			red		none
+gitcommitSummary		fg		none bold
 
-Command				red		bg
+Command				red		none
 
 # Plugins {{{2
 
-GitGutterAdd			green		bg
-GitGutterChange			special		bg
-GitGutterChangeDelete		special		bg
-GitGutterDelete			red		bg
-SignifySignAdd			green		bg
-SignifySignChange		special		bg
-SignifySignChangeDelete		special		bg
-SignifySignDelete		red		bg
+GitGutterAdd			green		none
+GitGutterChange			special		none
+GitGutterChangeDelete		special		none
+GitGutterDelete			red		none
+SignifySignAdd			green		none
+SignifySignChange		special		none
+SignifySignChangeDelete		special		none
+SignifySignDelete		red		none
 
 # vimL {{{2
 
@@ -115,10 +138,11 @@ endverbatim
 vimDocstring		->	String
 vimConditional		->	Conditional
 vimRepeat		->	Conditional
-vimLetVar		->	Identifier
-vimLet				lightgrey	bg
-vimCall				lightgrey	bg
-vimSelf				special		bg italic
+vimLetVar		->	foreground	none
+vimCommand			red   		none
+vimLet				lightgrey	none
+vimCall				lightgrey	none
+vimSelf				special		none italic
 verbatim
 endif
 endverbatim
@@ -137,7 +161,7 @@ endverbatim
 pythonSelf		->	Identifier
 pythonOperatorSymbol	->	Operator
 pythonBraces		->	Special
-pythonGlobalVar		->	Define
+pythonGlobalVar		orange	none
 pythonStringType	->	Statement
 pythonOperator		->	Statement
 pythonBoolean		->	Command
@@ -145,7 +169,7 @@ pythonNone		->	Command
 pythonStructure		->	Keyword
 pythonStorageClass	->	Keyword
 pythonTypeDef		->	Keyword
-pythonFunction			blue		bg
+pythonFunction			red   		none
 verbatim
 endif
 endverbatim
@@ -155,12 +179,12 @@ endverbatim
 verbatim
 if s:load_for('markdown')
 endverbatim
-mkdItalic			purple		bg
-mkdBold				purple		bg
-mkdBoldItalic			purple		bg
-mkdListItem			special		bg
-mkdID				purple		bg
-mkdRule				purple		bg
+mkdItalic			purple		none
+mkdBold				purple		none
+mkdBoldItalic			purple		none
+mkdListItem			special		none
+mkdID				purple		none
+mkdRule				purple		none
 verbatim
 endif
 endverbatim
@@ -170,7 +194,10 @@ endverbatim
 verbatim
 if s:load_for('cpp')
 endverbatim
-cppOperatorSymbol -> Operator
+cppStructure			purple		none
+cStorageClass			red		none
+cCharacter		->	String
+cppOperatorSymbol	->	Operator
 verbatim
 endif
 endverbatim
@@ -218,10 +245,10 @@ let g:terminal_color_15 = "#E6EEF3"
 " FZF
 let g:fzf_colors = {
 	\ "fg":      ["fg", "Normal"],
-	\ "bg":      ["bg", "Normal"],
+	\ "none":      ["none", "Normal"],
 	\ "hl":      ["fg", "Conditional"],
 	\ "fg+":     ["fg", "CursorLine", "CursorColumn", "Normal"],
-	\ "bg+":     ["bg", "CursorLine", "CursorColumn"],
+	\ "none+":     ["none", "CursorLine", "CursorColumn"],
 	\ "hl+":     ["fg", "Conditional"],
 	\ "info":    ["fg", "Conditional"],
 	\ "border":  ["fg", "Ignore"],
@@ -236,15 +263,7 @@ endverbatim
 # Functions {{{1
 
 verbatim
-call vsd#terminal_dark()
-call vsd#extras()
-call vsd#more_colors()
-silent! LightlineTheme Tomorrow_Night_Eighties
-silent! VMTheme codedark
-if exists('loaded_xtabline')
-  let g:xtabline.Vars.has_reloaded_scheme = 1
-  silent! XTabTheme tomorrow
-endif
+call vsd#extras('tomorrow_eighties')
 filetype detect
 endverbatim
 

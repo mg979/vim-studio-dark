@@ -2,7 +2,7 @@
 " Author:       Chris Kempson <http://chriskempson.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: 26/09/2018 22:34:21
+" Last Updated: dom 03 feb 2019 03:51:24 CET
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -20,12 +20,22 @@ endif
 let g:colors_name = 'tomorrow_eighties'
 
 call vsd#init()
-let s:load_for = { ft -> g:VSD[ft] || g:VSD.extra_syntax }
+let s:load_for = { ft -> g:Vsd[ft] || g:Vsd.extra_syntax }
 
 hi Normal ctermfg=252 ctermbg=235 guifg=#cccccc guibg=#262626 guisp=NONE cterm=NONE gui=NONE
-hi LineNr ctermfg=239 ctermbg=bg guifg=#4d5057 guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi NonText ctermfg=237 ctermbg=bg guifg=#393939 guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi Search ctermfg=bg ctermbg=223 guifg=bg guibg=#f2c38f guisp=NONE cterm=NONE gui=NONE
+let contrast = [ ['#262626', '235'],
+      \['#1e1e1e', '234']]
+let gui  = contrast[g:Vsd.contrast][0]
+let term = contrast[g:Vsd.contrast][1]
+exe "hi! Normal guibg=".gui." ctermbg=".term
+if &termguicolors
+  hi Normal ctermbg=0
+else
+  set bg=dark
+endif
+hi LineNr ctermfg=239 ctermbg=NONE guifg=#4d5057 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi NonText ctermfg=237 ctermbg=NONE guifg=#393939 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi Search ctermfg=235 ctermbg=223 guifg=#262626 guibg=#f2c38f guisp=NONE cterm=NONE gui=NONE
 hi IncSearch ctermfg=210 ctermbg=223 guifg=#f2777a guibg=#f2c38f guisp=NONE cterm=NONE,bold gui=NONE,bold
 hi TabLine ctermfg=239 ctermbg=fg guifg=#4d5057 guibg=fg guisp=NONE cterm=NONE,reverse gui=NONE,reverse
 hi TabLineFill ctermfg=239 ctermbg=fg guifg=#4d5057 guibg=fg guisp=NONE cterm=NONE,reverse gui=NONE,reverse
@@ -36,73 +46,80 @@ hi StatusLineTermNC ctermfg=239 ctermbg=fg guifg=#4d5057 guibg=fg guisp=NONE cte
 hi VertSplit ctermfg=239 ctermbg=239 guifg=#4d5057 guibg=#4d5057 guisp=NONE cterm=NONE gui=NONE
 hi Visual ctermfg=NONE ctermbg=237 guifg=NONE guibg=#393939 guisp=NONE cterm=NONE gui=NONE
 hi VisualNOS ctermfg=NONE ctermbg=237 guifg=NONE guibg=#393939 guisp=NONE cterm=NONE gui=NONE
-hi Directory ctermfg=67 ctermbg=bg guifg=#6699cc guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi ModeMsg ctermfg=151 ctermbg=bg guifg=#99cc99 guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi MoreMsg ctermfg=151 ctermbg=bg guifg=#99cc99 guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi Question ctermfg=151 ctermbg=bg guifg=#99cc99 guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi WarningMsg ctermfg=210 ctermbg=bg guifg=#f2777a guibg=bg guisp=NONE cterm=NONE gui=NONE
+hi Directory ctermfg=67 ctermbg=NONE guifg=#6699cc guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi ModeMsg ctermfg=151 ctermbg=NONE guifg=#99cc99 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi MoreMsg ctermfg=151 ctermbg=NONE guifg=#99cc99 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi Question ctermfg=151 ctermbg=NONE guifg=#99cc99 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi WarningMsg ctermfg=210 ctermbg=NONE guifg=#f2777a guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi MatchParen ctermfg=210 ctermbg=239 guifg=#f2777a guibg=#4d5057 guisp=NONE cterm=NONE,bold gui=NONE,bold
-hi Folded ctermfg=247 ctermbg=bg guifg=#999999 guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi FoldColumn ctermfg=fg ctermbg=bg guifg=fg guibg=bg guisp=NONE cterm=NONE gui=NONE
+hi Folded ctermfg=247 ctermbg=NONE guifg=#999999 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi FoldColumn ctermfg=fg ctermbg=NONE guifg=fg guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi CursorLine ctermfg=NONE ctermbg=237 guifg=NONE guibg=#393939 guisp=NONE cterm=NONE gui=NONE
-hi CursorLineNr ctermfg=222 ctermbg=bg guifg=#ffcc66 guibg=bg guisp=NONE cterm=NONE gui=NONE
+hi CursorLineNr ctermfg=222 ctermbg=NONE guifg=#ffcc66 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi CursorColumn ctermfg=fg ctermbg=237 guifg=fg guibg=#393939 guisp=NONE cterm=NONE gui=NONE
 hi Pmenu ctermfg=fg ctermbg=237 guifg=fg guibg=#393939 guisp=NONE cterm=NONE gui=NONE
 hi PmenuSel ctermfg=fg ctermbg=237 guifg=fg guibg=#393939 guisp=NONE cterm=NONE,reverse gui=NONE,reverse
-hi SignColumn ctermfg=fg ctermbg=bg guifg=fg guibg=bg guisp=NONE cterm=NONE gui=NONE
+hi SignColumn ctermfg=fg ctermbg=NONE guifg=fg guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi ColorColumn ctermfg=fg ctermbg=237 guifg=fg guibg=#393939 guisp=NONE cterm=NONE gui=NONE
-hi Comment ctermfg=247 ctermbg=bg guifg=#999999 guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi Todo ctermfg=247 ctermbg=bg guifg=#999999 guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi Title ctermfg=247 ctermbg=bg guifg=#999999 guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi Identifier ctermfg=210 ctermbg=bg guifg=#f2777a guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi Statement ctermfg=fg ctermbg=bg guifg=fg guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi Conditional ctermfg=67 ctermbg=bg guifg=#6699cc guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi Repeat ctermfg=fg ctermbg=bg guifg=fg guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi Structure ctermfg=182 ctermbg=bg guifg=#cc99cc guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi Function ctermfg=67 ctermbg=bg guifg=#6699cc guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi Constant ctermfg=209 ctermbg=bg guifg=#f99157 guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi Keyword ctermfg=209 ctermbg=bg guifg=#f99157 guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi String ctermfg=151 ctermbg=bg guifg=#99cc99 guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi Special ctermfg=223 ctermbg=bg guifg=#f2c38f guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi SpecialKey ctermfg=223 ctermbg=bg guifg=#f2c38f guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi PreProc ctermfg=182 ctermbg=bg guifg=#cc99cc guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi Operator ctermfg=80 ctermbg=bg guifg=#66cccc guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi Type ctermfg=67 ctermbg=bg guifg=#6699cc guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi Define ctermfg=182 ctermbg=bg guifg=#cc99cc guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi Include ctermfg=67 ctermbg=bg guifg=#6699cc guibg=bg guisp=NONE cterm=NONE gui=NONE
+hi Comment ctermfg=247 ctermbg=NONE guifg=#999999 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi Todo ctermfg=247 ctermbg=NONE guifg=#999999 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi Title ctermfg=247 ctermbg=NONE guifg=#999999 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi Identifier ctermfg=210 ctermbg=NONE guifg=#f2777a guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi Statement ctermfg=182 ctermbg=NONE guifg=#cc99cc guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi Conditional ctermfg=67 ctermbg=NONE guifg=#6699cc guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi Repeat ctermfg=67 ctermbg=NONE guifg=#6699cc guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi Structure ctermfg=222 ctermbg=NONE guifg=#ffcc66 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi Function ctermfg=67 ctermbg=NONE guifg=#6699cc guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi Constant ctermfg=209 ctermbg=NONE guifg=#f99157 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi Keyword ctermfg=209 ctermbg=NONE guifg=#f99157 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi String ctermfg=151 ctermbg=NONE guifg=#99cc99 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi Special ctermfg=223 ctermbg=NONE guifg=#f2c38f guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi SpecialKey ctermfg=223 ctermbg=NONE guifg=#f2c38f guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi PreProc ctermfg=182 ctermbg=NONE guifg=#cc99cc guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi Operator ctermfg=80 ctermbg=NONE guifg=#66cccc guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi Type ctermfg=222 ctermbg=NONE guifg=#ffcc66 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi Define ctermfg=182 ctermbg=NONE guifg=#cc99cc guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi Include ctermfg=182 ctermbg=NONE guifg=#cc99cc guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi SpellBad ctermfg=210 ctermbg=NONE guifg=#f2777a guibg=NONE guisp=NONE cterm=NONE,undercurl gui=NONE,undercurl
+hi SpellCap ctermfg=209 ctermbg=NONE guifg=#f99157 guibg=NONE guisp=NONE cterm=NONE,undercurl gui=NONE,undercurl
+hi SpellLocal ctermfg=209 ctermbg=NONE guifg=#f99157 guibg=NONE guisp=NONE cterm=NONE,undercurl gui=NONE,undercurl
+hi SpellRare ctermfg=182 ctermbg=NONE guifg=#cc99cc guibg=NONE guisp=NONE cterm=NONE,undercurl gui=NONE,undercurl
 hi DiffAdd ctermfg=fg ctermbg=237 guifg=fg guibg=#393939 guisp=NONE cterm=NONE gui=NONE
-hi DiffDelete ctermfg=bg ctermbg=210 guifg=bg guibg=#f2777a guisp=NONE cterm=NONE gui=NONE
+hi DiffDelete ctermfg=NONE ctermbg=210 guifg=NONE guibg=#f2777a guisp=NONE cterm=NONE gui=NONE
 hi DiffChange ctermfg=fg ctermbg=67 guifg=fg guibg=#6699cc guisp=NONE cterm=NONE gui=NONE
 hi DiffText ctermfg=237 ctermbg=67 guifg=#393939 guibg=#6699cc guisp=NONE cterm=NONE gui=NONE
-hi Cursor ctermfg=bg ctermbg=151 guifg=bg guibg=#99cc99 guisp=NONE cterm=NONE gui=NONE
+hi Cursor ctermfg=NONE ctermbg=151 guifg=NONE guibg=#99cc99 guisp=NONE cterm=NONE gui=NONE
 hi! link QuickFixLine Search
-hi diffAdded ctermfg=151 ctermbg=bg guifg=#99cc99 guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi diffRemoved ctermfg=210 ctermbg=bg guifg=#f2777a guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi gitcommitSummary ctermfg=fg ctermbg=bg guifg=fg guibg=bg guisp=NONE cterm=NONE,bold gui=NONE,bold
-hi Command ctermfg=210 ctermbg=bg guifg=#f2777a guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi GitGutterAdd ctermfg=151 ctermbg=bg guifg=#99cc99 guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi GitGutterChange ctermfg=223 ctermbg=bg guifg=#f2c38f guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi GitGutterChangeDelete ctermfg=223 ctermbg=bg guifg=#f2c38f guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi GitGutterDelete ctermfg=210 ctermbg=bg guifg=#f2777a guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi SignifySignAdd ctermfg=151 ctermbg=bg guifg=#99cc99 guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi SignifySignChange ctermfg=223 ctermbg=bg guifg=#f2c38f guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi SignifySignChangeDelete ctermfg=223 ctermbg=bg guifg=#f2c38f guibg=bg guisp=NONE cterm=NONE gui=NONE
-hi SignifySignDelete ctermfg=210 ctermbg=bg guifg=#f2777a guibg=bg guisp=NONE cterm=NONE gui=NONE
+hi diffAdded ctermfg=151 ctermbg=NONE guifg=#99cc99 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi diffRemoved ctermfg=210 ctermbg=NONE guifg=#f2777a guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi gitcommitSummary ctermfg=fg ctermbg=NONE guifg=fg guibg=NONE guisp=NONE cterm=NONE,bold gui=NONE,bold
+hi Command ctermfg=210 ctermbg=NONE guifg=#f2777a guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi GitGutterAdd ctermfg=151 ctermbg=NONE guifg=#99cc99 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi GitGutterChange ctermfg=223 ctermbg=NONE guifg=#f2c38f guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi GitGutterChangeDelete ctermfg=223 ctermbg=NONE guifg=#f2c38f guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi GitGutterDelete ctermfg=210 ctermbg=NONE guifg=#f2777a guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi SignifySignAdd ctermfg=151 ctermbg=NONE guifg=#99cc99 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi SignifySignChange ctermfg=223 ctermbg=NONE guifg=#f2c38f guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi SignifySignChangeDelete ctermfg=223 ctermbg=NONE guifg=#f2c38f guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi SignifySignDelete ctermfg=210 ctermbg=NONE guifg=#f2777a guibg=NONE guisp=NONE cterm=NONE gui=NONE
 if s:load_for('vim')
   hi! link vimDocstring String
   hi! link vimConditional Conditional
   hi! link vimRepeat Conditional
-  hi! link vimLetVar Identifier
-  hi! link helpCommand Type
-  hi vimLet ctermfg=248 ctermbg=bg guifg=#a9a9a9 guibg=bg guisp=NONE cterm=NONE gui=NONE
-  hi vimCall ctermfg=248 ctermbg=bg guifg=#a9a9a9 guibg=bg guisp=NONE cterm=NONE gui=NONE
-  hi vimSelf ctermfg=223 ctermbg=bg guifg=#f2c38f guibg=bg guisp=NONE cterm=NONE,italic gui=NONE,italic
+  hi! link vimLetVar foreground
+  hi vimCommand ctermfg=210 ctermbg=NONE guifg=#f2777a guibg=NONE guisp=NONE cterm=NONE gui=NONE
+  hi vimLet ctermfg=248 ctermbg=NONE guifg=#a9a9a9 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+  hi vimCall ctermfg=248 ctermbg=NONE guifg=#a9a9a9 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+  hi vimSelf ctermfg=223 ctermbg=NONE guifg=#f2c38f guibg=NONE guisp=NONE cterm=NONE,italic gui=NONE,italic
 endif
+hi! link helpCommand Type
+hi! link helpSectionDelim PreProc
+hi! link HelpHeadline Statement
 if s:load_for('python')
   hi! link pythonSelf Identifier
   hi! link pythonOperatorSymbol Operator
   hi! link pythonBraces Special
-  hi! link pythonGlobalVar Define
+  hi pythonGlobalVar ctermfg=209 ctermbg=NONE guifg=#f99157 guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi! link pythonStringType Statement
   hi! link pythonOperator Statement
   hi! link pythonBoolean Command
@@ -110,28 +127,76 @@ if s:load_for('python')
   hi! link pythonStructure Keyword
   hi! link pythonStorageClass Keyword
   hi! link pythonTypeDef Keyword
-  hi pythonFunction ctermfg=67 ctermbg=bg guifg=#6699cc guibg=bg guisp=NONE cterm=NONE gui=NONE
+  hi pythonFunction ctermfg=210 ctermbg=NONE guifg=#f2777a guibg=NONE guisp=NONE cterm=NONE gui=NONE
 endif
 if s:load_for('markdown')
-  hi mkdItalic ctermfg=182 ctermbg=bg guifg=#cc99cc guibg=bg guisp=NONE cterm=NONE gui=NONE
-  hi mkdBold ctermfg=182 ctermbg=bg guifg=#cc99cc guibg=bg guisp=NONE cterm=NONE gui=NONE
-  hi mkdBoldItalic ctermfg=182 ctermbg=bg guifg=#cc99cc guibg=bg guisp=NONE cterm=NONE gui=NONE
-  hi mkdListItem ctermfg=223 ctermbg=bg guifg=#f2c38f guibg=bg guisp=NONE cterm=NONE gui=NONE
-  hi mkdID ctermfg=182 ctermbg=bg guifg=#cc99cc guibg=bg guisp=NONE cterm=NONE gui=NONE
-  hi mkdRule ctermfg=182 ctermbg=bg guifg=#cc99cc guibg=bg guisp=NONE cterm=NONE gui=NONE
+  hi mkdItalic ctermfg=182 ctermbg=NONE guifg=#cc99cc guibg=NONE guisp=NONE cterm=NONE gui=NONE
+  hi mkdBold ctermfg=182 ctermbg=NONE guifg=#cc99cc guibg=NONE guisp=NONE cterm=NONE gui=NONE
+  hi mkdBoldItalic ctermfg=182 ctermbg=NONE guifg=#cc99cc guibg=NONE guisp=NONE cterm=NONE gui=NONE
+  hi mkdListItem ctermfg=223 ctermbg=NONE guifg=#f2c38f guibg=NONE guisp=NONE cterm=NONE gui=NONE
+  hi mkdID ctermfg=182 ctermbg=NONE guifg=#cc99cc guibg=NONE guisp=NONE cterm=NONE gui=NONE
+  hi mkdRule ctermfg=182 ctermbg=NONE guifg=#cc99cc guibg=NONE guisp=NONE cterm=NONE gui=NONE
 endif
 if s:load_for('cpp')
+  hi cppStructure ctermfg=182 ctermbg=NONE guifg=#cc99cc guibg=NONE guisp=NONE cterm=NONE gui=NONE
+  hi cStorageClass ctermfg=210 ctermbg=NONE guifg=#f2777a guibg=NONE guisp=NONE cterm=NONE gui=NONE
+  hi! link cCharacter String
   hi! link cppOperatorSymbol Operator
 endif
-call vsd#terminal_dark()
-call vsd#extras()
-call vsd#more_colors()
-silent! LightlineTheme Tomorrow_Night_Eighties
-silent! VMTheme codedark
-if exists('loaded_xtabline')
-  let g:xtabline.Vars.has_reloaded_scheme = 1
-  silent! XTabTheme tomorrow
-endif
+let g:terminal_ansi_colors = [
+      \ "#3C4C55",
+      \ "#DF8C8C",
+      \ "#A8CE93",
+      \ "#DADA93",
+      \ "#83AFE5",
+      \ "#9A93E1",
+      \ "#83AFE5",
+      \ "#C5D4DD",
+      \ "#608b4e",
+      \ "#F2C38F",
+      \ "#A8CE93",
+      \ "#DADA93",
+      \ "#83AFE5",
+      \ "#D18EC2",
+      \ "#83AFE5",
+      \ "#E6EEF3"
+      \]
+
+" NEOVIM TERMINAL MODE
+let g:terminal_color_0 = "#3C4C55"
+let g:terminal_color_1 = "#DF8C8C"
+let g:terminal_color_2 = "#A8CE93"
+let g:terminal_color_3 = "#DADA93"
+let g:terminal_color_4 = "#83AFE5"
+let g:terminal_color_5 = "#9A93E1"
+let g:terminal_color_6 = "#83AFE5"
+let g:terminal_color_7 = "#C5D4DD"
+let g:terminal_color_8 = "#608b4e"
+let g:terminal_color_9 = "#F2C38F"
+let g:terminal_color_10 = "#A8CE93"
+let g:terminal_color_11 = "#DADA93"
+let g:terminal_color_12 = "#83AFE5"
+let g:terminal_color_13 = "#D18EC2"
+let g:terminal_color_14 = "#83AFE5"
+let g:terminal_color_15 = "#E6EEF3"
+
+" FZF
+let g:fzf_colors = {
+      \ "fg":      ["fg", "Normal"],
+      \ "none":      ["none", "Normal"],
+      \ "hl":      ["fg", "Conditional"],
+      \ "fg+":     ["fg", "CursorLine", "CursorColumn", "Normal"],
+      \ "none+":     ["none", "CursorLine", "CursorColumn"],
+      \ "hl+":     ["fg", "Conditional"],
+      \ "info":    ["fg", "Conditional"],
+      \ "border":  ["fg", "Ignore"],
+      \ "prompt":  ["fg", "Comment"],
+      \ "pointer": ["fg", "Conditional"],
+      \ "marker":  ["fg", "Conditional"],
+      \ "spinner": ["fg", "Conditional"],
+      \ "header":  ["fg", "Conditional"]
+      \}
+call vsd#extras('tomorrow_eighties')
 filetype detect
 finish
 
@@ -150,10 +215,10 @@ finish
 " Color:	    window	 #4d5057 ~
 " Color:	    special	 #f2c38f ~
 " Color:	    lightgrey	 #a9a9a9 ~
-" Normal				foreground	background
-" LineNr				window	        bg
-" NonText				selection	bg
-" Search				bg		special
+" Normal				foreground		background
+" LineNr				window	        none
+" NonText				selection	none
+" Search				background	special
 " IncSearch			red		special bold
 " TabLine				window		fg reverse
 " TabLineFill			window		fg reverse
@@ -164,70 +229,77 @@ finish
 " VertSplit			window		window
 " Visual				none		selection
 " VisualNOS			none		selection
-" Directory			blue		bg
-" ModeMsg				green		bg
-" MoreMsg				green		bg
-" Question			green		bg
-" WarningMsg			red		bg
+" Directory			blue		none
+" ModeMsg				green		none
+" MoreMsg				green		none
+" Question			green		none
+" WarningMsg			red		none
 " MatchParen			red		window bold
-" Folded				comment		bg
-" FoldColumn			fg		bg
+" Folded				comment		none
+" FoldColumn			fg		none
 " CursorLine			none		selection
-" CursorLineNr			yellow		bg
+" CursorLineNr			yellow		none
 " CursorColumn			fg		selection
 " Pmenu				fg		selection
 " PmenuSel			fg		selection reverse
-" SignColumn			fg		bg
+" SignColumn			fg		none
 " ColorColumn			fg		selection
-" Comment				comment		bg
-" Todo				comment		bg
-" Title				comment		bg
-" Identifier			red		bg
-" Statement			fg		bg
-" Conditional			blue		bg
-" Repeat				fg		bg
-" Structure			purple		bg
-" Function			blue		bg
-" Constant			orange		bg
-" Keyword				orange		bg
-" String				green		bg
-" Special				special		bg
-" SpecialKey			special	        bg
-" PreProc				purple		bg
-" Operator			aqua		bg
-" Type				blue		bg
-" Define				purple		bg
-" Include				blue		bg
+" Comment				comment		none
+" Todo				comment		none
+" Title				comment		none
+" Identifier			red		none
+" Statement			purple		none
+" Conditional			blue		none
+" Repeat				blue		none
+" Structure			yellow		none
+" Function			blue		none
+" Constant			orange		none
+" Keyword				orange		none
+" String				green		none
+" Special				special		none
+" SpecialKey			special	        none
+" PreProc				purple		none
+" Operator			aqua		none
+" Type				yellow		none
+" Define				purple		none
+" Include				purple		none
+" SpellBad			red   		none undercurl
+" SpellCap			orange		none undercurl
+" SpellLocal			orange		none undercurl
+" SpellRare			purple 		none undercurl
 " DiffAdd				fg		selection
-" DiffDelete			bg		red
+" DiffDelete			none		red
 " DiffChange			fg		blue
 " DiffText			selection	blue
-" Cursor				bg		green
+" Cursor				none		green
 " QuickFixLine		->	Search
-" diffAdded			green		bg
-" diffRemoved			red		bg
-" gitcommitSummary		fg		bg bold
-" Command				red		bg
-" GitGutterAdd			green		bg
-" GitGutterChange			special		bg
-" GitGutterChangeDelete		special		bg
-" GitGutterDelete			red		bg
-" SignifySignAdd			green		bg
-" SignifySignChange		special		bg
-" SignifySignChangeDelete		special		bg
-" SignifySignDelete		red		bg
+" diffAdded			green		none
+" diffRemoved			red		none
+" gitcommitSummary		fg		none bold
+" Command				red		none
+" GitGutterAdd			green		none
+" GitGutterChange			special		none
+" GitGutterChangeDelete		special		none
+" GitGutterDelete			red		none
+" SignifySignAdd			green		none
+" SignifySignChange		special		none
+" SignifySignChangeDelete		special		none
+" SignifySignDelete		red		none
 " vimDocstring		->	String
 " vimConditional		->	Conditional
 " vimRepeat		->	Conditional
-" vimLetVar		->	Identifier
+" vimLetVar		->	foreground	none
+" vimCommand			red   		none
+" vimLet				lightgrey	none
+" vimCall				lightgrey	none
+" vimSelf				special		none italic
 " helpCommand		->	Type
-" vimLet				lightgrey	bg
-" vimCall				lightgrey	bg
-" vimSelf				special		bg italic
+" helpSectionDelim	->	PreProc
+" HelpHeadline		->	Statement
 " pythonSelf		->	Identifier
 " pythonOperatorSymbol	->	Operator
 " pythonBraces		->	Special
-" pythonGlobalVar		->	Define
+" pythonGlobalVar		orange	none
 " pythonStringType	->	Statement
 " pythonOperator		->	Statement
 " pythonBoolean		->	Command
@@ -235,11 +307,14 @@ finish
 " pythonStructure		->	Keyword
 " pythonStorageClass	->	Keyword
 " pythonTypeDef		->	Keyword
-" pythonFunction			blue		bg
-" mkdItalic			purple		bg
-" mkdBold				purple		bg
-" mkdBoldItalic			purple		bg
-" mkdListItem			special		bg
-" mkdID				purple		bg
-" mkdRule				purple		bg
-" cppOperatorSymbol -> Operator
+" pythonFunction			red   		none
+" mkdItalic			purple		none
+" mkdBold				purple		none
+" mkdBoldItalic			purple		none
+" mkdListItem			special		none
+" mkdID				purple		none
+" mkdRule				purple		none
+" cppStructure			purple		none
+" cStorageClass			red		none
+" cCharacter		->	String
+" cppOperatorSymbol	->	Operator
