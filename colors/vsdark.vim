@@ -2,7 +2,7 @@
 " Author:       Gianmaria Bajo <mg1979.git@gmail.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: dom 03 feb 2019 03:32:53 CET
+" Last Updated: 04/02/2019 05:53:23
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -28,7 +28,8 @@ call vsd#init()
 let s:load_for = { ft -> g:Vsd[ft] || g:Vsd.extra_syntax }
 
 hi Normal ctermfg=252 ctermbg=234 guifg=#c5d4dd guibg=#1e1e1e guisp=NONE cterm=NONE gui=NONE
-let contrast = [ ['#1e1e1e', '234'],
+let contrast = [ ['#262626', '235'],
+      \['#1e1e1e', '234'],
       \['#181818', '233']]
 let gui  = contrast[g:Vsd.contrast][0]
 let term = contrast[g:Vsd.contrast][1]
@@ -81,7 +82,7 @@ hi LineNr ctermfg=239 ctermbg=NONE guifg=#4c4e50 guibg=NONE guisp=NONE cterm=NON
 hi CursorLine ctermfg=NONE ctermbg=236 guifg=NONE guibg=#333233 guisp=NONE cterm=NONE gui=NONE
 hi CursorColumn ctermfg=fg ctermbg=236 guifg=fg guibg=#333233 guisp=NONE cterm=NONE gui=NONE
 hi ColorColumn ctermfg=fg ctermbg=236 guifg=fg guibg=#333233 guisp=NONE cterm=NONE gui=NONE
-hi EndOfBuffer ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi EndOfBuffer ctermfg=239 ctermbg=NONE guifg=#4c4e50 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi VertSplit ctermfg=236 ctermbg=235 guifg=#333233 guibg=#212733 guisp=NONE cterm=NONE gui=NONE
 hi TabLine ctermfg=248 ctermbg=236 guifg=#a9a9a9 guibg=#333233 guisp=NONE cterm=NONE gui=NONE
 hi TabLineSel ctermfg=39 ctermbg=239 guifg=#569cd6 guibg=#4c4e50 guisp=NONE cterm=NONE gui=NONE
@@ -109,7 +110,7 @@ hi Title ctermfg=223 ctermbg=NONE guifg=#f2c38f guibg=NONE guisp=NONE cterm=NONE
 hi Comment ctermfg=65 ctermbg=NONE guifg=#608b4e guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi Ignore ctermfg=65 ctermbg=NONE guifg=#608b4e guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi Conceal ctermfg=65 ctermbg=NONE guifg=#608b4e guibg=NONE guisp=NONE cterm=NONE gui=NONE
-hi Cursor ctermfg=NONE ctermbg=34 guifg=NONE guibg=#00af00 guisp=NONE cterm=NONE gui=NONE
+hi Cursor ctermfg=234 ctermbg=34 guifg=#1e1e1e guibg=#00af00 guisp=NONE cterm=NONE gui=NONE
 hi Command ctermfg=176 ctermbg=NONE guifg=#c586c0 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi! link QuickFixLine Search
 hi GitGutterAdd ctermfg=34 ctermbg=NONE guifg=#00af00 guibg=NONE guisp=NONE cterm=NONE gui=NONE
@@ -289,7 +290,7 @@ finish
 " CursorLine			none		darkgrey
 " CursorColumn			fg		darkgrey
 " ColorColumn			fg		darkgrey
-" EndOfBuffer			none		none
+" EndOfBuffer			grey		none
 " VertSplit			darkgrey	nightblue
 " TabLine				lightgrey	darkgrey
 " TabLineSel			skyblue		grey
@@ -317,7 +318,7 @@ finish
 " Comment				darkgreen	none
 " Ignore				darkgreen	none
 " Conceal				darkgreen	none
-" Cursor				none		green
+" Cursor				background	green
 " Command				pink		none
 " QuickFixLine		->	Search
 " GitGutterAdd			green		none

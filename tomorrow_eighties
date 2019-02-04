@@ -39,7 +39,8 @@ Color:	    lightgrey	 #a9a9a9 ~
 Normal				foreground		background
 
 verbatim
-let contrast = [ ['#262626', '235'],
+let contrast = [ ['#303030', '236'],
+                \['#262626', '235'],
 		\['#1e1e1e', '234']]
 let gui  = contrast[g:Vsd.contrast][0]
 let term = contrast[g:Vsd.contrast][1]
@@ -51,6 +52,7 @@ else
 endif
 endverbatim
 
+EndOfBuffer			window	        none
 LineNr				window	        none
 NonText				selection	none
 Search				background	special
@@ -61,7 +63,7 @@ StatusLine			window		yellow reverse
 StatusLineNC			window		fg reverse
 StatusLineTerm			window		yellow reverse
 StatusLineTermNC		window		fg reverse
-VertSplit			window		window
+VertSplit			background	window
 Visual				none		selection
 VisualNOS			none		selection
 Directory			blue		none
@@ -83,7 +85,7 @@ ColorColumn			fg		selection
 Comment				comment		none
 Todo				comment		none
 Title				comment		none
-Identifier			red		none
+Identifier			fg		none italic
 Statement			purple		none
 Conditional			blue		none
 Repeat				blue		none
@@ -110,7 +112,7 @@ DiffDelete			none		red
 DiffChange			fg		blue
 DiffText			selection	blue
 
-Cursor				none		green
+Cursor				background	green
 QuickFixLine		->	Search
 
 diffAdded			green		none
@@ -118,6 +120,18 @@ diffRemoved			red		none
 gitcommitSummary		fg		none bold
 
 Command				red		none
+
+Error				red		none
+ErrorMsg			red		none
+Conceal			->	Comment
+Ignore			->	Comment
+# PmenuSbar
+# PmenuThumb
+# TabLineSel
+# ToolbarButton
+# ToolbarLine
+# Underlined
+# WildMenu
 
 # Plugins {{{2
 

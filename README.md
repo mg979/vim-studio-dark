@@ -18,15 +18,21 @@ in the pictures below, but these groups are disabled when the color scheme is un
 They also try to set as few non-standard (eg. provided by plugins) highlight groups as
 possible, to minimize the possibility of clashes on colorscheme switching.
 
-You can also toggle an 'high contrast' mode, with a slightly darker background:
+You can cycle between high/medium/low contrast (default medium):
 
-    :VsdToggleContrast
+    :VsdContrast
 
 ------------
 
 Options:
 
     let g:Vsd = {}
+
+Contrast:
+
+    let g:Vsd.contrast = 0  " low
+    let g:Vsd.contrast = 1  " medium (default)
+    let g:Vsd.contrast = 2  " high
 
 Enable new highlight groups only for certain filetypes:
 

@@ -2,7 +2,7 @@
 " Author:       Gianmaria Bajo <mg1979.git@gmail.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: dom 03 feb 2019 03:33:15 CET
+" Last Updated: 04/02/2019 05:54:38
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -23,7 +23,8 @@ call vsd#init()
 let s:load_for = { ft -> g:Vsd[ft] || g:Vsd.extra_syntax }
 
 hi Normal ctermfg=251 ctermbg=236 guifg=#c6c6b9 guibg=#2d2d2d guisp=NONE cterm=NONE gui=NONE
-let contrast = [ ['#2d2d2d', '236'],
+let contrast = [ ['#3a3a3a', '237'],
+      \['#2d2d2d', '236'],
       \['#262626', '235']]
 let gui  = contrast[g:Vsd.contrast][0]
 let term = contrast[g:Vsd.contrast][1]
@@ -36,9 +37,6 @@ endif
 
 " highlight groups
 hi Cursor	guibg=khaki guifg=slategrey
-hi VertSplit	guibg=#c2bfa5 guifg=grey50 gui=none
-hi Folded	guibg=grey30 guifg=gold
-hi FoldColumn	guibg=grey30 guifg=tan
 hi IncSearch	guifg=slategrey guibg=khaki
 hi ModeMsg	guifg=goldenrod
 hi MoreMsg	guifg=SeaGreen
@@ -55,12 +53,10 @@ hi WarningMsg	guifg=salmon
 " syntax highlighting groups
 hi Comment	guifg=SkyBlue
 hi Constant	guifg=#ffa0a0
-hi Identifier	guifg=palegreen
 hi Statement	guifg=khaki
 hi PreProc	guifg=indianred
 hi Type		guifg=darkkhaki gui=bold
 hi Special	guifg=navajowhite
-hi Ignore	guifg=grey40
 hi Todo		guifg=orangered guibg=yellow2
 
 " color terminal definitions
@@ -76,14 +72,11 @@ hi LineNr	ctermfg=3
 hi Question	ctermfg=green
 hi StatusLine	cterm=bold,reverse
 hi StatusLineNC cterm=reverse
-hi VertSplit	cterm=reverse
 hi Title	ctermfg=5
 hi Visual	cterm=none ctermfg=186 ctermbg=64
 hi VisualNOS	cterm=bold,underline
 hi WarningMsg	ctermfg=1
 hi WildMenu	ctermfg=0 ctermbg=3
-hi Folded	ctermfg=darkgrey ctermbg=NONE
-hi FoldColumn	ctermfg=darkgrey ctermbg=NONE
 hi DiffAdd	ctermbg=4
 hi DiffChange	ctermbg=5
 hi DiffDelete	cterm=bold ctermfg=4 ctermbg=6
@@ -91,32 +84,34 @@ hi DiffText	cterm=bold ctermbg=1
 hi Comment	ctermfg=darkcyan
 hi Constant	ctermfg=brown
 hi Special	ctermfg=5
-hi Identifier	ctermfg=6
 hi Statement	ctermfg=3
 hi PreProc	ctermfg=5
 hi Type		ctermfg=2 cterm=bold
 hi Underlined	cterm=underline ctermfg=5
-hi Ignore	cterm=bold ctermfg=7
-hi Ignore	ctermfg=darkgrey
 hi Error	cterm=bold ctermfg=7 ctermbg=1
+hi EndOfBuffer ctermfg=239 ctermbg=NONE guifg=#4d4d4d guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi Comment ctermfg=242 ctermbg=NONE guifg=#6b6a61 guibg=NONE guisp=NONE cterm=NONE,italic gui=NONE,italic
 hi Folded ctermfg=242 ctermbg=238 guifg=#6b6a61 guibg=#404040 guisp=NONE cterm=NONE gui=NONE
+hi FoldColumn ctermfg=242 ctermbg=223 guifg=#6b6a61 guibg=#f2c38f guisp=NONE cterm=NONE gui=NONE
 hi LineNr ctermfg=239 ctermbg=NONE guifg=#4d4d4d guibg=NONE guisp=NONE cterm=NONE,italic gui=NONE,italic
-hi SignColumn ctermfg=239 ctermbg=235 guifg=#4d4d4d guibg=#262626 guisp=NONE cterm=NONE,italic gui=NONE,italic
-hi VertSplit ctermfg=fg ctermbg=235 guifg=fg guibg=#262626 guisp=NONE cterm=NONE gui=NONE
+hi SignColumn ctermfg=239 ctermbg=234 guifg=#4d4d4d guibg=#1e1e1e guisp=NONE cterm=NONE,italic gui=NONE,italic
+hi VertSplit ctermfg=239 ctermbg=234 guifg=#4d4d4d guibg=#1e1e1e guisp=NONE cterm=NONE gui=NONE
 hi Search ctermfg=255 ctermbg=172 guifg=#e6eef3 guibg=#cd853f guisp=NONE cterm=NONE gui=NONE
 hi IncSearch ctermfg=255 ctermbg=167 guifg=#e6eef3 guibg=#cd5c5c guisp=NONE cterm=NONE gui=NONE
+hi MatchParen ctermfg=167 ctermbg=234 guifg=#cd5c5c guibg=#1e1e1e guisp=NONE cterm=NONE,bold gui=NONE,bold
 hi Pmenu ctermfg=NONE ctermbg=101 guifg=NONE guibg=#999966 guisp=NONE cterm=NONE gui=NONE
 hi PmenuSel ctermfg=fg ctermbg=239 guifg=fg guibg=#4d4d4d guisp=NONE cterm=NONE gui=NONE
-hi PmenuSbar ctermfg=NONE ctermbg=235 guifg=NONE guibg=#262626 guisp=NONE cterm=NONE gui=NONE
+hi PmenuSbar ctermfg=NONE ctermbg=234 guifg=NONE guibg=#1e1e1e guisp=NONE cterm=NONE gui=NONE
 hi PmenuThumb ctermfg=101 ctermbg=242 guifg=#999966 guibg=#6b6a61 guisp=NONE cterm=NONE gui=NONE
 hi Todo ctermfg=fg ctermbg=167 guifg=fg guibg=#cd5c5c guisp=NONE cterm=NONE,bold gui=NONE,bold
 hi NonText ctermfg=236 ctermbg=NONE guifg=#333333 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-hi ColorColumn ctermfg=fg ctermbg=235 guifg=fg guibg=#262626 guisp=NONE cterm=NONE gui=NONE
-hi Cursor ctermfg=NONE ctermbg=180 guifg=NONE guibg=#dfaf87 guisp=NONE cterm=NONE gui=NONE
+hi ColorColumn ctermfg=fg ctermbg=234 guifg=fg guibg=#1e1e1e guisp=NONE cterm=NONE gui=NONE
+hi Cursor ctermfg=236 ctermbg=180 guifg=#2d2d2d guibg=#dfaf87 guisp=NONE cterm=NONE gui=NONE
 hi CursorLine ctermfg=fg ctermbg=238 guifg=fg guibg=#404040 guisp=NONE cterm=NONE gui=NONE
 hi! link CursorColumn CursorLine
-hi Identifier ctermfg=fg ctermbg=NONE guifg=fg guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi! link Conceal Comment
+hi! link Ignore Comment
+hi Identifier ctermfg=fg ctermbg=NONE guifg=fg guibg=NONE guisp=NONE cterm=NONE,italic gui=NONE,italic
 hi Statement ctermfg=150 ctermbg=NONE guifg=#a8ce93 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi String ctermfg=245 ctermbg=NONE guifg=#8d8d8d guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi PreProc ctermfg=182 ctermbg=NONE guifg=#c9acd2 guibg=NONE guisp=NONE cterm=NONE gui=NONE
@@ -247,7 +242,7 @@ finish
 " Color:	    background		#2d2d2d ~
 " Color:	    foreground		#c6c6b9 ~
 " Color:	    lightgrey		#6b6a61 ~
-" Color:	    black		#262626 ~
+" Color:	    black		#1e1e1e ~
 " Color:	    skyblue		SkyBlue ~
 " Color:	    grey		#4d4d4d ~
 " Color:	    grey2		#404040 ~
@@ -268,13 +263,16 @@ finish
 " Color:	    cyan		#42dcd7 ~
 " Color:	    string		#8d8d8d ~
 " Normal				foreground		background
+" EndOfBuffer			grey			none
 " Comment				lightgrey		none italic
 " Folded				lightgrey		grey2
+" FoldColumn			lightgrey		special
 " LineNr				grey			none italic
 " SignColumn			grey			black italic
-" VertSplit			fg			black
+" VertSplit			grey			black
 " Search				white			peru
 " IncSearch			white			red
+" MatchParen			red			black bold
 " Pmenu				none			sepia
 " PmenuSel			fg			grey
 " PmenuSbar			none			black
@@ -282,10 +280,12 @@ finish
 " Todo				fg			red bold
 " NonText				darkgrey		none
 " ColorColumn			fg			black
-" Cursor			        none			cursor
+" Cursor			        background		cursor
 " CursorLine			fg			grey2
-" CursorColumn		  ->	CursorLine
-" Identifier			fg			none
+" CursorColumn		->	CursorLine
+" Conceal			->	Comment
+" Ignore			->	Comment
+" Identifier			fg			none italic
 " Statement			lightgreen		none
 " String				string			none
 " PreProc				pink			none
@@ -295,9 +295,9 @@ finish
 " SpellCap			skyblue			none undercurl
 " SpellLocal			skyblue			none undercurl
 " SpellRare			pink  			none undercurl
-" DiffChange			none		grey
-" DiffDelete			red	        none bold
-" DiffText       			none	        darkred bold
+" DiffChange			none			grey
+" DiffDelete			red			none bold
+" DiffText       			none			darkred bold
 " diffAdded			green	                none
 " diffChanged			special		        none
 " diffRemoved			red	                none

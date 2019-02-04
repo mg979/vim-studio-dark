@@ -42,7 +42,8 @@ Color:	    special	#682900 ~
 Normal				foreground	background
 
 verbatim
-let contrast = [ ['#bdbdbd', '250'],
+let contrast = [ ['#b2b2b2', '249'],
+                \['#bdbdbd', '250'],
 		\['#d0d0d0', '252']]
 let gui  = contrast[g:Vsd.contrast][0]
 let term = contrast[g:Vsd.contrast][1]

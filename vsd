@@ -48,7 +48,8 @@ Color:	    darkred		#730b00 ~
 Normal				foreground	background
 
 verbatim
-let contrast = [ ['#1e1e1e', '234'],
+let contrast = [ ['#262626', '235'],
+		\['#1e1e1e', '234'],
 		\['#181818', '233']]
 let gui  = contrast[g:Vsd.contrast][0]
 let term = contrast[g:Vsd.contrast][1]
@@ -108,7 +109,7 @@ LineNr				grey		none
 CursorLine			none		darkgrey
 CursorColumn			fg		darkgrey
 ColorColumn			fg		darkgrey
-EndOfBuffer			none		none
+EndOfBuffer			grey		none
 VertSplit			darkgrey	nightblue
 TabLine				lightgrey	darkgrey
 TabLineSel			skyblue		grey
@@ -139,7 +140,7 @@ Comment				darkgreen	none
 Ignore				darkgreen	none
 Conceal				darkgreen	none
 
-Cursor				none		green
+Cursor				background	green
 Command				pink		none
 QuickFixLine		->	Search
 

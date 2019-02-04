@@ -2,7 +2,7 @@
 " Author:       Gianmaria Bajo <mg1979.git@gmail.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: dom 03 feb 2019 03:32:32 CET
+" Last Updated: 04/02/2019 05:55:22
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -28,7 +28,8 @@ call vsd#init()
 let s:load_for = { ft -> g:Vsd[ft] || g:Vsd.extra_syntax }
 
 hi Normal ctermfg=234 ctermbg=250 guifg=#1e1e1e guibg=#bdbdbd guisp=NONE cterm=NONE gui=NONE
-let contrast = [ ['#bdbdbd', '250'],
+let contrast = [ ['#b2b2b2', '249'],
+      \['#bdbdbd', '250'],
       \['#d0d0d0', '252']]
 let gui  = contrast[g:Vsd.contrast][0]
 let term = contrast[g:Vsd.contrast][1]

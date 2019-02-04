@@ -6,13 +6,13 @@ let s:load_for = { ft -> g:Vsd[ft] || g:Vsd.extra_syntax }
 fun! vsd#init()
   let g:Vsd              = get(g:,    'Vsd',          {})
   let g:Vsd.extra_syntax = get(g:Vsd, 'extra_syntax', 1)
-  let g:Vsd.contrast     = get(g:Vsd, 'contrast',     0)
+  let g:Vsd.contrast     = get(g:Vsd, 'contrast',     1)
   let g:Vsd.vim          = get(g:Vsd, 'vim',          g:Vsd.extra_syntax)
   let g:Vsd.python       = get(g:Vsd, 'python',       g:Vsd.extra_syntax)
   let g:Vsd.cpp          = get(g:Vsd, 'cpp',          g:Vsd.extra_syntax)
   let g:Vsd.markdown     = get(g:Vsd, 'markdown',     g:Vsd.extra_syntax)
 
-  command! VsdToggleContrast call vsd#contrast()
+  command! VsdContrast call vsd#contrast()
 endfun
 
 fun! vsd#extras(scheme)
@@ -33,8 +33,22 @@ endfun
 
 fun! vsd#contrast() abort
   """Toggle contrast mode for scheme.
-  let g:Vsd.contrast = !g:Vsd.contrast
-  exe "colorscheme" g:colors_name
+  if g:Vsd.contrast == 0
+    let g:Vsd.contrast = 1
+    exe "colorscheme" g:colors_name
+    redraw!
+    echo "[Vsd] medium contrast"
+  elseif g:Vsd.contrast == 1
+    let g:Vsd.contrast = 2
+    exe "colorscheme" g:colors_name
+    redraw!
+    echo "[Vsd] high contrast"
+  else
+    let g:Vsd.contrast = 0
+    exe "colorscheme" g:colors_name
+    redraw!
+    echo "[Vsd] low contrast"
+  endif
 endfun
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -123,7 +137,7 @@ fun! vsd#reset()
   if s:ignore() | return | endif
   autocmd! vsd_syntax
   augroup! vsd_syntax
-  delcommand VsdToggleContrast
+  delcommand VsdContrast
   if s:load_for('vim')      | call s:reset_vim()      | endif
   if s:load_for('python')   | call s:reset_python()   | endif
   if s:load_for('cpp')      | call s:reset_cpp()      | endif

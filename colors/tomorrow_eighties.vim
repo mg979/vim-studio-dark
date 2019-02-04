@@ -2,7 +2,7 @@
 " Author:       Chris Kempson <http://chriskempson.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: dom 03 feb 2019 03:51:24 CET
+" Last Updated: 04/02/2019 05:53:42
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -23,7 +23,8 @@ call vsd#init()
 let s:load_for = { ft -> g:Vsd[ft] || g:Vsd.extra_syntax }
 
 hi Normal ctermfg=252 ctermbg=235 guifg=#cccccc guibg=#262626 guisp=NONE cterm=NONE gui=NONE
-let contrast = [ ['#262626', '235'],
+let contrast = [ ['#303030', '236'],
+      \['#262626', '235'],
       \['#1e1e1e', '234']]
 let gui  = contrast[g:Vsd.contrast][0]
 let term = contrast[g:Vsd.contrast][1]
@@ -33,6 +34,7 @@ if &termguicolors
 else
   set bg=dark
 endif
+hi EndOfBuffer ctermfg=239 ctermbg=NONE guifg=#4d5057 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi LineNr ctermfg=239 ctermbg=NONE guifg=#4d5057 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi NonText ctermfg=237 ctermbg=NONE guifg=#393939 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi Search ctermfg=235 ctermbg=223 guifg=#262626 guibg=#f2c38f guisp=NONE cterm=NONE gui=NONE
@@ -43,7 +45,7 @@ hi StatusLine ctermfg=239 ctermbg=222 guifg=#4d5057 guibg=#ffcc66 guisp=NONE cte
 hi StatusLineNC ctermfg=239 ctermbg=fg guifg=#4d5057 guibg=fg guisp=NONE cterm=NONE,reverse gui=NONE,reverse
 hi StatusLineTerm ctermfg=239 ctermbg=222 guifg=#4d5057 guibg=#ffcc66 guisp=NONE cterm=NONE,reverse gui=NONE,reverse
 hi StatusLineTermNC ctermfg=239 ctermbg=fg guifg=#4d5057 guibg=fg guisp=NONE cterm=NONE,reverse gui=NONE,reverse
-hi VertSplit ctermfg=239 ctermbg=239 guifg=#4d5057 guibg=#4d5057 guisp=NONE cterm=NONE gui=NONE
+hi VertSplit ctermfg=235 ctermbg=239 guifg=#262626 guibg=#4d5057 guisp=NONE cterm=NONE gui=NONE
 hi Visual ctermfg=NONE ctermbg=237 guifg=NONE guibg=#393939 guisp=NONE cterm=NONE gui=NONE
 hi VisualNOS ctermfg=NONE ctermbg=237 guifg=NONE guibg=#393939 guisp=NONE cterm=NONE gui=NONE
 hi Directory ctermfg=67 ctermbg=NONE guifg=#6699cc guibg=NONE guisp=NONE cterm=NONE gui=NONE
@@ -64,7 +66,7 @@ hi ColorColumn ctermfg=fg ctermbg=237 guifg=fg guibg=#393939 guisp=NONE cterm=NO
 hi Comment ctermfg=247 ctermbg=NONE guifg=#999999 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi Todo ctermfg=247 ctermbg=NONE guifg=#999999 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi Title ctermfg=247 ctermbg=NONE guifg=#999999 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-hi Identifier ctermfg=210 ctermbg=NONE guifg=#f2777a guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi Identifier ctermfg=fg ctermbg=NONE guifg=fg guibg=NONE guisp=NONE cterm=NONE,italic gui=NONE,italic
 hi Statement ctermfg=182 ctermbg=NONE guifg=#cc99cc guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi Conditional ctermfg=67 ctermbg=NONE guifg=#6699cc guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi Repeat ctermfg=67 ctermbg=NONE guifg=#6699cc guibg=NONE guisp=NONE cterm=NONE gui=NONE
@@ -88,12 +90,16 @@ hi DiffAdd ctermfg=fg ctermbg=237 guifg=fg guibg=#393939 guisp=NONE cterm=NONE g
 hi DiffDelete ctermfg=NONE ctermbg=210 guifg=NONE guibg=#f2777a guisp=NONE cterm=NONE gui=NONE
 hi DiffChange ctermfg=fg ctermbg=67 guifg=fg guibg=#6699cc guisp=NONE cterm=NONE gui=NONE
 hi DiffText ctermfg=237 ctermbg=67 guifg=#393939 guibg=#6699cc guisp=NONE cterm=NONE gui=NONE
-hi Cursor ctermfg=NONE ctermbg=151 guifg=NONE guibg=#99cc99 guisp=NONE cterm=NONE gui=NONE
+hi Cursor ctermfg=235 ctermbg=151 guifg=#262626 guibg=#99cc99 guisp=NONE cterm=NONE gui=NONE
 hi! link QuickFixLine Search
 hi diffAdded ctermfg=151 ctermbg=NONE guifg=#99cc99 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi diffRemoved ctermfg=210 ctermbg=NONE guifg=#f2777a guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi gitcommitSummary ctermfg=fg ctermbg=NONE guifg=fg guibg=NONE guisp=NONE cterm=NONE,bold gui=NONE,bold
 hi Command ctermfg=210 ctermbg=NONE guifg=#f2777a guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi Error ctermfg=210 ctermbg=NONE guifg=#f2777a guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi ErrorMsg ctermfg=210 ctermbg=NONE guifg=#f2777a guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi! link Conceal Comment
+hi! link Ignore Comment
 hi GitGutterAdd ctermfg=151 ctermbg=NONE guifg=#99cc99 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi GitGutterChange ctermfg=223 ctermbg=NONE guifg=#f2c38f guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi GitGutterChangeDelete ctermfg=223 ctermbg=NONE guifg=#f2c38f guibg=NONE guisp=NONE cterm=NONE gui=NONE
@@ -216,6 +222,7 @@ finish
 " Color:	    special	 #f2c38f ~
 " Color:	    lightgrey	 #a9a9a9 ~
 " Normal				foreground		background
+" EndOfBuffer			window	        none
 " LineNr				window	        none
 " NonText				selection	none
 " Search				background	special
@@ -226,7 +233,7 @@ finish
 " StatusLineNC			window		fg reverse
 " StatusLineTerm			window		yellow reverse
 " StatusLineTermNC		window		fg reverse
-" VertSplit			window		window
+" VertSplit			background	window
 " Visual				none		selection
 " VisualNOS			none		selection
 " Directory			blue		none
@@ -247,7 +254,7 @@ finish
 " Comment				comment		none
 " Todo				comment		none
 " Title				comment		none
-" Identifier			red		none
+" Identifier			fg		none italic
 " Statement			purple		none
 " Conditional			blue		none
 " Repeat				blue		none
@@ -271,12 +278,16 @@ finish
 " DiffDelete			none		red
 " DiffChange			fg		blue
 " DiffText			selection	blue
-" Cursor				none		green
+" Cursor				background	green
 " QuickFixLine		->	Search
 " diffAdded			green		none
 " diffRemoved			red		none
 " gitcommitSummary		fg		none bold
 " Command				red		none
+" Error				red		none
+" ErrorMsg			red		none
+" Conceal			->	Comment
+" Ignore			->	Comment
 " GitGutterAdd			green		none
 " GitGutterChange			special		none
 " GitGutterChangeDelete		special		none
