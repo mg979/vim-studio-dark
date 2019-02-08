@@ -2,7 +2,7 @@
 " Author:       Chris Kempson <http://chriskempson.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: 04/02/2019 05:53:42
+" Last Updated: ven 08 feb 2019 04:57:18 CET
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -110,6 +110,7 @@ hi SignifySignChangeDelete ctermfg=223 ctermbg=NONE guifg=#f2c38f guibg=NONE gui
 hi SignifySignDelete ctermfg=210 ctermbg=NONE guifg=#f2777a guibg=NONE guisp=NONE cterm=NONE gui=NONE
 if s:load_for('vim')
   hi! link vimDocstring String
+  hi! link vimEndBlock Conditional
   hi! link vimConditional Conditional
   hi! link vimRepeat Conditional
   hi! link vimLetVar foreground
@@ -297,6 +298,7 @@ finish
 " SignifySignChangeDelete		special		none
 " SignifySignDelete		red		none
 " vimDocstring		->	String
+" vimEndBlock   		->	Conditional
 " vimConditional		->	Conditional
 " vimRepeat		->	Conditional
 " vimLetVar		->	foreground	none

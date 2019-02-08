@@ -18,9 +18,13 @@ in the pictures below, but these groups are disabled when the color scheme is un
 They also try to set as few non-standard (eg. provided by plugins) highlight groups as
 possible, to minimize the possibility of clashes on colorscheme switching.
 
-You can cycle between high/medium/low contrast (default medium):
+To cycle between high/medium/low contrast (default medium):
 
     :VsdContrast
+
+To show available options for current filetype:
+
+    :VsdOptions
 
 ------------
 

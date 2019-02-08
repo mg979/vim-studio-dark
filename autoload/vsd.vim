@@ -12,7 +12,9 @@ fun! vsd#init()
   let g:Vsd.cpp          = get(g:Vsd, 'cpp',          g:Vsd.extra_syntax)
   let g:Vsd.markdown     = get(g:Vsd, 'markdown',     g:Vsd.extra_syntax)
 
-  command! VsdContrast call vsd#contrast()
+  command! VsdContrast call vsd#options#contrast()
+  command! VsdEnd      call vsd#options#end()
+  command! VsdOptions  call vsd#options#show()
 endfun
 
 fun! vsd#extras(scheme)
@@ -25,30 +27,6 @@ fun! vsd#extras(scheme)
     au filetype python call s:python()
     au filetype cpp    call s:cpp()
   augroup END
-endfun
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" colorscheme contrast
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-fun! vsd#contrast() abort
-  """Toggle contrast mode for scheme.
-  if g:Vsd.contrast == 0
-    let g:Vsd.contrast = 1
-    exe "colorscheme" g:colors_name
-    redraw!
-    echo "[Vsd] medium contrast"
-  elseif g:Vsd.contrast == 1
-    let g:Vsd.contrast = 2
-    exe "colorscheme" g:colors_name
-    redraw!
-    echo "[Vsd] high contrast"
-  else
-    let g:Vsd.contrast = 0
-    exe "colorscheme" g:colors_name
-    redraw!
-    echo "[Vsd] low contrast"
-  endif
 endfun
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -99,13 +77,14 @@ fun! s:vim()
   if !s:load_for('vim') | return | endif
 
   syn match   vimDocstring    '^\s\s\{-}"""\w.*'
-  syn keyword vimConditional  if elseif else endif try catch finally endtry
-  syn keyword vimRepeat       while endwhile for endfor in
+  syn match   vimEndBlock     '\v(\| )?end(if|for|while|try).*$'
+  syn keyword vimConditional  if elseif else try catch finally
+  syn keyword vimRepeat       while for in
   syn match   vimLetVar       '\(let \|for \)\@<=\(\w\|\.\|:\|#\)\+'
   syn keyword vimLet          let unl[et] skipwhite nextgroup=vimVar,vimFuncVar,vimLetVar
   syn keyword vimCall         call nextgroup=Function
   syn keyword vimSelf         self
-  syn cluster vimFuncBodyList add=vimDocstring,vimConditional,vimSelf,vimCall,vimLetVar,vimRepeat
+  syn cluster vimFuncBodyList add=vimDocstring,vimConditional,vimEndBlock,vimSelf,vimCall,vimLetVar,vimRepeat
   if has_key(b:, 'endwise_syngroups')
     let b:endwise_syngroups .= ',vimConditional,vimRepeat'
   endif
@@ -150,6 +129,7 @@ fun! s:reset_vim()
   syn cluster vimFuncBodyList remove=vimDocstring,vimConditional,vimSelf,vimCall,vimLetVar
   syn keyword vimLet  let unl[et] skipwhite nextgroup=vimVar,vimFuncVar
   silent! syntax clear vimDocstring
+  silent! syntax clear vimEndBlock
   silent! syntax clear vimConditional
   silent! syntax clear vimRepeat
   silent! syntax clear vimLetVar

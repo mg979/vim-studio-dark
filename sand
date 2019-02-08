@@ -245,6 +245,7 @@ verbatim
 if s:load_for('vim')
 endverbatim
 vimDocstring		->	String
+vimEndBlock   		->	Conditional
 vimConditional		->	Conditional
 vimRepeat		->	Conditional
 vimLetVar		->	Identifier

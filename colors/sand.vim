@@ -2,7 +2,7 @@
 " Author:       Gianmaria Bajo <mg1979.git@gmail.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: 04/02/2019 05:54:38
+" Last Updated: ven 08 feb 2019 04:57:56 CET
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -143,6 +143,7 @@ hi! link helpSectionDelim Constant
 hi HelpHeadline ctermfg=186 ctermbg=NONE guifg=#dada93 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 if s:load_for('vim')
   hi! link vimDocstring String
+  hi! link vimEndBlock Conditional
   hi! link vimConditional Conditional
   hi! link vimRepeat Conditional
   hi! link vimLetVar Identifier
@@ -316,6 +317,7 @@ finish
 " helpSectionDelim	->	Constant
 " HelpHeadline			yellow		none
 " vimDocstring		->	String
+" vimEndBlock   		->	Conditional
 " vimConditional		->	Conditional
 " vimRepeat		->	Conditional
 " vimLetVar		->	Identifier
