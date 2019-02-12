@@ -2,7 +2,7 @@
 " Author:       Gianmaria Bajo <mg1979.git@gmail.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: ven 08 feb 2019 04:57:56 CET
+" Last Updated: mar 12 feb 2019 04:08:59 CET
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -29,10 +29,8 @@ let contrast = [ ['#3a3a3a', '237'],
 let gui  = contrast[g:Vsd.contrast][0]
 let term = contrast[g:Vsd.contrast][1]
 exe "hi! Normal guibg=".gui." ctermbg=".term
-if &termguicolors
-  hi Normal ctermbg=0
-else
-  set bg=dark
+if !has('patch-8.0.0616') && !has('gui_running') && !has('nvim')
+  set background=dark
 endif
 
 " highlight groups

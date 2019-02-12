@@ -2,7 +2,7 @@
 " Author:       Chris Kempson <http://chriskempson.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: ven 08 feb 2019 04:57:18 CET
+" Last Updated: mar 12 feb 2019 04:09:31 CET
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -29,10 +29,8 @@ let contrast = [ ['#303030', '236'],
 let gui  = contrast[g:Vsd.contrast][0]
 let term = contrast[g:Vsd.contrast][1]
 exe "hi! Normal guibg=".gui." ctermbg=".term
-if &termguicolors
-  hi Normal ctermbg=0
-else
-  set bg=dark
+if !has('patch-8.0.0616') && !has('gui_running') && !has('nvim')
+  set background=dark
 endif
 hi EndOfBuffer ctermfg=239 ctermbg=NONE guifg=#4d5057 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi LineNr ctermfg=239 ctermbg=NONE guifg=#4d5057 guibg=NONE guisp=NONE cterm=NONE gui=NONE
