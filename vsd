@@ -22,7 +22,7 @@ Color:	    foreground		#c5d4dd ~
 Color:	    white		#e6eef3 ~
 Color:	    yellow		#dada93 ~
 Color:	    special		#f2c38f ~
-Color:	    skyblue		#569cd6 ~
+Color:	    skyblue		#569cd6 32 Blue
 Color:	    darkblue		#073655 ~
 Color:	    lightblue		#83afe5 ~
 Color:	    blue		#264f78 ~
