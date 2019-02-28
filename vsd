@@ -141,6 +141,7 @@ Conceal				darkgreen	none
 Cursor				background	green
 Command				pink		none
 QuickFixLine		->	Search
+Delimiter		->	Special
 
 # Plugins {{{2
 

@@ -2,7 +2,7 @@
 " Author:       Gianmaria Bajo <mg1979.git@gmail.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: mar 12 feb 2019 04:08:59 CET
+" Last Updated: gio 28 feb 2019 18:48:06 CET
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -109,6 +109,7 @@ hi CursorLine ctermfg=fg ctermbg=238 guifg=fg guibg=#404040 guisp=NONE cterm=NON
 hi! link CursorColumn CursorLine
 hi! link Conceal Comment
 hi! link Ignore Comment
+hi! link Delimiter Special
 hi Identifier ctermfg=fg ctermbg=NONE guifg=fg guibg=NONE guisp=NONE cterm=NONE,italic gui=NONE,italic
 hi Statement ctermfg=150 ctermbg=NONE guifg=#a8ce93 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi String ctermfg=245 ctermbg=NONE guifg=#8d8d8d guibg=NONE guisp=NONE cterm=NONE gui=NONE
@@ -284,6 +285,7 @@ finish
 " CursorColumn		->	CursorLine
 " Conceal			->	Comment
 " Ignore			->	Comment
+" Delimiter		->	Special
 " Identifier			fg			none italic
 " Statement			lightgreen		none
 " String				string			none

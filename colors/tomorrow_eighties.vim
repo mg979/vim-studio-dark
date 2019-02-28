@@ -2,7 +2,7 @@
 " Author:       Chris Kempson <http://chriskempson.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: mar 12 feb 2019 04:09:31 CET
+" Last Updated: gio 28 feb 2019 18:47:46 CET
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -90,6 +90,7 @@ hi DiffChange ctermfg=fg ctermbg=67 guifg=fg guibg=#6699cc guisp=NONE cterm=NONE
 hi DiffText ctermfg=237 ctermbg=67 guifg=#393939 guibg=#6699cc guisp=NONE cterm=NONE gui=NONE
 hi Cursor ctermfg=235 ctermbg=151 guifg=#262626 guibg=#99cc99 guisp=NONE cterm=NONE gui=NONE
 hi! link QuickFixLine Search
+hi! link Delimiter Special
 hi diffAdded ctermfg=151 ctermbg=NONE guifg=#99cc99 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi diffRemoved ctermfg=210 ctermbg=NONE guifg=#f2777a guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi gitcommitSummary ctermfg=fg ctermbg=NONE guifg=fg guibg=NONE guisp=NONE cterm=NONE,bold gui=NONE,bold
@@ -279,6 +280,7 @@ finish
 " DiffText			selection	blue
 " Cursor				background	green
 " QuickFixLine		->	Search
+" Delimiter		->	Special
 " diffAdded			green		none
 " diffRemoved			red		none
 " gitcommitSummary		fg		none bold

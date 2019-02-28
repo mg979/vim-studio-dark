@@ -112,6 +112,7 @@ DiffText			selection	blue
 
 Cursor				background	green
 QuickFixLine		->	Search
+Delimiter		->	Special
 
 diffAdded			green		none
 diffRemoved			red		none

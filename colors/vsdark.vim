@@ -2,7 +2,7 @@
 " Author:       Gianmaria Bajo <mg1979.git@gmail.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: mar 12 feb 2019 04:09:45 CET
+" Last Updated: gio 28 feb 2019 18:47:07 CET
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -111,6 +111,7 @@ hi Conceal ctermfg=65 ctermbg=NONE guifg=#608b4e guibg=NONE guisp=NONE cterm=NON
 hi Cursor ctermfg=234 ctermbg=34 guifg=#1e1e1e guibg=#00af00 guisp=NONE cterm=NONE gui=NONE
 hi Command ctermfg=176 ctermbg=NONE guifg=#c586c0 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi! link QuickFixLine Search
+hi! link Delimiter Special
 hi GitGutterAdd ctermfg=34 ctermbg=NONE guifg=#00af00 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi GitGutterChange ctermfg=223 ctermbg=NONE guifg=#f2c38f guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi GitGutterChangeDelete ctermfg=223 ctermbg=NONE guifg=#f2c38f guibg=NONE guisp=NONE cterm=NONE gui=NONE
@@ -320,6 +321,7 @@ finish
 " Cursor				background	green
 " Command				pink		none
 " QuickFixLine		->	Search
+" Delimiter		->	Special
 " GitGutterAdd			green		none
 " GitGutterChange			special		none
 " GitGutterChangeDelete		special		none

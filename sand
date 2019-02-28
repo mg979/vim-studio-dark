@@ -171,6 +171,7 @@ CursorLine			fg			grey2
 CursorColumn		->	CursorLine
 Conceal			->	Comment
 Ignore			->	Comment
+Delimiter		->	Special
 # Error				  fg			  guibg=#af5a5a
 # ErrorMsg		  ->	  Error
 # TabLine			  fg			  guibg=#248f8f
