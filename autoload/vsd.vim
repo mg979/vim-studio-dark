@@ -18,8 +18,6 @@ fun! vsd#init()
 endfun
 
 fun! vsd#extras(scheme)
-  exe 'call s:'.a:scheme.'()'
-
   augroup vsd_syntax
     au!
     au ColorScheme *   call vsd#reset()
@@ -27,46 +25,6 @@ fun! vsd#extras(scheme)
     au filetype python call s:python()
     au filetype cpp    call s:cpp()
   augroup END
-endfun
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" colorscheme extras
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-fun! s:vsdark()
-  silent! LightlineTheme deus
-  silent! VMTheme iceblue
-  if exists('g:loaded_xtabline')
-    let g:xtabline.Vars.has_reloaded_scheme = 1
-    silent! XTabTheme codedark
-  endif
-endfun
-
-fun! s:vslight()
-  silent! LightlineTheme Tomorrow_Night_Bright
-  silent! VMTheme lightblue1
-  if exists('g:loaded_xtabline')
-    let g:xtabline.Vars.has_reloaded_scheme = 1
-    silent! XTabTheme codedark
-  endif
-endfun
-
-fun! s:tomorrow_eighties()
-  silent! LightlineTheme Tomorrow_Night_Eighties
-  silent! VMTheme codedark
-  if exists('g:loaded_xtabline')
-    let g:xtabline.Vars.has_reloaded_scheme = 1
-    silent! XTabTheme tomorrow
-  endif
-endfun
-
-fun! s:sand()
-  silent! LightlineTheme seoul256
-  silent! VMTheme sand
-  if exists('g:loaded_xtabline')
-    let g:xtabline.Vars.has_reloaded_scheme = 1
-    silent! XTabTheme tomorrow
-  endif
 endfun
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
