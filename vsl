@@ -156,6 +156,7 @@ helpCommand		->	Type
 vimLet				darkgrey	none
 vimCall				darkgrey	none
 vimSelf				cyan		none italic
+vimUserFunc			foreground	none
 verbatim
 endif
 endverbatim

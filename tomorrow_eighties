@@ -157,6 +157,7 @@ vimCommand			red   		none
 vimLet				lightgrey	none
 vimCall				lightgrey	none
 vimSelf				special		none italic
+vimUserFunc			foreground	none
 verbatim
 endif
 endverbatim

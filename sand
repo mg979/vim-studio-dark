@@ -252,6 +252,7 @@ vimLet			->	String
 vimCall			->	String
 vimCommand			green 		none
 vimSelf				special		none italic
+vimUserFunc			foreground	none
 verbatim
 endif
 endverbatim

@@ -150,6 +150,7 @@ if s:load_for('vim')
   hi! link vimCall String
   hi vimCommand ctermfg=71 ctermbg=NONE guifg=#7ab87a guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi vimSelf ctermfg=223 ctermbg=NONE guifg=#f2c38f guibg=NONE guisp=NONE cterm=NONE,italic gui=NONE,italic
+  hi vimUserFunc ctermfg=251 ctermbg=NONE guifg=#c6c6b9 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 endif
 if s:load_for('python')
   hi! link pythonSelf Identifier
@@ -325,6 +326,7 @@ finish
 " vimCall			->	String
 " vimCommand			green 		none
 " vimSelf				special		none italic
+" vimUserFunc			foreground	none
 " pythonSelf		->	Identifier
 " pythonOperatorSymbol	->	Operator
 " pythonBraces		->	Special

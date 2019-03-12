@@ -130,6 +130,7 @@ if s:load_for('vim')
   hi vimCall ctermfg=248 ctermbg=NONE guifg=#a9a9a9 guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi! link vimCommand Command
   hi vimSelf ctermfg=109 ctermbg=NONE guifg=#7fc1ca guibg=NONE guisp=NONE cterm=NONE,italic gui=NONE,italic
+  hi vimUserFunc ctermfg=252 ctermbg=NONE guifg=#c5d4dd guibg=NONE guisp=NONE cterm=NONE gui=NONE
 endif
 hi! link helpCommand Type
 hi! link helpSectionDelim PreProc
@@ -339,6 +340,7 @@ finish
 " vimCall				lightgrey	none
 " vimCommand		->	Command
 " vimSelf				cyangrey	none italic
+" vimUserFunc			foreground	none
 " helpCommand		->	Type
 " helpSectionDelim	->	PreProc
 " HelpHeadline		->	Statement
