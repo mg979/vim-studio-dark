@@ -145,7 +145,6 @@ if s:load_for('vim')
   hi! link vimEndBlock Conditional
   hi! link vimConditional Conditional
   hi! link vimRepeat Conditional
-  hi! link vimLetVar Identifier
   hi! link vimLet String
   hi! link vimCall String
   hi vimCommand ctermfg=71 ctermbg=NONE guifg=#7ab87a guibg=NONE guisp=NONE cterm=NONE gui=NONE
@@ -321,7 +320,6 @@ finish
 " vimEndBlock   		->	Conditional
 " vimConditional		->	Conditional
 " vimRepeat		->	Conditional
-" vimLetVar		->	Identifier
 " vimLet			->	String
 " vimCall			->	String
 " vimCommand			green 		none

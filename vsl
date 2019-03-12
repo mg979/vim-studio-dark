@@ -151,7 +151,6 @@ vimDocstring		->	String
 vimEndBlock   		->	Conditional
 vimConditional		->	Conditional
 vimRepeat		->	Conditional
-vimLetVar		->	Identifier
 helpCommand		->	Type
 vimLet				darkgrey	none
 vimCall				darkgrey	none

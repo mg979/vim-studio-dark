@@ -152,7 +152,6 @@ vimDocstring		->	String
 vimEndBlock   		->	Conditional
 vimConditional		->	Conditional
 vimRepeat		->	Conditional
-vimLetVar		->	foreground	none
 vimCommand			red   		none
 vimLet				lightgrey	none
 vimCall				lightgrey	none

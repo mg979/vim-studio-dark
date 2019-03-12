@@ -35,14 +35,13 @@ fun! s:vim()
   if !s:load_for('vim') | return | endif
 
   syn match   vimDocstring    '^\s\s\{-}"""\w.*'
-  syn match   vimEndBlock     '\v(\| )?end(if|for|while|try).*$'
-  syn keyword vimConditional  if elseif else try catch finally
-  syn keyword vimRepeat       while for in
-  syn match   vimLetVar       '\(let \|for \)\@<=\(\w\|\.\|:\|#\)\+'
-  syn keyword vimLet          let unl[et] skipwhite nextgroup=vimVar,vimFuncVar,vimLetVar
-  syn keyword vimCall         call nextgroup=Function
+  syn match   vimEndBlock     '\v<end(if|for|while|wh|try)>'
+  syn keyword vimConditional  if elseif else try catch finally in
+  syn keyword vimRepeat       wh[ile] for skipwhite nextgroup=vimVar
+  syn keyword vimLet          let unl[et] skipwhite nextgroup=vimFBVar,vimVar
+  syn keyword vimCall         cal[l] nextgroup=Function,vimFunction
   syn keyword vimSelf         self
-  syn cluster vimFuncBodyList add=vimDocstring,vimConditional,vimEndBlock,vimSelf,vimCall,vimLetVar,vimRepeat
+  syn cluster vimFuncBodyList add=vimDocstring,vimConditional,vimEndBlock,vimSelf,vimCall,vimRepeat
   if has_key(b:, 'endwise_syngroups')
     let b:endwise_syngroups .= ',vimConditional,vimRepeat'
   endif
@@ -54,7 +53,7 @@ fun! s:python()
   syn keyword pythonSelf            self
   syn match   pythonOperatorSymbol  '\V=\|-\|+\|*\|@\|/\|%\|&\||\|^\|~\|<\|>\|!='
   syn match   pythonBraces          '{\|}\|\[\|\]'
-  syn match   pythonGlobalVar       '\<[A-Z_]*\>'
+  syn match   pythonGlobalVar       '\<[A-Z_]\+\>'
   syn match   pythonStringType      '\((\)\@<=[rfub]\(["\']\)\@='
 endfun
 
@@ -84,13 +83,12 @@ endfun
 "------------------------------------------------------------------------------
 
 fun! s:reset_vim()
-  syn cluster vimFuncBodyList remove=vimDocstring,vimConditional,vimSelf,vimCall,vimLetVar
+  syn cluster vimFuncBodyList remove=vimDocstring,vimConditional,vimSelf,vimCall
   syn keyword vimLet  let unl[et] skipwhite nextgroup=vimVar,vimFuncVar
   silent! syntax clear vimDocstring
   silent! syntax clear vimEndBlock
   silent! syntax clear vimConditional
   silent! syntax clear vimRepeat
-  silent! syntax clear vimLetVar
   silent! syntax clear vimCall
   silent! syntax clear vimSelf
   hi! link vimCommand                   Statement

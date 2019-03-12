@@ -163,7 +163,6 @@ vimDocstring		->	String
 vimEndBlock   		->	Conditional
 vimConditional		->	Conditional
 vimRepeat		->	Conditional
-vimLetVar		->	Identifier
 vimLet				lightgrey	none
 vimCall				lightgrey	none
 vimCommand		->	Command

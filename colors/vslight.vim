@@ -115,7 +115,6 @@ if s:load_for('vim')
   hi! link vimEndBlock Conditional
   hi! link vimConditional Conditional
   hi! link vimRepeat Conditional
-  hi! link vimLetVar Identifier
   hi! link helpCommand Type
   hi vimLet ctermfg=236 ctermbg=NONE guifg=#333333 guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi vimCall ctermfg=236 ctermbg=NONE guifg=#333333 guibg=NONE guisp=NONE cterm=NONE gui=NONE
@@ -311,7 +310,6 @@ finish
 " vimEndBlock   		->	Conditional
 " vimConditional		->	Conditional
 " vimRepeat		->	Conditional
-" vimLetVar		->	Identifier
 " helpCommand		->	Type
 " vimLet				darkgrey	none
 " vimCall				darkgrey	none

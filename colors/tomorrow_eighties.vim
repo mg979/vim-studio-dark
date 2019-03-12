@@ -112,7 +112,6 @@ if s:load_for('vim')
   hi! link vimEndBlock Conditional
   hi! link vimConditional Conditional
   hi! link vimRepeat Conditional
-  hi! link vimLetVar foreground
   hi vimCommand ctermfg=210 ctermbg=NONE guifg=#f2777a guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi vimLet ctermfg=248 ctermbg=NONE guifg=#a9a9a9 guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi vimCall ctermfg=248 ctermbg=NONE guifg=#a9a9a9 guibg=NONE guisp=NONE cterm=NONE gui=NONE
@@ -302,7 +301,6 @@ finish
 " vimEndBlock   		->	Conditional
 " vimConditional		->	Conditional
 " vimRepeat		->	Conditional
-" vimLetVar		->	foreground	none
 " vimCommand			red   		none
 " vimLet				lightgrey	none
 " vimCall				lightgrey	none

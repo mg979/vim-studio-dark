@@ -247,7 +247,6 @@ vimDocstring		->	String
 vimEndBlock   		->	Conditional
 vimConditional		->	Conditional
 vimRepeat		->	Conditional
-vimLetVar		->	Identifier
 vimLet			->	String
 vimCall			->	String
 vimCommand			green 		none
