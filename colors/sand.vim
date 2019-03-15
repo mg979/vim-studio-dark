@@ -2,7 +2,7 @@
 " Author:       Gianmaria Bajo <mg1979.git@gmail.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: gio 28 feb 2019 18:48:06 CET
+" Last Updated: ven 15 mar 2019 04:00:03 CET
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -40,7 +40,7 @@ hi ModeMsg	guifg=goldenrod
 hi MoreMsg	guifg=SeaGreen
 hi NonText	guifg=LightBlue guibg=grey30
 hi Question	guifg=springgreen
-hi Search	guibg=peru guifg=wheat
+hi Search	guibg=#5e4e21 guifg=wheat
 hi SpecialKey	guifg=yellowgreen
 hi StatusLine	guibg=#c2bfa5 guifg=black gui=none
 hi StatusLineNC	guibg=#c2bfa5 guifg=grey50 gui=none
@@ -94,8 +94,6 @@ hi FoldColumn ctermfg=242 ctermbg=223 guifg=#6b6a61 guibg=#f2c38f guisp=NONE cte
 hi LineNr ctermfg=239 ctermbg=NONE guifg=#4d4d4d guibg=NONE guisp=NONE cterm=NONE,italic gui=NONE,italic
 hi SignColumn ctermfg=239 ctermbg=234 guifg=#4d4d4d guibg=#1e1e1e guisp=NONE cterm=NONE,italic gui=NONE,italic
 hi VertSplit ctermfg=239 ctermbg=234 guifg=#4d4d4d guibg=#1e1e1e guisp=NONE cterm=NONE gui=NONE
-hi Search ctermfg=255 ctermbg=172 guifg=#e6eef3 guibg=#cd853f guisp=NONE cterm=NONE gui=NONE
-hi IncSearch ctermfg=255 ctermbg=167 guifg=#e6eef3 guibg=#cd5c5c guisp=NONE cterm=NONE gui=NONE
 hi MatchParen ctermfg=167 ctermbg=234 guifg=#cd5c5c guibg=#1e1e1e guisp=NONE cterm=NONE,bold gui=NONE,bold
 hi Pmenu ctermfg=NONE ctermbg=101 guifg=NONE guibg=#999966 guisp=NONE cterm=NONE gui=NONE
 hi PmenuSel ctermfg=fg ctermbg=239 guifg=fg guibg=#4d4d4d guisp=NONE cterm=NONE gui=NONE
@@ -110,6 +108,9 @@ hi! link CursorColumn CursorLine
 hi! link Conceal Comment
 hi! link Ignore Comment
 hi! link Delimiter Special
+hi TabLine ctermfg=101 ctermbg=236 guifg=#999966 guibg=#333333 guisp=NONE cterm=NONE gui=NONE
+hi TabLineFill ctermfg=242 ctermbg=236 guifg=#6b6a61 guibg=#333333 guisp=NONE cterm=NONE gui=NONE
+hi TabLineSel ctermfg=180 ctermbg=234 guifg=#dfaf87 guibg=#1e1e1e guisp=NONE cterm=NONE gui=NONE
 hi Identifier ctermfg=fg ctermbg=NONE guifg=fg guibg=NONE guisp=NONE cterm=NONE,italic gui=NONE,italic
 hi Statement ctermfg=150 ctermbg=NONE guifg=#a8ce93 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi String ctermfg=245 ctermbg=NONE guifg=#8d8d8d guibg=NONE guisp=NONE cterm=NONE gui=NONE
@@ -270,8 +271,6 @@ finish
 " LineNr				grey			none italic
 " SignColumn			grey			black italic
 " VertSplit			grey			black
-" Search				white			peru
-" IncSearch			white			red
 " MatchParen			red			black bold
 " Pmenu				none			sepia
 " PmenuSel			fg			grey
@@ -286,6 +285,9 @@ finish
 " Conceal			->	Comment
 " Ignore			->	Comment
 " Delimiter		->	Special
+" TabLine				sepia			darkgrey
+" TabLineFill			lightgrey		darkgrey
+" TabLineSel			cursor			black
 " Identifier			fg			none italic
 " Statement			lightgreen		none
 " String				string			none

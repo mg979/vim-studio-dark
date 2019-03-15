@@ -89,16 +89,17 @@ endverbatim
 # hi FoldColumn	ctermfg=darkgrey ctermbg=NONE
 # hi VertSplit	guibg=#c2bfa5 guifg=grey50 gui=none
 # hi VertSplit	cterm=reverse
+# hi Search	guibg=peru guifg=wheat
+# hi IncSearch	guifg=slategrey guibg=khaki
 verbatim
 
 " highlight groups
 hi Cursor	guibg=khaki guifg=slategrey
-hi IncSearch	guifg=slategrey guibg=khaki
 hi ModeMsg	guifg=goldenrod
 hi MoreMsg	guifg=SeaGreen
 hi NonText	guifg=LightBlue guibg=grey30
 hi Question	guifg=springgreen
-hi Search	guibg=peru guifg=wheat
+hi Search	guibg=#5e4e21 guifg=wheat
 hi SpecialKey	guifg=yellowgreen
 hi StatusLine	guibg=#c2bfa5 guifg=black gui=none
 hi StatusLineNC	guibg=#c2bfa5 guifg=grey50 gui=none
@@ -154,7 +155,7 @@ FoldColumn			lightgrey		special
 LineNr				grey			none italic
 SignColumn			grey			black italic
 VertSplit			grey			black
-Search				white			peru
+# Search				white			peru
 IncSearch			white			red
 MatchParen			red			black bold
 
@@ -174,9 +175,9 @@ Ignore			->	Comment
 Delimiter		->	Special
 # Error				  fg			  guibg=#af5a5a
 # ErrorMsg		  ->	  Error
-# TabLine			  fg			  guibg=#248f8f
-# TabLineFill			  guifg=#248f8f
-# TabLineSel			  fg			  darkgrey
+TabLine				sepia			darkgrey
+TabLineFill			lightgrey		darkgrey
+TabLineSel			cursor			black
 # DiffAdd			  fg			  guibg=#143927
 # DiffChange			  fg			  guibg=#5e4e21
 # DiffDelete			  guifg=#cd5c5c		  none
