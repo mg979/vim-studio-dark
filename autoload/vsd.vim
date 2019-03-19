@@ -17,13 +17,13 @@ fun! vsd#init()
   command! VsdOptions  call vsd#options#show()
 endfun
 
-fun! vsd#extras(scheme)
+fun! vsd#extras()
   augroup vsd_syntax
     au!
-    au ColorScheme *   call vsd#reset()
-    au filetype vim    call s:vim()
-    au filetype python call s:python()
-    au filetype cpp    call s:cpp()
+    au ColorScheme *    call vsd#reset()
+    au Filetype vim     call s:vim()
+    au Filetype python  call s:python()
+    au Filetype cpp     call s:cpp()
   augroup END
 endfun
 
@@ -74,6 +74,8 @@ fun! vsd#reset()
   autocmd! vsd_syntax
   augroup! vsd_syntax
   delcommand VsdContrast
+  delcommand VsdOptions
+  delcommand VsdEnd
   if s:load_for('vim')      | call s:reset_vim()      | endif
   if s:load_for('python')   | call s:reset_python()   | endif
   if s:load_for('cpp')      | call s:reset_cpp()      | endif

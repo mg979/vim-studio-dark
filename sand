@@ -369,6 +369,5 @@ endverbatim
 # Functions {{{1
 
 verbatim
-call vsd#extras('sand')
-filetype detect
+call vsd#extras()
 endverbatim

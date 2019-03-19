@@ -205,8 +205,7 @@ let g:fzf_colors = {
       \ "spinner": ["fg", "Conditional"],
       \ "header":  ["fg", "Conditional"]
       \}
-call vsd#extras('vslight')
-filetype detect
+call vsd#extras()
 finish
 
 " Background: light

@@ -277,7 +277,6 @@ endverbatim
 # Functions {{{1
 
 verbatim
-call vsd#extras('tomorrow_eighties')
-filetype detect
+call vsd#extras()
 endverbatim
 

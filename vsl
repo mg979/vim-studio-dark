@@ -276,7 +276,6 @@ endverbatim
 # Functions {{{1
 
 verbatim
-call vsd#extras('vslight')
-filetype detect
+call vsd#extras()
 endverbatim
 

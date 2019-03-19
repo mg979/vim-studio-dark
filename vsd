@@ -289,7 +289,6 @@ endverbatim
 # Functions {{{1
 
 verbatim
-call vsd#extras('vsdark')
-filetype detect
+call vsd#extras()
 endverbatim
 
