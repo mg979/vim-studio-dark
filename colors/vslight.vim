@@ -2,7 +2,7 @@
 " Author:       Gianmaria Bajo <mg1979.git@gmail.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: gio 28 feb 2019 18:47:30 CET
+" Last Updated: lun 25 mar 2019 14:57:53 CET
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -28,9 +28,9 @@ call vsd#init()
 let s:load_for = { ft -> g:Vsd[ft] || g:Vsd.extra_syntax }
 
 hi Normal ctermfg=234 ctermbg=250 guifg=#1e1e1e guibg=#bdbdbd guisp=NONE cterm=NONE gui=NONE
-let contrast = [ ['#b2b2b2', '249'],
-      \['#bdbdbd', '250'],
-      \['#d0d0d0', '252']]
+let contrast = [ ['#a8a8a8', '248'],
+      \['#b2b2b2', '249'],
+      \['#bdbdbd', '250']]
 let gui  = contrast[g:Vsd.contrast][0]
 let term = contrast[g:Vsd.contrast][1]
 exe "hi! Normal guibg=".gui." ctermbg=".term
@@ -66,6 +66,10 @@ hi DiffAdd ctermfg=NONE ctermbg=109 guifg=NONE guibg=#7fc1ca guisp=NONE cterm=NO
 hi DiffChange ctermfg=NONE ctermbg=248 guifg=NONE guibg=#aaaaaa guisp=NONE cterm=NONE gui=NONE
 hi DiffDelete ctermfg=174 ctermbg=NONE guifg=#df8c8c guibg=NONE guisp=NONE cterm=NONE,bold gui=NONE,bold
 hi DiffText ctermfg=NONE ctermbg=223 guifg=NONE guibg=#f2c38f guisp=NONE cterm=NONE,bold gui=NONE,bold
+hi! link diffAdded Comment
+hi! link diffRemoved String
+hi diffFile ctermfg=124 ctermbg=NONE guifg=#a31515 guibg=NONE guisp=NONE cterm=NONE,bold gui=NONE,bold
+hi diffLine ctermfg=223 ctermbg=NONE guifg=#f2c38f guibg=NONE guisp=NONE cterm=NONE,italic gui=NONE,italic
 hi SignColumn ctermfg=fg ctermbg=NONE guifg=fg guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi LineNr ctermfg=102 ctermbg=NONE guifg=#888888 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi CursorLine ctermfg=fg ctermbg=248 guifg=fg guibg=#aaaaaa guisp=NONE cterm=NONE gui=NONE
@@ -118,7 +122,7 @@ if s:load_for('vim')
   hi! link helpCommand Type
   hi vimLet ctermfg=236 ctermbg=NONE guifg=#333333 guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi vimCall ctermfg=236 ctermbg=NONE guifg=#333333 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-  hi vimSelf ctermfg=44 ctermbg=NONE guifg=#42dcd7 guibg=NONE guisp=NONE cterm=NONE,italic gui=NONE,italic
+  hi vimSelf ctermfg=25 ctermbg=NONE guifg=#0070af guibg=NONE guisp=NONE cterm=NONE,italic gui=NONE,italic
   hi vimUserFunc ctermfg=234 ctermbg=NONE guifg=#1e1e1e guibg=NONE guisp=NONE cterm=NONE gui=NONE
 endif
 hi! link helpCommand Type
@@ -218,7 +222,6 @@ finish
 " Color:	    green	#006600 ~
 " Color:	    lightgreen	#a8ce93 ~
 " Color:      cyangrey 	#7fc1ca ~
-" Color:	    cyan	#42dcd7 ~
 " Color:	    purple	#6f008a ~
 " Color:	    darkgrey	#333333 ~
 " Color:	    lightgrey	#aaaaaa ~
@@ -261,6 +264,10 @@ finish
 " DiffChange			none		lightgrey
 " DiffDelete			lightred	none bold
 " DiffText			none		yellow bold
+" diffAdded			-> Comment
+" diffRemoved			-> String
+" diffFile			darkred		none bold
+" diffLine			yellow		none italic
 " SignColumn			fg		none
 " LineNr				grey 		none
 " CursorLine			fg		lightgrey
@@ -312,7 +319,7 @@ finish
 " helpCommand		->	Type
 " vimLet				darkgrey	none
 " vimCall				darkgrey	none
-" vimSelf				cyan		none italic
+" vimSelf				blue		none italic
 " vimUserFunc			foreground	none
 " helpCommand		->	Type
 " helpSectionDelim	->	PreProc

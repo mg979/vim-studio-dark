@@ -26,7 +26,6 @@ Color:	    blue	#0070af ~
 Color:	    green	#006600 ~ 
 Color:	    lightgreen	#a8ce93 ~
 Color:      cyangrey 	#7fc1ca ~ 
-Color:	    cyan	#42dcd7 ~ 
 Color:	    purple	#6f008a ~ 
 Color:	    darkgrey	#333333 ~ 
 Color:	    lightgrey	#aaaaaa ~ 
@@ -42,9 +41,9 @@ Color:	    special	#682900 ~
 Normal				foreground	background
 
 verbatim
-let contrast = [ ['#b2b2b2', '249'],
-                \['#bdbdbd', '250'],
-		\['#d0d0d0', '252']]
+let contrast = [ ['#a8a8a8', '248'],
+                \['#b2b2b2', '249'],
+                \['#bdbdbd', '250']]
 let gui  = contrast[g:Vsd.contrast][0]
 let term = contrast[g:Vsd.contrast][1]
 exe "hi! Normal guibg=".gui." ctermbg=".term
@@ -90,6 +89,10 @@ DiffAdd				none		cyangrey
 DiffChange			none		lightgrey
 DiffDelete			lightred	none bold
 DiffText			none		yellow bold
+diffAdded			-> Comment
+diffRemoved			-> String
+diffFile			darkred		none bold
+diffLine			yellow		none italic
 
 SignColumn			fg		none
 LineNr				grey 		none
@@ -154,7 +157,7 @@ vimRepeat		->	Conditional
 helpCommand		->	Type
 vimLet				darkgrey	none
 vimCall				darkgrey	none
-vimSelf				cyan		none italic
+vimSelf				blue		none italic
 vimUserFunc			foreground	none
 verbatim
 endif
