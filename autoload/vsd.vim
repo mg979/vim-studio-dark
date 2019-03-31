@@ -70,7 +70,10 @@ endfun
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 fun! vsd#reset()
-  if s:ignore() | return | endif
+  if s:ignore()
+    filetype detect
+    return
+  endif
   autocmd! vsd_syntax
   augroup! vsd_syntax
   delcommand VsdContrast
