@@ -184,6 +184,7 @@ pythonStructure		->	Keyword
 pythonStorageClass	->	Keyword
 pythonTypeDef		->	Keyword
 pythonFunction			red   		none
+pythonBuiltinFunc    	->	Structure
 verbatim
 endif
 endverbatim

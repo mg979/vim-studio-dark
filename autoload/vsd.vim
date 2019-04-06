@@ -116,6 +116,7 @@ fun! s:reset_python()
   hi! link pythonStorageClass           Keyword
   hi! link pythonTypeDef                Keyword
   hi! link pythonFunction               Function
+  hi! link pythonBuiltinFunc            Function
 endfun
 
 fun! s:reset_cpp()

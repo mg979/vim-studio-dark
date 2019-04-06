@@ -274,6 +274,7 @@ pythonStructure		->	Keyword
 pythonStorageClass	->	Keyword
 pythonTypeDef		->	Keyword
 pythonFunction		->	Constant
+pythonBuiltinFunc    	->	Structure
 verbatim
 endif
 endverbatim

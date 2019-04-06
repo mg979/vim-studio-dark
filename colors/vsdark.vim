@@ -2,7 +2,7 @@
 " Author:       Gianmaria Bajo <mg1979.git@gmail.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: gio 28 feb 2019 18:47:07 CET
+" Last Updated: sab 06 apr 2019 13:49:40 CEST
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -91,7 +91,7 @@ hi String ctermfg=173 ctermbg=NONE guifg=#ce9178 guibg=NONE guisp=NONE cterm=NON
 hi Constant ctermfg=150 ctermbg=NONE guifg=#a8ce93 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi Directory ctermfg=32 ctermbg=NONE guifg=#569cd6 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi Identifier ctermfg=251 ctermbg=NONE guifg=#c9c6c9 guibg=NONE guisp=NONE cterm=NONE,italic gui=NONE,italic
-hi Function ctermfg=255 ctermbg=NONE guifg=#e6eef3 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi Function ctermfg=186 ctermbg=NONE guifg=#dada93 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi Statement ctermfg=32 ctermbg=NONE guifg=#569cd6 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi Conditional ctermfg=32 ctermbg=NONE guifg=#569cd6 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi Operator ctermfg=186 ctermbg=NONE guifg=#dada93 guibg=NONE guisp=NONE cterm=NONE gui=NONE
@@ -147,6 +147,7 @@ if s:load_for('python')
   hi! link pythonStorageClass Keyword
   hi! link pythonTypeDef Keyword
   hi pythonFunction ctermfg=44 ctermbg=NONE guifg=#42dcd7 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+  hi! link pythonBuiltinFunc Function
 endif
 if s:load_for('markdown')
   hi mkdItalic ctermfg=176 ctermbg=NONE guifg=#c586c0 guibg=NONE guisp=NONE cterm=NONE gui=NONE
@@ -300,7 +301,7 @@ finish
 " Constant			lightgreen	none
 " Directory			skyblue		none
 " Identifier			identifier	none italic
-" Function			white		none
+" Function			yellow		none
 " Statement			skyblue		none
 " Conditional			skyblue		none
 " Operator			yellow		none
@@ -353,6 +354,7 @@ finish
 " pythonStorageClass	->	Keyword
 " pythonTypeDef		->	Keyword
 " pythonFunction			cyan		none
+" pythonBuiltinFunc    	->	Function
 " mkdItalic			pink		none
 " mkdBold				pink		none
 " mkdBoldItalic			pink		none

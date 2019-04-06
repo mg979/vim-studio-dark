@@ -2,7 +2,7 @@
 " Author:       Gianmaria Bajo <mg1979.git@gmail.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: ven 15 mar 2019 04:00:03 CET
+" Last Updated: sab 06 apr 2019 13:49:25 CEST
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -35,7 +35,6 @@ endif
 
 " highlight groups
 hi Cursor	guibg=khaki guifg=slategrey
-hi IncSearch	guifg=slategrey guibg=khaki
 hi ModeMsg	guifg=goldenrod
 hi MoreMsg	guifg=SeaGreen
 hi NonText	guifg=LightBlue guibg=grey30
@@ -94,6 +93,7 @@ hi FoldColumn ctermfg=242 ctermbg=223 guifg=#6b6a61 guibg=#f2c38f guisp=NONE cte
 hi LineNr ctermfg=239 ctermbg=NONE guifg=#4d4d4d guibg=NONE guisp=NONE cterm=NONE,italic gui=NONE,italic
 hi SignColumn ctermfg=239 ctermbg=234 guifg=#4d4d4d guibg=#1e1e1e guisp=NONE cterm=NONE,italic gui=NONE,italic
 hi VertSplit ctermfg=239 ctermbg=234 guifg=#4d4d4d guibg=#1e1e1e guisp=NONE cterm=NONE gui=NONE
+hi IncSearch ctermfg=255 ctermbg=167 guifg=#e6eef3 guibg=#cd5c5c guisp=NONE cterm=NONE gui=NONE
 hi MatchParen ctermfg=167 ctermbg=234 guifg=#cd5c5c guibg=#1e1e1e guisp=NONE cterm=NONE,bold gui=NONE,bold
 hi Pmenu ctermfg=NONE ctermbg=101 guifg=NONE guibg=#999966 guisp=NONE cterm=NONE gui=NONE
 hi PmenuSel ctermfg=fg ctermbg=239 guifg=fg guibg=#4d4d4d guisp=NONE cterm=NONE gui=NONE
@@ -165,6 +165,7 @@ if s:load_for('python')
   hi! link pythonStorageClass Keyword
   hi! link pythonTypeDef Keyword
   hi! link pythonFunction Constant
+  hi! link pythonBuiltinFunc Structure
 endif
 if s:load_for('markdown')
   hi mkdItalic ctermfg=182 ctermbg=NONE guifg=#c9acd2 guibg=NONE guisp=NONE cterm=NONE gui=NONE
@@ -270,6 +271,7 @@ finish
 " LineNr				grey			none italic
 " SignColumn			grey			black italic
 " VertSplit			grey			black
+" IncSearch			white			red
 " MatchParen			red			black bold
 " Pmenu				none			sepia
 " PmenuSel			fg			grey
@@ -338,6 +340,7 @@ finish
 " pythonStorageClass	->	Keyword
 " pythonTypeDef		->	Keyword
 " pythonFunction		->	Constant
+" pythonBuiltinFunc    	->	Structure
 " mkdItalic			pink		none
 " mkdBold				pink		none
 " mkdBoldItalic			pink		none

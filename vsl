@@ -186,6 +186,7 @@ pythonStorageClass	->	Keyword
 pythonTypeDef		->	Keyword
 pythonGlobalVar			darkblue	none italic
 pythonFunction			purple		none bold
+pythonBuiltinFunc    	->	Function
 verbatim
 endif
 endverbatim

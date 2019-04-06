@@ -2,7 +2,7 @@
 " Author:       Chris Kempson <http://chriskempson.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: gio 28 feb 2019 18:47:46 CET
+" Last Updated: sab 06 apr 2019 13:49:12 CEST
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -134,6 +134,7 @@ if s:load_for('python')
   hi! link pythonStorageClass Keyword
   hi! link pythonTypeDef Keyword
   hi pythonFunction ctermfg=210 ctermbg=NONE guifg=#f2777a guibg=NONE guisp=NONE cterm=NONE gui=NONE
+  hi! link pythonBuiltinFunc Structure
 endif
 if s:load_for('markdown')
   hi mkdItalic ctermfg=182 ctermbg=NONE guifg=#cc99cc guibg=NONE guisp=NONE cterm=NONE gui=NONE
@@ -320,6 +321,7 @@ finish
 " pythonStorageClass	->	Keyword
 " pythonTypeDef		->	Keyword
 " pythonFunction			red   		none
+" pythonBuiltinFunc    	->	Structure
 " mkdItalic			purple		none
 " mkdBold				purple		none
 " mkdBoldItalic			purple		none

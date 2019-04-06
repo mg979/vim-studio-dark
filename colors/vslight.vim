@@ -2,7 +2,7 @@
 " Author:       Gianmaria Bajo <mg1979.git@gmail.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: lun 25 mar 2019 14:57:53 CET
+" Last Updated: sab 06 apr 2019 13:50:59 CEST
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -141,6 +141,7 @@ if s:load_for('python')
   hi! link pythonTypeDef Keyword
   hi pythonGlobalVar ctermfg=21 ctermbg=NONE guifg=#2222ff guibg=NONE guisp=NONE cterm=NONE,italic gui=NONE,italic
   hi pythonFunction ctermfg=54 ctermbg=NONE guifg=#6f008a guibg=NONE guisp=NONE cterm=NONE,bold gui=NONE,bold
+  hi! link pythonBuiltinFunc Function
 endif
 if s:load_for('markdown')
   hi mkdItalic ctermfg=54 ctermbg=NONE guifg=#6f008a guibg=NONE guisp=NONE cterm=NONE gui=NONE
@@ -336,6 +337,7 @@ finish
 " pythonTypeDef		->	Keyword
 " pythonGlobalVar			darkblue	none italic
 " pythonFunction			purple		none bold
+" pythonBuiltinFunc    	->	Function
 " mkdItalic			purple		 none
 " mkdBold				purple		 none
 " mkdBoldItalic			purple		 none

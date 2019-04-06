@@ -119,7 +119,7 @@ String				string		none
 Constant			lightgreen	none
 Directory			skyblue		none
 Identifier			identifier	none italic
-Function			white		none
+Function			yellow		none
 Statement			skyblue		none
 Conditional			skyblue		none
 
@@ -195,6 +195,7 @@ pythonStructure		->	Keyword
 pythonStorageClass	->	Keyword
 pythonTypeDef		->	Keyword
 pythonFunction			cyan		none
+pythonBuiltinFunc    	->	Function
 verbatim
 endif
 endverbatim
