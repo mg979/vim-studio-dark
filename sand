@@ -5,8 +5,8 @@ Author:     Gianmaria Bajo <mg1979.git@gmail.com>
 Maintainer: Gianmaria Bajo <mg1979.git@gmail.com>
 
 verbatim
-call vsd#init()
-let s:load_for = { ft -> g:Vsd[ft] || g:Vsd.extra_syntax }
+silent! call vsd#init()
+let s:load_for = { ft -> exists('g:Vsd') && (g:Vsd[ft] || g:Vsd.extra_syntax) }
 endverbatim
 
 #===================================================================
@@ -67,12 +67,14 @@ Color:	    string		#8d8d8d ~
 Normal				foreground		background
 
 verbatim
-let contrast = [ ['#3a3a3a', '237'],
-                \['#2d2d2d', '236'],
-		\['#262626', '235']]
-let gui  = contrast[g:Vsd.contrast][0]
-let term = contrast[g:Vsd.contrast][1]
-exe "hi! Normal guibg=".gui." ctermbg=".term
+if exists('g:Vsd')
+  let contrast = [ ['#3a3a3a', '237'],
+                  \['#2d2d2d', '236'],
+      \['#262626', '235']]
+  let gui  = contrast[g:Vsd.contrast][0]
+  let term = contrast[g:Vsd.contrast][1]
+  exe "hi! Normal guibg=".gui." ctermbg=".term
+endif
 if !has('patch-8.0.0616') && !has('gui_running') && !has('nvim')
   set background=dark
 endif
@@ -370,5 +372,5 @@ endverbatim
 # Functions {{{1
 
 verbatim
-call vsd#extras()
+silent! call vsd#extras()
 endverbatim

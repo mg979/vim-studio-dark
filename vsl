@@ -5,8 +5,8 @@ Author:     Gianmaria Bajo <mg1979.git@gmail.com>
 Maintainer: Gianmaria Bajo <mg1979.git@gmail.com>
 
 verbatim
-call vsd#init()
-let s:load_for = { ft -> g:Vsd[ft] || g:Vsd.extra_syntax }
+silent! call vsd#init()
+let s:load_for = { ft -> exists('g:Vsd') && (g:Vsd[ft] || g:Vsd.extra_syntax) }
 endverbatim
 
 #===================================================================
@@ -41,12 +41,14 @@ Color:	    special	#682900 ~
 Normal				foreground	background
 
 verbatim
-let contrast = [ ['#a8a8a8', '248'],
-                \['#b2b2b2', '249'],
-                \['#bdbdbd', '250']]
-let gui  = contrast[g:Vsd.contrast][0]
-let term = contrast[g:Vsd.contrast][1]
-exe "hi! Normal guibg=".gui." ctermbg=".term
+if exists('g:Vsd')
+  let contrast = [ ['#a8a8a8', '248'],
+                  \['#b2b2b2', '249'],
+                  \['#bdbdbd', '250']]
+  let gui  = contrast[g:Vsd.contrast][0]
+  let term = contrast[g:Vsd.contrast][1]
+  exe "hi! Normal guibg=".gui." ctermbg=".term
+endif
 endverbatim
 
 MatchParen			red		none
@@ -280,6 +282,6 @@ endverbatim
 # Functions {{{1
 
 verbatim
-call vsd#extras()
+silent! call vsd#extras()
 endverbatim
 

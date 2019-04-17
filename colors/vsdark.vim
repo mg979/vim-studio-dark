@@ -2,7 +2,7 @@
 " Author:       Gianmaria Bajo <mg1979.git@gmail.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: sab 06 apr 2019 13:49:40 CEST
+" Last Updated: mer 17 apr 2019 18:31:59 CEST
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -24,16 +24,18 @@ endif
 
 let g:colors_name = 'vsdark'
 
-call vsd#init()
-let s:load_for = { ft -> g:Vsd[ft] || g:Vsd.extra_syntax }
+silent! call vsd#init()
+let s:load_for = { ft -> exists('g:Vsd') && (g:Vsd[ft] || g:Vsd.extra_syntax) }
 
 hi Normal ctermfg=252 ctermbg=234 guifg=#c5d4dd guibg=#1e1e1e guisp=NONE cterm=NONE gui=NONE
-let contrast = [ ['#262626', '235'],
-      \['#1e1e1e', '234'],
-      \['#181818', '233']]
-let gui  = contrast[g:Vsd.contrast][0]
-let term = contrast[g:Vsd.contrast][1]
-exe "hi! Normal guibg=".gui." ctermbg=".term
+if exists('g:Vsd')
+  let contrast = [ ['#262626', '235'],
+        \['#1e1e1e', '234'],
+        \['#181818', '233']]
+  let gui  = contrast[g:Vsd.contrast][0]
+  let term = contrast[g:Vsd.contrast][1]
+  exe "hi! Normal guibg=".gui." ctermbg=".term
+endif
 if !has('patch-8.0.0616') && !has('gui_running') && !has('nvim')
   set background=dark
 endif
@@ -217,7 +219,7 @@ let g:fzf_colors = {
       \ "spinner": ["fg", "Conditional"],
       \ "header":  ["fg", "Conditional"]
       \}
-call vsd#extras()
+silent! call vsd#extras()
 finish
 
 " Background: dark
