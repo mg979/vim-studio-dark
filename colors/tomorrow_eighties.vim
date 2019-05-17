@@ -2,7 +2,7 @@
 " Author:       Chris Kempson <http://chriskempson.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: ven 17 mag 2019 19:53:46 CEST
+" Last Updated: ven 17 mag 2019 21:56:46 CEST
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -39,7 +39,7 @@ hi EndOfBuffer ctermfg=239 ctermbg=NONE guifg=#4d5057 guibg=NONE guisp=NONE cter
 hi LineNr ctermfg=239 ctermbg=NONE guifg=#4d5057 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi NonText ctermfg=237 ctermbg=NONE guifg=#393939 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi Search ctermfg=235 ctermbg=223 guifg=#262626 guibg=#f2c38f guisp=NONE cterm=NONE gui=NONE
-hi IncSearch ctermfg=210 ctermbg=223 guifg=#f2777a guibg=#f2c38f guisp=NONE cterm=NONE,bold gui=NONE,bold
+hi IncSearch ctermfg=235 ctermbg=209 guifg=#262626 guibg=#f99157 guisp=NONE cterm=NONE,bold gui=NONE,bold
 hi TabLine ctermfg=239 ctermbg=fg guifg=#4d5057 guibg=fg guisp=NONE cterm=NONE,reverse gui=NONE,reverse
 hi TabLineFill ctermfg=239 ctermbg=fg guifg=#4d5057 guibg=fg guisp=NONE cterm=NONE,reverse gui=NONE,reverse
 hi StatusLine ctermfg=239 ctermbg=222 guifg=#4d5057 guibg=#ffcc66 guisp=NONE cterm=NONE,reverse gui=NONE,reverse
@@ -68,12 +68,12 @@ hi Title ctermfg=247 ctermbg=NONE guifg=#999999 guibg=NONE guisp=NONE cterm=NONE
 hi Constant ctermfg=209 ctermbg=NONE guifg=#f99157 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi String ctermfg=151 ctermbg=NONE guifg=#99cc99 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi Identifier ctermfg=fg ctermbg=NONE guifg=fg guibg=NONE guisp=NONE cterm=NONE,italic gui=NONE,italic
-hi Function ctermfg=67 ctermbg=NONE guifg=#6699cc guibg=NONE guisp=NONE cterm=NONE gui=NONE
-hi Statement ctermfg=182 ctermbg=NONE guifg=#cc99cc guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi Function ctermfg=39 ctermbg=NONE guifg=#61afef guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi Statement ctermfg=210 ctermbg=NONE guifg=#f2777a guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi Conditional ctermfg=67 ctermbg=NONE guifg=#6699cc guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi Repeat ctermfg=67 ctermbg=NONE guifg=#6699cc guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi Label ctermfg=67 ctermbg=NONE guifg=#6699cc guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi Operator ctermfg=80 ctermbg=NONE guifg=#66cccc guibg=NONE guisp=NONE cterm=NONE gui=NONE
-hi Keyword ctermfg=209 ctermbg=NONE guifg=#f99157 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi Type ctermfg=222 ctermbg=NONE guifg=#ffcc66 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi Structure ctermfg=222 ctermbg=NONE guifg=#ffcc66 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi Special ctermfg=223 ctermbg=NONE guifg=#f2c38f guibg=NONE guisp=NONE cterm=NONE gui=NONE
@@ -182,6 +182,7 @@ finish
 " Color:	    green	 #99cc99 ~
 " Color:	    aqua	 #66cccc ~
 " Color:	    blue	 #6699cc ~
+" Color:	    brightblue	 #61afef ~
 " Color:	    purple	 #cc99cc ~
 " Color:	    window	 #4d5057 ~
 " Color:	    special	 #f2c38f ~
@@ -191,7 +192,7 @@ finish
 " LineNr				window	        none
 " NonText				selection	none
 " Search				background	special
-" IncSearch			red		special bold
+" IncSearch			background	orange bold
 " TabLine				window		fg reverse
 " TabLineFill			window		fg reverse
 " StatusLine			window		yellow reverse
@@ -220,12 +221,12 @@ finish
 " Constant			orange		none
 " String				green		none
 " Identifier			fg		none italic
-" Function			blue		none
-" Statement			purple		none
+" Function			brightblue	none
+" Statement			red		none
 " Conditional			blue		none
 " Repeat				blue		none
+" Label 				blue		none
 " Operator			aqua		none
-" Keyword				orange		none
 " Type				yellow		none
 " Structure			yellow		none
 " Special				special		none

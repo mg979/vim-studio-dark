@@ -28,6 +28,7 @@ Color:	    yellow	 #ffcc66 ~
 Color:	    green	 #99cc99 ~
 Color:	    aqua	 #66cccc ~
 Color:	    blue	 #6699cc ~
+Color:	    brightblue	 #61afef ~
 Color:	    purple	 #cc99cc ~
 Color:	    window	 #4d5057 ~
 Color:	    special	 #f2c38f ~
@@ -57,7 +58,7 @@ EndOfBuffer			window	        none
 LineNr				window	        none
 NonText				selection	none
 Search				background	special
-IncSearch			red		special bold
+IncSearch			background	orange bold
 TabLine				window		fg reverse
 TabLineFill			window		fg reverse
 StatusLine			window		yellow reverse
@@ -89,13 +90,13 @@ Constant			orange		none
 String				green		none
 
 Identifier			fg		none italic
-Function			blue		none
+Function			brightblue	none
 
-Statement			purple		none
+Statement			red		none
 Conditional			blue		none
 Repeat				blue		none
+Label 				blue		none
 Operator			aqua		none
-Keyword				orange		none
 
 Type				yellow		none
 Structure			yellow		none
