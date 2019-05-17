@@ -2,7 +2,7 @@
 " Author:       Gianmaria Bajo <mg1979.git@gmail.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: ven 17 mag 2019 18:01:36 CEST
+" Last Updated: ven 17 mag 2019 19:22:08 CEST
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -17,8 +17,9 @@ endif
 
 let g:colors_name = 'vsdark'
 
-silent! call vsd#init()
-let s:load_for = { ft -> exists('g:Vsd') && g:Vsd[ft] }
+let g:Vsd = get(g:, 'Vsd', {})
+let g:Vsd.contrast = get(g:Vsd, 'contrast', 1)
+command! VsdContrast call vsd#options#contrast()
 
 if &background ==# 'dark'
   hi Normal ctermfg=252 ctermbg=234 guifg=#c5d4dd guibg=#1e1e1e guisp=NONE cterm=NONE gui=NONE
@@ -116,50 +117,9 @@ if &background ==# 'dark'
   hi SignifySignChange ctermfg=223 ctermbg=NONE guifg=#f2c38f guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi SignifySignChangeDelete ctermfg=223 ctermbg=NONE guifg=#f2c38f guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi SignifySignDelete ctermfg=196 ctermbg=NONE guifg=#ff0000 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-  if s:load_for('vim')
-    hi! link vimDocstring String
-    hi! link vimEndBlock Conditional
-    hi! link vimConditional Conditional
-    hi! link vimRepeat Conditional
-    hi vimLet ctermfg=248 ctermbg=NONE guifg=#a9a9a9 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-    hi vimCall ctermfg=248 ctermbg=NONE guifg=#a9a9a9 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-    hi! link vimCommand Command
-    hi vimSelf ctermfg=109 ctermbg=NONE guifg=#7fc1ca guibg=NONE guisp=NONE cterm=NONE,italic gui=NONE,italic
-    hi vimUserFunc ctermfg=252 ctermbg=NONE guifg=#c5d4dd guibg=NONE guisp=NONE cterm=NONE gui=NONE
-  endif
   hi! link helpCommand Type
   hi! link helpSectionDelim PreProc
   hi! link HelpHeadline Statement
-  if s:load_for('python')
-    hi! link pythonSelf Identifier
-    hi! link pythonOperatorSymbol Operator
-    hi! link pythonBraces Special
-    hi! link pythonGlobalVar Type
-    hi! link pythonStringType Statement
-    hi! link pythonOperator Statement
-    hi! link pythonBoolean Command
-    hi! link pythonNone Command
-    hi! link pythonStructure Keyword
-    hi! link pythonStorageClass Keyword
-    hi! link pythonTypeDef Keyword
-    hi pythonFunction ctermfg=44 ctermbg=NONE guifg=#42dcd7 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-    hi! link pythonBuiltinFunc Function
-  endif
-  if s:load_for('markdown')
-    hi mkdItalic ctermfg=176 ctermbg=NONE guifg=#c586c0 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-    hi mkdBold ctermfg=176 ctermbg=NONE guifg=#c586c0 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-    hi mkdBoldItalic ctermfg=176 ctermbg=NONE guifg=#c586c0 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-    hi mkdListItem ctermfg=223 ctermbg=NONE guifg=#f2c38f guibg=NONE guisp=NONE cterm=NONE gui=NONE
-    hi mkdID ctermfg=104 ctermbg=NONE guifg=#9a93e1 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-    hi mkdRule ctermfg=104 ctermbg=NONE guifg=#9a93e1 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-    hi mkdCode ctermfg=248 ctermbg=NONE guifg=#a9a9a9 guibg=NONE guisp=NONE cterm=NONE,italic gui=NONE,italic
-  endif
-  if s:load_for('cpp')
-    hi cppStructure ctermfg=176 ctermbg=NONE guifg=#c586c0 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-    hi cStorageClass ctermfg=176 ctermbg=NONE guifg=#c586c0 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-    hi! link cCharacter String
-    hi! link cppOperatorSymbol Operator
-  endif
   let g:terminal_ansi_colors = [
         \ "#3C4C55",
         \ "#DF8C8C",
@@ -213,7 +173,6 @@ if &background ==# 'dark'
         \ "spinner": ["fg", "Conditional"],
         \ "header":  ["fg", "Conditional"]
         \}
-  silent! call vsd#extras()
   finish
 endif
 
@@ -307,49 +266,9 @@ hi SignifySignAdd ctermfg=22 ctermbg=NONE guifg=#006600 guibg=NONE guisp=NONE ct
 hi SignifySignChange ctermfg=88 ctermbg=NONE guifg=#682900 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi SignifySignChangeDelete ctermfg=88 ctermbg=NONE guifg=#682900 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi SignifySignDelete ctermfg=196 ctermbg=NONE guifg=#ff0000 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-if s:load_for('vim')
-  hi! link vimDocstring String
-  hi! link vimEndBlock Conditional
-  hi! link vimConditional Conditional
-  hi! link vimRepeat Conditional
-  hi! link helpCommand Type
-  hi vimLet ctermfg=236 ctermbg=NONE guifg=#333333 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-  hi vimCall ctermfg=236 ctermbg=NONE guifg=#333333 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-  hi vimSelf ctermfg=25 ctermbg=NONE guifg=#0070af guibg=NONE guisp=NONE cterm=NONE,italic gui=NONE,italic
-  hi vimUserFunc ctermfg=234 ctermbg=NONE guifg=#1e1e1e guibg=NONE guisp=NONE cterm=NONE gui=NONE
-endif
 hi! link helpCommand Type
 hi! link helpSectionDelim PreProc
 hi! link HelpHeadline Statement
-if s:load_for('python')
-  hi! link pythonSelf Identifier
-  hi! link pythonOperatorSymbol Operator
-  hi! link pythonBraces Special
-  hi! link pythonStringType Statement
-  hi! link pythonOperator Statement
-  hi! link pythonBoolean Command
-  hi! link pythonNone Command
-  hi! link pythonStructure Keyword
-  hi! link pythonStorageClass Keyword
-  hi! link pythonTypeDef Keyword
-  hi pythonGlobalVar ctermfg=21 ctermbg=NONE guifg=#2222ff guibg=NONE guisp=NONE cterm=NONE,italic gui=NONE,italic
-  hi pythonFunction ctermfg=54 ctermbg=NONE guifg=#6f008a guibg=NONE guisp=NONE cterm=NONE,bold gui=NONE,bold
-  hi! link pythonBuiltinFunc Function
-endif
-if s:load_for('markdown')
-  hi mkdItalic ctermfg=54 ctermbg=NONE guifg=#6f008a guibg=NONE guisp=NONE cterm=NONE gui=NONE
-  hi mkdBold ctermfg=54 ctermbg=NONE guifg=#6f008a guibg=NONE guisp=NONE cterm=NONE gui=NONE
-  hi mkdBoldItalic ctermfg=54 ctermbg=NONE guifg=#6f008a guibg=NONE guisp=NONE cterm=NONE gui=NONE
-  hi mkdListItem ctermfg=88 ctermbg=NONE guifg=#682900 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-  hi mkdID ctermfg=54 ctermbg=NONE guifg=#6f008a guibg=NONE guisp=NONE cterm=NONE gui=NONE
-  hi mkdRule ctermfg=54 ctermbg=NONE guifg=#6f008a guibg=NONE guisp=NONE cterm=NONE gui=NONE
-endif
-if s:load_for('cpp')
-  hi cppStructure ctermfg=54 ctermbg=NONE guifg=#6f008a guibg=NONE guisp=NONE cterm=NONE gui=NONE
-  hi cStorageClass ctermfg=196 ctermbg=NONE guifg=#ff0000 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-  hi! link cCharacter String
-  hi! link cppOperatorSymbol Operator
-endif
 let g:terminal_ansi_colors = [
       \ "#3C4C55",
       \ "#DF8C8C",
@@ -403,7 +322,6 @@ let g:fzf_colors = {
       \ "spinner": ["fg", "Conditional"],
       \ "header":  ["fg", "Conditional"]
       \}
-silent! call vsd#extras()
 finish
 
 " Background: dark
@@ -516,42 +434,9 @@ finish
 " SignifySignChange		special		none
 " SignifySignChangeDelete		special		none
 " SignifySignDelete		red		none
-" vimDocstring		->	String
-" vimEndBlock   		->	Conditional
-" vimConditional		->	Conditional
-" vimRepeat		->	Conditional
-" vimLet				lightgrey	none
-" vimCall				lightgrey	none
-" vimCommand		->	Command
-" vimSelf				cyangrey	none italic
-" vimUserFunc			foreground	none
 " helpCommand		->	Type
 " helpSectionDelim	->	PreProc
 " HelpHeadline		->	Statement
-" pythonSelf		->	Identifier
-" pythonOperatorSymbol	->	Operator
-" pythonBraces		->	Special
-" pythonGlobalVar		->	Type
-" pythonStringType	->	Statement
-" pythonOperator		->	Statement
-" pythonBoolean		->	Command
-" pythonNone		->	Command
-" pythonStructure		->	Keyword
-" pythonStorageClass	->	Keyword
-" pythonTypeDef		->	Keyword
-" pythonFunction			cyan		none
-" pythonBuiltinFunc    	->	Function
-" mkdItalic			pink		none
-" mkdBold				pink		none
-" mkdBoldItalic			pink		none
-" mkdListItem			special		none
-" mkdID				purple		none
-" mkdRule				purple		none
-" mkdCode			        lightgrey	none italic
-" cppStructure			pink		none
-" cStorageClass			pink		none
-" cCharacter		->	String
-" cppOperatorSymbol	->	Operator
 " Background: light
 " Color:	    foreground	#1e1e1e ~
 " Color:	    background	#bdbdbd ~
@@ -653,38 +538,6 @@ finish
 " SignifySignChange		special		none
 " SignifySignChangeDelete		special		none
 " SignifySignDelete		red		none
-" vimDocstring		->	String
-" vimEndBlock   		->	Conditional
-" vimConditional		->	Conditional
-" vimRepeat		->	Conditional
-" helpCommand		->	Type
-" vimLet				darkgrey	none
-" vimCall				darkgrey	none
-" vimSelf				blue		none italic
-" vimUserFunc			foreground	none
 " helpCommand		->	Type
 " helpSectionDelim	->	PreProc
 " HelpHeadline		->	Statement
-" pythonSelf		->	Identifier
-" pythonOperatorSymbol	->	Operator
-" pythonBraces		->	Special
-" pythonStringType	->	Statement
-" pythonOperator		->	Statement
-" pythonBoolean		->	Command
-" pythonNone		->	Command
-" pythonStructure		->	Keyword
-" pythonStorageClass	->	Keyword
-" pythonTypeDef		->	Keyword
-" pythonGlobalVar			darkblue	none italic
-" pythonFunction			purple		none bold
-" pythonBuiltinFunc    	->	Function
-" mkdItalic			purple		 none
-" mkdBold				purple		 none
-" mkdBoldItalic			purple		 none
-" mkdListItem			special		 none
-" mkdID				purple		 none
-" mkdRule				purple		 none
-" cppStructure			purple		none
-" cStorageClass			red		none
-" cCharacter		->	String
-" cppOperatorSymbol	->	Operator

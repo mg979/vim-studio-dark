@@ -2,7 +2,7 @@
 " Author:       Gianmaria Bajo <mg1979.git@gmail.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: ven 17 mag 2019 18:03:51 CEST
+" Last Updated: ven 17 mag 2019 19:53:33 CEST
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -19,8 +19,9 @@ endif
 
 let g:colors_name = 'sand'
 
-silent! call vsd#init()
-let s:load_for = { ft -> exists('g:Vsd') && g:Vsd[ft] }
+let g:Vsd = get(g:, 'Vsd', {})
+let g:Vsd.contrast = get(g:Vsd, 'contrast', 1)
+command! VsdContrast call vsd#options#contrast()
 
 hi Normal ctermfg=251 ctermbg=236 guifg=#c6c6b9 guibg=#2d2d2d guisp=NONE cterm=NONE gui=NONE
 if exists('g:Vsd')
@@ -143,46 +144,6 @@ hi SignifySignDelete ctermfg=167 ctermbg=NONE guifg=#cd5c5c guibg=NONE guisp=NON
 hi helpCommand ctermfg=117 ctermbg=NONE guifg=#87ceeb guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi! link helpSectionDelim Constant
 hi HelpHeadline ctermfg=186 ctermbg=NONE guifg=#dada93 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-if s:load_for('vim')
-  hi! link vimDocstring String
-  hi! link vimEndBlock Conditional
-  hi! link vimConditional Conditional
-  hi! link vimRepeat Conditional
-  hi! link vimLet String
-  hi! link vimCall String
-  hi vimCommand ctermfg=71 ctermbg=NONE guifg=#7ab87a guibg=NONE guisp=NONE cterm=NONE gui=NONE
-  hi vimSelf ctermfg=223 ctermbg=NONE guifg=#f2c38f guibg=NONE guisp=NONE cterm=NONE,italic gui=NONE,italic
-  hi vimUserFunc ctermfg=251 ctermbg=NONE guifg=#c6c6b9 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-endif
-if s:load_for('python')
-  hi! link pythonSelf Identifier
-  hi! link pythonOperatorSymbol Operator
-  hi! link pythonBraces Special
-  hi! link pythonGlobalVar Type
-  hi! link pythonStringType Statement
-  hi! link pythonOperator Statement
-  hi! link pythonBoolean Command
-  hi! link pythonNone Command
-  hi! link pythonStructure Keyword
-  hi! link pythonStorageClass Keyword
-  hi! link pythonTypeDef Keyword
-  hi! link pythonFunction Constant
-  hi! link pythonBuiltinFunc Structure
-endif
-if s:load_for('markdown')
-  hi mkdItalic ctermfg=182 ctermbg=NONE guifg=#c9acd2 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-  hi mkdBold ctermfg=182 ctermbg=NONE guifg=#c9acd2 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-  hi mkdBoldItalic ctermfg=182 ctermbg=NONE guifg=#c9acd2 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-  hi mkdListItem ctermfg=223 ctermbg=NONE guifg=#f2c38f guibg=NONE guisp=NONE cterm=NONE gui=NONE
-  hi mkdID ctermfg=104 ctermbg=NONE guifg=#9a93e1 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-  hi mkdRule ctermfg=104 ctermbg=NONE guifg=#9a93e1 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-endif
-if s:load_for('cpp')
-  hi cppStructure ctermfg=182 ctermbg=NONE guifg=#c9acd2 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-  hi cStorageClass ctermfg=167 ctermbg=NONE guifg=#cd5c5c guibg=NONE guisp=NONE cterm=NONE gui=NONE
-  hi! link cCharacter String
-  hi! link cppOperatorSymbol Operator
-endif
 let g:terminal_ansi_colors = [
       \ "#3C4C55",
       \ "#DF8C8C",
@@ -238,7 +199,6 @@ let g:fzf_colors = {
       \ "spinner": ["fg", "Conditional"],
       \ "header":  ["fg", "Conditional"]
       \}
-silent! call vsd#extras()
 finish
 
 " Background: dark
@@ -321,35 +281,3 @@ finish
 " helpCommand			skyblue		none
 " helpSectionDelim	->	Constant
 " HelpHeadline			yellow		none
-" vimDocstring		->	String
-" vimEndBlock   		->	Conditional
-" vimConditional		->	Conditional
-" vimRepeat		->	Conditional
-" vimLet			->	String
-" vimCall			->	String
-" vimCommand			green 		none
-" vimSelf				special		none italic
-" vimUserFunc			foreground	none
-" pythonSelf		->	Identifier
-" pythonOperatorSymbol	->	Operator
-" pythonBraces		->	Special
-" pythonGlobalVar		->	Type
-" pythonStringType	->	Statement
-" pythonOperator		->	Statement
-" pythonBoolean		->	Command
-" pythonNone		->	Command
-" pythonStructure		->	Keyword
-" pythonStorageClass	->	Keyword
-" pythonTypeDef		->	Keyword
-" pythonFunction		->	Constant
-" pythonBuiltinFunc    	->	Structure
-" mkdItalic			pink		none
-" mkdBold				pink		none
-" mkdBoldItalic			pink		none
-" mkdListItem			special		none
-" mkdID				purple		none
-" mkdRule				purple		none
-" cppStructure			pink		none
-" cStorageClass			red		none
-" cCharacter		->	String
-" cppOperatorSymbol	->	Operator

@@ -13,18 +13,9 @@ variants.
 Also included, a [Tomorrow Night Eighties](https://github.com/chriskempson/tomorrow-theme)
 variant, and a `desert` variant called **sand**.
 
-These schemes can optionally define some new highlight and syntax groups, as you can see
-in the pictures below, but these groups are disabled when the color scheme is unloaded.
-They also try to set as few non-standard (eg. provided by plugins) highlight groups as
-possible, to minimize the possibility of clashes on colorscheme switching.
-
 To cycle between high/medium/low contrast (default medium):
 
     :VsdContrast
-
-To show available options for current filetype:
-
-    :VsdOptions
 
 ------------
 
@@ -37,17 +28,6 @@ Contrast:
     let g:Vsd.contrast = 0  " low
     let g:Vsd.contrast = 1  " medium (default)
     let g:Vsd.contrast = 2  " high
-
-Disable new highlight groups:
-
-    let g:Vsd.extra_syntax = 0
-
-Enable new highlight groups only for certain filetypes:
-
-    let g:Vsd.vim = 1
-    let g:Vsd.python = 1
-    let g:Vsd.cpp = 1
-    let g:Vsd.markdown = 1
 
 More pics:
 
