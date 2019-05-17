@@ -6,7 +6,7 @@ Maintainer: Gianmaria Bajo <mg1979.git@gmail.com>
 
 verbatim
 silent! call vsd#init()
-let s:load_for = { ft -> exists('g:Vsd') && (g:Vsd[ft] || g:Vsd.extra_syntax) }
+let s:load_for = { ft -> exists('g:Vsd') && g:Vsd[ft] }
 endverbatim
 
 #===================================================================
@@ -267,7 +267,7 @@ endverbatim
 pythonSelf		->	Identifier
 pythonOperatorSymbol	->	Operator
 pythonBraces		->	Special
-pythonGlobalVar		->	Define
+pythonGlobalVar		->	Type
 pythonStringType	->	Statement
 pythonOperator		->	Statement
 pythonBoolean		->	Command

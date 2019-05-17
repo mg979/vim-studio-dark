@@ -2,7 +2,7 @@
 " Author:       Gianmaria Bajo <mg1979.git@gmail.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: mer 17 apr 2019 22:14:30 CEST
+" Last Updated: ven 17 mag 2019 18:01:36 CEST
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -18,7 +18,7 @@ endif
 let g:colors_name = 'vsdark'
 
 silent! call vsd#init()
-let s:load_for = { ft -> exists('g:Vsd') && (g:Vsd[ft] || g:Vsd.extra_syntax) }
+let s:load_for = { ft -> exists('g:Vsd') && g:Vsd[ft] }
 
 if &background ==# 'dark'
   hi Normal ctermfg=252 ctermbg=234 guifg=#c5d4dd guibg=#1e1e1e guisp=NONE cterm=NONE gui=NONE
@@ -86,17 +86,17 @@ if &background ==# 'dark'
   hi String ctermfg=173 ctermbg=NONE guifg=#ce9178 guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi Constant ctermfg=150 ctermbg=NONE guifg=#a8ce93 guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi Directory ctermfg=32 ctermbg=NONE guifg=#569cd6 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+  hi Number ctermfg=109 ctermbg=NONE guifg=#7fc1ca guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi Identifier ctermfg=251 ctermbg=NONE guifg=#c9c6c9 guibg=NONE guisp=NONE cterm=NONE,italic gui=NONE,italic
   hi Function ctermfg=186 ctermbg=NONE guifg=#dada93 guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi Statement ctermfg=32 ctermbg=NONE guifg=#569cd6 guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi Conditional ctermfg=32 ctermbg=NONE guifg=#569cd6 guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi Operator ctermfg=186 ctermbg=NONE guifg=#dada93 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-  hi Number ctermfg=109 ctermbg=NONE guifg=#7fc1ca guibg=NONE guisp=NONE cterm=NONE gui=NONE
-  hi Type ctermfg=150 ctermbg=NONE guifg=#a8ce93 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-  hi Define ctermfg=150 ctermbg=NONE guifg=#a8ce93 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+  hi Keyword ctermfg=176 ctermbg=NONE guifg=#c586c0 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+  hi Define ctermfg=104 ctermbg=NONE guifg=#9a93e1 guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi PreProc ctermfg=104 ctermbg=NONE guifg=#9a93e1 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-  hi Keyword ctermfg=104 ctermbg=NONE guifg=#9a93e1 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-  hi Underlined ctermfg=176 ctermbg=NONE guifg=#c586c0 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+  hi Type ctermfg=150 ctermbg=NONE guifg=#a8ce93 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+  hi Underlined ctermfg=176 ctermbg=NONE guifg=#c586c0 guibg=NONE guisp=NONE cterm=NONE,underline gui=NONE,underline
   hi Special ctermfg=223 ctermbg=NONE guifg=#f2c38f guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi SpecialKey ctermfg=223 ctermbg=NONE guifg=#f2c38f guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi NonText ctermfg=223 ctermbg=NONE guifg=#f2c38f guibg=NONE guisp=NONE cterm=NONE gui=NONE
@@ -134,7 +134,7 @@ if &background ==# 'dark'
     hi! link pythonSelf Identifier
     hi! link pythonOperatorSymbol Operator
     hi! link pythonBraces Special
-    hi! link pythonGlobalVar Define
+    hi! link pythonGlobalVar Type
     hi! link pythonStringType Statement
     hi! link pythonOperator Statement
     hi! link pythonBoolean Command
@@ -279,14 +279,13 @@ hi Constant ctermfg=54 ctermbg=NONE guifg=#6f008a guibg=NONE guisp=NONE cterm=NO
 hi Directory ctermfg=21 ctermbg=NONE guifg=#2222ff guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi Identifier ctermfg=236 ctermbg=NONE guifg=#333333 guibg=NONE guisp=NONE cterm=NONE,italic gui=NONE,italic
 hi Function ctermfg=236 ctermbg=NONE guifg=#333333 guibg=NONE guisp=NONE cterm=NONE,bold gui=NONE,bold
-hi Conditional ctermfg=21 ctermbg=NONE guifg=#2222ff guibg=NONE guisp=NONE cterm=NONE,bold gui=NONE,bold
 hi Statement ctermfg=21 ctermbg=NONE guifg=#2222ff guibg=NONE guisp=NONE cterm=NONE,bold gui=NONE,bold
+hi Conditional ctermfg=21 ctermbg=NONE guifg=#2222ff guibg=NONE guisp=NONE cterm=NONE,bold gui=NONE,bold
 hi Operator ctermfg=236 ctermbg=NONE guifg=#333333 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi Number ctermfg=fg ctermbg=NONE guifg=fg guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi Type ctermfg=21 ctermbg=NONE guifg=#2222ff guibg=NONE guisp=NONE cterm=NONE gui=NONE
-hi PreProc ctermfg=54 ctermbg=NONE guifg=#6f008a guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi Keyword ctermfg=54 ctermbg=NONE guifg=#6f008a guibg=NONE guisp=NONE cterm=NONE gui=NONE
-hi Underlined ctermfg=54 ctermbg=NONE guifg=#6f008a guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi Underlined ctermfg=54 ctermbg=NONE guifg=#6f008a guibg=NONE guisp=NONE cterm=NONE,underline gui=NONE,underline
 hi Special ctermfg=88 ctermbg=NONE guifg=#682900 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi SpecialKey ctermfg=88 ctermbg=NONE guifg=#682900 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi NonText ctermfg=25 ctermbg=NONE guifg=#0070af guibg=NONE guisp=NONE cterm=NONE gui=NONE
@@ -294,6 +293,8 @@ hi Title ctermfg=25 ctermbg=NONE guifg=#0070af guibg=NONE guisp=NONE cterm=NONE 
 hi Comment ctermfg=22 ctermbg=NONE guifg=#006600 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi Ignore ctermfg=22 ctermbg=NONE guifg=#006600 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi Conceal ctermfg=22 ctermbg=NONE guifg=#006600 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi Define ctermfg=54 ctermbg=NONE guifg=#6f008a guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi PreProc ctermfg=54 ctermbg=NONE guifg=#6f008a guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi Cursor ctermfg=234 ctermbg=21 guifg=#1e1e1e guibg=#2222ff guisp=NONE cterm=NONE gui=NONE
 hi Command ctermfg=54 ctermbg=NONE guifg=#6f008a guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi! link QuickFixLine Search
@@ -485,17 +486,17 @@ finish
 " String				string		none
 " Constant			lightgreen	none
 " Directory			skyblue		none
+" Number				cyangrey	none
 " Identifier			identifier	none italic
 " Function			yellow		none
 " Statement			skyblue		none
 " Conditional			skyblue		none
 " Operator			yellow		none
-" Number				cyangrey	none
-" Type				lightgreen	none
-" Define				lightgreen	none
+" Keyword				pink		none
+" Define				purple		none
 " PreProc				purple		none
-" Keyword				purple		none
-" Underlined			pink		none
+" Type				lightgreen	none
+" Underlined			pink		none underline
 " Special				special		none
 " SpecialKey			special		none
 " NonText				special		none
@@ -530,7 +531,7 @@ finish
 " pythonSelf		->	Identifier
 " pythonOperatorSymbol	->	Operator
 " pythonBraces		->	Special
-" pythonGlobalVar		->	Define
+" pythonGlobalVar		->	Type
 " pythonStringType	->	Statement
 " pythonOperator		->	Statement
 " pythonBoolean		->	Command
@@ -624,14 +625,13 @@ finish
 " Directory			darkblue	none
 " Identifier			darkgrey	none italic
 " Function			darkgrey	none bold
-" Conditional			darkblue	none bold
 " Statement			darkblue	none bold
+" Conditional			darkblue	none bold
 " Operator			darkgrey	none
 " Number				fg		none
 " Type				darkblue	none
-" PreProc				purple		none
 " Keyword				purple		none
-" Underlined			purple		none
+" Underlined			purple		none underline
 " Special				special		none
 " SpecialKey			special		none
 " NonText				blue		none
@@ -639,6 +639,8 @@ finish
 " Comment				green		none
 " Ignore				green		none
 " Conceal				green		none
+" Define 				purple		none
+" PreProc				purple		none
 " Cursor				foreground	darkblue
 " Command				purple		none
 " QuickFixLine		->	Search

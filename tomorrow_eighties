@@ -6,7 +6,7 @@ Maintainer: Gianmaria Bajo <mg1979.git@gmail.com>
 
 verbatim
 silent! call vsd#init()
-let s:load_for = { ft -> exists('g:Vsd') && (g:Vsd[ft] || g:Vsd.extra_syntax) }
+let s:load_for = { ft -> exists('g:Vsd') && g:Vsd[ft] }
 endverbatim
 
 #===================================================================
@@ -36,7 +36,7 @@ Color:	    lightgrey	 #a9a9a9 ~
 # Highlight groups
 #===================================================================
 
-Normal				foreground		background
+Normal				foreground	background
 
 verbatim
 if exists('g:Vsd')
@@ -77,28 +77,31 @@ FoldColumn			fg		none
 CursorLine			none		selection
 CursorLineNr			yellow		none
 CursorColumn			fg		selection
-Pmenu				fg		selection
-PmenuSel			fg		selection reverse
 SignColumn			fg		none
 ColorColumn			fg		selection
 
 Comment				comment		none
 Todo				comment		none
 Title				comment		none
+
+Constant			orange		none
+String				green		none
+
 Identifier			fg		none italic
+Function			blue		none
+
 Statement			purple		none
 Conditional			blue		none
 Repeat				blue		none
-Structure			yellow		none
-Function			blue		none
-Constant			orange		none
+Operator			aqua		none
 Keyword				orange		none
-String				green		none
+
+Type				yellow		none
+Structure			yellow		none
 Special				special		none
 SpecialKey			special	        none
+
 PreProc				purple		none
-Operator			aqua		none
-Type				yellow		none
 Define				purple		none
 Include				purple		none
 
@@ -106,6 +109,11 @@ SpellBad			red   		none undercurl
 SpellCap			orange		none undercurl
 SpellLocal			orange		none undercurl
 SpellRare			purple 		none undercurl
+
+Pmenu				fg		selection
+PmenuSel			fg		selection reverse
+PmenuSbar			background	background
+PmenuThumb			purple		purple
 
 DiffAdd				fg		selection
 DiffDelete			none		red
@@ -115,6 +123,7 @@ DiffText			selection	blue
 Cursor				background	green
 QuickFixLine		->	Search
 Delimiter		->	Special
+Underlined			blue		none underline
 
 diffAdded			green		none
 diffRemoved			red		none
@@ -126,8 +135,6 @@ Error				red		none
 ErrorMsg			red		none
 Conceal			->	Comment
 Ignore			->	Comment
-# PmenuSbar
-# PmenuThumb
 # TabLineSel
 # ToolbarButton
 # ToolbarLine

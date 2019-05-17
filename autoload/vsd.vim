@@ -1,7 +1,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " init colorscheme
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let s:load_for = { ft -> g:Vsd[ft] || g:Vsd.extra_syntax }
+let s:load_for = { ft -> g:Vsd[ft] }
 
 fun! vsd#init()
   let g:Vsd              = get(g:,    'Vsd',          {})

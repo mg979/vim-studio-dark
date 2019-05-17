@@ -6,7 +6,7 @@ Maintainer: Gianmaria Bajo <mg1979.git@gmail.com>
 
 verbatim
 silent! call vsd#init()
-let s:load_for = { ft -> exists('g:Vsd') && (g:Vsd[ft] || g:Vsd.extra_syntax) }
+let s:load_for = { ft -> exists('g:Vsd') && g:Vsd[ft] }
 endverbatim
 
 #===================================================================
@@ -120,18 +120,21 @@ ToolbarButton                   grey      	lightblue
 String				string		none
 Constant			lightgreen	none
 Directory			skyblue		none
+Number				cyangrey	none
+
 Identifier			identifier	none italic
 Function			yellow		none
+
 Statement			skyblue		none
 Conditional			skyblue		none
-
 Operator			yellow		none
-Number				cyangrey	none
-Type				lightgreen	none
-Define				lightgreen	none
+Keyword				pink		none
+
+Define				purple		none
 PreProc				purple		none
-Keyword				purple		none
-Underlined			pink		none
+
+Type				lightgreen	none
+Underlined			pink		none underline
 Special				special		none
 SpecialKey			special		none
 NonText				special		none
@@ -188,7 +191,7 @@ endverbatim
 pythonSelf		->	Identifier
 pythonOperatorSymbol	->	Operator
 pythonBraces		->	Special
-pythonGlobalVar		->	Define
+pythonGlobalVar		->	Type
 pythonStringType	->	Statement
 pythonOperator		->	Statement
 pythonBoolean		->	Command
@@ -401,14 +404,15 @@ Directory			darkblue	none
 
 Identifier			darkgrey	none italic
 Function			darkgrey	none bold
-Conditional			darkblue	none bold
+
 Statement			darkblue	none bold
+Conditional			darkblue	none bold
 Operator			darkgrey	none
+
 Number				fg		none
 Type				darkblue	none
-PreProc				purple		none
 Keyword				purple		none
-Underlined			purple		none
+Underlined			purple		none underline
 Special				special		none
 SpecialKey			special		none
 NonText				blue		none
@@ -416,6 +420,9 @@ Title				blue		none
 Comment				green		none
 Ignore				green		none
 Conceal				green		none
+
+Define 				purple		none
+PreProc				purple		none
 
 Cursor				foreground	darkblue
 Command				purple		none

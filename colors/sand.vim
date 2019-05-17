@@ -2,7 +2,7 @@
 " Author:       Gianmaria Bajo <mg1979.git@gmail.com>
 " Maintainer:   Gianmaria Bajo <mg1979.git@gmail.com>
 " License:      Vim License (see `:help license`)
-" Last Updated: mer 17 apr 2019 18:32:25 CEST
+" Last Updated: ven 17 mag 2019 18:03:51 CEST
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -20,7 +20,7 @@ endif
 let g:colors_name = 'sand'
 
 silent! call vsd#init()
-let s:load_for = { ft -> exists('g:Vsd') && (g:Vsd[ft] || g:Vsd.extra_syntax) }
+let s:load_for = { ft -> exists('g:Vsd') && g:Vsd[ft] }
 
 hi Normal ctermfg=251 ctermbg=236 guifg=#c6c6b9 guibg=#2d2d2d guisp=NONE cterm=NONE gui=NONE
 if exists('g:Vsd')
@@ -158,7 +158,7 @@ if s:load_for('python')
   hi! link pythonSelf Identifier
   hi! link pythonOperatorSymbol Operator
   hi! link pythonBraces Special
-  hi! link pythonGlobalVar Define
+  hi! link pythonGlobalVar Type
   hi! link pythonStringType Statement
   hi! link pythonOperator Statement
   hi! link pythonBoolean Command
@@ -333,7 +333,7 @@ finish
 " pythonSelf		->	Identifier
 " pythonOperatorSymbol	->	Operator
 " pythonBraces		->	Special
-" pythonGlobalVar		->	Define
+" pythonGlobalVar		->	Type
 " pythonStringType	->	Statement
 " pythonOperator		->	Statement
 " pythonBoolean		->	Command

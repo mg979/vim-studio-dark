@@ -38,9 +38,12 @@ Contrast:
     let g:Vsd.contrast = 1  " medium (default)
     let g:Vsd.contrast = 2  " high
 
-Enable new highlight groups only for certain filetypes:
+Disable new highlight groups:
 
     let g:Vsd.extra_syntax = 0
+
+Enable new highlight groups only for certain filetypes:
+
     let g:Vsd.vim = 1
     let g:Vsd.python = 1
     let g:Vsd.cpp = 1
