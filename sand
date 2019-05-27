@@ -4,12 +4,6 @@ Short name: sand
 Author:     Gianmaria Bajo <mg1979.git@gmail.com>
 Maintainer: Gianmaria Bajo <mg1979.git@gmail.com>
 
-verbatim
-let g:Vsd = get(g:, 'Vsd', {})
-let g:Vsd.contrast = get(g:Vsd, 'contrast', 1)
-command! VsdContrast call vsd#options#contrast()
-endverbatim
-
 #===================================================================
 # Dark variant
 #===================================================================
@@ -67,19 +61,7 @@ Color:	    string		#8d8d8d ~
 
 Normal				foreground		background
 
-verbatim
-if exists('g:Vsd')
-  let contrast = [ ['#3a3a3a', '237'],
-                  \['#2d2d2d', '236'],
-      \['#262626', '235']]
-  let gui  = contrast[g:Vsd.contrast][0]
-  let term = contrast[g:Vsd.contrast][1]
-  exe "hi! Normal guibg=".gui." ctermbg=".term
-endif
-if !has('patch-8.0.0616') && !has('gui_running') && !has('nvim')
-  set background=dark
-endif
-endverbatim
+#call vsd#init('sand')
 
 #===================================================================
 # Original desert.vim
@@ -154,7 +136,7 @@ endverbatim
 EndOfBuffer			grey			none
 Comment				lightgrey		none italic
 Folded				lightgrey		grey2
-FoldColumn			lightgrey		special
+FoldColumn			lightgrey		darkgrey
 LineNr				grey			none italic
 SignColumn			grey			black italic
 VertSplit			grey			black

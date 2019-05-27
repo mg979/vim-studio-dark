@@ -1,0 +1,201 @@
+#===================================================================
+# Light variant
+#===================================================================
+
+Background: light
+
+# Basic 16 Colors {{{1
+
+Color:	black		#1e1e1e		234	Black
+Color:	darkred		#a31515		124	DarkRed
+Color:	darkgreen	#003f00		22	DarkGreen
+Color:	darkyellow	#ffbc29		214	DarkYellow
+Color:	darkblue	#000080		4	DarkBlue
+Color:	darkmagenta	#6f008a		54	DarkMagenta
+Color:	darkcyan	#0070af		25	DarkCyan
+Color:	lightgray	#c0c0c0		7	LightGray
+Color:	darkgray	#606060		241	DarkGray
+Color:	red		#ff0000		9	Red
+Color:	green		#006600		22	DarkGreen
+Color:	yellow		#f2c38f		223	Yellow
+Color:	blue		#2222ff		21	Blue
+Color:	magenta		#c586c0		176	Magenta
+Color:	cyan		#7fc1ca		109	Cyan
+Color:	white		#d0d0d0		250	LightGray
+
+Term Colors: black darkred darkgreen darkyellow darkblue darkmagenta darkcyan lightgray
+Term Colors: darkgray red green yellow blue magenta cyan white
+
+# More Colors {{{1
+
+Color:	verydark	#333333		236	Black
+Color:	special		#682900		88	Brown
+
+
+#===================================================================
+# Highlight groups
+#===================================================================
+
+Normal				black		white
+
+MatchParen			red		none
+CursorLineNr			blue		lightgray
+Visual				none		lightgray
+VisualNOS			none		lightgray
+Folded				blue		none
+FoldColumn			blue		none
+IncSearch			yellow		special
+Search				darkcyan	darkyellow
+WildMenu			black		darkcyan
+Question			blue		darkyellow
+MoreMsg				blue		none
+ModeMsg				blue		none
+StatusLine			darkcyan	lightgray
+StatusLineTerm			darkcyan	lightgray
+StatusLineNC			fg		none
+StatusLineTermNC		fg		none
+
+Error				red		none
+ErrorMsg			red		none
+WarningMsg			red		none
+Todo				blue		none
+
+SpellBad			red		none undercurl
+SpellCap			darkmagenta	none undercurl
+SpellLocal			darkcyan	none undercurl
+SpellRare			darkmagenta	none undercurl
+
+Pmenu				verydark	lightgray
+PmenuSel			black		darkcyan
+PmenuThumb			blue		blue
+PmenuSbar			darkgreen	darkgreen
+
+DiffAdd				none		cyan
+DiffChange			none		lightgray
+DiffDelete			red		none bold
+DiffText			none		yellow bold
+diffAdded			-> Comment
+diffRemoved			-> String
+diffFile			darkred		none bold
+diffLine			yellow		none italic
+
+SignColumn			none		lightgray
+LineNr				darkgray	lightgray
+CursorLine			fg		lightgray
+CursorColumn			fg		lightgray
+ColorColumn			fg		lightgray
+EndOfBuffer			darkgray	none
+VertSplit			darkgray	lightgray
+TabLine				fg		lightgray
+TabLineSel			lightgray	blue
+TabLineFill			fg		lightgray
+ToolbarLine			lightgray	blue
+ToolbarButton			blue		lightgray
+
+String				darkgray	none
+Constant			darkmagenta	none
+Directory			blue		none
+
+Identifier			verydark	none italic
+Function			verydark	none bold
+
+Statement			blue		none bold
+Conditional			blue		none bold
+Operator			verydark	none
+
+Number				fg		none
+Type				darkred		none
+Keyword				darkmagenta	none
+Underlined			darkmagenta	none underline
+Special				special		none
+SpecialKey			special		none
+NonText				darkcyan	none
+Title				darkcyan	none
+Comment				green		none
+Ignore				darkgreen	none
+Conceal				darkgreen	none
+
+Define				darkmagenta	none
+PreProc				darkmagenta	none
+
+Cursor				black		blue
+Command				darkmagenta	none
+QuickFixLine		->	Search
+Delimiter		->	Special
+
+# Plugins {{{2
+
+GitGutterAdd			darkgreen	none
+GitGutterChange			special		none
+GitGutterChangeDelete		special		none
+GitGutterDelete			red		none
+SignifySignAdd			darkgreen	none
+SignifySignChange		special		none
+SignifySignChangeDelete		special		none
+SignifySignDelete		red		none
+
+# help {{{2
+
+helpCommand		->	Type
+helpSectionDelim	->	PreProc
+HelpHeadline		->	Statement
+
+# Terminals {{{2
+
+verbatim
+let g:terminal_ansi_colors = [
+	\ "#3C4C55",
+	\ "#DF8C8C",
+	\ "#A8CE93",
+	\ "#DADA93",
+	\ "#83AFE5",
+	\ "#9A93E1",
+	\ "#83AFE5",
+	\ "#C5D4DD",
+	\ "#608b4e",
+	\ "#F2C38F",
+	\ "#A8CE93",
+	\ "#DADA93",
+	\ "#83AFE5",
+	\ "#D18EC2",
+	\ "#83AFE5",
+	\ "#E6EEF3"
+	\]
+
+" NEOVIM TERMINAL MODE
+let g:terminal_color_0 = "#3C4C55"
+let g:terminal_color_1 = "#DF8C8C"
+let g:terminal_color_2 = "#A8CE93"
+let g:terminal_color_3 = "#DADA93"
+let g:terminal_color_4 = "#83AFE5"
+let g:terminal_color_5 = "#9A93E1"
+let g:terminal_color_6 = "#83AFE5"
+let g:terminal_color_7 = "#C5D4DD"
+let g:terminal_color_8 = "#608b4e"
+let g:terminal_color_9 = "#F2C38F"
+let g:terminal_color_10 = "#A8CE93"
+let g:terminal_color_11 = "#DADA93"
+let g:terminal_color_12 = "#83AFE5"
+let g:terminal_color_13 = "#D18EC2"
+let g:terminal_color_14 = "#83AFE5"
+let g:terminal_color_15 = "#E6EEF3"
+
+" FZF
+let g:fzf_colors = {
+	\ "fg":      ["fg", "Normal"],
+	\ "bg":      ["bg", "Normal"],
+	\ "hl":      ["fg", "Conditional"],
+	\ "fg+":     ["fg", "CursorLine", "CursorColumn", "Normal"],
+	\ "bg+":     ["bg", "CursorLine", "CursorColumn"],
+	\ "hl+":     ["fg", "Conditional"],
+	\ "info":    ["fg", "Conditional"],
+	\ "border":  ["fg", "Ignore"],
+	\ "prompt":  ["fg", "Comment"],
+	\ "pointer": ["fg", "Conditional"],
+	\ "marker":  ["fg", "Conditional"],
+	\ "spinner": ["fg", "Conditional"],
+	\ "header":  ["fg", "Conditional"]
+		\}
+endverbatim
+
+# vim: ft=colortemplate

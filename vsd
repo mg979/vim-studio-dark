@@ -1,14 +1,7 @@
-# vim: ft=colortemplate
 Full name:  Vim Studio Dark
 Short name: vsdark
 Author:     Gianmaria Bajo <mg1979.git@gmail.com>
 Maintainer: Gianmaria Bajo <mg1979.git@gmail.com>
-
-verbatim
-let g:Vsd = get(g:, 'Vsd', {})
-let g:Vsd.contrast = get(g:Vsd, 'contrast', 1)
-command! VsdContrast call vsd#options#contrast()
-endverbatim
 
 #===================================================================
 # Dark variant
@@ -16,58 +9,63 @@ endverbatim
 
 Background: dark
 
-# Color palette {{{1
+# Basic 16 Colors {{{1
 
-Color:	    background		#1e1e1e ~
-Color:	    foreground		#c5d4dd ~
-Color:	    white		#e6eef3 ~
-Color:	    yellow		#dada93 ~
-Color:	    special		#f2c38f ~
-Color:	    skyblue		#569cd6 32 Blue
-Color:	    darkblue		#073655 ~
-Color:	    lightblue		#83afe5 ~
-Color:	    blue		#264f78 ~
-Color:	    nightblue		#212733 ~
-Color:	    lightgreen		#a8ce93 ~
-Color:	    green		#00af00 ~
-Color:	    darkgreen		#608b4e ~
-Color:	    cyangrey		#7fc1ca ~
-Color:	    cyan		#42dcd7 ~
-Color:	    purple		#9a93e1 ~
-Color:	    pink		#c586c0 ~
-Color:	    grey		#4c4e50 ~
-Color:	    darkgrey		#333233 ~
-Color:	    lightgrey		#a9a9a9 ~
-Color:	    identifier		#c9c6c9 ~
-Color:	    string		#ce9178 ~
-Color:	    lightred		#df8c8c ~
-Color:	    red			#ff0000 ~
-Color:	    darkred		#730b00 ~
+Color:	black		#1e1e1e		234	Black
+Color:	darkred		#730b00		88	DarkRed
+Color:	darkgreen	#608b4e		65	DarkGreen
+Color:	darkyellow	#f2c38f		223	Yellow
+Color:	darkblue	#073655		17	DarkBlue
+Color:	purple		#9a93e1		104	Magenta
+Color:	skyblue		#569cd6		39	DarkCyan
+Color:	lightgrey	#a9a9a9		248	LightGray
+Color:	darkgrey	#333233		236	DarkGray
+Color:	red		#ff0000		196	Red
+Color:	lightgreen	#a8ce93		150	Green
+Color:	yellow		#dada93		186	Yellow
+Color:	blue		#204366		17	DarkBlue
+Color:	pink		#c586c0		176	Magenta
+Color:	cyan		#42dcd7		44	Cyan
+Color:	white		#c5d4dd		252	White
 
-# Colors {{{1
+Term Colors: black darkred darkgreen darkyellow darkblue purple skyblue lightgrey
+Term Colors: darkgrey red lightgreen yellow blue pink cyan white
 
-Normal				foreground	background
+# More Colors {{{1
 
-verbatim
-if exists('g:Vsd')
-  let contrast = [ ['#262626', '235'],
-      \['#1e1e1e', '234'],
-      \['#181818', '233']]
-  let gui  = contrast[g:Vsd.contrast][0]
-  let term = contrast[g:Vsd.contrast][1]
-  exe "hi! Normal guibg=".gui." ctermbg=".term
-endif
-if !has('patch-8.0.0616') && !has('gui_running') && !has('nvim')
-  set background=dark
-endif
-endverbatim
+Color:	lightblue	#83afe5		110	DarkCyan
+Color:	nightblue	#212733		17	DarkBlue
+Color:	green		#00af00		34	Green
+Color:	cyangrey	#7fc1ca		109	LightGray
+Color:	grey		#4c4e50		239	DarkGray
+Color:	identifier	#c9c6c9		251	LightGray
+Color:	string		#ce9178		173	Brown
+Color:	lightred	#df8c8c		174	Red
+Color:	zero		#121212		233	Black
+
+
+#===================================================================
+# Highlight groups
+#===================================================================
+
+Normal				white	black
+
+#call vsd#init('vsdark')
 
 MatchParen			red		none
 CursorLineNr			lightblue	none
 Visual				none		blue
 VisualNOS			none		blue
 Folded				skyblue		none
-FoldColumn			skyblue		none
+
+#if &termguicolors || has('gui_running')
+	FoldColumn		skyblue		nightblue
+	VertSplit		darkgrey	nightblue
+#else
+	FoldColumn		skyblue		none
+	VertSplit		darkgrey	zero
+#endif
+
 IncSearch			darkgrey	lightred
 Search				none		grey
 Question			skyblue		none
@@ -75,7 +73,7 @@ MoreMsg				skyblue		none
 ModeMsg				skyblue		none
 WildMenu			fg		darkblue
 StatusLine			fg		grey
-StatusLineTerm                  fg           	grey
+StatusLineTerm			fg		grey
 StatusLineNC			fg		none
 StatusLineTermNC		fg		none
 
@@ -84,7 +82,7 @@ ErrorMsg			red		none
 WarningMsg			lightred	none
 Todo				lightred	none
 
-SpellBad			red   		none undercurl
+SpellBad			red		none undercurl
 SpellCap			lightred	none undercurl
 SpellLocal			skyblue		none undercurl
 SpellRare			lightred	none undercurl
@@ -94,14 +92,14 @@ PmenuSel			fg		darkblue
 PmenuSbar			darkgreen	darkgreen
 PmenuThumb			skyblue		skyblue
 
-DiffAdd				none		blue
+DiffAdd				none		darkblue
 DiffChange			none		darkgrey
-DiffDelete			red	        none bold
-DiffText       			none	        darkred bold
+DiffDelete			red		none bold
+DiffText			none		darkred bold
 diffAdded			lightgreen	none
-diffChanged			special		none
+diffChanged			darkyellow	none
 diffRemoved			lightred	none
-diffDiffer			special		none bold
+diffDiffer			darkyellow	none bold
 diffFile			string		none bold
 diffLine			yellow		none italic
 
@@ -111,40 +109,50 @@ CursorLine			none		darkgrey
 CursorColumn			fg		darkgrey
 ColorColumn			fg		darkgrey
 EndOfBuffer			grey		none
-VertSplit			darkgrey	nightblue
 TabLine				lightgrey	darkgrey
 TabLineSel			skyblue		grey
 TabLineFill			lightgrey	darkgrey
 ToolbarLine			fg		grey
-ToolbarButton                   grey      	lightblue
+ToolbarButton			grey		lightblue
 
 String				string		none
-Constant			lightgreen	none
-Directory			skyblue		none
-Number				cyangrey	none
+Directory			cyan		none
 
-Identifier			identifier	none italic
+#if get(g:Vsd, 'conservative', 0)
+	Number			lightgreen	none
+	Constant		skyblue		none
+	Identifier		cyangrey	none
+	Operator		fg		none
+	Statement		pink		none
+	Conditional		pink		none
+	Keyword			pink		none
+	Define			purple		none
+	PreProc			purple		none
+	Type			skyblue		none
+#else
+	Number			cyangrey	none
+	Constant		lightgreen	none
+	Identifier		identifier	none italic
+	Operator		yellow		none
+	Statement		skyblue		none
+	Conditional		skyblue		none
+	Keyword			pink		none
+	Define			purple		none
+	PreProc			purple		none
+	Type			lightgreen	none
+#endif
+
 Function			yellow		none
-
-Statement			skyblue		none
-Conditional			skyblue		none
-Operator			yellow		none
-Keyword				pink		none
-
-Define				purple		none
-PreProc				purple		none
-
-Type				lightgreen	none
 Underlined			pink		none underline
-Special				special		none
-SpecialKey			special		none
-NonText				special		none
-Title				special		none
+Special				darkyellow	none
+SpecialKey			darkyellow	none
+NonText				darkyellow	none
+Title				darkyellow	none
 Comment				darkgreen	none
 Ignore				darkgreen	none
 Conceal				darkgreen	none
 
-Cursor				background	green
+Cursor				black	green
 Command				pink		none
 QuickFixLine		->	Search
 Delimiter		->	Special
@@ -152,12 +160,12 @@ Delimiter		->	Special
 # Plugins {{{2
 
 GitGutterAdd			green		none
-GitGutterChange			special		none
-GitGutterChangeDelete		special		none
+GitGutterChange			darkyellow	none
+GitGutterChangeDelete		darkyellow	none
 GitGutterDelete			red		none
 SignifySignAdd			green		none
-SignifySignChange		special		none
-SignifySignChangeDelete		special		none
+SignifySignChange		darkyellow	none
+SignifySignChangeDelete		darkyellow	none
 SignifySignDelete		red		none
 
 # help {{{2
@@ -165,6 +173,18 @@ SignifySignDelete		red		none
 helpCommand		->	Type
 helpSectionDelim	->	PreProc
 HelpHeadline		->	Statement
+
+# c/cpp {{{2
+
+#if get(g:Vsd, 'conservative', 0)
+	cStorageClass	->	Type
+	cppType		->	Type
+	cppStructure	->	Type
+#else
+	cStorageClass	->	Keyword
+	cppType		->	Keyword
+	cppStructure	->	Keyword
+#endif
 
 # Terminals {{{2
 
@@ -224,208 +244,6 @@ let g:fzf_colors = {
 	\}
 endverbatim
 
-#===================================================================
-# Light variant
-#===================================================================
+Include: vslight
 
-Background: light
-
-# Color palette {{{1
-
-Color:	    foreground	#1e1e1e ~ 
-Color:	    background	#bdbdbd ~ 
-Color:	    gold	#ffbc29 ~ 
-Color:	    yellow	#f2c38f ~ 
-Color:	    darkblue	#2222ff ~ 
-Color:	    blue	#0070af ~ 
-Color:	    green	#006600 ~ 
-Color:	    lightgreen	#a8ce93 ~
-Color:      cyangrey 	#7fc1ca ~ 
-Color:	    purple	#6f008a ~ 
-Color:	    darkgrey	#333333 ~ 
-Color:	    lightgrey	#aaaaaa ~ 
-Color:	    grey	#888888 ~ 
-Color:	    darkred	#a31515 ~ 
-Color:	    lightred	#df8c8c ~ 
-Color:	    red		#ff0000 ~ 
-Color:	    white	#f2f2f2 ~ 
-Color:	    special	#682900 ~ 
-
-# Colors {{{1
-
-Normal				foreground	background
-
-verbatim
-if exists('g:Vsd')
-  let contrast = [ ['#a8a8a8', '248'],
-                  \['#b2b2b2', '249'],
-                  \['#bdbdbd', '250']]
-  let gui  = contrast[g:Vsd.contrast][0]
-  let term = contrast[g:Vsd.contrast][1]
-  exe "hi! Normal guibg=".gui." ctermbg=".term
-endif
-endverbatim
-
-MatchParen			red		none
-CursorLineNr			darkblue	none
-Visual				none		lightgrey
-VisualNOS			none		lightgrey
-Folded				darkblue	none
-FoldColumn			darkblue	none
-IncSearch			red		gold
-Search				blue		yellow
-WildMenu			foreground	blue
-Question			darkblue	gold
-MoreMsg				darkblue	none
-ModeMsg				darkblue	none
-StatusLine			blue	        lightgrey
-StatusLineTerm			blue	        lightgrey
-StatusLineNC			fg		none
-StatusLineTermNC		fg		none
-
-Error				red		none
-ErrorMsg			red		none
-WarningMsg			lightred	none
-Todo				darkblue	none
-
-SpellBad			red   		none undercurl
-SpellCap			purple		none undercurl
-SpellLocal			blue		none undercurl
-SpellRare			purple 		none undercurl
-
-Pmenu				darkgrey	lightgrey
-PmenuSel			foreground	blue
-PmenuThumb			darkblue	darkblue
-PmenuSbar			green		green
-
-# DiffAdd				none		blue
-# DiffChange			none		darkgrey
-# DiffDelete			red	        none bold
-# DiffText       			none	        darkred bold
-DiffAdd				none		cyangrey
-DiffChange			none		lightgrey
-DiffDelete			lightred	none bold
-DiffText			none		yellow bold
-diffAdded			-> Comment
-diffRemoved			-> String
-diffFile			darkred		none bold
-diffLine			yellow		none italic
-
-SignColumn			fg		none
-LineNr				grey 		none
-CursorLine			fg		lightgrey
-CursorColumn			fg		lightgrey
-ColorColumn			fg		lightgrey
-EndOfBuffer			white		none
-VertSplit			blue		blue
-TabLine				fg		lightgrey
-TabLineSel			lightgrey	darkblue
-TabLineFill			fg		lightgrey
-ToolbarLine			lightgrey	darkblue
-ToolbarButton			darkblue	lightgrey
-
-String				darkred		none
-Constant			purple		none
-Directory			darkblue	none
-
-Identifier			darkgrey	none italic
-Function			darkgrey	none bold
-
-Statement			darkblue	none bold
-Conditional			darkblue	none bold
-Operator			darkgrey	none
-
-Number				fg		none
-Type				darkblue	none
-Keyword				purple		none
-Underlined			purple		none underline
-Special				special		none
-SpecialKey			special		none
-NonText				blue		none
-Title				blue		none
-Comment				green		none
-Ignore				green		none
-Conceal				green		none
-
-Define 				purple		none
-PreProc				purple		none
-
-Cursor				foreground	darkblue
-Command				purple		none
-QuickFixLine		->	Search
-Delimiter		->	Special
-
-# Plugins {{{2
-
-GitGutterAdd			green		none
-GitGutterChange			special		none
-GitGutterChangeDelete		special		none
-GitGutterDelete			red		none
-SignifySignAdd			green		none
-SignifySignChange		special		none
-SignifySignChangeDelete		special		none
-SignifySignDelete		red		none
-
-# help {{{2
-
-helpCommand		->	Type
-helpSectionDelim	->	PreProc
-HelpHeadline		->	Statement
-
-# Terminals {{{2
-
-verbatim
-let g:terminal_ansi_colors = [
-	\ "#3C4C55",
-	\ "#DF8C8C",
-	\ "#A8CE93",
-	\ "#DADA93",
-	\ "#83AFE5",
-	\ "#9A93E1",
-	\ "#83AFE5",
-	\ "#C5D4DD",
-	\ "#608b4e",
-	\ "#F2C38F",
-	\ "#A8CE93",
-	\ "#DADA93",
-	\ "#83AFE5",
-	\ "#D18EC2",
-	\ "#83AFE5",
-	\ "#E6EEF3"
-	\]
-
-" NEOVIM TERMINAL MODE
-let g:terminal_color_0 = "#3C4C55"
-let g:terminal_color_1 = "#DF8C8C"
-let g:terminal_color_2 = "#A8CE93"
-let g:terminal_color_3 = "#DADA93"
-let g:terminal_color_4 = "#83AFE5"
-let g:terminal_color_5 = "#9A93E1"
-let g:terminal_color_6 = "#83AFE5"
-let g:terminal_color_7 = "#C5D4DD"
-let g:terminal_color_8 = "#608b4e"
-let g:terminal_color_9 = "#F2C38F"
-let g:terminal_color_10 = "#A8CE93"
-let g:terminal_color_11 = "#DADA93"
-let g:terminal_color_12 = "#83AFE5"
-let g:terminal_color_13 = "#D18EC2"
-let g:terminal_color_14 = "#83AFE5"
-let g:terminal_color_15 = "#E6EEF3"
-
-" FZF
-let g:fzf_colors = {
-	\ "fg":      ["fg", "Normal"],
-	\ "bg":      ["bg", "Normal"],
-	\ "hl":      ["fg", "Conditional"],
-	\ "fg+":     ["fg", "CursorLine", "CursorColumn", "Normal"],
-	\ "bg+":     ["bg", "CursorLine", "CursorColumn"],
-	\ "hl+":     ["fg", "Conditional"],
-	\ "info":    ["fg", "Conditional"],
-	\ "border":  ["fg", "Ignore"],
-	\ "prompt":  ["fg", "Comment"],
-	\ "pointer": ["fg", "Conditional"],
-	\ "marker":  ["fg", "Conditional"],
-	\ "spinner": ["fg", "Conditional"],
-	\ "header":  ["fg", "Conditional"]
-		\}
-endverbatim
+# vim: ft=colortemplate

@@ -17,6 +17,10 @@ To cycle between high/medium/low contrast (default medium):
 
     :VsdContrast
 
+To show available options:
+
+    :VsdOptions
+
 ------------
 
 Options:
