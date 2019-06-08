@@ -1,0 +1,156 @@
+Full name:  Pole
+Short name: pole
+Author:     https://github.com/Alvarocz/
+Maintainer: Gianmaria Bajo <mg1979.git@gmail.com>
+
+# Original name: northpole
+
+Background: dark
+
+# Basic 16 Colors {{{1
+
+Color:	background	#25262e		234	Black
+Color:	darkred		#800000		1	DarkRed
+Color:	darkgreen	#008000		2	DarkGreen
+Color:	darkyellow	#e89e70		216	DarkYellow
+Color:	darkblue	#58678c		60	DarkBlue
+Color:	purple		#ad85cc		140	DarkMagenta
+Color:	darkcyan	#008080		6	DarkCyan
+Color:	lightgray	#caccd7		252	LightGray
+Color:	gray		#626870		242	DarkGray
+Color:	red		#ee6a6a		203	Red
+Color:	green		#54ca91		42	Green
+Color:	yellow		#f0c674		222	Yellow
+Color:	blue		#8599cc		103	Blue
+Color:	magenta		#ff00ff		13	Magenta
+Color:	cyan		#54c5ca		80	Cyan
+Color:	white		#d5d6d7		188	White
+
+# More Colors {{{1
+
+Color:	foreground	#a2a8ad		248	LightGray
+Color:	gray2		#808080		8	DarkGray
+Color:	darkgray	#2c2d34		236	Black
+Color:	grayblue	#23242a		235	Black
+Color:	grayblue2	#384048		238	Black
+Color:	orange		#ff9800		208	Black
+
+Normal			foreground	background
+
+#call vsd#init('pole')
+
+# Directory
+# EnumerationName
+# EnumerationValue
+# Ignore
+# SignColumn
+# Underlined
+# Union
+# WarningMsg
+# WildMenu
+
+Boolean		white		none		bold
+Builtin		purple		none		bold
+Character	orange		none
+Comment		gray		none		italic
+Conditional	white		none
+ColorColumn	none		grayblue
+Constant	cyan		none
+CursorLine	none		darkgray
+CursorLineNr	cyan		grayblue
+CursorColumn	none		darkgray
+Cursor		none		darkgray
+Debug		yellow		none
+Define		blue		none
+Delimiter	gray		none
+Error		background	red
+ErrorMsg	red		none		bold
+Exception	blue		none
+Float		green		none		bold
+Function	blue		none
+Identifier	fg		none
+Import		white		none
+Include		white		none
+IncSearch	cyan		darkgray
+Keyword		white		none
+LineNr		grayblue2	grayblue
+Macro		gray		none
+MatchParen	background	darkblue	bold
+Number		green		none		bold
+Operator	darkblue	none
+PMenu		white		darkgray
+PMenuSbar	none		darkgray
+PMenuSel	background	green
+PMenuThumb	none		green
+PreCondit	gray		none
+PreProc		blue		none
+Question	yellow		none		bold
+Repeat		blue		none
+Search		cyan		darkgray
+Special		red		none
+SpecialChar	darkyellow	none
+SpecialComment	darkyellow	none
+SpecialKey	yellow		darkgray
+Statement	white		none
+StatusLine	white		grayblue
+StatusLineNC	gray		grayblue
+StorageClass	darkblue	none
+String		red		none
+Structure	blue		none
+TabLine		background	gray
+TabLineFill	none		gray
+TabLineSel	white		none
+Tag		darkyellow	none
+Title		fg		none		bold
+Type		purple		none
+Typedef		darkblue	none
+VertSplit	none		grayblue
+SignColumn	none		grayblue
+Visual		none		darkgray
+
+Folded		gray2		grayblue2	italic
+FoldColumn	darkblue	grayblue	italic
+Conceal		gray2		grayblue	italic
+NonText		gray2		grayblue
+Label		darkblue	none
+Todo		gray2		none
+
+GitGutterAdd			green		none
+GitGutterChange			darkyellow	none
+GitGutterChangeDelete		darkyellow	none
+GitGutterDelete			red		none
+SignifySignAdd			green		none
+SignifySignChange		darkyellow	none
+SignifySignChangeDelete		darkyellow	none
+SignifySignDelete		red		none
+
+# Diff
+DiffDelete		darkred		none
+
+verbatim
+hi DiffAdd    guifg=NONE guibg=#1E3C25 ctermfg=NONE ctermbg=23
+hi DiffChange guifg=NONE guibg=#1E1F51 ctermfg=NONE ctermbg=17
+hi DiffText   guifg=NONE guibg=#421F25 ctermfg=NONE ctermbg=52
+endverbatim
+
+diffAdded			green		none
+diffChanged			darkyellow	none
+diffRemoved			red		none
+diffDiffer			darkyellow	none bold
+diffFile			purple		none bold
+diffLine			yellow		none italic
+
+#if get(g:Vsd, 'extra_highlight', 1)
+	# Python
+	pythonDecorator		green		none
+	pythonDecoratorName	green		none
+	pythonException		darkblue	none
+	pythonExclass		cyan		none
+
+	# HTML
+	htmlTag			gray		none
+	htmlTagName		purple		none
+	htmlArg			white		none
+#endif
+
+# vim: ft=colortemplate

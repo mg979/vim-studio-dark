@@ -29,6 +29,11 @@ fun! vsd#init(scheme) abort
     let contrast = [ ['#303030', '236'],
                 \    ['#262626', '235'],
                 \    ['#1e1e1e', '234']]
+
+  elseif a:scheme == 'pole'
+    let contrast = [ ['#25262e', '235'],
+                \    ['#1e1f25', '234'],
+                \    ['#191a1f', '233']]
   endif
 
   if &termguicolors || has('gui_running')
