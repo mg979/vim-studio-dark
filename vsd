@@ -41,6 +41,7 @@ Color:	grey		#4c4e50		239	DarkGray
 Color:	identifier	#c9c6c9		251	LightGray
 Color:	string		#ce9178		173	Brown
 Color:	lightred	#df8c8c		174	Red
+Color:	softred		#ff5947		203	Red
 Color:	zero		#121212		233	Black
 
 
@@ -176,14 +177,23 @@ HelpHeadline		->	Statement
 
 # c/cpp {{{2
 
-#if get(g:Vsd, 'conservative', 0)
-	cStorageClass	->	Type
-	cppType		->	Type
-	cppStructure	->	Type
-#else
-	cStorageClass	->	Keyword
-	cppType		->	Keyword
-	cppStructure	->	Keyword
+#if get(g:Vsd, 'extra_highlight', 1)
+	#if get(g:Vsd, 'conservative', 0)
+		cStorageClass	->	Type
+		cppType		->	Type
+		cppStructure	->	Type
+	#else
+		cStorageClass	->	Keyword
+		cppType		->	Keyword
+		cppStructure	->	Keyword
+	#endif
+
+	# Special formatting
+
+	cSpecial			softred		none
+	pythonBytesEscape		softred		none
+	pythonStrFormat			softred		none
+	pythonStrFormatting		softred		none
 #endif
 
 # Terminals {{{2

@@ -56,7 +56,7 @@ Comment		gray		none		italic
 Conditional	white		none
 ColorColumn	none		grayblue
 Constant	cyan		none
-CursorLine	none		darkgray
+CursorLine	none		grayblue
 CursorLineNr	cyan		grayblue
 CursorColumn	none		darkgray
 Cursor		none		darkgray
@@ -87,7 +87,7 @@ PreProc		blue		none
 Question	yellow		none		bold
 Repeat		blue		none
 Search		cyan		darkgray
-Special		red		none
+Special		darkyellow	none
 SpecialChar	darkyellow	none
 SpecialComment	darkyellow	none
 SpecialKey	yellow		darkgray
