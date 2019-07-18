@@ -147,10 +147,10 @@ Function			yellow		none
 Underlined			pink		none underline
 Special				darkyellow	none
 SpecialKey			darkyellow	none
-NonText				darkyellow	none
+NonText				grey		none
 Title				darkyellow	none
 Comment				darkgreen	none
-Ignore				darkgreen	none
+Ignore				grey		none
 Conceal				darkgreen	none
 
 Cursor				black	green
@@ -169,15 +169,23 @@ SignifySignChange		darkyellow	none
 SignifySignChangeDelete		darkyellow	none
 SignifySignDelete		red		none
 
-# help {{{2
-
-helpCommand		->	Type
-helpSectionDelim	->	PreProc
-HelpHeadline		->	Statement
-
-# c/cpp {{{2
+# extra highlight {{{2
 
 #if get(g:Vsd, 'extra_highlight', 1)
+	# help
+	helpCommand		->	Type
+	helpSectionDelim	->	PreProc
+	HelpHeadline		->	Statement
+
+	# python
+	pythonBytesEscape		softred		none
+	pythonStrFormat			softred		none
+	pythonStrFormatting		softred		none
+
+	# c/cpp
+	cSpecial			softred		none
+	cBraces			->	NonText
+
 	#if get(g:Vsd, 'conservative', 0)
 		cStorageClass	->	Type
 		cppType		->	Type
@@ -187,13 +195,6 @@ HelpHeadline		->	Statement
 		cppType		->	Keyword
 		cppStructure	->	Keyword
 	#endif
-
-	# Special formatting
-
-	cSpecial			softred		none
-	pythonBytesEscape		softred		none
-	pythonStrFormat			softred		none
-	pythonStrFormatting		softred		none
 #endif
 
 # Terminals {{{2

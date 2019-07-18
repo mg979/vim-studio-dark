@@ -109,10 +109,10 @@ Keyword				darkmagenta	none
 Underlined			darkmagenta	none underline
 Special				special		none
 SpecialKey			special		none
-NonText				darkcyan	none
+NonText				darkgray	none
 Title				darkcyan	none
 Comment				green		none
-Ignore				darkgreen	none
+Ignore				darkgray	none
 Conceal				darkgreen	none
 
 Define				darkmagenta	none
@@ -134,11 +134,34 @@ SignifySignChange		special		none
 SignifySignChangeDelete		special		none
 SignifySignDelete		red		none
 
-# help {{{2
+# extra highlight {{{2
 
-helpCommand		->	Type
-helpSectionDelim	->	PreProc
-HelpHeadline		->	Statement
+#if get(g:Vsd, 'extra_highlight', 1)
+	# help
+	helpCommand		->	Type
+	helpSectionDelim	->	PreProc
+	HelpHeadline		->	Statement
+
+	# python
+	pythonBytesEscape		darkred		none
+	pythonStrFormat			darkred		none
+	pythonStrFormatting		darkred		none
+
+	# c/cpp
+	cSpecial			darkred		none
+	cBraces			->	NonText
+
+	#if get(g:Vsd, 'conservative', 0)
+		cStorageClass	->	Type
+		cppType		->	Type
+		cppStructure	->	Type
+	#else
+		cStorageClass	->	Keyword
+		cppType		->	Keyword
+		cppStructure	->	Keyword
+	#endif
+
+#endif
 
 # Terminals {{{2
 

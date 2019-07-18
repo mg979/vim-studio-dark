@@ -42,7 +42,7 @@ Normal				black	white
 
 EndOfBuffer			window	        none
 LineNr				window	        none
-NonText				selection	none
+NonText				window		none
 Search				white		special
 IncSearch			white		orange bold
 TabLine				window		fg reverse
@@ -121,8 +121,8 @@ Command				red		none
 
 Error				red		none
 ErrorMsg			red		none
-Conceal			->	Comment
-Ignore			->	Comment
+Ignore			  	window	        none
+Conceal			  	window	        none
 # TabLineSel
 # ToolbarButton
 # ToolbarLine
@@ -140,11 +140,18 @@ SignifySignChange		special		none
 SignifySignChangeDelete		special		none
 SignifySignDelete		red		none
 
-# help {{{2
+# extra highlight {{{2
 
-helpCommand		->	Type
-helpSectionDelim	->	PreProc
-HelpHeadline		->	Statement
+#if get(g:Vsd, 'extra_highlight', 1)
+	# help
+	helpCommand		->	Type
+	helpSectionDelim	->	PreProc
+	HelpHeadline		->	Statement
+
+	# C
+	cSpecial		red		none
+	cBraces			->	NonText
+#endif
 
 # Terminals {{{2
 

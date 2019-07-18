@@ -150,13 +150,13 @@ PmenuSbar			none			black
 PmenuThumb			sepia			lightgrey
 
 Todo				fg			red bold
-NonText				darkgrey		none
+NonText				grey			none
 ColorColumn			fg			black
 Cursor			        background		cursor
 CursorLine			fg			grey2
 CursorColumn		->	CursorLine
-Conceal			->	Comment
-Ignore			->	Comment
+Conceal				grey			none
+Ignore				grey			none
 Delimiter		->	Special
 # Error				  fg			  guibg=#af5a5a
 # ErrorMsg		  ->	  Error
@@ -220,11 +220,16 @@ SignifySignChange		special		none
 SignifySignChangeDelete		special		none
 SignifySignDelete		red		none
 
-# help {{{1
+#if get(g:Vsd, 'extra_highlight', 1)
+	# help
+	helpCommand		->	Type
+	helpSectionDelim	->	PreProc
+	HelpHeadline		->	Statement
 
-helpCommand			skyblue		none
-helpSectionDelim	->	Constant
-HelpHeadline			yellow		none
+	# C
+	cSpecial			red		none
+	cBraces			->	NonText
+#endif
 
 # Terminals {{{2
 

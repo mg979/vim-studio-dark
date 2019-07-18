@@ -63,19 +63,21 @@ Cursor		none		darkgray
 Debug		yellow		none
 Define		blue		none
 Delimiter	gray		none
+EndOfBuffer	grayblue2	none
 Error		background	red
 ErrorMsg	red		none		bold
 Exception	blue		none
 Float		green		none		bold
 Function	blue		none
 Identifier	fg		none
+Ignore		grayblue2	none
 Import		white		none
 Include		white		none
 IncSearch	cyan		darkgray
 Keyword		white		none
 LineNr		grayblue2	grayblue
 Macro		gray		none
-MatchParen	background	darkblue	bold
+MatchParen	yellow		none	bold
 Number		green		none		bold
 Operator	darkblue	none
 PMenu		white		darkgray
@@ -111,7 +113,7 @@ Visual		none		darkgray
 Folded		gray2		grayblue2	italic
 FoldColumn	darkblue	grayblue	italic
 Conceal		gray2		grayblue	italic
-NonText		gray2		grayblue
+NonText		grayblue2	none
 Label		darkblue	none
 Todo		gray2		none
 
@@ -151,6 +153,10 @@ diffLine			yellow		none italic
 	htmlTag			gray		none
 	htmlTagName		purple		none
 	htmlArg			white		none
+
+	# C
+	cSpecial		darkcyan	none
+	cBraces			->	NonText
 #endif
 
 # vim: ft=colortemplate
