@@ -61,7 +61,7 @@ CursorLineNr	cyan		grayblue
 CursorColumn	none		darkgray
 Cursor		none		darkgray
 Debug		yellow		none
-Define		blue		none
+Define		darkcyan	none		bold
 Delimiter	gray		none
 EndOfBuffer	grayblue2	none
 Error		background	red
@@ -76,7 +76,7 @@ Include		white		none
 IncSearch	cyan		darkgray
 Keyword		white		none
 LineNr		grayblue2	grayblue
-Macro		gray		none
+Macro		darkcyan	none		bold
 MatchParen	yellow		none	bold
 Number		green		none		bold
 Operator	darkblue	none
@@ -84,7 +84,7 @@ PMenu		white		darkgray
 PMenuSbar	none		darkgray
 PMenuSel	background	green
 PMenuThumb	none		green
-PreCondit	gray		none
+PreCondit	darkcyan	none		bold
 PreProc		blue		none
 Question	yellow		none		bold
 Repeat		blue		none
