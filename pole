@@ -69,7 +69,7 @@ ErrorMsg	red		none		bold
 Exception	blue		none
 Float		green		none		bold
 Function	blue		none
-Identifier	fg		none
+Identifier	fg		none		italic
 Ignore		grayblue2	none
 Import		white		none
 Include		white		none
