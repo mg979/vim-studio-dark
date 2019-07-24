@@ -73,7 +73,7 @@ Identifier	fg		none		italic
 Ignore		grayblue2	none
 Import		white		none
 Include		white		none
-IncSearch	cyan		darkgray
+IncSearch	magenta		darkgray
 Keyword		white		none
 LineNr		grayblue2	grayblue
 Macro		darkcyan	none		bold
@@ -88,7 +88,7 @@ PreCondit	darkcyan	none		bold
 PreProc		blue		none
 Question	yellow		none		bold
 Repeat		blue		none
-Search		cyan		darkgray
+Search		cyan		grayblue2
 Special		darkyellow	none
 SpecialChar	darkyellow	none
 SpecialComment	darkyellow	none
