@@ -59,7 +59,7 @@ Constant	cyan		none
 CursorLine	none		grayblue
 CursorLineNr	cyan		grayblue
 CursorColumn	none		darkgray
-Cursor		none		darkgray
+Cursor		darkgray	cyan
 Debug		yellow		none
 Define		darkcyan	none		bold
 Delimiter	gray		none
@@ -108,7 +108,7 @@ Type		purple		none
 Typedef		darkblue	none
 VertSplit	none		grayblue
 SignColumn	none		grayblue
-Visual		none		darkgray
+Visual		none		grayblue2
 
 Folded		gray2		grayblue2	italic
 FoldColumn	darkblue	grayblue	italic
