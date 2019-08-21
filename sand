@@ -144,7 +144,7 @@ VertSplit			grey			black
 IncSearch			white			red
 MatchParen			red			black bold
 
-Pmenu				none			sepia
+Pmenu				background		sepia
 PmenuSel			fg			grey
 PmenuSbar			none			black
 PmenuThumb			sepia			lightgrey
