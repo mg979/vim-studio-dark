@@ -36,6 +36,11 @@ fun! vsd#init(scheme) abort
                 \    ['#191a1f', '233']]
   endif
 
+  if exists('g:loaded_visual_multi')
+    let theme = {'vsdark': 'iceblue', 'sand': 'sand',
+          \      'tomorrow_eighties': 'codedark', 'pole': 'ocean'}
+    silent exe 'VMTheme' theme[a:scheme]
+  endif
   if &termguicolors || has('gui_running')
     exe "hi! Normal guibg=" . contrast[g:Vsd.contrast][0]
   else
