@@ -5,7 +5,7 @@
 fun! vsd#init(scheme) abort
   let g:Vsd = get(g:, 'Vsd', {})
   let g:Vsd.contrast = get(g:Vsd, 'contrast', 1)
-  let g:Vsd.conservative = get(g:Vsd, 'conservative', 1)
+  let g:Vsd.conservative = get(g:Vsd, 'conservative', 0)
   command! VsdContrast call vsd#contrast()
   command! VsdOptions call vsd#show()
   command! VsdConservative call vsd#conservative()
