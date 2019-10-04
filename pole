@@ -35,7 +35,13 @@ Color:	grayblue	#23242a		235	Black
 Color:	grayblue2	#384048		238	Black
 Color:	orange		#ff9800		208	Black
 
-Normal			foreground	background
+Term Colors: background		darkred		darkgreen	darkyellow
+Term Colors: darkblue		purple		darkcyan	lightgray
+Term Colors: gray		red		green		yellow
+Term Colors: blue		magenta		cyan		white
+
+
+Normal		foreground	background
 
 #call vsd#init('pole')
 
@@ -116,6 +122,11 @@ Conceal		gray2		grayblue	italic
 NonText		grayblue2	none
 Label		darkblue	none
 Todo		gray2		none
+
+SpellBad	red		none 		undercurl
+SpellCap	green 		none 		undercurl
+SpellLocal	blue		none 		undercurl
+SpellRare	purple		none 		undercurl
 
 GitGutterAdd			green		none
 GitGutterChange			darkyellow	none
