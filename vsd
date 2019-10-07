@@ -68,7 +68,7 @@ Folded				skyblue		none
 #endif
 
 IncSearch			darkgrey	lightred
-Search				none		grey
+Search				darkgrey	lightgreen
 Question			skyblue		none
 MoreMsg				skyblue		none
 ModeMsg				skyblue		none
