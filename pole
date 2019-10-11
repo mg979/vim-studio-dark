@@ -128,15 +128,6 @@ SpellCap	green 		none 		undercurl
 SpellLocal	blue		none 		undercurl
 SpellRare	purple		none 		undercurl
 
-GitGutterAdd			green		none
-GitGutterChange			darkyellow	none
-GitGutterChangeDelete		darkyellow	none
-GitGutterDelete			red		none
-SignifySignAdd			green		none
-SignifySignChange		darkyellow	none
-SignifySignChangeDelete		darkyellow	none
-SignifySignDelete		red		none
-
 # Diff
 DiffDelete		darkred		none
 
@@ -154,6 +145,16 @@ diffFile			purple		none bold
 diffLine			yellow		none italic
 
 #if get(g:Vsd, 'extra_highlight', 1)
+	# gutter
+	GitGutterAdd		green		grayblue
+	GitGutterChange		darkyellow	grayblue
+	GitGutterChangeDelete	darkyellow	grayblue
+	GitGutterDelete		red		grayblue
+	SignifySignAdd		green		grayblue
+	SignifySignChange	darkyellow	grayblue
+	SignifySignChangeDelete	darkyellow	grayblue
+	SignifySignDelete	red		grayblue
+
 	# Python
 	pythonDecorator		green		none
 	pythonDecoratorName	green		none

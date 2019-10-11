@@ -123,20 +123,19 @@ Command				darkmagenta	none
 QuickFixLine		->	Search
 Delimiter		->	Special
 
-# Plugins {{{2
-
-GitGutterAdd			darkgreen	none
-GitGutterChange			special		none
-GitGutterChangeDelete		special		none
-GitGutterDelete			red		none
-SignifySignAdd			darkgreen	none
-SignifySignChange		special		none
-SignifySignChangeDelete		special		none
-SignifySignDelete		red		none
-
 # extra highlight {{{2
 
 #if get(g:Vsd, 'extra_highlight', 1)
+	# gutter
+	GitGutterAdd			darkgreen	lightgray
+	GitGutterChange			special		lightgray
+	GitGutterChangeDelete		special		lightgray
+	GitGutterDelete			red		lightgray
+	SignifySignAdd			darkgreen	lightgray
+	SignifySignChange		special		lightgray
+	SignifySignChangeDelete		special		lightgray
+	SignifySignDelete		red		lightgray
+
 	# help
 	helpCommand		->	Type
 	helpSectionDelim	->	PreProc

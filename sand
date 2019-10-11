@@ -209,18 +209,17 @@ diffDiffer			special		        none bold
 diffFile			string		        none bold
 diffLine			sepia		        none italic
 
-# Plugins {{{1
-
-GitGutterAdd			green		none
-GitGutterChange			special		none
-GitGutterChangeDelete		special		none
-GitGutterDelete			red		none
-SignifySignAdd			green		none
-SignifySignChange		special		none
-SignifySignChangeDelete		special		none
-SignifySignDelete		red		none
-
 #if get(g:Vsd, 'extra_highlight', 1)
+	# gutter
+	GitGutterAdd			green		black
+	GitGutterChange			special		black
+	GitGutterChangeDelete		special		black
+	GitGutterDelete			red		black
+	SignifySignAdd			green		black
+	SignifySignChange		special		black
+	SignifySignChangeDelete		special		black
+	SignifySignDelete		red		black
+
 	# help
 	helpCommand		->	Type
 	helpSectionDelim	->	PreProc

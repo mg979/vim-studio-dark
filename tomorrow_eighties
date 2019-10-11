@@ -129,20 +129,19 @@ Conceal			  	window	        none
 # Underlined
 # WildMenu
 
-# Plugins {{{2
-
-GitGutterAdd			green		none
-GitGutterChange			special		none
-GitGutterChangeDelete		special		none
-GitGutterDelete			red		none
-SignifySignAdd			green		none
-SignifySignChange		special		none
-SignifySignChangeDelete		special		none
-SignifySignDelete		red		none
-
 # extra highlight {{{2
 
 #if get(g:Vsd, 'extra_highlight', 1)
+	# gutter
+	GitGutterAdd		green		none
+	GitGutterChange		special		none
+	GitGutterChangeDelete	special		none
+	GitGutterDelete		red		none
+	SignifySignAdd		green		none
+	SignifySignChange	special		none
+	SignifySignChangeDelete	special		none
+	SignifySignDelete	red		none
+
 	# help
 	helpCommand		->	Type
 	helpSectionDelim	->	PreProc

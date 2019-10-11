@@ -1,13 +1,13 @@
 Full name:  Apprentice
 Short name: Apprentice
 Author:     Romain Lafourcade (romainlafourcade@gmail.com)
-Maintainer: Romain Lafourcade (romainlafourcade@gmail.com)
+Maintainer: Gianmaria Bajo (mg1979@git.gmail.com)
 
 Background: dark
 
 # Basic 16 Colors {{{1
 
-Color:	BG		#262626		235	Black
+Color:	backg		#262626		235	Black
 Color:	darkred		#730b00		88	DarkRed
 Color:	darkgreen	#5f875f		65	DarkGreen
 Color:	darkyellow	#87875f		101	Yellow
@@ -22,16 +22,19 @@ Color:	yellow		#ffffaf		229	Yellow
 Color:	blue		#5f87af		67	DarkBlue
 Color:	pink		#c586c0		176	Magenta
 Color:	cyan		#5fafaf		73	Cyan
-Color:	FG		#bcbcbc		250	White
+Color:	foreg		#bcbcbc		250	White
 
 # More Colors {{{1
 
 Color:	white		#ffffff		15	White
+Color:	function	#dada93		186	Yellow
+Color:	search		#c2c283		186	Yellow
 Color:	tpurple		#5f5f87		60	Magenta
 Color:	aquamarine	#5f8787		66	LightGray
 Color:	grey		#585858		240	DarkGray
 Color:	orange		#ff8700		208	Red
 Color:	dark		#303030		236	Black
+Color:	cursorline	#363636		237	Black
 Color:	black		#1c1c1c		234	Black
 
 # Terminal Colors {{{1
@@ -43,7 +46,7 @@ Term Colors: skyblue	purple	cyan		white
 
 # Highlight Groups {{{1
 
-Normal			FG		BG
+Normal			foreg		backg
 
 NonText			grey		none
 EndOfBuffer		grey		none
@@ -52,8 +55,8 @@ FoldColumn		lightgrey	black
 Folded			lightgrey	black
 MatchParen		yellow		black
 SignColumn		lightgrey	black
-Comment			grey		none
-Conceal			FG		none
+Comment			lightgrey	none
+Conceal			foreg		none
 Constant		orange		none
 Error			red		none		reverse
 Identifier		blue		none
@@ -65,43 +68,43 @@ String			lightgreen	none
 Todo			fg		none		reverse
 Type			purple		none
 Underlined		aquamarine	none		underline
-Pmenu			FG		darkgrey
+Pmenu			foreg		darkgrey
 PmenuSbar		fg		grey
-PmenuSel		BG		aquamarine
+PmenuSel		backg		aquamarine
 PmenuThumb		aquamarine	aquamarine
-ErrorMsg		BG		red
-ModeMsg			BG		lightgreen
+ErrorMsg		backg		red
+ModeMsg			backg		lightgreen
 MoreMsg			aquamarine	none
 Question		lightgreen	none
 WarningMsg		red		none
 TabLine			darkyellow	darkgrey
 TabLineFill		darkgrey	darkgrey
-TabLineSel		BG		darkyellow
+TabLineSel		backg		darkyellow
 ToolbarLine		fg		black
-ToolbarButton		FG		grey
+ToolbarButton		foreg		grey
 Cursor			fg		lightgrey
 CursorColumn		fg		dark
 CursorLineNr		cyan		dark
-CursorLine		fg		dark
+CursorLine		fg		cursorline
 helpLeadBlank		fg		none
 helpNormal		fg		none
-StatusLine		BG		darkyellow
+StatusLine		backg		darkyellow
 StatusLineNC		darkyellow	darkgrey
-StatusLineTerm		BG		darkyellow
+StatusLineTerm		backg		darkyellow
 StatusLineTermNC	darkyellow	darkgrey
-Visual			skyblue		BG		reverse
+Visual			skyblue		backg		reverse
 VisualNOS		fg		none		underline
 VertSplit		darkgrey	darkgrey
-WildMenu		BG		skyblue
-Function		yellow		none
+WildMenu		backg		skyblue
+Function		function	none
 SpecialKey		grey		none
 Title			white		none
-DiffAdd			lightgreen	BG		reverse
-DiffChange		purple		BG		reverse
-DiffDelete		red		BG		reverse
-DiffText		orange		BG		reverse
-IncSearch		BG		red
-Search			BG		yellow
+DiffAdd			lightgreen	backg		reverse
+DiffChange		purple		backg		reverse
+DiffDelete		red		backg		reverse
+DiffText		orange		backg		reverse
+IncSearch		backg		red
+Search			backg		search
 Directory		cyan		none
 debugPC			fg		blue
 debugBreakpoint		fg		red
@@ -161,5 +164,17 @@ diffNoEOL			->	WarningMsg
 diffOnly			->	WarningMsg
 diffRemoved			->	WarningMsg
 diffAdded			->	String
+
+#if get(g:Vsd, 'extra_highlight', 1)
+	# gutter
+	GitGutterAdd		lightgreen	black
+	GitGutterChange		purple		black
+	GitGutterChangeDelete	purple		black
+	GitGutterDelete		red		black
+	SignifySignAdd		lightgreen	black
+	SignifySignChange	purple		black
+	SignifySignChangeDelete	purple		black
+	SignifySignDelete	red		black
+#endif
 
 # vim: ft=colortemplate
