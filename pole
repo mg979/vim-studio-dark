@@ -12,7 +12,7 @@ Background: dark
 Color:	background	#25262e		234	Black
 Color:	darkred		#800000		1	DarkRed
 Color:	darkgreen	#008000		2	DarkGreen
-Color:	darkyellow	#e89e70		216	DarkYellow
+Color:	darkyellow	#ca9d81		216	DarkYellow
 Color:	darkblue	#58678c		60	DarkBlue
 Color:	purple		#ad85cc		140	DarkMagenta
 Color:	darkcyan	#008080		6	DarkCyan
@@ -30,10 +30,11 @@ Color:	white		#d5d6d7		188	White
 
 Color:	foreground	#a2a8ad		248	LightGray
 Color:	gray2		#808080		8	DarkGray
-Color:	darkgray	#2c2d34		236	Black
-Color:	grayblue	#23242a		235	Black
-Color:	grayblue2	#384048		238	Black
-Color:	orange		#ff9800		208	Black
+Color:	darkgray	#23242a		235	Black
+Color:	grayblue	#384048		238	Black
+Color:	search		#3b4d61		238	Black
+Color:	orange		#ff9800		208	Yellow
+Color:	aqua		#659ea2		73	DarkCyan
 
 Term Colors: background		darkred		darkgreen	darkyellow
 Term Colors: darkblue		purple		darkcyan	lightgray
@@ -60,50 +61,50 @@ Builtin		purple		none		bold
 Character	orange		none
 Comment		gray		none		italic
 Conditional	white		none
-ColorColumn	none		grayblue
+ColorColumn	none		darkgray
 Constant	cyan		none
-CursorLine	none		grayblue
-CursorLineNr	cyan		grayblue
+CursorLine	none		darkgray
+CursorLineNr	cyan		darkgray
 CursorColumn	none		darkgray
 Cursor		darkgray	cyan
 Debug		yellow		none
 Define		darkcyan	none		bold
 Delimiter	gray		none
-EndOfBuffer	grayblue2	none
+EndOfBuffer	grayblue	none
 Error		background	red
 ErrorMsg	red		none		bold
 Exception	blue		none
 Float		green		none		bold
 Function	blue		none
 Identifier	fg		none		italic
-Ignore		grayblue2	none
+Ignore		grayblue	none
 Import		white		none
 Include		white		none
-IncSearch	magenta		darkgray
+IncSearch	magenta		grayblue	bold
 Keyword		white		none
-LineNr		grayblue2	grayblue
+LineNr		grayblue	darkgray
 Macro		darkcyan	none		bold
 MatchParen	yellow		none	bold
 Number		green		none		bold
 Operator	darkblue	none
-PMenu		white		darkgray
-PMenuSbar	none		darkgray
+PMenu		white		grayblue
+PMenuSbar	none		grayblue
 PMenuSel	background	green
 PMenuThumb	none		green
 PreCondit	darkcyan	none		bold
 PreProc		blue		none
 Question	yellow		none		bold
 Repeat		blue		none
-Search		cyan		grayblue2
+Search		cyan		search		bold
 Special		darkyellow	none
 SpecialChar	darkyellow	none
 SpecialComment	darkyellow	none
 SpecialKey	yellow		darkgray
 Statement	white		none
-StatusLine	white		grayblue
-StatusLineNC	gray		grayblue
+StatusLine	white		darkgray
+StatusLineNC	gray		darkgray
 StorageClass	darkblue	none
-String		red		none
+String		aqua		none
 Structure	blue		none
 TabLine		background	gray
 TabLineFill	none		gray
@@ -112,21 +113,21 @@ Tag		darkyellow	none
 Title		fg		none		bold
 Type		purple		none
 Typedef		darkblue	none
-VertSplit	none		grayblue
-SignColumn	none		grayblue
-Visual		none		grayblue2
+VertSplit	none		darkgray
+SignColumn	none		darkgray
+Visual		none		grayblue 
 
-Folded		gray2		grayblue2	italic
-FoldColumn	darkblue	grayblue	italic
-Conceal		gray2		grayblue	italic
-NonText		grayblue2	none
+Folded		gray2		grayblue	italic
+FoldColumn	darkblue	darkgray	italic
+Conceal		gray2		darkgray	italic
+NonText		grayblue	none
 Label		darkblue	none
 Todo		gray2		none
 
-SpellBad	red		none 		undercurl
-SpellCap	green 		none 		undercurl
-SpellLocal	blue		none 		undercurl
-SpellRare	purple		none 		undercurl
+SpellBad	red		none		undercurl
+SpellCap	green		none		undercurl
+SpellLocal	blue		none		undercurl
+SpellRare	purple		none		undercurl
 
 # Diff
 DiffDelete		darkred		none
@@ -146,14 +147,14 @@ diffLine			yellow		none italic
 
 #if get(g:Vsd, 'extra_highlight', 1)
 	# gutter
-	GitGutterAdd		green		grayblue
-	GitGutterChange		darkyellow	grayblue
-	GitGutterChangeDelete	darkyellow	grayblue
-	GitGutterDelete		red		grayblue
-	SignifySignAdd		green		grayblue
-	SignifySignChange	darkyellow	grayblue
-	SignifySignChangeDelete	darkyellow	grayblue
-	SignifySignDelete	red		grayblue
+	GitGutterAdd		green		darkgray
+	GitGutterChange		darkyellow	darkgray
+	GitGutterChangeDelete	darkyellow	darkgray
+	GitGutterDelete		red		darkgray
+	SignifySignAdd		green		darkgray
+	SignifySignChange	darkyellow	darkgray
+	SignifySignChangeDelete	darkyellow	darkgray
+	SignifySignDelete	red		darkgray
 
 	# Python
 	pythonDecorator		green		none
@@ -168,7 +169,10 @@ diffLine			yellow		none italic
 
 	# C
 	cSpecial		darkcyan	none
-	cBraces			->	NonText
+	cBraces			->	Delimiter
+
+	# vimL
+	vimMapMod		->	Special
 #endif
 
 # vim: ft=colortemplate
