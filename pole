@@ -2,6 +2,7 @@ Full name:  Pole
 Short name: pole
 Author:     https://github.com/Alvarocz/
 Maintainer: Gianmaria Bajo <mg1979.git@gmail.com>
+Neovim:	    yes
 
 # Original name: northpole
 
@@ -31,6 +32,7 @@ Color:	white		#d5d6d7		188	White
 Color:	foreground	#a2a8ad		248	LightGray
 Color:	gray2		#808080		8	DarkGray
 Color:	darkgray	#23242a		235	Black
+Color:	fold	 	#282d33		238	Black
 Color:	grayblue	#384048		238	Black
 Color:	search		#3b4d61		238	Black
 Color:	orange		#ff9800		208	Yellow
@@ -62,11 +64,11 @@ Character	orange		none
 Comment		gray		none		italic
 Conditional	white		none
 ColorColumn	none		darkgray
-Constant	cyan		none
+Constant	orange		none
 CursorLine	none		darkgray
 CursorLineNr	cyan		darkgray
 CursorColumn	none		darkgray
-Cursor		darkgray	cyan
+Cursor		none		darkblue
 Debug		yellow		none
 Define		darkcyan	none		bold
 Delimiter	gray		none
@@ -76,7 +78,7 @@ ErrorMsg	red		none		bold
 Exception	blue		none
 Float		green		none		bold
 Function	blue		none
-Identifier	fg		none		italic
+Identifier	aqua		none
 Ignore		grayblue	none
 Import		white		none
 Include		white		none
@@ -92,7 +94,7 @@ PMenuSbar	none		grayblue
 PMenuSel	background	green
 PMenuThumb	none		green
 PreCondit	darkcyan	none		bold
-PreProc		blue		none
+PreProc		darkcyan	none		bold
 Question	yellow		none		bold
 Repeat		blue		none
 Search		cyan		search		bold
@@ -104,26 +106,27 @@ Statement	white		none
 StatusLine	white		darkgray
 StatusLineNC	gray		darkgray
 StorageClass	darkblue	none
-String		aqua		none
+String		red		none
 Structure	blue		none
 TabLine		background	gray
 TabLineFill	none		gray
 TabLineSel	white		none
 Tag		darkyellow	none
-Title		fg		none		bold
+Title		white		none		bold
 Type		purple		none
 Typedef		darkblue	none
-VertSplit	none		darkgray
+VertSplit	grayblue	darkgray
 SignColumn	none		darkgray
 Visual		none		grayblue 
 
-Folded		gray2		grayblue	italic
+Folded		gray2		fold	italic
 FoldColumn	darkblue	darkgray	italic
 Conceal		gray2		darkgray	italic
 NonText		grayblue	none
 Label		darkblue	none
-Todo		gray2		none
+Todo		yellow		darkblue	bold
 
+# TODO
 SpellBad	red		none		undercurl
 SpellCap	green		none		undercurl
 SpellLocal	blue		none		undercurl
