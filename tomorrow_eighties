@@ -3,6 +3,7 @@ Full name:  Tomorrow-Night-Eighties
 Short name: tomorrow_eighties
 Author:     Chris Kempson <http://chriskempson.com>
 Maintainer: Gianmaria Bajo <mg1979.git@gmail.com>
+Neovim:	    yes
 
 #===================================================================
 # Dark variant
@@ -12,46 +13,60 @@ Background: dark
 
 # Color palette {{{1
 
-Color:	    white	#cccccc ~
-Color:	    black	#262626 ~
+# Basic 16 Colors {{{1
+
+Color:	black		#1e1e1e		0	Black
+Color:	darkred		#730b00		88	DarkRed
+Color:	darkgreen	#008000		2	DarkGreen
+Color:	orange		#f99157		209	DarkYellow
+Color:	darkblue	#073655		24	DarkBlue
+Color:	darkmagenta	#800080		5	DarkMagenta
+Color:	darkcyan	#66cccc		80	DarkCyan
+Color:	foreground	#cccccc		252	LightGray
+Color:	darkgray	#333233		236	DarkGray
+Color:	red		#f2777a		210	Red
+Color:	green		#99cc99		151	Green
+Color:	yellow		#ffcc66		222	Yellow
+Color:	blue		#6699cc		67	Blue
+Color:	magenta		#ff00ff		13	Magenta
+Color:	cyan		#00ffff		14	Cyan
+Color:	white		#ffffff		15	White
+
+Color:	    background	#262626 ~
 Color:	    selection	#264f78 ~
 Color:	    comment	#999999 ~
-Color:	    red		#f2777a ~
-Color:	    orange	#f99157 ~
-Color:	    yellow	#ffcc66 ~
-Color:	    green	#99cc99 ~
-Color:	    aqua	#66cccc ~
-Color:	    blue	#6699cc ~
 Color:	    brightblue	#61afef ~
 Color:	    purple	#cc99cc ~
 Color:	    window	#393939 ~
 Color:	    special	#f2c38f ~
-Color:	    lightgrey	#a9a9a9 ~
-Color:	    darkblue	#073655 ~
-Color:	    darkred	#730b00 ~
-Color:	    darkgrey	#333233 ~
+
+Term Colors: background		darkred		darkgreen	orange
+Term Colors: darkblue		purple		darkcyan	foreground
+Term Colors: darkgray		red		green		yellow
+Term Colors: blue		magenta		cyan		white
+
 
 
 #===================================================================
 # Highlight groups
 #===================================================================
 
-Normal				white	black
+Normal				foreground	background
 
 #call vsd#init('tomorrow_eighties')
 
 EndOfBuffer			window	        none
 LineNr				window	        none
 NonText				window		none
-Search				black		special
-IncSearch			black		orange bold
+Search				background	special
+IncSearch			background	orange bold
 TabLine				window		fg reverse
 TabLineFill			window		fg reverse
 StatusLine			window		yellow reverse
 StatusLineNC			window		fg reverse
 StatusLineTerm			window		yellow reverse
 StatusLineTermNC		window		fg reverse
-VertSplit			black		window
+VertSplit			background	window
 Visual				none		selection
 VisualNOS			none		selection
 Directory			blue		none
@@ -82,7 +97,7 @@ Statement			red		none
 Conditional			blue		none
 Repeat				blue		none
 Label 				blue		none
-Operator			aqua		none
+Operator			darkcyan	none
 
 Type				yellow		none
 Structure			yellow		none
@@ -98,17 +113,17 @@ SpellCap			orange		none undercurl
 SpellLocal			orange		none undercurl
 SpellRare			purple 		none undercurl
 
-Pmenu				fg		window
-PmenuSel			fg		window reverse
-PmenuSbar			black		black
+Pmenu				fg		black
+PmenuSel			black		purple
+PmenuSbar			background	background
 PmenuThumb			purple		purple
 
 DiffAdd				none		darkblue
-DiffChange			none		darkgrey
-DiffDelete			black		darkred bold
+DiffChange			none		darkgray
+DiffDelete			background	darkred bold
 DiffText			none		darkred bold
 
-Cursor				black		green
+Cursor				background	green
 QuickFixLine		->	Search
 Delimiter		->	Special
 Underlined			blue		none underline
