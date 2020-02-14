@@ -3,6 +3,7 @@ Full name:  Sand
 Short name: sand
 Author:     Gianmaria Bajo <mg1979.git@gmail.com>
 Maintainer: Gianmaria Bajo <mg1979.git@gmail.com>
+Neovim:	    yes
 
 #===================================================================
 # Dark variant
@@ -17,29 +18,32 @@ Background: dark
 
 # Color palette {{{1
 
-Color:	    background		#2d2d2d ~
-Color:	    foreground		#c6c6b9 ~
-Color:	    lightgrey		#6b6a61 ~
-Color:	    black		#1e1e1e ~
-Color:	    skyblue		SkyBlue ~
-Color:	    grey		#4d4d4d ~
-Color:	    grey2		#404040 ~
-Color:	    darkgrey		#333333 ~
-Color:	    sepia		#999966 ~
-Color:	    title		#ed8e5e ~
-Color:	    peru		#cd853f ~
-Color:	    white		#e6eef3 ~
-Color:	    red			#cd5c5c ~
-Color:	    darkred		#730b00 ~
-Color:	    palegreen		#98fb98 ~
-Color:	    lightgreen		#a8ce93 ~
-Color:	    green		#7ab87a ~
-Color:	    pink		#c9acd2 ~
-Color:	    yellow		#dada93 ~
-Color:	    special		#a9a9a9 ~
-Color:	    cursor 		#dfaf87 ~
-Color:	    purple		#8787af ~
-Color:	    cyan		#42dcd7 ~
+Color:	background	#2d2d2d ~
+Color:	foreground	#c6c6b9 ~
+Color:	lightgrey	#6b6a61 ~
+Color:	black		#1e1e1e ~
+Color:	skyblue		SkyBlue ~
+Color:	darkblue	#58678c		60	DarkBlue
+Color:	grey		#4d4d4d ~
+Color:	darkcyan	#008080		6	DarkCyan
+Color:	grey2		#404040 ~
+Color:	darkgrey	#333333 ~
+Color:	sepia		#999966 ~
+Color:	title		#ed8e5e ~
+Color:	peru		#cd853f ~
+Color:	white		#e6eef3 ~
+Color:	red		#cd5c5c ~
+Color:	darkred		#730b00 ~
+Color:	palegreen	#98fb98 ~
+Color:	lightgreen	#a8ce93 ~
+Color:	green		#7ab87a ~
+Color:	pink		#c9acd2 ~
+Color:	yellow		#dada93 ~
+Color:	special		#a9a9a9 ~
+Color:	cursor 		#dfaf87 ~
+Color:	purple		#8787af ~
+Color:	cyan		#42dcd7 ~
+
 # Color:	    skyblue		#569cd6 ~
 # Color:	    darkblue		#073655 ~
 # Color:	    lightblue		#83afe5 ~
@@ -55,6 +59,12 @@ Color:	    string		#8d8d8d ~
 # Color:	    string		#ce9178 ~
 # Color:	    lightred		#df8c8c ~
 # #98BC99
+
+Term Colors: background		darkred		green		peru
+Term Colors: darkblue		purple		darkcyan	lightgrey
+Term Colors: grey		red		palegreen	yellow
+Term Colors: skyblue		pink		cyan		white
+
 
 #===================================================================
 # Normal group
