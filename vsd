@@ -42,6 +42,7 @@ Color:	identifier	#c9c6c9		251	LightGray
 Color:	string		#ce9178		173	Brown
 Color:	lightred	#df8c8c		174	Red
 Color:	softred		#ff5947		203	Red
+Color:	special  	#607b9e		203	DarkBlue
 Color:	zero		#121212		233	Black
 
 
@@ -145,8 +146,7 @@ Directory			cyan		none
 
 Function			yellow		none
 Underlined			pink		none underline
-Special				darkyellow	none
-SpecialKey			darkyellow	none
+Special				special		none
 NonText				grey		none
 Title				darkyellow	none
 Comment				darkgreen	none
@@ -183,7 +183,7 @@ Delimiter		->	Special
 
 	# c/cpp
 	cSpecial			softred		none
-	cBraces			->	NonText
+	cBraces				special		none
 
 	#if get(g:Vsd, 'conservative', 0)
 		cStorageClass	->	Type
