@@ -31,13 +31,14 @@ Color:	    peru		#cd853f ~
 Color:	    white		#e6eef3 ~
 Color:	    red			#cd5c5c ~
 Color:	    darkred		#730b00 ~
+Color:	    palegreen		#98fb98 ~
 Color:	    lightgreen		#a8ce93 ~
 Color:	    green		#7ab87a ~
 Color:	    pink		#c9acd2 ~
 Color:	    yellow		#dada93 ~
-Color:	    special		#f2c38f ~
+Color:	    special		#a9a9a9 ~
 Color:	    cursor 		#dfaf87 ~
-Color:	    purple		#9a93e1 ~
+Color:	    purple		#8787af ~
 Color:	    cyan		#42dcd7 ~
 # Color:	    skyblue		#569cd6 ~
 # Color:	    darkblue		#073655 ~
@@ -64,7 +65,7 @@ Normal				foreground		background
 #call vsd#init('sand')
 
 #===================================================================
-# Original desert.vim
+# Original desert.vim (with some tweaks for gui/cterm consistency)
 #===================================================================
 # hi Identifier	guifg=palegreen
 # hi Identifier	ctermfg=6
@@ -74,8 +75,6 @@ Normal				foreground		background
 # hi FoldColumn	ctermfg=darkgrey ctermbg=NONE
 # hi VertSplit	guibg=#c2bfa5 guifg=grey50 gui=none
 # hi VertSplit	cterm=reverse
-# hi Search	guibg=peru guifg=wheat
-# hi IncSearch	guifg=slategrey guibg=khaki
 verbatim
 
 " highlight groups
@@ -84,13 +83,19 @@ hi ModeMsg	guifg=goldenrod
 hi MoreMsg	guifg=SeaGreen
 hi NonText	guifg=LightBlue guibg=grey30
 hi Question	guifg=springgreen
-hi Search	guibg=#5e4e21 guifg=wheat
 hi SpecialKey	guifg=yellowgreen
 hi StatusLine	guibg=#c2bfa5 guifg=black gui=none
 hi StatusLineNC	guibg=#c2bfa5 guifg=grey50 gui=none
 hi Title	guifg=indianred
 hi Visual	gui=none guifg=khaki guibg=olivedrab
 hi WarningMsg	guifg=salmon
+hi IncSearch	guibg=slategrey guifg=khaki ctermbg=67 ctermfg=186 gui=none
+hi Search       ctermfg=223 ctermbg=172 guifg=wheat guibg=peru
+
+" popup menu
+hi Pmenu        guifg=#c8cc77 guibg=#636363 ctermfg=186 ctermbg=241
+hi PmenuSel     guifg=#555726 guibg=DarkGrey ctermfg=58 ctermbg=248
+hi PmenuiBar    guifg=#c8cc77 guibg=#636363 ctermfg=186  ctermbg=241
 
 " syntax highlighting groups
 hi Comment	guifg=SkyBlue
@@ -98,7 +103,7 @@ hi Constant	guifg=#ffa0a0
 hi Statement	guifg=khaki
 hi PreProc	guifg=indianred
 hi Type		guifg=darkkhaki gui=bold
-hi Special	guifg=navajowhite
+hi Special	ctermfg=248 guifg=DarkGrey
 hi Todo		guifg=orangered guibg=yellow2
 
 " color terminal definitions
@@ -106,8 +111,6 @@ hi SpecialKey	ctermfg=darkgreen
 hi NonText	cterm=bold ctermfg=darkblue
 hi Directory	ctermfg=darkcyan
 hi ErrorMsg	cterm=bold ctermfg=7 ctermbg=1
-hi IncSearch	cterm=NONE ctermfg=yellow ctermbg=green
-hi Search	cterm=NONE ctermfg=grey ctermbg=blue
 hi MoreMsg	ctermfg=darkgreen
 hi ModeMsg	cterm=NONE ctermfg=brown
 hi LineNr	ctermfg=3
@@ -126,8 +129,8 @@ hi DiffText	cterm=bold ctermbg=1
 hi Comment	ctermfg=darkcyan
 hi Constant	ctermfg=brown
 hi Special	ctermfg=5
-hi Statement	ctermfg=3
-hi PreProc	ctermfg=5
+hi Statement    ctermfg=186 cterm=bold
+hi PreProc	ctermfg=167
 hi Type		ctermfg=2 cterm=bold
 hi Underlined	cterm=underline ctermfg=5
 hi Error	cterm=bold ctermfg=7 ctermbg=1
@@ -140,20 +143,18 @@ FoldColumn			lightgrey		darkgrey
 LineNr				grey			none italic
 SignColumn			grey			black italic
 VertSplit			grey			black
-# Search				white			peru
-IncSearch			white			red
 MatchParen			red			black bold
 
-Pmenu				background		sepia
-PmenuSel			fg			grey
-PmenuSbar			none			black
+# Pmenu				background		sepia
+# PmenuSel			fg			grey
+# PmenuSbar			none			black
 PmenuThumb			sepia			lightgrey
 
 Todo				fg			red bold
 NonText				grey			none
 ColorColumn			fg			black
 Cursor			        background		cursor
-CursorLine			fg			grey2
+CursorLine			none			grey2
 CursorColumn		->	CursorLine
 Conceal				grey			none
 Ignore				grey			none
@@ -170,13 +171,14 @@ TabLineSel			cursor			black
 #
 # Constant			constant		none
 # Function			  guifg=#999900
-# Type				  guifg=#b68554
-Identifier			fg			none italic
-Statement			lightgreen		none
+# Type				purple none
+Identifier			skyblue		none italic
+Statement			green		none bold
 # Number		  ->	  Identifier
 # Boolean		  ->	  Identifier
 String				string			none
-PreProc				pink			none
+# String				palegreen			none
+# PreProc				pink			none
 Special				special			none
 Title				title			none
 # Delimiter			  guifg=#af5a5a
