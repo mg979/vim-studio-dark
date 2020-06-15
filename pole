@@ -46,6 +46,7 @@ Term Colors: blue		magenta		cyan		white
 
 Normal		foreground	background
 
+#let g:Vsd = get(g:, 'Vsd', {})
 #call vsd#init('pole')
 
 # Directory

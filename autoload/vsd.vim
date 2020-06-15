@@ -38,7 +38,8 @@ fun! vsd#init(scheme) abort
 
   if exists('g:loaded_visual_multi')
     let theme = {'vsdark': 'iceblue', 'sand': 'sand',
-          \      'tomorrow_eighties': 'codedark', 'pole': 'ocean'}
+          \      'tomorrow_eighties': 'codedark', 'pole': 'ocean',
+          \      'vslight': 'lightblue2'}
     silent exe 'VMTheme' theme[a:scheme]
   endif
   if &termguicolors || has('gui_running')

@@ -48,6 +48,8 @@ Term Colors: skyblue	purple	cyan		white
 
 Normal			foreg		backg
 
+#let g:Vsd = get(g:, 'Vsd', {})
+
 NonText			grey		none
 EndOfBuffer		grey		none
 LineNr			lightgrey	black

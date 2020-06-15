@@ -72,6 +72,7 @@ Term Colors: skyblue		pink		cyan		white
 
 Normal				foreground		background
 
+#let g:Vsd = get(g:, 'Vsd', {})
 #call vsd#init('sand')
 
 #===================================================================

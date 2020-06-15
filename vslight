@@ -38,6 +38,9 @@ Color:	special		#682900		88	Brown
 
 Normal				black		white
 
+#let g:Vsd = get(g:, 'Vsd', {})
+#call vsd#init('vslight')
+
 MatchParen			red		none
 CursorLineNr			blue		lightgray
 Visual				none		lightgray
@@ -118,7 +121,7 @@ Conceal				darkgreen	none
 Define				darkmagenta	none
 PreProc				darkmagenta	none
 
-Cursor				black		blue
+Cursor				lightgray	blue
 Command				darkmagenta	none
 QuickFixLine		->	Search
 Delimiter		->	Special
