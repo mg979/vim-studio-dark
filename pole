@@ -10,10 +10,10 @@ Background: dark
 
 # Basic 16 Colors {{{1
 
-Color:	background	#25262e		234	Black
+Color:	background	#25262e		235	Black
 Color:	darkred		#800000		1	DarkRed
 Color:	darkgreen	#008000		2	DarkGreen
-Color:	darkyellow	#ca9d81		216	DarkYellow
+Color:	darkyellow	#ca9d81		180	DarkYellow
 Color:	darkblue	#58678c		60	DarkBlue
 Color:	purple		#ad85cc		140	DarkMagenta
 Color:	darkcyan	#008080		6	DarkCyan
@@ -32,7 +32,7 @@ Color:	white		#d5d6d7		188	White
 Color:	foreground	#a2a8ad		248	LightGray
 Color:	gray2		#808080		8	DarkGray
 Color:	darkgray	#23242a		235	Black
-Color:	fold	 	#282d33		238	Black
+Color:	fold	 	#282d33		236	Black
 Color:	grayblue	#384048		238	Black
 Color:	search		#3b4d61		238	Black
 Color:	orange		#ff9800		208	Yellow
@@ -59,72 +59,79 @@ Normal		foreground	background
 # WarningMsg
 # WildMenu
 
-Boolean		white		none		bold
-Builtin		purple		none		bold
-Character	orange		none
 Comment		gray		none		italic
-Conditional	white		none
-ColorColumn	none		darkgray
+
 Constant	orange		none
+String		red		none
+Character	orange		none
+Number		green		none		bold
+Boolean		white		none		bold
+Float		green		none		bold
+
+Identifier	aqua		none
+Function	blue		none
+
+Statement	white		none
+Conditional	white		none
+Repeat		blue		none
+Label		darkblue	none
+Operator	darkblue	none
+Keyword		white		none
+Exception	blue		none
+
+PreProc		darkcyan	none		gui=bold
+Define		->		PreProc
+Macro		->		PreProc
+PreCondit	->		PreProc
+
+Type		purple		none
+StorageClass	darkblue	none
+Structure	blue		none
+Typedef		darkblue	none
+
+Special		darkyellow	none
+SpecialChar	->		Special
+Tag		->		Special
+SpecialComment	->		Special
+Delimiter	gray		none
+Debug		yellow		none
+
+Pmenu		white		grayblue
+PmenuSbar	none		grayblue
+PmenuSel	background	green
+PmenuThumb	none		green
+
+ColorColumn	none		darkgray
 CursorLine	none		darkgray
 CursorLineNr	cyan		darkgray
 CursorColumn	none		darkgray
 Cursor		none		darkblue
-Debug		yellow		none
-Define		darkcyan	none		bold
-Delimiter	gray		none
 EndOfBuffer	grayblue	none
 Error		background	red
 ErrorMsg	red		none		bold
-Exception	blue		none
-Float		green		none		bold
-Function	blue		none
-Identifier	aqua		none
 Ignore		grayblue	none
+Builtin		purple		none		bold
 Import		white		none
 Include		white		none
 IncSearch	magenta		grayblue	bold
-Keyword		white		none
 LineNr		grayblue	darkgray
-Macro		darkcyan	none		bold
 MatchParen	yellow		none	bold
-Number		green		none		bold
-Operator	darkblue	none
-PMenu		white		grayblue
-PMenuSbar	none		grayblue
-PMenuSel	background	green
-PMenuThumb	none		green
-PreCondit	darkcyan	none		bold
-PreProc		darkcyan	none		bold
 Question	yellow		none		bold
-Repeat		blue		none
 Search		cyan		search		bold
-Special		darkyellow	none
-SpecialChar	darkyellow	none
-SpecialComment	darkyellow	none
 SpecialKey	yellow		darkgray
-Statement	white		none
 StatusLine	white		darkgray
 StatusLineNC	gray		darkgray
-StorageClass	darkblue	none
-String		red		none
-Structure	blue		none
 TabLine		background	gray
 TabLineFill	none		gray
 TabLineSel	white		none
-Tag		darkyellow	none
 Title		white		none		bold
-Type		purple		none
-Typedef		darkblue	none
 VertSplit	grayblue	darkgray
 SignColumn	none		darkgray
-Visual		none		grayblue 
-
-Folded		gray2		fold	italic
+Visual		none		grayblue
+Folded		gray2		fold		italic
 FoldColumn	darkblue	darkgray	italic
 Conceal		gray2		darkgray	italic
 NonText		grayblue	none
-Label		darkblue	none
 Todo		yellow		darkblue	bold
 
 # TODO
@@ -178,5 +185,8 @@ diffLine			yellow		none italic
 	# vimL
 	vimMapMod		->	Special
 #endif
+
+Variant: 256
+Folded		gray2		darkgray	italic
 
 # vim: ft=colortemplate
