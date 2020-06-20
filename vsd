@@ -4,6 +4,8 @@ Author:     Gianmaria Bajo <mg1979.git@gmail.com>
 Maintainer: Gianmaria Bajo <mg1979.git@gmail.com>
 Neovim:	    yes
 
+Include: vslight
+
 #===================================================================
 # Dark variant
 #===================================================================
@@ -24,18 +26,15 @@ Color:	darkgrey	#333233		236	DarkGray
 Color:	red		#ff0000		196	Red
 Color:	lightgreen	#a8ce93		150	Green
 Color:	yellow		#dada93		186	Yellow
-Color:	blue		#204366		17	DarkBlue
+Color:	visual		#204366		19	DarkBlue
 Color:	pink		#c586c0		176	Magenta
 Color:	cyan		#42dcd7		44	Cyan
 Color:	white		#c0d0d0		252	White
 
-Term Colors: black darkred darkgreen darkyellow darkblue purple skyblue lightgrey
-Term Colors: darkgrey red lightgreen yellow blue pink cyan white
-
 # More Colors {{{1
 
 Color:	lightblue	#83afe5		110	DarkCyan
-Color:	nightblue	#212733		17	DarkBlue
+Color:	nightblue	#212733		235	DarkBlue
 Color:	green		#00af00		34	Green
 Color:	cyangrey	#7fc1ca		109	LightGray
 Color:	grey		#4c4e50		239	DarkGray
@@ -43,8 +42,11 @@ Color:	identifier	#c9c6c9		251	LightGray
 Color:	string		#ce9178		173	Brown
 Color:	lightred	#df8c8c		174	Red
 Color:	softred		#ff5947		203	Red
-Color:	special  	#607b9e		203	DarkBlue
+Color:	special  	#607b9e		67	DarkBlue
 Color:	zero		#121212		233	Black
+
+Term Colors: grey lightred lightgreen yellow lightblue purple lightblue identifier
+Term Colors: darkgreen darkyellow lightgreen yellow lightblue pink lightblue white
 
 
 #===================================================================
@@ -58,17 +60,12 @@ Normal				white	black
 
 MatchParen			red		none
 CursorLineNr			lightblue	none
-Visual				none		blue
-VisualNOS			none		blue
+Visual				none		visual
+VisualNOS			none		visual
 Folded				skyblue		none
 
-#if &termguicolors || has('gui_running')
-	FoldColumn		skyblue		nightblue
-	VertSplit		darkgrey	nightblue
-#else
-	FoldColumn		skyblue		none
-	VertSplit		darkgrey	zero
-#endif
+FoldColumn			skyblue		nightblue
+VertSplit			darkgrey	nightblue
 
 IncSearch			darkgrey	lightred
 Search				darkgrey	lightgreen
@@ -100,12 +97,15 @@ DiffAdd				none		darkblue
 DiffChange			none		darkgrey
 DiffDelete			red		none bold
 DiffText			none		darkred bold
-diffAdded			lightgreen	none
-diffChanged			darkyellow	none
-diffRemoved			lightred	none
 diffDiffer			darkyellow	none bold
 diffFile			string		none bold
 diffLine			yellow		none italic
+
+verbatim
+hi diffAdded guifg=#a8ce93 guibg=#2a3324 ctermfg=150 ctermbg=236 gui=none cterm=none
+hi diffChanged guifg=#f2c38f guibg=#33291e ctermfg=223 ctermbg=235 gui=none cterm=none
+hi diffRemoved guifg=#df8c8c guibg=#332020 ctermfg=174 ctermbg=235 gui=none cterm=none
+endverbatim
 
 SignColumn			fg		none
 LineNr				grey		none
@@ -119,34 +119,28 @@ TabLineFill			lightgrey	darkgrey
 ToolbarLine			fg		grey
 ToolbarButton			grey		lightblue
 
-String				string		none
 Directory			cyan		none
 
-#if get(g:Vsd, 'conservative', 0)
-	Number			lightgreen	none
-	Constant		skyblue		none
-	Identifier		cyangrey	none
-	Operator		fg		none
-	Statement		pink		none
-	Conditional		pink		none
-	Keyword			pink		none
-	Define			purple		none
-	PreProc			purple		none
-	Type			skyblue		none
-#else
-	Number			cyangrey	none
-	Constant		lightgreen	none
-	Identifier		identifier	none italic
-	Operator		yellow		none
-	Statement		skyblue		none
-	Conditional		skyblue		none
-	Keyword			pink		none
-	Define			purple		none
-	PreProc			purple		none
-	Type			lightgreen	none
-#endif
+Constant			skyblue		none
+String				string		none
+Number				lightgreen	none
 
+Identifier			cyangrey	none
 Function			yellow		none
+
+Statement			pink		none
+Conditional			->		Statement
+Keyword				->		Statement
+Operator			yellow		none
+
+PreProc				purple		none
+Include				->		PreProc
+Define				->		PreProc
+Macro				->		PreProc
+PreCondit			->		PreProc
+
+Type				skyblue		none
+
 Underlined			pink		none underline
 Special				special		none
 NonText				grey		none
@@ -162,17 +156,17 @@ Delimiter		->	Special
 
 # extra highlight {{{2
 
-#if get(g:Vsd, 'extra_highlight', 1)
-	# gutter
-	GitGutterAdd			green		none
-	GitGutterChange			darkyellow	none
-	GitGutterChangeDelete		darkyellow	none
-	GitGutterDelete			red		none
-	SignifySignAdd			green		none
-	SignifySignChange		darkyellow	none
-	SignifySignChangeDelete		darkyellow	none
-	SignifySignDelete		red		none
+# gutter
+GitGutterAdd			green		none
+GitGutterChange			darkyellow	none
+GitGutterChangeDelete		darkyellow	none
+GitGutterDelete			red		none
+SignifySignAdd			green		none
+SignifySignChange		darkyellow	none
+SignifySignChangeDelete		darkyellow	none
+SignifySignDelete		red		none
 
+#if get(g:Vsd, 'extra_highlight', 1)
 	# help
 	helpCommand		->	Type
 	helpSectionDelim	->	PreProc
@@ -185,59 +179,12 @@ Delimiter		->	Special
 
 	# c/cpp
 	cSpecial			softred		none
-	cBraces				special		none
-
-	#if get(g:Vsd, 'conservative', 0)
-		cStorageClass	->	Type
-		cppType		->	Type
-		cppStructure	->	Type
-	#else
-		cStorageClass	->	Keyword
-		cppType		->	Keyword
-		cppStructure	->	Keyword
-	#endif
+	cBraces			->	Delimiter
 #endif
 
 # Terminals {{{2
 
 verbatim
-let g:terminal_ansi_colors = [
-	\ "#3C4C55",
-	\ "#DF8C8C",
-	\ "#A8CE93",
-	\ "#DADA93",
-	\ "#83AFE5",
-	\ "#9A93E1",
-	\ "#83AFE5",
-	\ "#C5D4DD",
-	\ "#608b4e",
-	\ "#F2C38F",
-	\ "#A8CE93",
-	\ "#DADA93",
-	\ "#83AFE5",
-	\ "#D18EC2",
-	\ "#83AFE5",
-	\ "#E6EEF3"
-	\]
-
-" NEOVIM TERMINAL MODE
-let g:terminal_color_0 = "#3C4C55"
-let g:terminal_color_1 = "#DF8C8C"
-let g:terminal_color_2 = "#A8CE93"
-let g:terminal_color_3 = "#DADA93"
-let g:terminal_color_4 = "#83AFE5"
-let g:terminal_color_5 = "#9A93E1"
-let g:terminal_color_6 = "#83AFE5"
-let g:terminal_color_7 = "#C5D4DD"
-let g:terminal_color_8 = "#608b4e"
-let g:terminal_color_9 = "#F2C38F"
-let g:terminal_color_10 = "#A8CE93"
-let g:terminal_color_11 = "#DADA93"
-let g:terminal_color_12 = "#83AFE5"
-let g:terminal_color_13 = "#D18EC2"
-let g:terminal_color_14 = "#83AFE5"
-let g:terminal_color_15 = "#E6EEF3"
-
 " FZF
 let g:fzf_colors = {
 	\ "fg":      ["fg", "Normal"],
@@ -256,6 +203,8 @@ let g:fzf_colors = {
 	\}
 endverbatim
 
-Include: vslight
+Variant: 256
+FoldColumn			skyblue		none
+VertSplit			darkgrey	zero
 
 # vim: ft=colortemplate
