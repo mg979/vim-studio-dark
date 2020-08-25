@@ -32,13 +32,13 @@ Color:	magenta		#ff00ff		13	Magenta
 Color:	cyan		#00ffff		14	Cyan
 Color:	white		#ffffff		15	White
 
-Color:	    background	#262626 ~
-Color:	    selection	#264f78 ~
-Color:	    comment	#999999 ~
-Color:	    brightblue	#61afef ~
-Color:	    purple	#cc99cc ~
-Color:	    window	#393939 ~
-Color:	    special	#f2c38f ~
+Color:	background	#262626 ~
+Color:	selection	#264f78 ~
+Color:	comment		#999999 ~
+Color:	brightblue	#61afef ~
+Color:	purple		#cc99cc ~
+Color:	window		#393939 ~
+Color:	special		#f2c38f ~
 
 Term Colors: background		darkred		darkgreen	orange
 Term Colors: darkblue		purple		darkcyan	foreground
@@ -56,8 +56,8 @@ Normal				foreground	background
 #let g:Vsd = get(g:, 'Vsd', {})
 #call vsd#init('tomorrow_eighties')
 
-EndOfBuffer			window	        none
-LineNr				window	        none
+EndOfBuffer			window		none
+LineNr				window		none
 NonText				window		none
 Search				background	special
 IncSearch			background	orange bold
@@ -86,7 +86,7 @@ ColorColumn			fg		window
 
 Comment				comment		none
 Todo				comment		none
-Title				comment		none
+Title				yellow		none
 
 Constant			orange		none
 String				green		none
@@ -97,22 +97,22 @@ Function			brightblue	none
 Statement			red		none
 Conditional			blue		none
 Repeat				blue		none
-Label 				blue		none
+Label				blue		none
 Operator			darkcyan	none
 
 Type				yellow		none
 Structure			yellow		none
 Special				special		none
-SpecialKey			special	        none
+SpecialKey			special		none
 
 PreProc				purple		none
 Define				purple		none
 Include				purple		none
 
-SpellBad			red   		none undercurl
+SpellBad			red		none undercurl
 SpellCap			orange		none undercurl
 SpellLocal			orange		none undercurl
-SpellRare			purple 		none undercurl
+SpellRare			purple		none undercurl
 
 Pmenu				fg		black
 PmenuSel			black		purple
@@ -137,8 +137,8 @@ Command				red		none
 
 Error				red		none
 ErrorMsg			red		none
-Ignore			  	window	        none
-Conceal			  	window	        none
+Ignore				window		none
+Conceal				window		none
 # TabLineSel
 # ToolbarButton
 # ToolbarLine
@@ -147,31 +147,35 @@ Conceal			  	window	        none
 
 # extra highlight {{{2
 
-#if get(g:Vsd, 'extra_highlight', 1)
-	# gutter
-	GitGutterAdd		green		none
-	GitGutterChange		special		none
-	GitGutterChangeDelete	special		none
-	GitGutterDelete		red		none
-	SignifySignAdd		green		none
-	SignifySignChange	special		none
-	SignifySignChangeDelete	special		none
-	SignifySignDelete	red		none
+# gutter
+GitGutterAdd			green		none
+GitGutterChange			special		none
+GitGutterChangeDelete		special		none
+GitGutterDelete			red		none
+SignifySignAdd			green		none
+SignifySignChange		special		none
+SignifySignChangeDelete		special		none
+SignifySignDelete		red		none
 
+#if get(g:Vsd, 'extra_highlight', 1)
 	# help
 	helpCommand		->	Type
 	helpSectionDelim	->	Directory
-	helpHeader      	->	PreProc
+	helpHeader		->	PreProc
 	helpHeadline		->	Statement
 	helpHyperTextEntry	->	String
-	helpHyperTextJump 	->	Identifier
-	helpExample	 	->	Comment
-	helpOption 	 	->	Type
-	helpSpecial 	 	->	Special
+	helpHyperTextJump	->	Identifier
+	helpExample		->	Comment
+	helpOption		->	Type
+	helpSpecial		->	Special
 
+	# Python
+	pythonBytesEscape		orange		none
+	pythonStrFormat			orange		none
+	pythonStrFormatting		orange		none
 
 	# C
-	cSpecial		red		none
+	cSpecial			orange		none
 	cBraces			->	NonText
 #endif
 

@@ -40,7 +40,7 @@ Color:	green		#7ab87a ~
 Color:	pink		#c9acd2 ~
 Color:	yellow		#dada93 ~
 Color:	special		#a9a9a9 ~
-Color:	cursor 		#dfaf87 ~
+Color:	cursor		#dfaf87 ~
 Color:	purple		#8787af ~
 Color:	cyan		#42dcd7 ~
 
@@ -101,12 +101,12 @@ hi Title	guifg=indianred
 hi Visual	gui=none guifg=khaki guibg=olivedrab
 hi WarningMsg	guifg=salmon
 hi IncSearch	guibg=slategrey guifg=khaki ctermbg=67 ctermfg=186 gui=none
-hi Search       ctermfg=223 ctermbg=172 guifg=wheat guibg=peru
+hi Search	ctermfg=223 ctermbg=172 guifg=wheat guibg=peru
 
 " popup menu
-hi Pmenu        guifg=#c8cc77 guibg=#636363 ctermfg=186 ctermbg=241
-hi PmenuSel     guifg=#555726 guibg=DarkGrey ctermfg=58 ctermbg=248
-hi PmenuiBar    guifg=#c8cc77 guibg=#636363 ctermfg=186  ctermbg=241
+hi Pmenu	guifg=#c8cc77 guibg=#636363 ctermfg=186 ctermbg=241
+hi PmenuSel	guifg=#555726 guibg=DarkGrey ctermfg=58 ctermbg=248
+hi PmenuiBar	guifg=#c8cc77 guibg=#636363 ctermfg=186  ctermbg=241
 
 " syntax highlighting groups
 hi Comment	guifg=SkyBlue
@@ -140,7 +140,7 @@ hi DiffText	cterm=bold ctermbg=1
 hi Comment	ctermfg=darkcyan
 hi Constant	ctermfg=brown
 hi Special	ctermfg=5
-hi Statement    ctermfg=186 cterm=bold
+hi Statement	ctermfg=186 cterm=bold
 hi PreProc	ctermfg=167
 hi Type		ctermfg=2 cterm=bold
 hi Underlined	cterm=underline ctermfg=5
@@ -164,7 +164,7 @@ PmenuThumb			sepia			lightgrey
 Todo				fg			red bold
 NonText				grey			none
 ColorColumn			fg			black
-Cursor			        background		cursor
+Cursor				background		cursor
 CursorLine			none			grey2
 CursorColumn		->	CursorLine
 Conceal				grey			none
@@ -194,10 +194,10 @@ Special				special			none
 Title				title			none
 # Delimiter			  guifg=#af5a5a
 
-SpellBad			red   			none undercurl
+SpellBad			red			none undercurl
 SpellCap			skyblue			none undercurl
 SpellLocal			skyblue			none undercurl
-SpellRare			pink  			none undercurl
+SpellRare			pink			none undercurl
 
 # CursorLineNr
 # MatchParen
@@ -210,40 +210,44 @@ SpellRare			pink  			none undercurl
 # ToolbarButton
 # ToolbarLine
 
-# DiffAdd        			fg	                green
+# DiffAdd				fg			green
 DiffChange			none			grey
 DiffDelete			red			none bold
-DiffText       			none			darkred bold
+DiffText			none			darkred bold
 
-diffAdded			green	                none
-diffChanged			special		        none
-diffRemoved			red	                none
-diffDiffer			special		        none bold
-diffFile			string		        none bold
-diffLine			sepia		        none italic
+diffAdded			green			none
+diffChanged			special			none
+diffRemoved			red			none
+diffDiffer			special			none bold
+diffFile			string			none bold
+diffLine			sepia			none italic
+
+# gutter
+GitGutterAdd			green		black
+GitGutterChange			special		black
+GitGutterChangeDelete		special		black
+GitGutterDelete			red		black
+SignifySignAdd			green		black
+SignifySignChange		special		black
+SignifySignChangeDelete		special		black
+SignifySignDelete		red		black
 
 #if get(g:Vsd, 'extra_highlight', 1)
-	# gutter
-	GitGutterAdd			green		black
-	GitGutterChange			special		black
-	GitGutterChangeDelete		special		black
-	GitGutterDelete			red		black
-	SignifySignAdd			green		black
-	SignifySignChange		special		black
-	SignifySignChangeDelete		special		black
-	SignifySignDelete		red		black
-
 	# help
 	helpCommand		->	Type
 	helpSectionDelim	->	PreProc
-	helpHeader      	->	PreProc
+	helpHeader		->	PreProc
 	helpHeadline		->	Statement
 	helpHyperTextEntry	->	Constant
-	helpHyperTextJump 	->	Identifier
-	helpExample	 	->	Comment
-	helpOption 	 	->	Type
-	helpSpecial 	 	->	SpecialKey
+	helpHyperTextJump	->	Identifier
+	helpExample		->	Comment
+	helpOption		->	Type
+	helpSpecial		->	SpecialKey
 
+	# Python
+	pythonBytesEscape		red		none
+	pythonStrFormat			red		none
+	pythonStrFormatting		red		none
 
 	# C
 	cSpecial			red		none

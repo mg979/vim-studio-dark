@@ -183,7 +183,7 @@ SignifySignDelete		red		none
 	pythonStrFormat			softred		none
 	pythonStrFormatting		softred		none
 
-	# c/cpp
+	# C
 	cSpecial			softred		none
 	cBraces			->	Delimiter
 #endif

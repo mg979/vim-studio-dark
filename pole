@@ -32,7 +32,7 @@ Color:	white		#d5d6d7		188	White
 Color:	foreground	#a2a8ad		248	LightGray
 Color:	gray2		#808080		8	DarkGray
 Color:	darkgray	#23242a		235	Black
-Color:	fold	 	#282d33		236	Black
+Color:	fold		#282d33		236	Black
 Color:	grayblue	#384048		238	Black
 Color:	search		#3b4d61		238	Black
 Color:	orange		#ff9800		208	Yellow
@@ -156,46 +156,41 @@ diffDiffer			darkyellow	none bold
 diffFile			purple		none bold
 diffLine			yellow		none italic
 
+# gutter
+GitGutterAdd			green		darkgray
+GitGutterChange			darkyellow	darkgray
+GitGutterChangeDelete		darkyellow	darkgray
+GitGutterDelete			red		darkgray
+SignifySignAdd			green		darkgray
+SignifySignChange		darkyellow	darkgray
+SignifySignChangeDelete		darkyellow	darkgray
+SignifySignDelete		red		darkgray
+
 #if get(g:Vsd, 'extra_highlight', 1)
-	# gutter
-	GitGutterAdd		green		darkgray
-	GitGutterChange		darkyellow	darkgray
-	GitGutterChangeDelete	darkyellow	darkgray
-	GitGutterDelete		red		darkgray
-	SignifySignAdd		green		darkgray
-	SignifySignChange	darkyellow	darkgray
-	SignifySignChangeDelete	darkyellow	darkgray
-	SignifySignDelete	red		darkgray
-
-	# Python
-	pythonDecorator		green		none
-	pythonDecoratorName	green		none
-	pythonException		darkblue	none
-	pythonExclass		cyan		none
-
 	# help
 	helpCommand		->	Type
 	helpSectionDelim	->	PreProc
-	helpHeader      	->	PreProc
+	helpHeader		->	PreProc
 	helpHeadline		->	Statement
 	helpHyperTextEntry	->	String
-	helpHyperTextJump 	->	Identifier
-	helpExample	 	->	Comment
-	helpOption 	 	->	Type
-	helpSpecial 	 	->	Special
-
+	helpHyperTextJump	->	Identifier
+	helpExample		->	Comment
+	helpOption		->	Type
+	helpSpecial		->	Special
 
 	# HTML
-	htmlTag			gray		none
-	htmlTagName		purple		none
-	htmlArg			white		none
+	htmlTag				gray		none
+	htmlTagName			purple		none
+	htmlArg				white		none
+
+	# Python
+	pythonBytesEscape		darkcyan	none
+	pythonStrFormat			darkcyan	none
+	pythonStrFormatting		darkcyan	none
 
 	# C
-	cSpecial		darkcyan	none
+	cSpecial			darkcyan	none
 	cBraces			->	Delimiter
-
-	# vimL
-	vimMapMod		->	Special
 #endif
 
 Variant: 256
