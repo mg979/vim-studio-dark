@@ -34,7 +34,7 @@ Color:	white		#ffffff		15	White
 
 Color:	background	#262626 ~
 Color:	selection	#264f78 ~
-Color:	comment		#999999 ~
+Color:	comment		#777777 ~
 Color:	brightblue	#61afef ~
 Color:	purple		#cc99cc ~
 Color:	window		#393939 ~
@@ -58,7 +58,7 @@ Normal				foreground	background
 
 EndOfBuffer			window		none
 LineNr				window		none
-NonText				window		none
+NonText				comment		none
 Search				background	special
 IncSearch			background	orange bold
 TabLine				window		fg reverse
