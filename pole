@@ -173,6 +173,18 @@ diffLine			yellow		none italic
 	pythonException		darkblue	none
 	pythonExclass		cyan		none
 
+	# help
+	helpCommand		->	Type
+	helpSectionDelim	->	PreProc
+	helpHeader      	->	PreProc
+	helpHeadline		->	Statement
+	helpHyperTextEntry	->	String
+	helpHyperTextJump 	->	Identifier
+	helpExample	 	->	Comment
+	helpOption 	 	->	Type
+	helpSpecial 	 	->	Special
+
+
 	# HTML
 	htmlTag			gray		none
 	htmlTagName		purple		none

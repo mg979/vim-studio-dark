@@ -126,8 +126,14 @@ if (has('termguicolors') && &termguicolors) || has('gui_running')
     hi SignifySignChangeDelete guifg=#f2c38f guibg=NONE guisp=NONE gui=NONE cterm=NONE
     hi SignifySignDelete guifg=#f2777a guibg=NONE guisp=NONE gui=NONE cterm=NONE
     hi! link helpCommand Type
-    hi! link helpSectionDelim PreProc
-    hi! link HelpHeadline Statement
+    hi! link helpSectionDelim Directory
+    hi! link helpHeader PreProc
+    hi! link helpHeadline Statement
+    hi! link helpHyperTextEntry String
+    hi! link helpHyperTextJump Identifier
+    hi! link helpExample Comment
+    hi! link helpOption Type
+    hi! link helpSpecial Special
     hi cSpecial guifg=#f2777a guibg=NONE guisp=NONE gui=NONE cterm=NONE
     hi! link cBraces NonText
   endif
@@ -278,8 +284,14 @@ if s:t_Co >= 256
     hi SignifySignChangeDelete ctermfg=223 ctermbg=NONE cterm=NONE
     hi SignifySignDelete ctermfg=210 ctermbg=NONE cterm=NONE
     hi! link helpCommand Type
-    hi! link helpSectionDelim PreProc
-    hi! link HelpHeadline Statement
+    hi! link helpSectionDelim Directory
+    hi! link helpHeader PreProc
+    hi! link helpHeadline Statement
+    hi! link helpHyperTextEntry String
+    hi! link helpHyperTextJump Identifier
+    hi! link helpExample Comment
+    hi! link helpOption Type
+    hi! link helpSpecial Special
     hi cSpecial ctermfg=210 ctermbg=NONE cterm=NONE
     hi! link cBraces NonText
   endif

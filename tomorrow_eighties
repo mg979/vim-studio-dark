@@ -160,8 +160,15 @@ Conceal			  	window	        none
 
 	# help
 	helpCommand		->	Type
-	helpSectionDelim	->	PreProc
-	HelpHeadline		->	Statement
+	helpSectionDelim	->	Directory
+	helpHeader      	->	PreProc
+	helpHeadline		->	Statement
+	helpHyperTextEntry	->	String
+	helpHyperTextJump 	->	Identifier
+	helpExample	 	->	Comment
+	helpOption 	 	->	Type
+	helpSpecial 	 	->	Special
+
 
 	# C
 	cSpecial		red		none

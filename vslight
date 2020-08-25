@@ -154,6 +154,8 @@ SignifySignDelete		red		lightgray
 	helpCommand		->	Type
 	helpSectionDelim	->	PreProc
 	HelpHeadline		->	Statement
+	helpHyperTextEntry	->	String
+	HelpHeadline		->	String
 
 	# python
 	pythonBytesEscape		darkred		none

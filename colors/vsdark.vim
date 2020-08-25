@@ -131,9 +131,15 @@ if (has('termguicolors') && &termguicolors) || has('gui_running')
     hi SignifySignChangeDelete guifg=#f2c38f guibg=NONE guisp=NONE gui=NONE cterm=NONE
     hi SignifySignDelete guifg=#ff0000 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     if get(g:Vsd, 'extra_highlight', 1)
-      hi! link helpCommand Type
-      hi! link helpSectionDelim PreProc
-      hi! link HelpHeadline Statement
+      hi! link helpCommand Comment
+      hi! link helpSectionDelim Folded
+      hi! link helpHeader PreProc
+      hi! link helpHeadline Statement
+      hi! link helpHyperTextEntry String
+      hi! link helpHyperTextJump Identifier
+      hi! link helpExample Comment
+      hi! link helpOption Type
+      hi! link helpSpecial Special
       hi pythonBytesEscape guifg=#ff5947 guibg=NONE guisp=NONE gui=NONE cterm=NONE
       hi pythonStrFormat guifg=#ff5947 guibg=NONE guisp=NONE gui=NONE cterm=NONE
       hi pythonStrFormatting guifg=#ff5947 guibg=NONE guisp=NONE gui=NONE cterm=NONE
@@ -278,6 +284,8 @@ if (has('termguicolors') && &termguicolors) || has('gui_running')
     hi! link helpCommand Type
     hi! link helpSectionDelim PreProc
     hi! link HelpHeadline Statement
+    hi! link helpHyperTextEntry String
+    hi! link HelpHeadline String
     hi pythonBytesEscape guifg=#a31515 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     hi pythonStrFormat guifg=#a31515 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     hi pythonStrFormatting guifg=#a31515 guibg=NONE guisp=NONE gui=NONE cterm=NONE
@@ -401,9 +409,15 @@ if s:t_Co >= 256
     hi SignifySignChangeDelete ctermfg=223 ctermbg=NONE cterm=NONE
     hi SignifySignDelete ctermfg=196 ctermbg=NONE cterm=NONE
     if get(g:Vsd, 'extra_highlight', 1)
-      hi! link helpCommand Type
-      hi! link helpSectionDelim PreProc
-      hi! link HelpHeadline Statement
+      hi! link helpCommand Comment
+      hi! link helpSectionDelim Folded
+      hi! link helpHeader PreProc
+      hi! link helpHeadline Statement
+      hi! link helpHyperTextEntry String
+      hi! link helpHyperTextJump Identifier
+      hi! link helpExample Comment
+      hi! link helpOption Type
+      hi! link helpSpecial Special
       hi pythonBytesEscape ctermfg=203 ctermbg=NONE cterm=NONE
       hi pythonStrFormat ctermfg=203 ctermbg=NONE cterm=NONE
       hi pythonStrFormatting ctermfg=203 ctermbg=NONE cterm=NONE
@@ -529,6 +543,8 @@ if s:t_Co >= 256
     hi! link helpCommand Type
     hi! link helpSectionDelim PreProc
     hi! link HelpHeadline Statement
+    hi! link helpHyperTextEntry String
+    hi! link HelpHeadline String
     hi pythonBytesEscape ctermfg=124 ctermbg=NONE cterm=NONE
     hi pythonStrFormat ctermfg=124 ctermbg=NONE cterm=NONE
     hi pythonStrFormatting ctermfg=124 ctermbg=NONE cterm=NONE

@@ -168,9 +168,15 @@ SignifySignDelete		red		none
 
 #if get(g:Vsd, 'extra_highlight', 1)
 	# help
-	helpCommand		->	Type
-	helpSectionDelim	->	PreProc
-	HelpHeadline		->	Statement
+	helpCommand		->	Comment
+	helpSectionDelim	->	Folded
+	helpHeader      	->	PreProc
+	helpHeadline		->	Statement
+	helpHyperTextEntry	->	String
+	helpHyperTextJump 	->	Identifier
+	helpExample	 	->	Comment
+	helpOption 	 	->	Type
+	helpSpecial 	 	->	Special
 
 	# python
 	pythonBytesEscape		softred		none

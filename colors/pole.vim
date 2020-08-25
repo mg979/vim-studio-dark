@@ -145,6 +145,15 @@ if (has('termguicolors') && &termguicolors) || has('gui_running')
     hi pythonDecoratorName guifg=#54ca91 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     hi pythonException guifg=#58678c guibg=NONE guisp=NONE gui=NONE cterm=NONE
     hi pythonExclass guifg=#54c5ca guibg=NONE guisp=NONE gui=NONE cterm=NONE
+    hi! link helpCommand Type
+    hi! link helpSectionDelim PreProc
+    hi! link helpHeader PreProc
+    hi! link helpHeadline Statement
+    hi! link helpHyperTextEntry String
+    hi! link helpHyperTextJump Identifier
+    hi! link helpExample Comment
+    hi! link helpOption Type
+    hi! link helpSpecial Special
     hi htmlTag guifg=#626870 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     hi htmlTagName guifg=#ad85cc guibg=NONE guisp=NONE gui=NONE cterm=NONE
     hi htmlArg guifg=#d5d6d7 guibg=NONE guisp=NONE gui=NONE cterm=NONE
@@ -265,6 +274,15 @@ if s:t_Co >= 256
     hi pythonDecoratorName ctermfg=42 ctermbg=NONE cterm=NONE
     hi pythonException ctermfg=60 ctermbg=NONE cterm=NONE
     hi pythonExclass ctermfg=80 ctermbg=NONE cterm=NONE
+    hi! link helpCommand Type
+    hi! link helpSectionDelim PreProc
+    hi! link helpHeader PreProc
+    hi! link helpHeadline Statement
+    hi! link helpHyperTextEntry String
+    hi! link helpHyperTextJump Identifier
+    hi! link helpExample Comment
+    hi! link helpOption Type
+    hi! link helpSpecial Special
     hi htmlTag ctermfg=242 ctermbg=NONE cterm=NONE
     hi htmlTagName ctermfg=140 ctermbg=NONE cterm=NONE
     hi htmlArg ctermfg=188 ctermbg=NONE cterm=NONE

@@ -236,7 +236,14 @@ diffLine			sepia		        none italic
 	# help
 	helpCommand		->	Type
 	helpSectionDelim	->	PreProc
-	HelpHeadline		->	Statement
+	helpHeader      	->	PreProc
+	helpHeadline		->	Statement
+	helpHyperTextEntry	->	Constant
+	helpHyperTextJump 	->	Identifier
+	helpExample	 	->	Comment
+	helpOption 	 	->	Type
+	helpSpecial 	 	->	SpecialKey
+
 
 	# C
 	cSpecial			red		none
