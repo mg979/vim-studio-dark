@@ -41,7 +41,7 @@ if (has('termguicolors') && &termguicolors) || has('gui_running')
     endif
     hi Normal guifg=#c0d0d0 guibg=#1e1e1e guisp=NONE gui=NONE cterm=NONE
     let g:Vsd = get(g:, 'Vsd', {})
-    call vsd#init('vsdark')
+    silent! call vsd#init('vsdark')
     hi MatchParen guifg=#ff0000 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     hi CursorLineNr guifg=#83afe5 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     hi Visual guifg=NONE guibg=#204366 guisp=NONE gui=NONE cterm=NONE
@@ -183,7 +183,7 @@ if (has('termguicolors') && &termguicolors) || has('gui_running')
   endif
   hi Normal guifg=#1e1e1e guibg=#b2b2b2 guisp=NONE gui=NONE cterm=NONE
   let g:Vsd = get(g:, 'Vsd', {})
-  call vsd#init('vslight')
+  silent! call vsd#init('vslight')
   hi MatchParen guifg=#ff0000 guibg=NONE guisp=NONE gui=NONE cterm=NONE
   hi CursorLineNr guifg=#2222ff guibg=#c6c6c6 guisp=NONE gui=NONE cterm=NONE
   hi Visual guifg=NONE guibg=#c6c6c6 guisp=NONE gui=NONE cterm=NONE
@@ -311,7 +311,7 @@ if s:t_Co >= 256
       set background=dark
     endif
     let g:Vsd = get(g:, 'Vsd', {})
-    call vsd#init('vsdark')
+    silent! call vsd#init('vsdark')
     hi MatchParen ctermfg=196 ctermbg=NONE cterm=NONE
     hi CursorLineNr ctermfg=110 ctermbg=NONE cterm=NONE
     hi Visual ctermfg=NONE ctermbg=19 cterm=NONE
@@ -434,7 +434,7 @@ if s:t_Co >= 256
   " Light background
   hi Normal ctermfg=234 ctermbg=249 cterm=NONE
   let g:Vsd = get(g:, 'Vsd', {})
-  call vsd#init('vslight')
+  silent! call vsd#init('vslight')
   hi MatchParen ctermfg=9 ctermbg=NONE cterm=NONE
   hi CursorLineNr ctermfg=21 ctermbg=251 cterm=NONE
   hi Visual ctermfg=NONE ctermbg=251 cterm=NONE

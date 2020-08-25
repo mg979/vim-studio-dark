@@ -42,7 +42,7 @@ if (has('termguicolors') && &termguicolors) || has('gui_running')
   endif
   hi Normal guifg=#cccccc guibg=#262626 guisp=NONE gui=NONE cterm=NONE
   let g:Vsd = get(g:, 'Vsd', {})
-  call vsd#init('tomorrow_eighties')
+  silent! call vsd#init('tomorrow_eighties')
   hi EndOfBuffer guifg=#393939 guibg=NONE guisp=NONE gui=NONE cterm=NONE
   hi LineNr guifg=#393939 guibg=NONE guisp=NONE gui=NONE cterm=NONE
   hi NonText guifg=#393939 guibg=NONE guisp=NONE gui=NONE cterm=NONE
@@ -194,7 +194,7 @@ if s:t_Co >= 256
     set background=dark
   endif
   let g:Vsd = get(g:, 'Vsd', {})
-  call vsd#init('tomorrow_eighties')
+  silent! call vsd#init('tomorrow_eighties')
   hi EndOfBuffer ctermfg=237 ctermbg=NONE cterm=NONE
   hi LineNr ctermfg=237 ctermbg=NONE cterm=NONE
   hi NonText ctermfg=237 ctermbg=NONE cterm=NONE

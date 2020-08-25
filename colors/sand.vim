@@ -42,7 +42,7 @@ if (has('termguicolors') && &termguicolors) || has('gui_running')
   endif
   hi Normal guifg=#c6c6b9 guibg=#2d2d2d guisp=NONE gui=NONE cterm=NONE
   let g:Vsd = get(g:, 'Vsd', {})
-  call vsd#init('sand')
+  silent! call vsd#init('sand')
 
   " highlight groups
   hi Cursor	guibg=khaki guifg=slategrey
@@ -227,7 +227,7 @@ if s:t_Co >= 256
     set background=dark
   endif
   let g:Vsd = get(g:, 'Vsd', {})
-  call vsd#init('sand')
+  silent! call vsd#init('sand')
 
   " highlight groups
   hi Cursor	guibg=khaki guifg=slategrey

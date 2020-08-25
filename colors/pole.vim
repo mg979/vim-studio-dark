@@ -42,7 +42,7 @@ if (has('termguicolors') && &termguicolors) || has('gui_running')
   endif
   hi Normal guifg=#a2a8ad guibg=#25262e guisp=NONE gui=NONE cterm=NONE
   let g:Vsd = get(g:, 'Vsd', {})
-  call vsd#init('pole')
+  silent! call vsd#init('pole')
   hi Comment guifg=#626870 guibg=NONE guisp=NONE gui=italic cterm=italic
   hi Constant guifg=#ff9800 guibg=NONE guisp=NONE gui=NONE cterm=NONE
   hi String guifg=#ee6a6a guibg=NONE guisp=NONE gui=NONE cterm=NONE
@@ -162,7 +162,7 @@ if s:t_Co >= 256
     set background=dark
   endif
   let g:Vsd = get(g:, 'Vsd', {})
-  call vsd#init('pole')
+  silent! call vsd#init('pole')
   hi Comment ctermfg=242 ctermbg=NONE cterm=italic
   hi Constant ctermfg=208 ctermbg=NONE cterm=NONE
   hi String ctermfg=203 ctermbg=NONE cterm=NONE
