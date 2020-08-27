@@ -60,11 +60,10 @@ Color:	    string		#8d8d8d ~
 # Color:	    lightred		#df8c8c ~
 # #98BC99
 
-Term Colors: background		darkred		green		peru
-Term Colors: darkblue		purple		darkcyan	lightgrey
+Term Colors: background		red		green		yellow
+Term Colors: darkcyan		purple		skyblue		lightgrey
 Term Colors: grey		red		palegreen	yellow
 Term Colors: skyblue		pink		cyan		white
-
 
 #===================================================================
 # Normal group
@@ -72,8 +71,11 @@ Term Colors: skyblue		pink		cyan		white
 
 Normal				foreground		background
 
-#let g:Vsd = get(g:, 'Vsd', {})
-#call vsd#init('sand')
+verbatim
+	let g:Vsd = get(g:, 'Vsd', {})
+	silent! call vsd#init('sand')
+endverbatim
+
 
 #===================================================================
 # Original desert.vim (with some tweaks for gui/cterm consistency)
@@ -257,46 +259,6 @@ SignifySignDelete		red		black
 # Terminals {{{2
 
 verbatim
-let g:terminal_ansi_colors = [
-	\ "#3C4C55",
-	\ "#DF8C8C",
-	\ "#A8CE93",
-	\ "#DADA93",
-	\ "#83AFE5",
-	\ "#9A93E1",
-	\ "#83AFE5",
-	\ "#C5D4DD",
-	\ "#608b4e",
-	\ "#F2C38F",
-	\ "#A8CE93",
-	\ "#DADA93",
-	\ "#83AFE5",
-	\ "#D18EC2",
-	\ "#83AFE5",
-	\ "#E6EEF3"
-	\]
-
-" NEOVIM TERMINAL MODE
-let g:terminal_color_foreground = "#e6e1dc"
-let g:terminal_color_background = "#2b2b2b"
-let g:terminal_color_0 = "#2b2b2b"
-let g:terminal_color_8 = "#5a647e"
-let g:terminal_color_1 = "#da4939"
-let g:terminal_color_9 = "#da4939"
-let g:terminal_color_2 = "#a5c261"
-let g:terminal_color_10 = "#a5c261"
-let g:terminal_color_3 = "#ffc66d"
-let g:terminal_color_11 = "#ffc66d"
-let g:terminal_color_4 = "#6d9cbe"
-let g:terminal_color_12 = "#6d9cbe"
-let g:terminal_color_5 = "#b6b3eb"
-let g:terminal_color_13 = "#b6b3eb"
-let g:terminal_color_6 = "#519f50"
-let g:terminal_color_14 = "#519f50"
-let g:terminal_color_7 = "#e6e1dc"
-let g:terminal_color_15 = "#f9f7f3"
-
-" FZF
 let g:fzf_colors = {
 	\ "fg":      ["fg", "Normal"],
 	\ "bg":      ["bg", "Normal"],

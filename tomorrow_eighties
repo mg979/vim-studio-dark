@@ -38,12 +38,19 @@ Color:	comment		#777777 ~
 Color:	brightblue	#61afef ~
 Color:	purple		#cc99cc ~
 Color:	window		#393939 ~
-Color:	special		#f2c38f ~
+Color:	special		#666666 ~
 
-Term Colors: background		darkred		darkgreen	orange
-Term Colors: darkblue		purple		darkcyan	foreground
-Term Colors: darkgray		red		green		yellow
-Term Colors: blue		magenta		cyan		white
+Color:  term0  		#000000 ~
+Color:  term8  		#666666 ~
+Color:  term9  		#ff3334 ~
+Color:  term10 		#9ec400 ~
+Color:  term13 		#b777e0 ~
+Color:  term14 		#54ced6 ~
+
+Term Colors: term0	red	green		orange
+Term Colors: blue	purple	darkcyan	window
+Term Colors: term8	term9	term10		yellow
+Term Colors: blue	term13	term14		window
 
 
 
@@ -53,8 +60,10 @@ Term Colors: blue		magenta		cyan		white
 
 Normal				foreground	background
 
-#let g:Vsd = get(g:, 'Vsd', {})
-#call vsd#init('tomorrow_eighties')
+verbatim
+	let g:Vsd = get(g:, 'Vsd', {})
+	silent! call vsd#init('tomorrow_eighties')
+endverbatim
 
 EndOfBuffer			window		none
 LineNr				window		none
@@ -91,17 +100,17 @@ Title				yellow		none
 Constant			orange		none
 String				green		none
 
-Identifier			fg		none italic
+Identifier			red		none
 Function			brightblue	none
 
 Statement			red		none
-Conditional			blue		none
-Repeat				blue		none
-Label				blue		none
+Conditional			purple		none
+Repeat				purple		none
+Label				purple		none
 Operator			darkcyan	none
 
-Type				yellow		none
-Structure			yellow		none
+Type				blue		none
+Structure			blue		none
 Special				special		none
 SpecialKey			special		none
 
@@ -176,56 +185,19 @@ SignifySignDelete		red		none
 
 	# C
 	cSpecial			orange		none
-	cBraces			->	NonText
+	cBraces			->	Delimiter
 #endif
 
 # Terminals {{{2
 
+
 verbatim
-let g:terminal_ansi_colors = [
-	\ "#3C4C55",
-	\ "#DF8C8C",
-	\ "#A8CE93",
-	\ "#DADA93",
-	\ "#83AFE5",
-	\ "#9A93E1",
-	\ "#83AFE5",
-	\ "#C5D4DD",
-	\ "#608b4e",
-	\ "#F2C38F",
-	\ "#A8CE93",
-	\ "#DADA93",
-	\ "#83AFE5",
-	\ "#D18EC2",
-	\ "#83AFE5",
-	\ "#E6EEF3"
-	\]
-
-" NEOVIM TERMINAL MODE
-let g:terminal_color_0 = "#3C4C55"
-let g:terminal_color_1 = "#DF8C8C"
-let g:terminal_color_2 = "#A8CE93"
-let g:terminal_color_3 = "#DADA93"
-let g:terminal_color_4 = "#83AFE5"
-let g:terminal_color_5 = "#9A93E1"
-let g:terminal_color_6 = "#83AFE5"
-let g:terminal_color_7 = "#C5D4DD"
-let g:terminal_color_8 = "#608b4e"
-let g:terminal_color_9 = "#F2C38F"
-let g:terminal_color_10 = "#A8CE93"
-let g:terminal_color_11 = "#DADA93"
-let g:terminal_color_12 = "#83AFE5"
-let g:terminal_color_13 = "#D18EC2"
-let g:terminal_color_14 = "#83AFE5"
-let g:terminal_color_15 = "#E6EEF3"
-
-" FZF
 let g:fzf_colors = {
 	\ "fg":      ["fg", "Normal"],
-	\ "none":      ["none", "Normal"],
+	\ "none":    ["none", "Normal"],
 	\ "hl":      ["fg", "Conditional"],
 	\ "fg+":     ["fg", "CursorLine", "CursorColumn", "Normal"],
-	\ "none+":     ["none", "CursorLine", "CursorColumn"],
+	\ "none+":   ["none", "CursorLine", "CursorColumn"],
 	\ "hl+":     ["fg", "Conditional"],
 	\ "info":    ["fg", "Conditional"],
 	\ "border":  ["fg", "Ignore"],

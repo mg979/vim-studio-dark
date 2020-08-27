@@ -46,8 +46,11 @@ Term Colors: blue		magenta		cyan		white
 
 Normal		foreground	background
 
-#let g:Vsd = get(g:, 'Vsd', {})
-#call vsd#init('pole')
+verbatim
+	let g:Vsd = get(g:, 'Vsd', {})
+	silent! call vsd#init('pole')
+endverbatim
+
 
 # Directory
 # EnumerationName
