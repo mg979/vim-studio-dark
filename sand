@@ -55,7 +55,7 @@ Color:	cyan		#42dcd7 ~
 # Color:	    cyangrey		#7fc1ca ~
 # Color:	    cyan		#42dcd7 ~
 # Color:	    purple		#9a93e1 ~
-Color:	    string		#8d8d8d ~
+Color:	    string		#cc8080 ~
 # Color:	    string		#ce9178 ~
 # Color:	    lightred		#df8c8c ~
 # #98BC99
@@ -185,8 +185,8 @@ TabLineSel			cursor			black
 # Constant			constant		none
 # Function			  guifg=#999900
 # Type				purple none
-Identifier			skyblue		none italic
-Statement			green		none bold
+Identifier			skyblue		none
+Statement			green		none
 # Number		  ->	  Identifier
 # Boolean		  ->	  Identifier
 String				string			none
