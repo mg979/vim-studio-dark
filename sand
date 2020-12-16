@@ -27,6 +27,7 @@ Color:	darkblue	#58678c		60	DarkBlue
 Color:	grey		#4d4d4d ~
 Color:	darkcyan	#008080		6	DarkCyan
 Color:	grey2		#404040 ~
+Color:	grey15		#262626 ~
 Color:	darkgrey	#333333 ~
 Color:	sepia		#999966 ~
 Color:	title		#ed8e5e ~
@@ -41,6 +42,7 @@ Color:	pink		#c9acd2 ~
 Color:	yellow		#dada93 ~
 Color:	special		#a9a9a9 ~
 Color:	cursor		#dfaf87 ~
+Color:  darkkhaki	#bdb76b ~
 Color:	purple		#8787af ~
 Color:	cyan		#42dcd7 ~
 
@@ -97,8 +99,6 @@ hi MoreMsg	guifg=SeaGreen
 hi NonText	guifg=LightBlue guibg=grey30
 hi Question	guifg=springgreen
 hi SpecialKey	guifg=yellowgreen
-hi StatusLine	guibg=#c2bfa5 guifg=black gui=none
-hi StatusLineNC	guibg=#c2bfa5 guifg=grey50 gui=none
 hi Title	guifg=indianred
 hi Visual	gui=none guifg=khaki guibg=olivedrab
 hi WarningMsg	guifg=salmon
@@ -107,7 +107,7 @@ hi Search	ctermfg=223 ctermbg=172 guifg=wheat guibg=peru
 
 " popup menu
 hi Pmenu	guifg=#c8cc77 guibg=#636363 ctermfg=186 ctermbg=241
-hi PmenuSel	guifg=#555726 guibg=DarkGrey ctermfg=58 ctermbg=248
+hi PmenuSel	guifg=#555726 guibg=DarkGrey ctermfg=58 ctermbg=248 cterm=bold
 hi PmenuiBar	guifg=#c8cc77 guibg=#636363 ctermfg=186  ctermbg=241
 
 " syntax highlighting groups
@@ -128,8 +128,6 @@ hi MoreMsg	ctermfg=darkgreen
 hi ModeMsg	cterm=NONE ctermfg=brown
 hi LineNr	ctermfg=3
 hi Question	ctermfg=green
-hi StatusLine	cterm=bold,reverse
-hi StatusLineNC cterm=reverse
 hi Title	ctermfg=5
 hi Visual	cterm=none ctermfg=186 ctermbg=64
 hi VisualNOS	cterm=bold,underline
@@ -163,11 +161,14 @@ MatchParen			red			black bold
 # PmenuSbar			none			black
 PmenuThumb			sepia			lightgrey
 
+StatusLine			darkkhaki		grey15
+StatusLineNC			grey15			grey15
+
 Todo				fg			red bold
 NonText				grey			none
 ColorColumn			fg			black
 Cursor				background		cursor
-CursorLine			none			grey2
+CursorLine			none			darkgrey
 CursorColumn		->	CursorLine
 Conceal				grey			none
 Ignore				grey			none
@@ -201,7 +202,7 @@ SpellCap			skyblue			none undercurl
 SpellLocal			skyblue			none undercurl
 SpellRare			pink			none undercurl
 
-# CursorLineNr
+CursorLineNr			yellow			none
 # MatchParen
 # QuickFixLine
 # StatusLineTerm
