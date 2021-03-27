@@ -16,9 +16,9 @@ fun! vsd#init(scheme) abort
           \          ['#181818', '233']]
 
   elseif a:scheme == 'vslight'
-    let contrast = [ ['#a8a8a8', '248'],
-          \          ['#b2b2b2', '249'],
-          \          ['#bdbdbd', '250']]
+    let contrast = [ ['#e4e4e4', '254'],
+          \          ['#eeeeee', '255'],
+          \          ['#ffffff', '15']]
 
   elseif a:scheme == 'sand'
     let contrast = [ ['#3a3a3a', '237'],

@@ -9,25 +9,26 @@ Background: light
 Color:	black		#1e1e1e		234	Black
 Color:	darkred		#a31515		124	DarkRed
 Color:	darkgreen	#003f00		22	DarkGreen
-Color:	darkyellow	#ffbc29		214	DarkYellow
-Color:	darkblue	#000080		4	DarkBlue
-Color:	darkmagenta	#6f008a		54	DarkMagenta
-Color:	darkcyan	#0070af		25	DarkCyan
-Color:	lightgray	#c6c6c6		251	LightGray
+Color:	darkyellow	#f8c9ab		223	DarkYellow
+Color:	darkblue	#000080		18	DarkBlue
+Color:	darkmagenta	#af00db		128	DarkMagenta
+Color:	darkcyan	#007ACC		32	DarkCyan
+Color:	lightgray	#f3f3f3		255	LightGray
 Color:	darkgray	#606060		241	DarkGray
-Color:	red		#ff0000		9	Red
-Color:	green		#006600		22	DarkGreen
+Color:	red		#ff0000		196	Red
+Color:	green		#008000		28	DarkGreen
 Color:	yellow		#f2c38f		223	Yellow
-Color:	blue		#2222ff		21	Blue
+Color:	blue		#0000ff		21	Blue
 Color:	magenta		#c586c0		176	Magenta
-Color:	cyan		#7fc1ca		109	Cyan
-Color:	background	#b2b2b2		249	LightGray
+Color:	cyan		#ADD6FF		153	Cyan
+Color:	background	#ffffff		231	White
 
 ; More Colors {{{1
 
-Color:	white		#d0d0d0		250	LightGray
+Color:	gray		#cecece		252	LightGray
 Color:	verydark	#333333		236	Black
-Color:	special		#682900		88	Brown
+Color:	special		#811f3f		125	Brown
+Color:	function	#795E26		94	Brown
 
 Term Colors: black darkred darkgreen special darkblue darkmagenta darkcyan lightgray
 Term Colors: darkgray red green darkyellow blue darkmagenta darkcyan background
@@ -46,12 +47,12 @@ endverbatim
 
 MatchParen			red		none
 CursorLineNr			blue		lightgray
-Visual				none		lightgray
+Visual				none		cyan
 VisualNOS			none		lightgray
-Folded				blue		none
-FoldColumn			blue		none
-IncSearch			yellow		special
-Search				darkcyan	darkyellow
+Folded				darkgray	lightgray
+FoldColumn			darkgray	lightgray
+IncSearch			special		darkyellow bold
+Search				none		darkyellow
 Question			blue		darkyellow
 MoreMsg				blue		none
 ModeMsg				blue		none
@@ -70,8 +71,8 @@ SpellCap			darkmagenta	none undercurl
 SpellLocal			darkcyan	none undercurl
 SpellRare			darkmagenta	none undercurl
 
-Pmenu				verydark	white
-PmenuSel			white		darkcyan
+Pmenu				verydark	gray
+PmenuSel			gray		darkcyan
 PmenuThumb			blue		blue
 PmenuSbar			darkgreen	darkgreen
 WildMenu			->		PmenuSel
@@ -102,20 +103,20 @@ TabLineFill			fg		lightgray
 ToolbarLine			lightgray	blue
 ToolbarButton			blue		lightgray
 
-Constant			darkmagenta	none
-String				darkgray	none
+Constant			blue		none
+String				darkred		none
 Number				fg		none bold
 Directory			blue		none
 
 Identifier			verydark	none bold
-Function			verydark	none bold
+Function			function	none bold
 
-Statement			blue		none bold
+Statement			darkmagenta	none
 Conditional			->		Statement
 Repeat				->		Statement
 Exception			->		Statement
 Operator			verydark	none
-Keyword				darkmagenta	none
+Keyword				->		Statement
 
 PreProc				darkmagenta	none
 Include				->		PreProc
@@ -123,7 +124,7 @@ Define				->		PreProc
 Macro				->		PreProc
 PreCondit			->		PreProc
 
-Type				darkred		none
+Type				blue		none
 
 Underlined			darkmagenta	none underline
 Special				special		none
@@ -160,13 +161,13 @@ SignifySignDelete		red		lightgray
 	HelpHeadline		->	String
 
 	; python
-	pythonBytesEscape		darkred		none
-	pythonStrFormat			darkred		none
-	pythonStrFormatting		darkred		none
+	pythonBytesEscape		special		none
+	pythonStrFormat			special		none
+	pythonStrFormatting		special		none
 	pythonOperator		->	Statement
 
 	; c/cpp
-	cSpecial			darkred		none
+	cSpecial			special		none
 	cBraces			->	Delimiter
 #endif
 
