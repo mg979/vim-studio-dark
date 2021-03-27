@@ -184,6 +184,7 @@ SignifySignDelete		red		none
 	pythonBytesEscape		softred		none
 	pythonStrFormat			softred		none
 	pythonStrFormatting		softred		none
+	pythonOperator		->	Statement
 
 	; C
 	cSpecial			softred		none

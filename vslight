@@ -163,6 +163,7 @@ SignifySignDelete		red		lightgray
 	pythonBytesEscape		darkred		none
 	pythonStrFormat			darkred		none
 	pythonStrFormatting		darkred		none
+	pythonOperator		->	Statement
 
 	; c/cpp
 	cSpecial			darkred		none
