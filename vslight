@@ -1,10 +1,10 @@
-#===================================================================
-# Light variant
-#===================================================================
+;===================================================================
+; Light variant
+;===================================================================
 
 Background: light
 
-# Basic 16 Colors {{{1
+; Basic 16 Colors {{{1
 
 Color:	black		#1e1e1e		234	Black
 Color:	darkred		#a31515		124	DarkRed
@@ -23,7 +23,7 @@ Color:	magenta		#c586c0		176	Magenta
 Color:	cyan		#7fc1ca		109	Cyan
 Color:	background	#b2b2b2		249	LightGray
 
-# More Colors {{{1
+; More Colors {{{1
 
 Color:	white		#d0d0d0		250	LightGray
 Color:	verydark	#333333		236	Black
@@ -33,9 +33,9 @@ Term Colors: black darkred darkgreen special darkblue darkmagenta darkcyan light
 Term Colors: darkgray red green darkyellow blue darkmagenta darkcyan background
 
 
-#===================================================================
-# Highlight groups
-#===================================================================
+;===================================================================
+; Highlight groups
+;===================================================================
 
 Normal				black		background
 
@@ -139,9 +139,9 @@ Cursor				lightgray	blue
 Command				darkmagenta	none
 QuickFixLine			->		Search
 
-# extra highlight {{{2
+; extra highlight {{{2
 
-# gutter
+; gutter
 GitGutterAdd			darkgreen	lightgray
 GitGutterChange			special		lightgray
 GitGutterChangeDelete		special		lightgray
@@ -152,21 +152,21 @@ SignifySignChangeDelete		special		lightgray
 SignifySignDelete		red		lightgray
 
 #if get(g:Vsd, 'extra_highlight', 1)
-	# help
+	; help
 	helpCommand		->	Type
 	helpSectionDelim	->	PreProc
 	HelpHeadline		->	Statement
 	helpHyperTextEntry	->	String
 	HelpHeadline		->	String
 
-	# python
+	; python
 	pythonBytesEscape		darkred		none
 	pythonStrFormat			darkred		none
 	pythonStrFormatting		darkred		none
 
-	# c/cpp
+	; c/cpp
 	cSpecial			darkred		none
 	cBraces			->	Delimiter
 #endif
 
-# vim: ft=colortemplate
+; vim: ft=colortemplate

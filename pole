@@ -4,11 +4,11 @@ Author:     https://github.com/Alvarocz/
 Maintainer: Gianmaria Bajo <mg1979.git@gmail.com>
 Neovim:	    yes
 
-# Original name: northpole
+; Original name: northpole
 
 Background: dark
 
-# Basic 16 Colors {{{1
+; Basic 16 Colors {{{1
 
 Color:	background	#25262e		235	Black
 Color:	darkred		#800000		1	DarkRed
@@ -27,7 +27,7 @@ Color:	magenta		#ff00ff		13	Magenta
 Color:	cyan		#54c5ca		80	Cyan
 Color:	white		#d5d6d7		188	White
 
-# More Colors {{{1
+; More Colors {{{1
 
 Color:	foreground	#a2a8ad		248	LightGray
 Color:	gray2		#808080		8	DarkGray
@@ -52,15 +52,15 @@ verbatim
 endverbatim
 
 
-# Directory
-# EnumerationName
-# EnumerationValue
-# Ignore
-# SignColumn
-# Underlined
-# Union
-# WarningMsg
-# WildMenu
+; Directory
+; EnumerationName
+; EnumerationValue
+; Ignore
+; SignColumn
+; Underlined
+; Union
+; WarningMsg
+; WildMenu
 
 Comment		gray		none		italic
 
@@ -137,13 +137,13 @@ Conceal		gray2		darkgray	italic
 NonText		grayblue	none
 Todo		yellow		darkblue	bold
 
-# TODO
+; TODO
 SpellBad	red		none		undercurl
 SpellCap	green		none		undercurl
 SpellLocal	blue		none		undercurl
 SpellRare	purple		none		undercurl
 
-# Diff
+; Diff
 DiffDelete		darkred		none
 
 verbatim
@@ -159,7 +159,7 @@ diffDiffer			darkyellow	none bold
 diffFile			purple		none bold
 diffLine			yellow		none italic
 
-# gutter
+; gutter
 GitGutterAdd			green		darkgray
 GitGutterChange			darkyellow	darkgray
 GitGutterChangeDelete		darkyellow	darkgray
@@ -170,7 +170,7 @@ SignifySignChangeDelete		darkyellow	darkgray
 SignifySignDelete		red		darkgray
 
 #if get(g:Vsd, 'extra_highlight', 1)
-	# help
+	; help
 	helpCommand		->	Type
 	helpSectionDelim	->	PreProc
 	helpHeader		->	PreProc
@@ -181,17 +181,17 @@ SignifySignDelete		red		darkgray
 	helpOption		->	Type
 	helpSpecial		->	Special
 
-	# HTML
+	; HTML
 	htmlTag				gray		none
 	htmlTagName			purple		none
 	htmlArg				white		none
 
-	# Python
+	; Python
 	pythonBytesEscape		darkcyan	none
 	pythonStrFormat			darkcyan	none
 	pythonStrFormatting		darkcyan	none
 
-	# C
+	; C
 	cSpecial			darkcyan	none
 	cBraces			->	Delimiter
 #endif
@@ -199,4 +199,4 @@ SignifySignDelete		red		darkgray
 Variant: 256
 Folded		gray2		darkgray	italic
 
-# vim: ft=colortemplate
+; vim: ft=colortemplate

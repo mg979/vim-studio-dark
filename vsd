@@ -6,13 +6,13 @@ Neovim:	    yes
 
 Include: vslight
 
-#===================================================================
-# Dark variant
-#===================================================================
+;===================================================================
+; Dark variant
+;===================================================================
 
 Background: dark
 
-# Basic 16 Colors {{{1
+; Basic 16 Colors {{{1
 
 Color:	black		#1e1e1e		234	Black
 Color:	darkred		#730b00		88	DarkRed
@@ -31,7 +31,7 @@ Color:	pink		#c586c0		176	Magenta
 Color:	cyan		#42dcd7		44	Cyan
 Color:	white		#c0d0d0		252	White
 
-# More Colors {{{1
+; More Colors {{{1
 
 Color:	lightblue	#83afe5		110	DarkCyan
 Color:	nightblue	#212733		235	DarkBlue
@@ -49,9 +49,9 @@ Term Colors: grey lightred lightgreen yellow lightblue purple lightblue identifi
 Term Colors: darkgreen darkyellow lightgreen yellow lightblue pink lightblue white
 
 
-#===================================================================
-# Highlight groups
-#===================================================================
+;===================================================================
+; Highlight groups
+;===================================================================
 
 Normal				white	black
 
@@ -156,9 +156,9 @@ Command				pink		none
 QuickFixLine		->	Search
 Delimiter		->	Special
 
-# extra highlight {{{2
+; extra highlight {{{2
 
-# gutter
+; gutter
 GitGutterAdd			green		none
 GitGutterChange			darkyellow	none
 GitGutterChangeDelete		darkyellow	none
@@ -169,7 +169,7 @@ SignifySignChangeDelete		darkyellow	none
 SignifySignDelete		red		none
 
 #if get(g:Vsd, 'extra_highlight', 1)
-	# help
+	; help
 	helpCommand		->	Comment
 	helpSectionDelim	->	Folded
 	helpHeader      	->	PreProc
@@ -180,17 +180,17 @@ SignifySignDelete		red		none
 	helpOption 	 	->	Type
 	helpSpecial 	 	->	Special
 
-	# python
+	; python
 	pythonBytesEscape		softred		none
 	pythonStrFormat			softred		none
 	pythonStrFormatting		softred		none
 
-	# C
+	; C
 	cSpecial			softred		none
 	cBraces			->	Delimiter
 #endif
 
-# Terminals {{{2
+; Terminals {{{2
 
 verbatim
 let g:fzf_colors = {
@@ -214,4 +214,4 @@ Variant: 256
 FoldColumn			skyblue		none
 VertSplit			darkgrey	zero
 
-# vim: ft=colortemplate
+; vim: ft=colortemplate

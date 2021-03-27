@@ -1,22 +1,22 @@
-# vim: ft=colortemplate
+; vim: ft=colortemplate
 Full name:  Sand
 Short name: sand
 Author:     Gianmaria Bajo <mg1979.git@gmail.com>
 Maintainer: Gianmaria Bajo <mg1979.git@gmail.com>
 Neovim:	    yes
 
-#===================================================================
-# Dark variant
-#===================================================================
+;===================================================================
+; Dark variant
+;===================================================================
 
-# #c6c6b9, #6b6a61, #262626, #4d4d4d, #997a00, #804d00, #999966,
-# #333333, #404040, #af5a5a, #248f8f, #143927, #5e4e21, #cd5c5c, #ed8e5e,
-# #999900, #b68554, #c9acd2, #7ab87a
+; #c6c6b9, #6b6a61, #262626, #4d4d4d, #997a00, #804d00, #999966,
+; #333333, #404040, #af5a5a, #248f8f, #143927, #5e4e21, #cd5c5c, #ed8e5e,
+; #999900, #b68554, #c9acd2, #7ab87a
 
 
 Background: dark
 
-# Color palette {{{1
+; Color palette {{{1
 
 Color:	background	#2d2d2d ~
 Color:	foreground	#c6c6b9 ~
@@ -46,30 +46,30 @@ Color:  darkkhaki	#bdb76b ~
 Color:	purple		#8787af ~
 Color:	cyan		#42dcd7 ~
 
-# Color:	    skyblue		#569cd6 ~
-# Color:	    darkblue		#073655 ~
-# Color:	    lightblue		#83afe5 ~
-# Color:	    blue		#264f78 ~
-# Color:	    nightblue		#212733 ~
-# Color:	    lightgreen		#a8ce93 ~
-# Color:	    green		#00af00 ~
-# Color:	    darkgreen		#608b4e ~
-# Color:	    cyangrey		#7fc1ca ~
-# Color:	    cyan		#42dcd7 ~
-# Color:	    purple		#9a93e1 ~
+; Color:	    skyblue		#569cd6 ~
+; Color:	    darkblue		#073655 ~
+; Color:	    lightblue		#83afe5 ~
+; Color:	    blue		#264f78 ~
+; Color:	    nightblue		#212733 ~
+; Color:	    lightgreen		#a8ce93 ~
+; Color:	    green		#00af00 ~
+; Color:	    darkgreen		#608b4e ~
+; Color:	    cyangrey		#7fc1ca ~
+; Color:	    cyan		#42dcd7 ~
+; Color:	    purple		#9a93e1 ~
 Color:	    string		#cc8080 ~
-# Color:	    string		#ce9178 ~
-# Color:	    lightred		#df8c8c ~
-# #98BC99
+; Color:	    string		#ce9178 ~
+; Color:	    lightred		#df8c8c ~
+; #98BC99
 
 Term Colors: background		red		green		yellow
 Term Colors: darkcyan		purple		skyblue		lightgrey
 Term Colors: grey		red		palegreen	yellow
 Term Colors: skyblue		pink		cyan		white
 
-#===================================================================
-# Normal group
-#===================================================================
+;===================================================================
+; Normal group
+;===================================================================
 
 Normal				foreground		background
 
@@ -79,17 +79,17 @@ verbatim
 endverbatim
 
 
-#===================================================================
-# Original desert.vim (with some tweaks for gui/cterm consistency)
-#===================================================================
-# hi Identifier	guifg=palegreen
-# hi Identifier	ctermfg=6
-# hi Folded	guibg=grey30 guifg=gold
-# hi FoldColumn	guibg=grey30 guifg=tan
-# hi Folded	ctermfg=darkgrey ctermbg=NONE
-# hi FoldColumn	ctermfg=darkgrey ctermbg=NONE
-# hi VertSplit	guibg=#c2bfa5 guifg=grey50 gui=none
-# hi VertSplit	cterm=reverse
+;===================================================================
+; Original desert.vim (with some tweaks for gui/cterm consistency)
+;===================================================================
+; hi Identifier	guifg=palegreen
+; hi Identifier	ctermfg=6
+; hi Folded	guibg=grey30 guifg=gold
+; hi FoldColumn	guibg=grey30 guifg=tan
+; hi Folded	ctermfg=darkgrey ctermbg=NONE
+; hi FoldColumn	ctermfg=darkgrey ctermbg=NONE
+; hi VertSplit	guibg=#c2bfa5 guifg=grey50 gui=none
+; hi VertSplit	cterm=reverse
 verbatim
 
 " highlight groups
@@ -156,9 +156,9 @@ SignColumn			grey			black italic
 VertSplit			grey			black
 MatchParen			red			black bold
 
-# Pmenu				background		sepia
-# PmenuSel			fg			grey
-# PmenuSbar			none			black
+; Pmenu				background		sepia
+; PmenuSel			fg			grey
+; PmenuSbar			none			black
 PmenuThumb			sepia			lightgrey
 
 StatusLine			darkkhaki		grey15
@@ -173,29 +173,28 @@ CursorColumn		->	CursorLine
 Conceal				grey			none
 Ignore				grey			none
 Delimiter		->	Special
-# Error				  fg			  guibg=#af5a5a
-# ErrorMsg		  ->	  Error
+; Error				  fg			  guibg=#af5a5a
+; ErrorMsg		  ->	  Error
 TabLine				sepia			darkgrey
 TabLineFill			lightgrey		darkgrey
 TabLineSel			cursor			black
-# DiffAdd			  fg			  guibg=#143927
-# DiffChange			  fg			  guibg=#5e4e21
-# DiffDelete			  guifg=#cd5c5c		  none
-# DiffText			  fg			  guibg=#5e4e21
-#
-# Constant			constant		none
-# Function			  guifg=#999900
-# Type				purple none
+; DiffAdd			  fg			  guibg=#143927
+; DiffChange			  fg			  guibg=#5e4e21
+; DiffDelete			  guifg=#cd5c5c		  none
+; DiffText			  fg			  guibg=#5e4e21
+; Constant			constant		none
+; Function			  guifg=#999900
+; Type				purple none
 Identifier			skyblue		none
 Statement			green		none
-# Number		  ->	  Identifier
-# Boolean		  ->	  Identifier
+; Number		  ->	  Identifier
+; Boolean		  ->	  Identifier
 String				string			none
-# String				palegreen			none
-# PreProc				pink			none
+; String				palegreen			none
+; PreProc				pink			none
 Special				special			none
 Title				title			none
-# Delimiter			  guifg=#af5a5a
+; Delimiter			  guifg=#af5a5a
 
 SpellBad			red			none undercurl
 SpellCap			skyblue			none undercurl
@@ -203,17 +202,17 @@ SpellLocal			skyblue			none undercurl
 SpellRare			pink			none undercurl
 
 CursorLineNr			yellow			none
-# MatchParen
-# QuickFixLine
-# StatusLineTerm
-# StatusLineTermNC
-# TabLine
-# TabLineFill
-# TabLineSel
-# ToolbarButton
-# ToolbarLine
+; MatchParen
+; QuickFixLine
+; StatusLineTerm
+; StatusLineTermNC
+; TabLine
+; TabLineFill
+; TabLineSel
+; ToolbarButton
+; ToolbarLine
 
-# DiffAdd				fg			green
+; DiffAdd				fg			green
 DiffChange			none			grey
 DiffDelete			red			none bold
 DiffText			none			darkred bold
@@ -225,7 +224,7 @@ diffDiffer			special			none bold
 diffFile			string			none bold
 diffLine			sepia			none italic
 
-# gutter
+; gutter
 GitGutterAdd			green		black
 GitGutterChange			special		black
 GitGutterChangeDelete		special		black
@@ -236,7 +235,7 @@ SignifySignChangeDelete		special		black
 SignifySignDelete		red		black
 
 #if get(g:Vsd, 'extra_highlight', 1)
-	# help
+	; help
 	helpCommand		->	Type
 	helpSectionDelim	->	PreProc
 	helpHeader		->	PreProc
@@ -247,17 +246,17 @@ SignifySignDelete		red		black
 	helpOption		->	Type
 	helpSpecial		->	SpecialKey
 
-	# Python
+	; Python
 	pythonBytesEscape		red		none
 	pythonStrFormat			red		none
 	pythonStrFormatting		red		none
 
-	# C
+	; C
 	cSpecial			red		none
 	cBraces			->	NonText
 #endif
 
-# Terminals {{{2
+; Terminals {{{2
 
 verbatim
 let g:fzf_colors = {

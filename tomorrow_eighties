@@ -1,19 +1,19 @@
-# vim: ft=colortemplate
+; vim: ft=colortemplate
 Full name:  Tomorrow-Night-Eighties
 Short name: tomorrow_eighties
 Author:     Chris Kempson <http://chriskempson.com>
 Maintainer: Gianmaria Bajo <mg1979.git@gmail.com>
 Neovim:	    yes
 
-#===================================================================
-# Dark variant
-#===================================================================
+;===================================================================
+; Dark variant
+;===================================================================
 
 Background: dark
 
-# Color palette {{{1
+; Color palette {{{1
 
-# Basic 16 Colors {{{1
+; Basic 16 Colors {{{1
 
 Color:	black		#1e1e1e		0	Black
 Color:	darkred		#730b00		88	DarkRed
@@ -54,9 +54,9 @@ Term Colors: blue	term13	term14		window
 
 
 
-#===================================================================
-# Highlight groups
-#===================================================================
+;===================================================================
+; Highlight groups
+;===================================================================
 
 Normal				foreground	background
 
@@ -148,15 +148,15 @@ Error				red		none
 ErrorMsg			red		none
 Ignore				window		none
 Conceal				window		none
-# TabLineSel
-# ToolbarButton
-# ToolbarLine
-# Underlined
-# WildMenu
+; TabLineSel
+; ToolbarButton
+; ToolbarLine
+; Underlined
+; WildMenu
 
-# extra highlight {{{2
+; extra highlight {{{2
 
-# gutter
+; gutter
 GitGutterAdd			green		none
 GitGutterChange			special		none
 GitGutterChangeDelete		special		none
@@ -167,7 +167,7 @@ SignifySignChangeDelete		special		none
 SignifySignDelete		red		none
 
 #if get(g:Vsd, 'extra_highlight', 1)
-	# help
+	; help
 	helpCommand		->	Type
 	helpSectionDelim	->	Directory
 	helpHeader		->	PreProc
@@ -178,17 +178,17 @@ SignifySignDelete		red		none
 	helpOption		->	Type
 	helpSpecial		->	Special
 
-	# Python
+	; Python
 	pythonBytesEscape		orange		none
 	pythonStrFormat			orange		none
 	pythonStrFormatting		orange		none
 
-	# C
+	; C
 	cSpecial			orange		none
 	cBraces			->	Delimiter
 #endif
 
-# Terminals {{{2
+; Terminals {{{2
 
 
 verbatim

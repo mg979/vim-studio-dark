@@ -5,7 +5,7 @@ Maintainer: Gianmaria Bajo (mg1979@git.gmail.com)
 
 Background: dark
 
-# Basic 16 Colors {{{1
+; Basic 16 Colors {{{1
 
 Color:	backg		#262626		235	Black
 Color:	darkred		#730b00		88	DarkRed
@@ -24,7 +24,7 @@ Color:	pink		#c586c0		176	Magenta
 Color:	cyan		#5fafaf		73	Cyan
 Color:	foreg		#bcbcbc		250	White
 
-# More Colors {{{1
+; More Colors {{{1
 
 Color:	white		#ffffff		15	White
 Color:	function	#dada93		186	Yellow
@@ -37,14 +37,14 @@ Color:	dark		#303030		236	Black
 Color:	cursorline	#363636		237	Black
 Color:	black		#1c1c1c		234	Black
 
-# Terminal Colors {{{1
+; Terminal Colors {{{1
 
 Term Colors: black	red	darkgreen	darkyellow
 Term Colors: blue	tpurple	aquamarine	lightgrey
 Term Colors: darkgrey	orange	lightgreen	yellow
 Term Colors: skyblue	purple	cyan		white
 
-# Highlight Groups {{{1
+; Highlight Groups {{{1
 
 Normal			foreg		backg
 
@@ -116,7 +116,7 @@ SpellLocal		darkgreen	none		undercurl guisp=darkgreen
 SpellRare		orange		none		undercurl guisp=orange
 ColorColumn		fg		black
 
-# Linked Groups {{{1
+; Linked Groups {{{1
 
 Terminal			->	Normal
 Number				->	Constant
@@ -168,7 +168,7 @@ diffRemoved			->	WarningMsg
 diffAdded			->	String
 
 #if get(g:Vsd, 'extra_highlight', 1)
-	# gutter
+	; gutter
 	GitGutterAdd		lightgreen	black
 	GitGutterChange		purple		black
 	GitGutterChangeDelete	purple		black
@@ -179,4 +179,4 @@ diffAdded			->	String
 	SignifySignDelete	red		black
 #endif
 
-# vim: ft=colortemplate
+; vim: ft=colortemplate
