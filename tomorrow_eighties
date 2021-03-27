@@ -192,19 +192,5 @@ SignifySignDelete		red		none
 
 
 verbatim
-let g:fzf_colors = {
-	\ "fg":      ["fg", "Normal"],
-	\ "none":    ["none", "Normal"],
-	\ "hl":      ["fg", "Conditional"],
-	\ "fg+":     ["fg", "CursorLine", "CursorColumn", "Normal"],
-	\ "none+":   ["none", "CursorLine", "CursorColumn"],
-	\ "hl+":     ["fg", "Conditional"],
-	\ "info":    ["fg", "Conditional"],
-	\ "border":  ["fg", "Ignore"],
-	\ "prompt":  ["fg", "Comment"],
-	\ "pointer": ["fg", "Conditional"],
-	\ "marker":  ["fg", "Conditional"],
-	\ "spinner": ["fg", "Conditional"],
-	\ "header":  ["fg", "Conditional"]
-	\}
+let g:fzf_colors = { "fg": ["fg", "Normal"], "none": ["none", "Normal"], "hl": ["fg", "Conditional"], "fg+": ["fg", "CursorLine", "CursorColumn", "Normal"], "none+": ["none", "CursorLine", "CursorColumn"], "hl+": ["fg", "Conditional"], "info": ["fg", "Conditional"], "border": ["fg", "Ignore"], "prompt": ["fg", "Comment"], "pointer": ["fg", "Conditional"], "marker": ["fg", "Conditional"], "spinner": ["fg", "Conditional"], "header": ["fg", "Conditional"] }
 endverbatim
