@@ -133,7 +133,7 @@ Function			yellow		none
 Statement			pink		none
 Conditional			->		Statement
 Keyword				->		Statement
-Operator			yellow		none
+Operator			lightgrey	none
 
 PreProc				purple		none
 Include				->		PreProc

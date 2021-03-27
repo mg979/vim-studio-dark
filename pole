@@ -92,7 +92,7 @@ StorageClass	darkblue	none
 Structure	blue		none
 Typedef		darkblue	none
 
-Special		darkyellow	none
+Special		search		none
 SpecialChar	->		Special
 Tag		->		Special
 SpecialComment	->		Special
