@@ -16,8 +16,7 @@ fun! vsd#init(scheme) abort
           \          ['#181818', '233']]
 
   elseif a:scheme == 'vslight'
-    let contrast = [ ['#e4e4e4', '254'],
-          \          ['#eeeeee', '255'],
+    let contrast = [ ['#eeeeee', '255'],
           \          ['#ffffff', '15']]
 
   elseif a:scheme == 'sand'
@@ -45,8 +44,17 @@ fun! vsd#init(scheme) abort
   if &termguicolors || has('gui_running')
     exe "hi! Normal guibg=" . contrast[g:Vsd.contrast][0]
   else
-    exe "hi! Normal ctermbg=" . contrast[g:Vsd.contrast][1]
-    set bg=dark
+    try
+      exe "hi! Normal ctermbg=" . contrast[g:Vsd.contrast][1]
+    catch
+      let g:Vsd.contrast = 0
+      exe "hi! Normal ctermbg=" . contrast[0][1]
+    endtry
+    if a:scheme == 'vslight'
+        set bg=light
+    else
+        set bg=dark
+    endif
   endif
 endfun
 
@@ -54,8 +62,10 @@ endfun
 " colorscheme options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+""
+" Show the options pane.
+""
 fun! vsd#show() abort
-  """Show the options pane.
   let menu = s:build_menu()
 
   for item in sort(keys(menu), 'n')
@@ -81,24 +91,21 @@ endfun
 " colorscheme contrast
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+""
+" Cycle contrast mode for scheme.
+""
 fun! vsd#contrast() abort
-  """Cycle contrast mode for scheme.
   if g:Vsd.contrast == 0
     let g:Vsd.contrast = 1
-    exe "colorscheme" g:colors_name
-    redraw!
-    echo "[Vsd] medium contrast"
   elseif g:Vsd.contrast == 1
     let g:Vsd.contrast = 2
-    exe "colorscheme" g:colors_name
-    redraw!
-    echo "[Vsd] high contrast"
   else
     let g:Vsd.contrast = 0
-    exe "colorscheme" g:colors_name
-    redraw!
-    echo "[Vsd] low contrast"
   endif
+  exe "colorscheme" g:colors_name
+  redraw!
+  let s = ['low', 'medium', 'high'][g:Vsd.contrast]
+  echo "[Vsd]" s "contrast"
 endfun
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
